@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="准备工作 1 下载不同版本的centos 开启魔法上网 访问7.2.1511_isos_x86_64 (centos) 下载 2 windows安装UltraISO 下载：UltraISO - ISO CD/DV download page 安装软件 2.1 刻录U盘为启动盘 打开准备好的ISO镜像 然后再次回到软碟通（UltraISO）的窗口，点击菜单栏中的“启动”选“写入硬盘镜像” 接下来在弹出的窗口直接点击“写入”按钮（注：将写入方式选择为“USB-HDD+”，如果不是这个模式，可能导致有些电脑无法通过U盘正常启动。） 2.2 刻录CD/DVD为启动盘 选择刻录光盘映像 默认选项，开始刻录 开始安装 1 重启服务器到bios，并且设置为U盘启动或者CD/DVD启动 2 安装系统 进入这个界面，键盘输入 E 或者是tab 将CentOS\\x207\\x20x86_64 修改为**/dev/挂载的U盘名字** 或者**/dev/cdrom**这个是挂载的CD/DVD 正常接下来就是按序操作 三、注意事项 1 2 3 4 5 6 7 8 9 10 11 12 title: 注意如果安装server with GUI模块时，一直卡顿在安装软件包的界面上 1. **可以选择最小安装，然后在进入到系统里面后，挂载yum本地源，输入`yum groupinstall &#34;SERVER WITH GUI&#34;`** ```yum.repo [Local] name=CentOS-$releasever - Local baseurl=file:///media/cdrom enabled=1 gpgcheck=0 ``` 2. `systemctl set-default graphical.target` (现在默认启动图形界面设置好了) 3. `systemctl set-default multi-user.target` (默认启动字符界面设置好了) 4. `shutdown -r now` 1 2 3 4 5 6 7 8 9 title: 当电脑存在第二块硬盘并且不想格式化 1. 安装软件包 `wget http://tuxera.com/opensource/ntfs-3g_ntfsprogs-2011.4.12.tgz` 2. 解压压缩包 `tar -zxvf ntfs-3g_ntfsprogs-2011.4.12.tgz` 3. 进入文件夹`cd ntfs-3g_ntfsprogs-2011.4.12` 4. 运行`yum -y install gcc` 5. 运行`./configure` 6. 运行`make` 7. 运行`make install` 8. 运行`mount -t ntfs-3g 挂载磁盘 目录` 1 2 3 4 5 6 7 8 9 title: 重装完成后，无法打开wifi ```text rfkill unblock all rfkill list modprobe -r ideapad_laptop touch /ect/modprobe.d/ideapad.conf echo &#34;blacklist ideapad_laptop&#34; &gt;&gt; /ect/modprobe.d/ideapad.conf modprobe -r ideapad_laptop ``` 1 2 3 4 title: 设置笔记本盒盖不休眠 1.`sed -i &#39;s/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g&#39; /etc/systemd/logind.conf` 2. `systemctl restart systemd-logind.service` 1 2 3 4 5 6 7 8 9 10 11 title: 释放home空间，扩展到根目录上 ```Linux 1. 备份home分区文件 2. umount /home 3. lvremove /dev/mapper/centos-home 4. lvextend -L +40G /dev/mapper/centos-root 5. xfs_growfs /dev/mapper/centos-root 6. lvcreate -L 1G -n /dev/mapper/centos-home 7. lvcreate -L 1G -n /dev/mapper/centos-home 8. mount -a ``` 1 2 title: fstab挂载ISO文件 - `/root/CentOS-7-x86_64-DVD-1611.iso /iso iso9660 loop,defaults 0 0` 1 2 3 4 title: 安装VMware-Workstation wget &#34;https://download3.vmware.com/software/WKST-1700-LX/VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle&#34; ./VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle ./vmware 1 安装驱动 选择驱动&quot;官方驱动 | NVIDIA&quot; 由于安装显卡驱动模块，要重新编译模块，所以需要内核模块编译的相关文件kernel-header和kernel-develyum -y install kernel-header kernel-devel vim /lib/modprobe.d/dist-blacklist.conf 1 2 3 #blacklist nvidiafb /* blacklist nouveau * 修改的内容 options nouveau modeset=0 */ mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak systemctl set-default multi-user.target 开机将默认进入文本界面 reboot chmod +x NVIDIA-Linux-x86_64-440.64.run ./NVIDIA-Linux-x86_64-440.64.run &ndash;no-opengl-files -–no-opengl-files 只安装驱动文件，不安装OpenGL文件。这个参数最重要 (Would you like to register the kernel module sources with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later.) 选择No ">
+<title>实体机安装Centos-202212041708/index</title>
+
+<link rel='canonical' href='https://news-epoch.github.io/p/%E5%AE%9E%E4%BD%93%E6%9C%BA%E5%AE%89%E8%A3%85centos-202212041708/index/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="实体机安装Centos-202212041708/index">
+<meta property='og:description' content="准备工作 1 下载不同版本的centos 开启魔法上网 访问7.2.1511_isos_x86_64 (centos) 下载 2 windows安装UltraISO 下载：UltraISO - ISO CD/DV download page 安装软件 2.1 刻录U盘为启动盘 打开准备好的ISO镜像 然后再次回到软碟通（UltraISO）的窗口，点击菜单栏中的“启动”选“写入硬盘镜像” 接下来在弹出的窗口直接点击“写入”按钮（注：将写入方式选择为“USB-HDD+”，如果不是这个模式，可能导致有些电脑无法通过U盘正常启动。） 2.2 刻录CD/DVD为启动盘 选择刻录光盘映像 默认选项，开始刻录 开始安装 1 重启服务器到bios，并且设置为U盘启动或者CD/DVD启动 2 安装系统 进入这个界面，键盘输入 E 或者是tab 将CentOS\\x207\\x20x86_64 修改为**/dev/挂载的U盘名字** 或者**/dev/cdrom**这个是挂载的CD/DVD 正常接下来就是按序操作 三、注意事项 1 2 3 4 5 6 7 8 9 10 11 12 title: 注意如果安装server with GUI模块时，一直卡顿在安装软件包的界面上 1. **可以选择最小安装，然后在进入到系统里面后，挂载yum本地源，输入`yum groupinstall &#34;SERVER WITH GUI&#34;`** ```yum.repo [Local] name=CentOS-$releasever - Local baseurl=file:///media/cdrom enabled=1 gpgcheck=0 ``` 2. `systemctl set-default graphical.target` (现在默认启动图形界面设置好了) 3. `systemctl set-default multi-user.target` (默认启动字符界面设置好了) 4. `shutdown -r now` 1 2 3 4 5 6 7 8 9 title: 当电脑存在第二块硬盘并且不想格式化 1. 安装软件包 `wget http://tuxera.com/opensource/ntfs-3g_ntfsprogs-2011.4.12.tgz` 2. 解压压缩包 `tar -zxvf ntfs-3g_ntfsprogs-2011.4.12.tgz` 3. 进入文件夹`cd ntfs-3g_ntfsprogs-2011.4.12` 4. 运行`yum -y install gcc` 5. 运行`./configure` 6. 运行`make` 7. 运行`make install` 8. 运行`mount -t ntfs-3g 挂载磁盘 目录` 1 2 3 4 5 6 7 8 9 title: 重装完成后，无法打开wifi ```text rfkill unblock all rfkill list modprobe -r ideapad_laptop touch /ect/modprobe.d/ideapad.conf echo &#34;blacklist ideapad_laptop&#34; &gt;&gt; /ect/modprobe.d/ideapad.conf modprobe -r ideapad_laptop ``` 1 2 3 4 title: 设置笔记本盒盖不休眠 1.`sed -i &#39;s/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g&#39; /etc/systemd/logind.conf` 2. `systemctl restart systemd-logind.service` 1 2 3 4 5 6 7 8 9 10 11 title: 释放home空间，扩展到根目录上 ```Linux 1. 备份home分区文件 2. umount /home 3. lvremove /dev/mapper/centos-home 4. lvextend -L +40G /dev/mapper/centos-root 5. xfs_growfs /dev/mapper/centos-root 6. lvcreate -L 1G -n /dev/mapper/centos-home 7. lvcreate -L 1G -n /dev/mapper/centos-home 8. mount -a ``` 1 2 title: fstab挂载ISO文件 - `/root/CentOS-7-x86_64-DVD-1611.iso /iso iso9660 loop,defaults 0 0` 1 2 3 4 title: 安装VMware-Workstation wget &#34;https://download3.vmware.com/software/WKST-1700-LX/VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle&#34; ./VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle ./vmware 1 安装驱动 选择驱动&quot;官方驱动 | NVIDIA&quot; 由于安装显卡驱动模块，要重新编译模块，所以需要内核模块编译的相关文件kernel-header和kernel-develyum -y install kernel-header kernel-devel vim /lib/modprobe.d/dist-blacklist.conf 1 2 3 #blacklist nvidiafb /* blacklist nouveau * 修改的内容 options nouveau modeset=0 */ mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak systemctl set-default multi-user.target 开机将默认进入文本界面 reboot chmod +x NVIDIA-Linux-x86_64-440.64.run ./NVIDIA-Linux-x86_64-440.64.run &ndash;no-opengl-files -–no-opengl-files 只安装驱动文件，不安装OpenGL文件。这个参数最重要 (Would you like to register the kernel module sources with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later.) 选择No ">
+<meta property='og:url' content='https://news-epoch.github.io/p/%E5%AE%9E%E4%BD%93%E6%9C%BA%E5%AE%89%E8%A3%85centos-202212041708/index/'>
+<meta property='og:site_name' content='卫大人的杂乱博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='zk-todo' /><meta property='article:tag' content='计算机_操作系统_Linux' /><meta property='article:published_time' content='2022-12-04T17:08:22&#43;00:00'/><meta property='article:modified_time' content='2022-12-04T17:08:22&#43;00:00'/>
+<meta name="twitter:title" content="实体机安装Centos-202212041708/index">
+<meta name="twitter:description" content="准备工作 1 下载不同版本的centos 开启魔法上网 访问7.2.1511_isos_x86_64 (centos) 下载 2 windows安装UltraISO 下载：UltraISO - ISO CD/DV download page 安装软件 2.1 刻录U盘为启动盘 打开准备好的ISO镜像 然后再次回到软碟通（UltraISO）的窗口，点击菜单栏中的“启动”选“写入硬盘镜像” 接下来在弹出的窗口直接点击“写入”按钮（注：将写入方式选择为“USB-HDD+”，如果不是这个模式，可能导致有些电脑无法通过U盘正常启动。） 2.2 刻录CD/DVD为启动盘 选择刻录光盘映像 默认选项，开始刻录 开始安装 1 重启服务器到bios，并且设置为U盘启动或者CD/DVD启动 2 安装系统 进入这个界面，键盘输入 E 或者是tab 将CentOS\\x207\\x20x86_64 修改为**/dev/挂载的U盘名字** 或者**/dev/cdrom**这个是挂载的CD/DVD 正常接下来就是按序操作 三、注意事项 1 2 3 4 5 6 7 8 9 10 11 12 title: 注意如果安装server with GUI模块时，一直卡顿在安装软件包的界面上 1. **可以选择最小安装，然后在进入到系统里面后，挂载yum本地源，输入`yum groupinstall &#34;SERVER WITH GUI&#34;`** ```yum.repo [Local] name=CentOS-$releasever - Local baseurl=file:///media/cdrom enabled=1 gpgcheck=0 ``` 2. `systemctl set-default graphical.target` (现在默认启动图形界面设置好了) 3. `systemctl set-default multi-user.target` (默认启动字符界面设置好了) 4. `shutdown -r now` 1 2 3 4 5 6 7 8 9 title: 当电脑存在第二块硬盘并且不想格式化 1. 安装软件包 `wget http://tuxera.com/opensource/ntfs-3g_ntfsprogs-2011.4.12.tgz` 2. 解压压缩包 `tar -zxvf ntfs-3g_ntfsprogs-2011.4.12.tgz` 3. 进入文件夹`cd ntfs-3g_ntfsprogs-2011.4.12` 4. 运行`yum -y install gcc` 5. 运行`./configure` 6. 运行`make` 7. 运行`make install` 8. 运行`mount -t ntfs-3g 挂载磁盘 目录` 1 2 3 4 5 6 7 8 9 title: 重装完成后，无法打开wifi ```text rfkill unblock all rfkill list modprobe -r ideapad_laptop touch /ect/modprobe.d/ideapad.conf echo &#34;blacklist ideapad_laptop&#34; &gt;&gt; /ect/modprobe.d/ideapad.conf modprobe -r ideapad_laptop ``` 1 2 3 4 title: 设置笔记本盒盖不休眠 1.`sed -i &#39;s/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g&#39; /etc/systemd/logind.conf` 2. `systemctl restart systemd-logind.service` 1 2 3 4 5 6 7 8 9 10 11 title: 释放home空间，扩展到根目录上 ```Linux 1. 备份home分区文件 2. umount /home 3. lvremove /dev/mapper/centos-home 4. lvextend -L +40G /dev/mapper/centos-root 5. xfs_growfs /dev/mapper/centos-root 6. lvcreate -L 1G -n /dev/mapper/centos-home 7. lvcreate -L 1G -n /dev/mapper/centos-home 8. mount -a ``` 1 2 title: fstab挂载ISO文件 - `/root/CentOS-7-x86_64-DVD-1611.iso /iso iso9660 loop,defaults 0 0` 1 2 3 4 title: 安装VMware-Workstation wget &#34;https://download3.vmware.com/software/WKST-1700-LX/VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle&#34; ./VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle ./vmware 1 安装驱动 选择驱动&quot;官方驱动 | NVIDIA&quot; 由于安装显卡驱动模块，要重新编译模块，所以需要内核模块编译的相关文件kernel-header和kernel-develyum -y install kernel-header kernel-devel vim /lib/modprobe.d/dist-blacklist.conf 1 2 3 #blacklist nvidiafb /* blacklist nouveau * 修改的内容 options nouveau modeset=0 */ mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak systemctl set-default multi-user.target 开机将默认进入文本界面 reboot chmod +x NVIDIA-Linux-x86_64-440.64.run ./NVIDIA-Linux-x86_64-440.64.run &ndash;no-opengl-files -–no-opengl-files 只安装驱动文件，不安装OpenGL文件。这个参数最重要 (Would you like to register the kernel module sources with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later.) 选择No ">
+    <link rel="shortcut icon" href="/%e6%83%b3%e6%b3%95.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu4043572482303308672.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">卫大人的杂乱博客</a></h1>
+            <h2 class="site-description">哟，你来学习了！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/news-epoch/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-下载不同版本的centos">1 下载不同版本的centos</a></li>
+    <li><a href="#2-windows安装ultraiso">2 windows安装UltraISO</a>
+      <ol>
+        <li><a href="#21-刻录u盘为启动盘">2.1 刻录U盘为启动盘</a></li>
+        <li><a href="#22-刻录cddvd为启动盘">2.2 刻录CD/DVD为启动盘</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#1-重启服务器到bios并且设置为u盘启动或者cddvd启动">1 重启服务器到bios，并且设置为U盘启动或者CD/DVD启动</a></li>
+    <li><a href="#2-安装系统">2 安装系统</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#1-安装驱动">1 安装驱动</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%AE%9E%E4%BD%93%E6%9C%BA%E5%AE%89%E8%A3%85centos-202212041708/index/">实体机安装Centos-202212041708/index</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-12-12</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="准备工作">准备工作
+</h1><h2 id="1-下载不同版本的centos">1 下载不同版本的centos
+</h2><ol>
+<li>开启魔法上网</li>
+<li>访问<a class="link" href="https://vault.centos.org/7.2.1511/isos/x86_64/"  target="_blank" rel="noopener"
+    >7.2.1511_isos_x86_64 (centos)</a></li>
+<li>下载</li>
+</ol>
+<h2 id="2-windows安装ultraiso">2 windows安装UltraISO
+</h2><ol>
+<li>下载：<a class="link" href="https://www.ultraiso.com/download.html"  target="_blank" rel="noopener"
+    >UltraISO - ISO CD/DV download page</a></li>
+<li>安装软件</li>
+</ol>
+<h3 id="21-刻录u盘为启动盘">2.1 刻录U盘为启动盘
+</h3><ol>
+<li>打开准备好的ISO镜像<img src="/images/Pasted%20image%2020221204171408.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></li>
+<li>然后再次回到软碟通（UltraISO）的窗口，点击菜单栏中的“启动”选“写入硬盘镜像”<img src="/images/Pasted%20image%2020221204171451.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></li>
+<li>接下来在弹出的窗口直接点击“写入”按钮（注：将写入方式选择为“USB-HDD+”，如果不是这个模式，可能导致有些电脑无法通过U盘正常启动。）<img src="/images/Pasted%20image%2020221204171514.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></li>
+</ol>
+<h3 id="22-刻录cddvd为启动盘">2.2 刻录CD/DVD为启动盘
+</h3><ol>
+<li>选择刻录光盘映像<img src="/images/Pasted%20image%2020221204171640.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></li>
+<li>默认选项，开始刻录<img src="/images/Pasted%20image%2020221204171707.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></li>
+</ol>
+<h1 id="开始安装">开始安装
+</h1><h2 id="1-重启服务器到bios并且设置为u盘启动或者cddvd启动">1 重启服务器到bios，并且设置为U盘启动或者CD/DVD启动
+</h2><h2 id="2-安装系统">2 安装系统
+</h2><ol>
+<li>进入这个界面，键盘输入 E 或者是tab<img src="/images/Pasted%20image%2020221204172319.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></li>
+<li>将<strong>CentOS\x207\x20x86_64</strong> 修改为**/dev/挂载的U盘名字** 或者**/dev/cdrom**这个是挂载的CD/DVD</li>
+<li>正常接下来就是按序操作</li>
+</ol>
+<h1 id="三注意事项">三、注意事项
+</h1><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: 注意如果安装server with GUI模块时，一直卡顿在安装软件包的界面上
+</span></span><span class="line"><span class="cl">1. **可以选择最小安装，然后在进入到系统里面后，挂载yum本地源，输入`yum groupinstall &#34;SERVER WITH GUI&#34;`**
+</span></span><span class="line"><span class="cl">```yum.repo
+</span></span><span class="line"><span class="cl">[Local]
+</span></span><span class="line"><span class="cl">name=CentOS-$releasever - Local
+</span></span><span class="line"><span class="cl">baseurl=file:///media/cdrom
+</span></span><span class="line"><span class="cl">enabled=1
+</span></span><span class="line"><span class="cl">gpgcheck=0
+</span></span><span class="line"><span class="cl">```
+</span></span><span class="line"><span class="cl">2. `systemctl set-default graphical.target` (现在默认启动图形界面设置好了)
+</span></span><span class="line"><span class="cl">3. `systemctl set-default multi-user.target` (默认启动字符界面设置好了)
+</span></span><span class="line"><span class="cl">4. `shutdown -r now`
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="err">当电脑存在第二块硬盘并且不想格式化</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">安装软件包</span><span class="w">  </span><span class="o">`</span><span class="n">wget</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">tuxera</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">opensource</span><span class="o">/</span><span class="n">ntfs</span><span class="o">-</span><span class="mi">3</span><span class="n">g_ntfsprogs</span><span class="o">-</span><span class="mi">2011</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">12</span><span class="p">.</span><span class="n">tgz</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">解压压缩包</span><span class="w"> </span><span class="o">`</span><span class="n">tar</span><span class="w"> </span><span class="o">-</span><span class="n">zxvf</span><span class="w"> </span><span class="n">ntfs</span><span class="o">-</span><span class="mi">3</span><span class="n">g_ntfsprogs</span><span class="o">-</span><span class="mi">2011</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">12</span><span class="p">.</span><span class="n">tgz</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">进入文件夹</span><span class="o">`</span><span class="n">cd</span><span class="w"> </span><span class="n">ntfs</span><span class="o">-</span><span class="mi">3</span><span class="n">g_ntfsprogs</span><span class="o">-</span><span class="mi">2011</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">12</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">运行</span><span class="o">`</span><span class="n">yum</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">gcc</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="err">运行</span><span class="o">`</span><span class="p">.</span><span class="o">/</span><span class="n">configure</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">6</span><span class="p">.</span><span class="w"> </span><span class="err">运行</span><span class="o">`</span><span class="n">make</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">7</span><span class="p">.</span><span class="w"> </span><span class="err">运行</span><span class="o">`</span><span class="n">make</span><span class="w"> </span><span class="n">install</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">8</span><span class="p">.</span><span class="w"> </span><span class="err">运行</span><span class="o">`</span><span class="n">mount</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">ntfs</span><span class="o">-</span><span class="mi">3</span><span class="n">g</span><span class="w"> </span><span class="err">挂载磁盘</span><span class="w">   </span><span class="err">目录</span><span class="o">`</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: 重装完成后，无法打开wifi
+</span></span><span class="line"><span class="cl">```text
+</span></span><span class="line"><span class="cl">rfkill unblock all
+</span></span><span class="line"><span class="cl">rfkill list
+</span></span><span class="line"><span class="cl">modprobe -r ideapad_laptop
+</span></span><span class="line"><span class="cl">touch /ect/modprobe.d/ideapad.conf
+</span></span><span class="line"><span class="cl">echo &#34;blacklist ideapad_laptop&#34; &gt;&gt; /ect/modprobe.d/ideapad.conf
+</span></span><span class="line"><span class="cl">modprobe -r ideapad_laptop
+</span></span><span class="line"><span class="cl">```
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: 设置笔记本盒盖不休眠
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1.`sed -i &#39;s/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g&#39; /etc/systemd/logind.conf`
+</span></span><span class="line"><span class="cl">2. `systemctl restart systemd-logind.service`
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: 释放home空间，扩展到根目录上
+</span></span><span class="line"><span class="cl">```Linux
+</span></span><span class="line"><span class="cl">1. 备份home分区文件
+</span></span><span class="line"><span class="cl">2. umount /home
+</span></span><span class="line"><span class="cl">3. lvremove /dev/mapper/centos-home
+</span></span><span class="line"><span class="cl">4. lvextend -L +40G /dev/mapper/centos-root
+</span></span><span class="line"><span class="cl">5. xfs_growfs /dev/mapper/centos-root
+</span></span><span class="line"><span class="cl">6. lvcreate -L 1G -n /dev/mapper/centos-home
+</span></span><span class="line"><span class="cl">7. lvcreate -L 1G -n /dev/mapper/centos-home
+</span></span><span class="line"><span class="cl">8. mount -a
+</span></span><span class="line"><span class="cl">```
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: fstab挂载ISO文件
+</span></span><span class="line"><span class="cl">- `/root/CentOS-7-x86_64-DVD-1611.iso /iso         iso9660 loop,defaults   0 0`
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">title</span><span class="p">:</span> <span class="err">安装</span><span class="n">VMware</span><span class="o">-</span><span class="n">Workstation</span>
+</span></span><span class="line"><span class="cl"><span class="n">wget</span> <span class="s2">&#34;https://download3.vmware.com/software/WKST-1700-LX/VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">./</span><span class="n">VMware</span><span class="o">-</span><span class="n">Workstation</span><span class="o">-</span><span class="n">Full</span><span class="o">-</span><span class="mf">17.0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">20800274.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">bundle</span>
+</span></span><span class="line"><span class="cl"><span class="o">./</span><span class="n">vmware</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="1-安装驱动">1 安装驱动
+</h2><ol>
+<li>选择驱动&quot;<a class="link" href="https://www.nvidia.cn/Download/index.aspx?lang=cn"  target="_blank" rel="noopener"
+    >官方驱动 | NVIDIA</a>&quot;</li>
+<li>由于安装显卡驱动模块，要重新编译模块，所以需要内核模块编译的相关文件kernel-header和kernel-devel<code>yum -y install kernel-header kernel-devel</code></li>
+<li><code>vim /lib/modprobe.d/dist-blacklist.conf</code>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#blacklist nvidiafb               /*
+</span></span><span class="line"><span class="cl">blacklist nouveau                *  修改的内容
+</span></span><span class="line"><span class="cl">options nouveau modeset=0      */
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li><code>mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak</code></li>
+<li><code>mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak</code></li>
+<li><code>systemctl set-default multi-user.target 开机将默认进入文本界面</code></li>
+<li><code>reboot</code></li>
+<li>chmod +x NVIDIA-Linux-x86_64-440.64.run</li>
+<li>./NVIDIA-Linux-x86_64-440.64.run &ndash;no-opengl-files
+<ol>
+<li><code>-–no-opengl-files</code> 只安装驱动文件，不安装OpenGL文件。这个参数最重要</li>
+</ol>
+</li>
+</ol>
+<p>(Would you like to register the kernel module sources with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later.) 选择No
+<img src="/images/Pasted%20image%2020240212191601.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>报错：The kernel was built with x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1<del>22.04) 12.3.0,
+GNU ld (GNU Binutils for Ubuntu) 2.38, but the current compiler version is cc (Ubuntu11.4.0-1ubuntu1</del>22.04) 11.4.0.(内核为x86_64-linux-gnu-GCC-12(Ubuntu 12.3.0-1ubuntu1<del>22.04)12.3.0，
+GNU ld(GNU Binutils For Ubuntu)2.38，但当前的编译器版本是cc(Ubuntu11.4.0-1ubuntu1</del>22.04)11.4.0。)</p>
+<ol>
+<li>systemctl set-default graphical.target</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/zk-todo/">Zk-Todo</a>
+        
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F_linux/">计算机_操作系统_Linux</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 游手好闲的卫大人
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
