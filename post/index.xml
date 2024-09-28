@@ -292,6 +292,17 @@ GNU ld(GNU Binutils For Ubuntu)2.38，但当前的编译器版本是cc(Ubuntu11.
 </description>
         </item>
         <item>
+        <title>TCP</title>
+        <link>https://news-epoch.github.io/p/tcp/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/tcp/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Internet提供&lt;strong&gt;面向连接服务&lt;/strong&gt;的传输协议额&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>UDP</title>
         <link>https://news-epoch.github.io/p/udp/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -517,36 +528,12 @@ Nl：丢失分组总数&lt;/p&gt;
 分组交换的缺点：&lt;strong&gt;有效传输&lt;/strong&gt;效率降低&lt;/p&gt;
 &lt;p&gt;&lt;font color=#FF0212&gt;注&lt;/font&gt;：在其他条件相同的情况下，&lt;strong&gt;分组长度&lt;/strong&gt;越长，&lt;strong&gt;延迟时间&lt;/strong&gt;越长&lt;/p&gt;
 &lt;h2 id=&#34;4-计算机网络性能&#34;&gt;4 计算机网络性能
-&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;单位时间内，源主机向宿主机发送的最大比特数，用来描述网络传输数据的快慢。单位：bit/s&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;1Kbit/s=1000bit/s=10^3bit/s
-1Mbit/s=1000000bit/s=10^6bit/s
-1Gbit/s=1000000000bit/s=10^9bit/s
-1Tbit/s=1000000000000bit/s=10^12bit/s&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在&lt;strong&gt;通信和信号处理领域&lt;/strong&gt;中，指的是信号的频带宽度(最高和最低频率之差)，单位：HZ(赫兹)。
-在&lt;strong&gt;计算机网络&lt;/strong&gt;中，指的是一条链路或信道的最高数据速率，单位：bit/s(位每秒)
-通俗来说，就是最高速率。
-可以有结点时延、排队时延、传播时延、传输时延。表示从一个网络结点(网络设备)到另一个网络结点(网络设备)所需要的&lt;strong&gt;时间&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;结点处理时延dc&lt;/strong&gt;：单位时间内，交换设备检查分组是否有差错，确定如何转发分组的时间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;排队时延dq&lt;/strong&gt;：单位时间内，交换设备中&lt;strong&gt;数据包&lt;/strong&gt;从排队开始到输出链路发送到下一个结点的排队时间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;传输时延dt&lt;/strong&gt;：单位时间内，信号在实际链路中传播时间(&lt;strong&gt;第一位从链路开始&lt;/strong&gt;到&lt;strong&gt;最后一位完全进入链路&lt;/strong&gt;的发送时间)&amp;mdash;&amp;gt;分组长度L/信号传播**最大速率(带宽)**R&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;传播时延dp&lt;/strong&gt;：信号从发送端出来，经过一段物理链路到达接受端所需要的时间。dp=D(物理链路长度)/V(传播速度)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;是指一段物理链路的&lt;strong&gt;传播时延&lt;/strong&gt;与&lt;strong&gt;带宽&lt;/strong&gt;的乘积,即是&lt;strong&gt;距离&lt;/strong&gt;，可以用来表示在单条链路上可以存放的&lt;strong&gt;数据位数&lt;/strong&gt;，
-从源网络设备发出&lt;strong&gt;N&lt;/strong&gt;个数据包，在宿网络设备接收到&lt;strong&gt;N-n&lt;/strong&gt;个数据包，其中在传输过程中&lt;strong&gt;丢失的数据包&lt;/strong&gt;占&lt;strong&gt;总数据包&lt;/strong&gt;的百分比 .反映了链路的阻塞程度。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;NS：为发送分组总数
-Nr：接收分组总数
-Nl：丢失分组总数&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;单位时间内，从源主机到宿主机的&lt;strong&gt;实际&lt;/strong&gt;到达量。注意：吞吐量会受到&lt;strong&gt;网络链路带宽、网络复杂性、网络协议、网络拥塞程度&lt;/strong&gt;影响。
-在分组交换网络中，吞吐量约等于瓶颈链路的带宽，即，三段链路中的最小带宽。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;/h2&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E9%80%9F%E7%8E%87.md&#34; &gt;速率&lt;/a&gt;
+-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E5%B8%A6%E5%AE%BD.md&#34; &gt;带宽&lt;/a&gt;
+-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E6%97%B6%E5%BB%B6.md&#34; &gt;时延&lt;/a&gt;
+-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF.md&#34; &gt;时延带宽积&lt;/a&gt;
+-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E4%B8%A2%E5%8C%85%E7%8E%87.md&#34; &gt;丢包率&lt;/a&gt;
+-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E5%90%9E%E5%90%90%E9%87%8F.md&#34; &gt;吞吐量&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;5-计算机网络体系结构&#34;&gt;5 计算机网络体系结构
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;计算机网络所划分的&lt;strong&gt;层次&lt;/strong&gt;以及&lt;strong&gt;各层协议&lt;/strong&gt;的集合就称为&lt;strong&gt;计算机网络体系结构&lt;/strong&gt;&lt;/p&gt;
@@ -892,6 +879,7 @@ Nl：丢失分组总数&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;font color=#FF0212&gt;注意&lt;/font&gt;：因为HTTP服务器不保存关于客户的任何信息，所以HTTP被称为&lt;strong&gt;无状态协议&lt;/strong&gt;。从而引入Cookie机制，用于用户跟踪。&lt;/p&gt;
+&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;HTTP%E7%8A%B6%E6%80%81%E7%A0%81.md&#34; &gt;HTTP状态码&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;43-cookie&#34;&gt;4.3 Cookie
 &lt;/h3&gt;&lt;p&gt;Cookie技术主要包括4部分内容：&lt;/p&gt;
 &lt;ol&gt;
@@ -1020,12 +1008,11 @@ Nl：丢失分组总数&lt;/p&gt;
 多路分解：在目的主机，传输层协议读取报文段中的字段，标识出接收套接字，进而通过该套接字，将传输层的报文段中的数据交付给正确的套接字。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;21-udp&#34;&gt;2.1 UDP
-&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;Internet提供&lt;strong&gt;无连接服务&lt;/strong&gt;的传输层协议。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;/h3&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;UDP.md&#34; &gt;UDP&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;UDP套接字二元组：&amp;lt;目的IP地址，目的端口号&amp;gt;&lt;/p&gt;
 &lt;h3 id=&#34;22-tcp&#34;&gt;2.2 TCP
-&lt;/h3&gt;&lt;p&gt;TCP套接字四元组：&amp;lt;源IP地址，源端口号，目的IP地址，目的端口号&amp;gt;&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;TCP.md&#34; &gt;TCP&lt;/a&gt;
+TCP套接字四元组：&amp;lt;源IP地址，源端口号，目的IP地址，目的端口号&amp;gt;&lt;/p&gt;
 &lt;h2 id=&#34;3-停-等协议与滑动窗口协议&#34;&gt;3 停-等协议与滑动窗口协议
 &lt;/h2&gt;&lt;h3 id=&#34;31-可靠数据传输基本原理&#34;&gt;3.1 可靠数据传输基本原理
 &lt;/h3&gt;&lt;ol&gt;
@@ -1068,9 +1055,7 @@ Nl：丢失分组总数&lt;/p&gt;
 &lt;li&gt;SR选择重传协议：发送/接收窗口&amp;gt;1,发送方发送多个分组，接收方只会接收窗口左侧及窗口里面序号的分组，其余序号的分组都会进行丢弃。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;4-用户数据报协议udp&#34;&gt;4 用户数据报协议(UDP)
-&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Internet提供&lt;strong&gt;无连接服务&lt;/strong&gt;的传输层协议。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;/h2&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;UDP.md&#34; &gt;UDP&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1124,7 +1109,8 @@ Nl：丢失分组总数&lt;/p&gt;
 &lt;p&gt;&lt;font color=#FF0212&gt;注意&lt;/font&gt;：UDP在生成校验和时，&lt;strong&gt;校验和字段&lt;/strong&gt;全取&lt;strong&gt;0&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;5-传输控制协议tcp&#34;&gt;5 传输控制协议(TCP)
 &lt;/h2&gt;&lt;h3 id=&#34;51-tcp报文段结构&#34;&gt;5.1 TCP报文段结构
-&lt;/h3&gt;&lt;p&gt;TCP整体报文段结构：
+&lt;/h3&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;TCP.md&#34; &gt;TCP&lt;/a&gt;
+TCP整体报文段结构：
 &lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020230405124213.png&#34;
 	
 	
@@ -1563,9 +1549,7 @@ Nl：丢失分组总数&lt;/p&gt;
 &lt;p&gt;那么如果我们存在一个新的终端，没有配置IP地址如何做到通信呢？
 这时候就要用上&lt;a class=&#34;link&#34; href=&#34;DHCP.md&#34; &gt;动态主机配置协议&lt;/a&gt;了&lt;/p&gt;
 &lt;h3 id=&#34;42-差错控制报文&#34;&gt;4.2 差错控制报文
-&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;在主机或路由器之间实现差错信息控制、信息探测，例如&lt;strong&gt;ping&lt;/strong&gt;的实现&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;/h3&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;ICMP.md&#34; &gt;差错控制报文&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://news-epoch.github.io/images/1681833644028.png&#34;
 	
 	
