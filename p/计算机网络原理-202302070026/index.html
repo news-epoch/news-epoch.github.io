@@ -444,7 +444,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 26 分钟
+                    阅读时长: 28 分钟
                 </time>
             </div>
         
@@ -641,12 +641,36 @@
 分组交换的缺点：<strong>有效传输</strong>效率降低</p>
 <p><font color=#FF0212>注</font>：在其他条件相同的情况下，<strong>分组长度</strong>越长，<strong>延迟时间</strong>越长</p>
 <h2 id="4-计算机网络性能">4 计算机网络性能
-</h2><p>-&gt; <a class="link" href="%E9%80%9F%E7%8E%87.md" >速率</a>
--&gt; <a class="link" href="%E5%B8%A6%E5%AE%BD.md" >带宽</a>
--&gt; <a class="link" href="%E6%97%B6%E5%BB%B6.md" >时延</a>
--&gt; <a class="link" href="%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF.md" >时延带宽积</a>
--&gt; <a class="link" href="%E4%B8%A2%E5%8C%85%E7%8E%87.md" >丢包率</a>
--&gt; <a class="link" href="%E5%90%9E%E5%90%90%E9%87%8F.md" >吞吐量</a></p>
+</h2><blockquote>
+<p>单位时间内，源主机向宿主机发送的最大比特数，用来描述网络传输数据的快慢。单位：bit/s</p>
+</blockquote>
+<p>1Kbit/s=1000bit/s=10^3bit/s
+1Mbit/s=1000000bit/s=10^6bit/s
+1Gbit/s=1000000000bit/s=10^9bit/s
+1Tbit/s=1000000000000bit/s=10^12bit/s</p>
+<blockquote>
+<p>在<strong>通信和信号处理领域</strong>中，指的是信号的频带宽度(最高和最低频率之差)，单位：HZ(赫兹)。
+在<strong>计算机网络</strong>中，指的是一条链路或信道的最高数据速率，单位：bit/s(位每秒)
+通俗来说，就是最高速率。
+可以有结点时延、排队时延、传播时延、传输时延。表示从一个网络结点(网络设备)到另一个网络结点(网络设备)所需要的<strong>时间</strong></p>
+</blockquote>
+<ul>
+<li><strong>结点处理时延dc</strong>：单位时间内，交换设备检查分组是否有差错，确定如何转发分组的时间。</li>
+<li><strong>排队时延dq</strong>：单位时间内，交换设备中<strong>数据包</strong>从排队开始到输出链路发送到下一个结点的排队时间。</li>
+<li><strong>传输时延dt</strong>：单位时间内，信号在实际链路中传播时间(<strong>第一位从链路开始</strong>到<strong>最后一位完全进入链路</strong>的发送时间)&mdash;&gt;分组长度L/信号传播**最大速率(带宽)**R</li>
+<li><strong>传播时延dp</strong>：信号从发送端出来，经过一段物理链路到达接受端所需要的时间。dp=D(物理链路长度)/V(传播速度)</li>
+</ul>
+<blockquote>
+<p>是指一段物理链路的<strong>传播时延</strong>与<strong>带宽</strong>的乘积,即是<strong>距离</strong>，可以用来表示在单条链路上可以存放的<strong>数据位数</strong>，
+从源网络设备发出<strong>N</strong>个数据包，在宿网络设备接收到<strong>N-n</strong>个数据包，其中在传输过程中<strong>丢失的数据包</strong>占<strong>总数据包</strong>的百分比 .反映了链路的阻塞程度。</p>
+</blockquote>
+<p>NS：为发送分组总数
+Nr：接收分组总数
+Nl：丢失分组总数</p>
+<blockquote>
+<p>单位时间内，从源主机到宿主机的<strong>实际</strong>到达量。注意：吞吐量会受到<strong>网络链路带宽、网络复杂性、网络协议、网络拥塞程度</strong>影响。
+在分组交换网络中，吞吐量约等于瓶颈链路的带宽，即，三段链路中的最小带宽。</p>
+</blockquote>
 <h2 id="5-计算机网络体系结构">5 计算机网络体系结构
 </h2><blockquote>
 <p>计算机网络所划分的<strong>层次</strong>以及<strong>各层协议</strong>的集合就称为<strong>计算机网络体系结构</strong></p>
@@ -992,7 +1016,6 @@
   </tbody>
 </table></div>
 <p><font color=#FF0212>注意</font>：因为HTTP服务器不保存关于客户的任何信息，所以HTTP被称为<strong>无状态协议</strong>。从而引入Cookie机制，用于用户跟踪。</p>
-<p>-&gt; <a class="link" href="HTTP%E7%8A%B6%E6%80%81%E7%A0%81.md" >HTTP状态码</a></p>
 <h3 id="43-cookie">4.3 Cookie
 </h3><p>Cookie技术主要包括4部分内容：</p>
 <ol>
@@ -1121,11 +1144,12 @@
 多路分解：在目的主机，传输层协议读取报文段中的字段，标识出接收套接字，进而通过该套接字，将传输层的报文段中的数据交付给正确的套接字。</p>
 </blockquote>
 <h3 id="21-udp">2.1 UDP
-</h3><p>-&gt; <a class="link" href="UDP.md" >UDP</a></p>
+</h3><blockquote>
+<p>Internet提供<strong>无连接服务</strong>的传输层协议。</p>
+</blockquote>
 <p>UDP套接字二元组：&lt;目的IP地址，目的端口号&gt;</p>
 <h3 id="22-tcp">2.2 TCP
-</h3><p>-&gt; <a class="link" href="TCP.md" >TCP</a>
-TCP套接字四元组：&lt;源IP地址，源端口号，目的IP地址，目的端口号&gt;</p>
+</h3><p>TCP套接字四元组：&lt;源IP地址，源端口号，目的IP地址，目的端口号&gt;</p>
 <h2 id="3-停-等协议与滑动窗口协议">3 停-等协议与滑动窗口协议
 </h2><h3 id="31-可靠数据传输基本原理">3.1 可靠数据传输基本原理
 </h3><ol>
@@ -1168,7 +1192,9 @@ TCP套接字四元组：&lt;源IP地址，源端口号，目的IP地址，目的
 <li>SR选择重传协议：发送/接收窗口&gt;1,发送方发送多个分组，接收方只会接收窗口左侧及窗口里面序号的分组，其余序号的分组都会进行丢弃。</li>
 </ol>
 <h2 id="4-用户数据报协议udp">4 用户数据报协议(UDP)
-</h2><p>-&gt; <a class="link" href="UDP.md" >UDP</a></p>
+</h2><blockquote>
+<p>Internet提供<strong>无连接服务</strong>的传输层协议。</p>
+</blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1222,8 +1248,7 @@ TCP套接字四元组：&lt;源IP地址，源端口号，目的IP地址，目的
 <p><font color=#FF0212>注意</font>：UDP在生成校验和时，<strong>校验和字段</strong>全取<strong>0</strong></p>
 <h2 id="5-传输控制协议tcp">5 传输控制协议(TCP)
 </h2><h3 id="51-tcp报文段结构">5.1 TCP报文段结构
-</h3><p>-&gt; <a class="link" href="TCP.md" >TCP</a>
-TCP整体报文段结构：
+</h3><p>TCP整体报文段结构：
 <img src="/images/Pasted%20image%2020230405124213.png"
 	
 	
@@ -1662,7 +1687,9 @@ TCP整体报文段结构：
 <p>那么如果我们存在一个新的终端，没有配置IP地址如何做到通信呢？
 这时候就要用上<a class="link" href="DHCP.md" >动态主机配置协议</a>了</p>
 <h3 id="42-差错控制报文">4.2 差错控制报文
-</h3><p>-&gt; <a class="link" href="ICMP.md" >差错控制报文</a></p>
+</h3><blockquote>
+<p>在主机或路由器之间实现差错信息控制、信息探测，例如<strong>ping</strong>的实现</p>
+</blockquote>
 <p><img src="/images/1681833644028.png"
 	
 	
@@ -1907,6 +1934,80 @@ TCP整体报文段结构：
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/icmp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ICMP</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/udp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">UDP</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%A2%E5%8C%85%E7%8E%87/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">丢包率</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%90%9E%E5%90%90%E9%87%8F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">吞吐量</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%B8%A6%E5%AE%BD/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">带宽</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     

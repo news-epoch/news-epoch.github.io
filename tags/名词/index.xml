@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>名词 on 卫大人的杂乱博客</title>
+        <link>https://news-epoch.github.io/tags/%E5%90%8D%E8%AF%8D/</link>
+        <description>Recent content in 名词 on 卫大人的杂乱博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>游手好闲的卫大人</copyright><atom:link href="https://news-epoch.github.io/tags/%E5%90%8D%E8%AF%8D/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ICMP</title>
+        <link>https://news-epoch.github.io/p/icmp/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/icmp/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;在主机或路由器之间实现差错信息控制、信息探测，例如&lt;strong&gt;ping&lt;/strong&gt;的实现&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>UDP</title>
+        <link>https://news-epoch.github.io/p/udp/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/udp/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Internet提供&lt;strong&gt;无连接服务&lt;/strong&gt;的传输层协议。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>带宽</title>
+        <link>https://news-epoch.github.io/p/%E5%B8%A6%E5%AE%BD/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E5%B8%A6%E5%AE%BD/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;在&lt;strong&gt;通信和信号处理领域&lt;/strong&gt;中，指的是信号的频带宽度(最高和最低频率之差)，单位：HZ(赫兹)。
+在&lt;strong&gt;计算机网络&lt;/strong&gt;中，指的是一条链路或信道的最高数据速率，单位：bit/s(位每秒)
+通俗来说，就是最高速率。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>丢包率</title>
+        <link>https://news-epoch.github.io/p/%E4%B8%A2%E5%8C%85%E7%8E%87/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E4%B8%A2%E5%8C%85%E7%8E%87/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;从源网络设备发出&lt;strong&gt;N&lt;/strong&gt;个数据包，在宿网络设备接收到&lt;strong&gt;N-n&lt;/strong&gt;个数据包，其中在传输过程中&lt;strong&gt;丢失的数据包&lt;/strong&gt;占&lt;strong&gt;总数据包&lt;/strong&gt;的百分比 .反映了链路的阻塞程度。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;NS：为发送分组总数
+Nr：接收分组总数
+Nl：丢失分组总数&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>时延</title>
+        <link>https://news-epoch.github.io/p/%E6%97%B6%E5%BB%B6/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E6%97%B6%E5%BB%B6/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;可以有结点时延、排队时延、传播时延、传输时延。表示从一个网络结点(网络设备)到另一个网络结点(网络设备)所需要的&lt;strong&gt;时间&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;结点处理时延dc&lt;/strong&gt;：单位时间内，交换设备检查分组是否有差错，确定如何转发分组的时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;排队时延dq&lt;/strong&gt;：单位时间内，交换设备中&lt;strong&gt;数据包&lt;/strong&gt;从排队开始到输出链路发送到下一个结点的排队时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;传输时延dt&lt;/strong&gt;：单位时间内，信号在实际链路中传播时间(&lt;strong&gt;第一位从链路开始&lt;/strong&gt;到&lt;strong&gt;最后一位完全进入链路&lt;/strong&gt;的发送时间)&amp;mdash;&amp;gt;分组长度L/信号传播**最大速率(带宽)**R&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;传播时延dp&lt;/strong&gt;：信号从发送端出来，经过一段物理链路到达接受端所需要的时间。dp=D(物理链路长度)/V(传播速度)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>时延带宽积</title>
+        <link>https://news-epoch.github.io/p/%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;是指一段物理链路的&lt;strong&gt;传播时延&lt;/strong&gt;与&lt;strong&gt;带宽&lt;/strong&gt;的乘积,即是&lt;strong&gt;距离&lt;/strong&gt;，可以用来表示在单条链路上可以存放的&lt;strong&gt;数据位数&lt;/strong&gt;，&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>速率</title>
+        <link>https://news-epoch.github.io/p/%E9%80%9F%E7%8E%87/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E9%80%9F%E7%8E%87/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;单位时间内，源主机向宿主机发送的最大比特数，用来描述网络传输数据的快慢。单位：bit/s&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1Kbit/s=1000bit/s=10^3bit/s
+1Mbit/s=1000000bit/s=10^6bit/s
+1Gbit/s=1000000000bit/s=10^9bit/s
+1Tbit/s=1000000000000bit/s=10^12bit/s&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>吞吐量</title>
+        <link>https://news-epoch.github.io/p/%E5%90%9E%E5%90%90%E9%87%8F/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E5%90%9E%E5%90%90%E9%87%8F/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;单位时间内，从源主机到宿主机的&lt;strong&gt;实际&lt;/strong&gt;到达量。注意：吞吐量会受到&lt;strong&gt;网络链路带宽、网络复杂性、网络协议、网络拥塞程度&lt;/strong&gt;影响。
+在分组交换网络中，吞吐量约等于瓶颈链路的带宽，即，三段链路中的最小带宽。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
