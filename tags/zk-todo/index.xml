@@ -8,279 +8,6 @@
         <language>zh-cn</language>
         <copyright>游手好闲的卫大人</copyright>
         <lastBuildDate>Sun, 04 Dec 2022 17:08:22 +0000</lastBuildDate><atom:link href="https://news-epoch.github.io/tags/zk-todo/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>计算机网络原理-202302070026</title>
-        <link>https://news-epoch.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86-202302070026/</link>
-        <pubDate>Sun, 04 Dec 2022 17:08:22 +0000</pubDate>
-        
-        <guid>https://news-epoch.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86-202302070026/</guid>
-        <description>&lt;h1 id=&#34;准备工作&#34;&gt;准备工作
-&lt;/h1&gt;&lt;h2 id=&#34;1-下载不同版本的centos&#34;&gt;1 下载不同版本的centos
-&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;开启魔法上网&lt;/li&gt;
-&lt;li&gt;访问&lt;a class=&#34;link&#34; href=&#34;https://vault.centos.org/7.2.1511/isos/x86_64/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;7.2.1511_isos_x86_64 (centos)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;下载&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;2-windows安装ultraiso&#34;&gt;2 windows安装UltraISO
-&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;下载：&lt;a class=&#34;link&#34; href=&#34;https://www.ultraiso.com/download.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;UltraISO - ISO CD/DV download page&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;安装软件&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;21-刻录u盘为启动盘&#34;&gt;2.1 刻录U盘为启动盘
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;打开准备好的ISO镜像&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020221204171408.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/li&gt;
-&lt;li&gt;然后再次回到软碟通（UltraISO）的窗口，点击菜单栏中的“启动”选“写入硬盘镜像”&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020221204171451.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/li&gt;
-&lt;li&gt;接下来在弹出的窗口直接点击“写入”按钮（注：将写入方式选择为“USB-HDD+”，如果不是这个模式，可能导致有些电脑无法通过U盘正常启动。）&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020221204171514.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;22-刻录cddvd为启动盘&#34;&gt;2.2 刻录CD/DVD为启动盘
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;选择刻录光盘映像&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020221204171640.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/li&gt;
-&lt;li&gt;默认选项，开始刻录&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020221204171707.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;开始安装&#34;&gt;开始安装
-&lt;/h1&gt;&lt;h2 id=&#34;1-重启服务器到bios并且设置为u盘启动或者cddvd启动&#34;&gt;1 重启服务器到bios，并且设置为U盘启动或者CD/DVD启动
-&lt;/h2&gt;&lt;h2 id=&#34;2-安装系统&#34;&gt;2 安装系统
-&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;进入这个界面，键盘输入 E 或者是tab&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020221204172319.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/li&gt;
-&lt;li&gt;将&lt;strong&gt;CentOS\x207\x20x86_64&lt;/strong&gt; 修改为**/dev/挂载的U盘名字** 或者**/dev/cdrom**这个是挂载的CD/DVD&lt;/li&gt;
-&lt;li&gt;正常接下来就是按序操作&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;三注意事项&#34;&gt;三、注意事项
-&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 注意如果安装server with GUI模块时，一直卡顿在安装软件包的界面上
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. **可以选择最小安装，然后在进入到系统里面后，挂载yum本地源，输入`yum groupinstall &amp;#34;SERVER WITH GUI&amp;#34;`**
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;```bash
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Local]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;name=CentOS-$releasever - Local
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;baseurl=file:///media/cdrom
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;enabled=1
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gpgcheck=0
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;```
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. `systemctl set-default graphical.target` (现在默认启动图形界面设置好了)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. `systemctl set-default multi-user.target` (默认启动字符界面设置好了)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4. `shutdown -r now`
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-mysql&#34; data-lang=&#34;mysql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;当电脑存在第二块硬盘并且不想格式化&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;安装软件包&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;wget&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;http&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tuxera&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;opensource&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ntfs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;g_ntfsprogs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2011&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tgz&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;解压压缩包&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tar&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zxvf&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ntfs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;g_ntfsprogs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2011&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tgz&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;进入文件夹&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cd&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ntfs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;g_ntfsprogs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2011&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;运行&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;yum&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;install&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gcc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;运行&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;configure&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;运行&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;运行&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;install&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;运行&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mount&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ntfs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;挂载磁盘&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;目录&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 重装完成后，无法打开wifi
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;```bash
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rfkill unblock all
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rfkill list
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;modprobe -r ideapad_laptop
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;touch /ect/modprobe.d/ideapad.conf
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;echo &amp;#34;blacklist ideapad_laptop&amp;#34; &amp;gt;&amp;gt; /ect/modprobe.d/ideapad.conf
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;modprobe -r ideapad_laptop
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;```
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 设置笔记本盒盖不休眠
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1.`sed -i &amp;#39;s/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g&amp;#39; /etc/systemd/logind.conf`
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. `systemctl restart systemd-logind.service`
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 释放home空间，扩展到根目录上
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;```bash
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. 备份home分区文件
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. umount /home
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. lvremove /dev/mapper/centos-home
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4. lvextend -L +40G /dev/mapper/centos-root
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5. xfs_growfs /dev/mapper/centos-root
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6. lvcreate -L 1G -n /dev/mapper/centos-home
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;7. lvcreate -L 1G -n /dev/mapper/centos-home
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;8. mount -a
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;```
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: fstab挂载ISO文件
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- `/root/CentOS-7-x86_64-DVD-1611.iso /iso         iso9660 loop,defaults   0 0`
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;安装&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;VMware&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Workstation&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wget&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://download3.vmware.com/software/WKST-1700-LX/VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;VMware&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Workstation&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Full&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;17.0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;20800274.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x86_64&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bundle&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vmware&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;1-安装驱动&#34;&gt;1 安装驱动
-&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;选择驱动&amp;quot;&lt;a class=&#34;link&#34; href=&#34;https://www.nvidia.cn/Download/index.aspx?lang=cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;官方驱动 | NVIDIA&lt;/a&gt;&amp;quot;&lt;/li&gt;
-&lt;li&gt;由于安装显卡驱动模块，要重新编译模块，所以需要内核模块编译的相关文件kernel-header和kernel-devel&lt;code&gt;yum -y install kernel-header kernel-devel&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;vim /lib/modprobe.d/dist-blacklist.conf&lt;/code&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#blacklist nvidiafb               /*&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;blacklist nouveau                *  修改的内容
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;options nouveau &lt;span class=&#34;nv&#34;&gt;modeset&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;      */
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;systemctl set-default multi-user.target 开机将默认进入文本界面&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;reboot&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;chmod +x NVIDIA-Linux-x86_64-440.64.run&lt;/li&gt;
-&lt;li&gt;./NVIDIA-Linux-x86_64-440.64.run &amp;ndash;no-opengl-files
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;-–no-opengl-files&lt;/code&gt; 只安装驱动文件，不安装OpenGL文件。这个参数最重要&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;(Would you like to register the kernel module sources with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later.) 选择No
-&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020240212191601.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;报错：The kernel was built with x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1&lt;del&gt;22.04) 12.3.0,
-GNU ld (GNU Binutils for Ubuntu) 2.38, but the current compiler version is cc (Ubuntu11.4.0-1ubuntu1&lt;/del&gt;22.04) 11.4.0.(内核为x86_64-linux-gnu-GCC-12(Ubuntu 12.3.0-1ubuntu1&lt;del&gt;22.04)12.3.0，
-GNU ld(GNU Binutils For Ubuntu)2.38，但当前的编译器版本是cc(Ubuntu11.4.0-1ubuntu1&lt;/del&gt;22.04)11.4.0。)&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;systemctl set-default graphical.target&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        </item>
-        <item>
         <title>实体机安装Centos-202212041708</title>
         <link>https://news-epoch.github.io/p/%E5%AE%9E%E4%BD%93%E6%9C%BA%E5%AE%89%E8%A3%85centos-202212041708/</link>
         <pubDate>Sun, 04 Dec 2022 17:08:22 +0000</pubDate>
@@ -667,6 +394,1418 @@ Nl：丢失分组总数&lt;/p&gt;
 &lt;h1 id=&#34;安卓软件&#34;&gt;安卓软件
 &lt;/h1&gt;&lt;h2 id=&#34;1-商城&#34;&gt;1 商城
 &lt;/h2&gt;&lt;p&gt;F-droid&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>计算机网络原理-202302070026</title>
+        <link>https://news-epoch.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86-202302070026/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86-202302070026/</guid>
+        <description>&lt;p&gt;Links:&lt;/p&gt;
+&lt;h1 id=&#34;一计算机网络概述&#34;&gt;一、计算机网络概述
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;计算机网络是&lt;strong&gt;互连&lt;/strong&gt;的，&lt;strong&gt;自治&lt;/strong&gt;的计算机的集合，它是&lt;strong&gt;计算机技术&lt;/strong&gt;和&lt;strong&gt;通信技术&lt;/strong&gt;相互&lt;strong&gt;融合&lt;/strong&gt;的产物。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;1-计算机网络基本概念&#34;&gt;1 计算机网络基本概念
+&lt;/h2&gt;&lt;h3 id=&#34;11-网络协议&#34;&gt;1.1 网络协议
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;网络&lt;strong&gt;通信实体&lt;/strong&gt;之间在&lt;strong&gt;数据交换&lt;/strong&gt;过程中所&lt;strong&gt;遵循&lt;/strong&gt;的&lt;strong&gt;规则&lt;/strong&gt;或者&lt;strong&gt;约定&lt;/strong&gt;，而遵循的约定或者规则叫做&lt;strong&gt;网络协议&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;网络协议由三部分组成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语法&lt;/strong&gt;：实体之间，交换信息要遵循的格式与结构或者电平等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语义&lt;/strong&gt;：实体之间，交换信息中的需要携带的控制信息和这些控制信息的含义。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时序&lt;/strong&gt;：实体之间，交换信息的顺序以及如何匹配或适应彼此的速度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-计算机网络的功能&#34;&gt;1.2 计算机网络的功能
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;硬件资源共享：&lt;a class=&#34;link&#34; href=&#34;laaS%E5%B9%B3%E5%8F%B0.md&#34; &gt;laaS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;软件资源共享：&lt;a class=&#34;link&#34; href=&#34;SaaS%E5%B9%B3%E5%8F%B0.md&#34; &gt;SaaS平台&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;信息资源共享：公共信息数据共享&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;13-计算机网络的分类&#34;&gt;1.3 计算机网络的分类
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;按覆盖范围分类
+&lt;ul&gt;
+&lt;li&gt;个域网(PAN)：1-10m。个人使用的网络,例如随身携带的设备通过无线技术构成的小范围网络&lt;/li&gt;
+&lt;li&gt;局域网(LAN)：10m-1km。家庭、小企业覆盖的网络&lt;/li&gt;
+&lt;li&gt;城域网(MAN)：5-50km。整个城市或者的计算机网络&lt;/li&gt;
+&lt;li&gt;广域网(WAN)：几十到几百千米。跨城市等覆盖的网络&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;按拓扑结构分类
+&lt;ol&gt;
+&lt;li&gt;网状型：广域网/核心网。可靠性高，多条链路故障，网络依旧使用。结构复杂，成本高，选路复杂&lt;/li&gt;
+&lt;li&gt;树型：局域网。易于扩展，故障易隔离。根节点要求高。&lt;/li&gt;
+&lt;li&gt;星型：个域网/局域网，点对点，易于监控、故障诊断、隔离。中央节点故障，全网瘫痪。&lt;/li&gt;
+&lt;li&gt;总线型：局域网，广播，结构简单，电缆数量少，易于扩展。范围受限，容易产生冲突。&lt;/li&gt;
+&lt;li&gt;环形：局域网/城域网，电缆长度短，使用光纤，避免冲突。节点故障全网瘫痪。&lt;/li&gt;
+&lt;li&gt;混合型：大多数实际网络。易于扩展，构建不同规模的网络。结构复杂，管理与维护复杂。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;按交换方式分类
+&lt;ul&gt;
+&lt;li&gt;电路交换&lt;/li&gt;
+&lt;li&gt;报文交换&lt;/li&gt;
+&lt;li&gt;分组交换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;按网络用户属性分类
+&lt;ul&gt;
+&lt;li&gt;公有网：面向公众开放的网络&lt;/li&gt;
+&lt;li&gt;私有网：某个组织(政府)出资建设专门面向该组织，不向公众开放。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-计算机网络的结构&#34;&gt;2 计算机网络的结构
+&lt;/h2&gt;&lt;h3 id=&#34;21-网络边缘&#34;&gt;2.1 网络边缘
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;连接到网络上的计算机、手机、服务器、智能家电等成为&lt;strong&gt;主机&lt;/strong&gt;或者&lt;strong&gt;端系统&lt;/strong&gt;，连接到网上的所有&lt;strong&gt;端系统&lt;/strong&gt;构成了&lt;strong&gt;网络边缘&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;22-网络边缘如何连接到网络当中呢&#34;&gt;2.2 网络边缘如何连接到网络当中呢？
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;这就引出了&lt;strong&gt;接入网络&lt;/strong&gt;的概念，那么什么是接入网络呢？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;接入网络是指：实现网络边缘的端系统与网络核心连接的网络。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接入网络可以分类成五种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;电话拨号接入。&lt;a class=&#34;link&#34; href=&#34;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86-202302070026.md#221&#34; &gt;计算机网络原理-202302070026 &amp;gt; 2.2.1 电话拨号接入&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;非对称数字用户线路ADSL。&lt;a class=&#34;link&#34; href=&#34;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86-202302070026.md#222-adsl&#34; &gt;计算机网络原理-202302070026 &amp;gt; 2.2.2 非对称数字用户线路ADSL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;混合光纤同轴电缆HFC。&lt;/li&gt;
+&lt;li&gt;局域网(wifi、以太网)&lt;/li&gt;
+&lt;li&gt;移动接入网络&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;221-电话拨号接入&#34;&gt;2.2.1 电话拨号接入
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;很久之前通过电话拨号进行上网，通过调制解调器进行数字信号和模拟信号的转圜。&lt;strong&gt;56kbit/s&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;222-非对称数字用户线路adsl&#34;&gt;2.2.2 非对称数字用户线路ADSL
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;利用电话网络接入&lt;/li&gt;
+&lt;li&gt;基于频分多路复用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非对称&lt;/strong&gt;：下载速度和上传速度不一致&lt;/li&gt;
+&lt;li&gt;独享式接入：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;223-混合光纤同轴电缆hfc接入网络&#34;&gt;2.2.3 混合光纤同轴电缆HFC接入网络
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;利用&lt;strong&gt;有线电视网络&lt;/strong&gt;接入技术&lt;/li&gt;
+&lt;li&gt;基于频分多路复用技术&lt;/li&gt;
+&lt;li&gt;非对称&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;共享接入&lt;/strong&gt;(多个用户共享上、下行带宽)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;224-局域网技术以太网wifi技术&#34;&gt;2.2.4 局域网技术，以太网、WIFI技术
+&lt;/h4&gt;&lt;h4 id=&#34;225-移动接入网络&#34;&gt;2.2.5 移动接入网络
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;利用移动网络通信，如3G/4G/5G&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;23-网络核心&#34;&gt;2.3 网络核心
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;网络核心是由&lt;strong&gt;通信链路互联&lt;/strong&gt;的&lt;strong&gt;分组交换设备&lt;/strong&gt;(路由器、交换机)构成的网络，作用是实现网络边缘中主机之间的&lt;strong&gt;中继&lt;/strong&gt;与&lt;strong&gt;转发&lt;/strong&gt; 。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;3-数据交换技术&#34;&gt;3 数据交换技术
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;交换设备&lt;/strong&gt;具有多个通信端口，可以同时连接多个通信结点
+数据交换是实现大规模网络核心上进行数据传输的&lt;strong&gt;技术基础&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;31-电路交换&#34;&gt;3.1 电路交换
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;电路交换是最早出现的一种交换方式，电话网络是&lt;strong&gt;最早&lt;/strong&gt;、&lt;strong&gt;最大&lt;/strong&gt;的电路交换网络。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;subgraph 电路交换步骤
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A[建立电路]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;B[传输数据]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C[拆除电路]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A--&amp;gt;B--&amp;gt;C
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;end
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;电路交换的优点&lt;/strong&gt;：实时性高，时延短
+&lt;strong&gt;电路交换的缺点&lt;/strong&gt;：不适用于猝发式通信，信道利用率低(建立链路后，只能两个终端使用)。&lt;/p&gt;
+&lt;h3 id=&#34;32-报文交换&#34;&gt;3.2 报文交换
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;什么是报文？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;发送方把要发送的信息附加上&lt;strong&gt;发送/接收&lt;/strong&gt;主机的地址和控制信息&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;交换结点的这种接收-暂存-转发的工作方式，称为&lt;strong&gt;存储-转发&lt;/strong&gt;的交换方式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;subgraph 报文结构
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A[首部]--&amp;gt;B[数据]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;end
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;报文交换的优点&lt;/strong&gt;：信道利用率高
+&lt;strong&gt;报文交换的缺点&lt;/strong&gt;：网络的&lt;strong&gt;延迟&lt;/strong&gt;时间&lt;strong&gt;变长&lt;/strong&gt;，有时还需要&lt;strong&gt;丢弃报文&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;33-分组交换&#34;&gt;3.3 分组交换
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;分组交换也称为&lt;strong&gt;包交换&lt;/strong&gt;，它是将数据分成一个个的小的数据块，每个数据块携带目的地址和序号等附加信息进行传输，并且采用的是&lt;strong&gt;存储&amp;mdash;转发&lt;/strong&gt;交换方式，是计算机网络中使用&lt;strong&gt;最广泛的交换技术&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;subgraph 分组结构
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A[首部]--&amp;gt;B[分组]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;end
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;分组交换的优点：交换设备的&lt;strong&gt;存储容量&lt;/strong&gt;要求低、&lt;strong&gt;交换速度快&lt;/strong&gt;、&lt;strong&gt;可靠传输&lt;/strong&gt;效率高、更加&lt;strong&gt;公平&lt;/strong&gt;
+分组交换的缺点：&lt;strong&gt;有效传输&lt;/strong&gt;效率降低&lt;/p&gt;
+&lt;p&gt;&lt;font color=#FF0212&gt;注&lt;/font&gt;：在其他条件相同的情况下，&lt;strong&gt;分组长度&lt;/strong&gt;越长，&lt;strong&gt;延迟时间&lt;/strong&gt;越长&lt;/p&gt;
+&lt;h2 id=&#34;4-计算机网络性能&#34;&gt;4 计算机网络性能
+&lt;/h2&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E9%80%9F%E7%8E%87.md&#34; &gt;速率&lt;/a&gt;
+-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E5%B8%A6%E5%AE%BD.md&#34; &gt;带宽&lt;/a&gt;
+-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E6%97%B6%E5%BB%B6.md&#34; &gt;时延&lt;/a&gt;
+-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF.md&#34; &gt;时延带宽积&lt;/a&gt;
+-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E4%B8%A2%E5%8C%85%E7%8E%87.md&#34; &gt;丢包率&lt;/a&gt;
+-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E5%90%9E%E5%90%90%E9%87%8F.md&#34; &gt;吞吐量&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;5-计算机网络体系结构&#34;&gt;5 计算机网络体系结构
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;计算机网络所划分的&lt;strong&gt;层次&lt;/strong&gt;以及&lt;strong&gt;各层协议&lt;/strong&gt;的集合就称为&lt;strong&gt;计算机网络体系结构&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;51-osi参考模型&#34;&gt;5.1 OSI参考模型
+&lt;/h3&gt;&lt;p&gt;开放系统网络(Open System Internet)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A[应用层]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;B[表示层]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C[会话层]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;D[传输层]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;E[网络层]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;F[数据链路层]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;G[物理层]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A--报文--&amp;gt;B--&amp;gt;C--&amp;gt;D--数据段--&amp;gt;E--分组/包--&amp;gt;F--帧--&amp;gt;G
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;OSI层&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;作用&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;协议&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;协议数据单元&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;应用层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;为用户提供一个使用网络应用的接口&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;HTTP/FTP/SMTP/TELNET&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;报文&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;表示层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;用于处理应用实体间交换数据的语法，解决格式和数据表示的差别，不独立存在&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;会话层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;通过两台计算机间建立、管理、终止通信来完成会话。不独立存在&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;SSL/TLS&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;传输层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;实现端到端的可靠数据传输&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;TCP/UDP&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;报文段/数据段&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;网络层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;转发和路由&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;OSPF/BGP/VRRP&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;分组/包&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数据链路层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;差错控制、流量控制、链路管理、寻址&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;帧&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;物理层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;传输介质上实现无结构比特流传输&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;比特流&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020231028173018.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;数据单元：层与层的&lt;strong&gt;实体&lt;/strong&gt;之间传送的比特组称为&lt;strong&gt;数据单元&lt;/strong&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个实体是什么呢？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;指在特定层次上执行特定功能的协议实体，例如：HTTP、FTP、TCP、UDP都是不同的协议实体。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;应用层实体&lt;/strong&gt;：处理应用数据（如网页内容），并将其封装成应用层消息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;传输层实体&lt;/strong&gt;：将应用层消息封装成段（TCP）或数据报（UDP），并添加相应的头部信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络层实体&lt;/strong&gt;：将传输层段或数据报封装成包，并添加路由信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据链路层实体&lt;/strong&gt;：将网络层包封装成帧，添加物理地址信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;协议数据单元：每一层实体，将数据单元处理封装后的数据单元称为协议数据单元。&lt;/p&gt;
+&lt;h3 id=&#34;52-tcpip参考模型&#34;&gt;5.2 TCP/IP参考模型
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;TCP/IP层&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;数据格式&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;典型协议&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;应用层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;报文&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;传输层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;段&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;TCP,UDP&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;网络互连层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数据报&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;IP,ICMP&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;网络接口层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;帧&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;53-五层参考模型&#34;&gt;5.3 五层参考模型
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;描述计算机网络中最常用、最接近实际网络的参考模型&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;层名&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;数据格式&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;协议&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;应用层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;报文&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;传输层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;段&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;网络层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数据报&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;链路层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;帧&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;物理层&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;比特流&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;6-计算机网络与因特网发展简史&#34;&gt;6 计算机网络与因特网发展简史
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;MIT、兰德公司和NPL推动分组交换的研究与发展&lt;/li&gt;
+&lt;li&gt;分组交换推动&lt;strong&gt;因特网&lt;/strong&gt;的发展&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ARPAnet是第一个分组交换的计算机网络，也是当今因特网的祖先&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1986年，NSFNET创建，用于商业&lt;/li&gt;
+&lt;li&gt;20世纪90年代，万维网(www)应用诞生&lt;/li&gt;
+&lt;li&gt;“互联网+”&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;二网络应用&#34;&gt;二、网络应用
+&lt;/h1&gt;&lt;h2 id=&#34;1-计算机网络应用结构&#34;&gt;1 计算机网络应用结构
+&lt;/h2&gt;&lt;h3 id=&#34;11-客户服务器cs结构网络应用&#34;&gt;1.1 客户服务器(C/S)结构网络应用
+&lt;/h3&gt;&lt;p&gt;C/S结构的特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用户与用户之间不进行直接通信&lt;/li&gt;
+&lt;li&gt;服务器程序需要先运行，客户端后运行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-纯p2p结构网络应用&#34;&gt;1.2 纯P2P结构网络应用
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;本质上没有固定的客户端/服务器.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;13-混合网络应用&#34;&gt;1.3 混合网络应用
+&lt;/h3&gt;&lt;h2 id=&#34;2-网络通信应用通信基本原理&#34;&gt;2 网络通信应用通信基本原理
+&lt;/h2&gt;&lt;h3 id=&#34;21-网络应用的基本通信过程&#34;&gt;2.1 网络应用的基本通信过程
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;网络应用的基本通信过程就是运行在不同主机上的&lt;strong&gt;应用进程&lt;/strong&gt;间以&lt;strong&gt;C/S方式&lt;/strong&gt;进行通信。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;22-网络应用编程接口api&#34;&gt;2.2 网络应用编程接口(API)
+&lt;/h3&gt;&lt;p&gt;典型的应用编程接口是&lt;strong&gt;套接字(Socket)&lt;/strong&gt;，对于传输层协议，需要为其接口的每个套接字分配特定的编号，标识该套接字，该编号称为&lt;strong&gt;端口号&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3-域名系统dns&#34;&gt;3 域名系统(DNS)
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;域名解析&lt;/strong&gt;是域名解析为IP地址或者IP地址到域名的反向解析&lt;/li&gt;
+&lt;li&gt;域名系统会建立&lt;strong&gt;分布式数据库&lt;/strong&gt;，存储域名与IP地址的映射关系数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;31-层次化域名空间&#34;&gt;3.1 层次化域名空间
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020240923212654.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;层次树状结构命名方式&lt;/strong&gt;，每个域名由不同级别的域名构成，各个层级域名之间用&lt;strong&gt;点&lt;/strong&gt;分隔&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;域名级别&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;分类&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;所属域名&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;顶级域名&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;国家顶级域名&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;cn,us,uk&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;顶级域名&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;通用顶级域名&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;com,org,gov,edu&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;顶级域名&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;基础结构域名&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;arpa&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;二级域名&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;三级域名&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;四级域名&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;32-域名服务器&#34;&gt;3.2 域名服务器
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;根域名服务器：最重要的服务器，全球只有&lt;strong&gt;13&lt;/strong&gt;个。负责指向顶级域名服务器。他们存储的信息为：顶级域名的位置信息，DNS根区文件（包含所有顶级域如：.com、.org、.net等）的名称服务器的地址。&lt;/li&gt;
+&lt;li&gt;顶级域名服务器：负责管理在该顶级域名服务器注册的所有二级域名。比如：&lt;code&gt;example.com&lt;/code&gt;中的“example”的名称服务器的地址。这些名称服务器负责进一步解析耳机域名及其下的子域。&lt;/li&gt;
+&lt;li&gt;权威域名服务器：负责一个区的域名服务器，保存&lt;strong&gt;该区&lt;/strong&gt;中的&lt;strong&gt;所有主机域名和IP地址&lt;/strong&gt;的映射。如&lt;strong&gt;A记录&lt;/strong&gt;(将域名映射到IPV4地址)、&lt;strong&gt;AAAA记录&lt;/strong&gt;(将域名映射到IPV6地址)、&lt;strong&gt;MX记录&lt;/strong&gt;(指向邮件服务器的记录)、&lt;strong&gt;CNAME记录&lt;/strong&gt;(域名别名的记录)、&lt;strong&gt;TXT记录&lt;/strong&gt;(包含文本信息的记录，通常用于验证和安全)&lt;/li&gt;
+&lt;li&gt;中间域名服务器：不是以上三种的域名服务器。缓存 DNS 记录以加速解析过程。&lt;/li&gt;
+&lt;li&gt;本地域名服务器：是主机进行域名查询时首先被查询的域名服务器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;33-域名解析过程&#34;&gt;3.3 域名解析过程
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;递归解析：&lt;strong&gt;代替查询主机&lt;/strong&gt;或其他域名服务器&lt;strong&gt;进行&lt;/strong&gt;进一步的&lt;strong&gt;域名查询&lt;/strong&gt;，将最终结果发送给查询主机或者服务器。本地域名服务器&amp;mdash;-&amp;gt;根域名服务器&amp;mdash;-&amp;gt;顶级域名服务器&amp;mdash;&amp;ndash;&amp;gt;权威域名服务器&amp;mdash;&amp;ndash;&amp;gt;中间域名服务器。&lt;/li&gt;
+&lt;li&gt;迭代解析：将下一步要查询的服务器告知查询主机或服务器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;4-万维网应用&#34;&gt;4 万维网应用
+&lt;/h2&gt;&lt;h3 id=&#34;41-万维网应用结构&#34;&gt;4.1 万维网应用结构
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;万维网应用包括&lt;strong&gt;浏览器、web服务器、HTTP协议&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;web服务器：用来提供客户机返回响应，已经提供相应页面数据的服务器，通过&lt;a class=&#34;link&#34; href=&#34;%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5%AE%9A%E4%BD%8D%E7%AC%A6.md&#34; &gt;URL&lt;/a&gt;用来给客户机提供对应页面的访问路径。&lt;/li&gt;
+&lt;li&gt;HTTP协议&lt;/li&gt;
+&lt;li&gt;Cookie&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;42-http超文本传输协议&#34;&gt;4.2 HTTP超文本传输协议
+&lt;/h3&gt;&lt;p&gt;HTTP连接
+浏览器像服务器发送请求之前，需要先建立TCP连接，然后才发送HTTP请求，接收HTTP响应报文&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;非持久连接&lt;/strong&gt;：请求一次TCP连接，只能请求一次数据，之后就会断开连接，例如：请求携带3个jpg数据的web页面，会耗费8个&lt;a class=&#34;link&#34; href=&#34;RTT.md&#34; &gt;RTT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并行连接&lt;/strong&gt;：在单位&lt;a class=&#34;link&#34; href=&#34;RTT.md&#34; &gt;RTT&lt;/a&gt;时间内，建立&lt;strong&gt;多条&lt;/strong&gt;TCP连接，单位&lt;a class=&#34;link&#34; href=&#34;RTT.md&#34; &gt;RTT&lt;/a&gt;时间内，一次请求多条数据，例如：请求携带3个jpg数据的web页面，会耗费4个&lt;a class=&#34;link&#34; href=&#34;RTT.md&#34; &gt;RTT&lt;/a&gt;时间。&lt;font color=#FF0212&gt;注意&lt;/font&gt;：并行连接会增加客户端主机的资源开销，如内存开销，因此系统通常同时建立的并行TCP连接数有限制，服务器也会对同一客户的并行TCP连接数有所限制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持久连接&lt;/strong&gt;：
+&lt;ol&gt;
+&lt;li&gt;非流水方式持久连接：客户收到TCP响应报文后，不断开TCP连接，继续&lt;strong&gt;依次&lt;/strong&gt;请求N条数据。例如：请求携带3个jpg数据的web页面，花费5个&lt;a class=&#34;link&#34; href=&#34;RTT.md&#34; &gt;RTT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;流水方式持久连接：客户收到TCP响应报文后，不断开TCP连接，&lt;strong&gt;并行&lt;/strong&gt;请求N条数据，例如：请求携带3个jpg数据的web页面，花费3个&lt;a class=&#34;link&#34; href=&#34;RTT.md&#34; &gt;RTT&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;HTTP报文：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;请求报文&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;响应报文&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;起始行&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;请求行：&amp;lt;请求方法&amp;gt;&amp;lt;URL&amp;gt;&amp;lt;HTTP版本&amp;gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&amp;lt;HTTP版本&amp;gt;&amp;lt;状态码&amp;gt;&amp;lt;原因短语&amp;gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;首部行&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;携带附加信息&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;携带附加信息&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;空白行&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;CRLF&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;CRLF&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;报文主题&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;实际要传输的内容&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;实际要传输的内容&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;font color=#FF0212&gt;注意&lt;/font&gt;：因为HTTP服务器不保存关于客户的任何信息，所以HTTP被称为&lt;strong&gt;无状态协议&lt;/strong&gt;。从而引入Cookie机制，用于用户跟踪。&lt;/p&gt;
+&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;HTTP%E7%8A%B6%E6%80%81%E7%A0%81.md&#34; &gt;HTTP状态码&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;43-cookie&#34;&gt;4.3 Cookie
+&lt;/h3&gt;&lt;p&gt;Cookie技术主要包括4部分内容：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;HTTP响应报文中的Cookie头行&lt;/li&gt;
+&lt;li&gt;用户浏览器在本地&lt;strong&gt;存储&lt;/strong&gt;、维护和管理的Cookie文件&lt;/li&gt;
+&lt;li&gt;HTTP请求报文中的Cookie头行&lt;/li&gt;
+&lt;li&gt;网站在后台数据库中存储、维护Cookie信息：分配给用户ID、每个ID用户在本网站的访问特征等。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;5-internet电子邮件&#34;&gt;5 Internet电子邮件
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020240929173751.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;51-电子邮件系统结构&#34;&gt;5.1 电子邮件系统结构
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;邮件服务器(&lt;strong&gt;核心&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;用户代理(电子邮件应用的客户端软件)&lt;/li&gt;
+&lt;li&gt;简单邮件传输协议(&lt;a class=&#34;link&#34; href=&#34;SMTP.md&#34; &gt;SMTP&lt;/a&gt;)，默认端口：25&lt;/li&gt;
+&lt;li&gt;邮件读取协议(POP3,IMPA,HTTP)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;52-电子邮件格式与mime&#34;&gt;5.2 电子邮件格式与MIME
+&lt;/h3&gt;&lt;p&gt;&lt;font color=#FF0212&gt;注意&lt;/font&gt;：传输非&lt;strong&gt;7&lt;/strong&gt;位ASCII码文本内容时，必须依据一个&lt;strong&gt;标准&lt;/strong&gt;将非7位ASCII码文本内容转换为7位ASCII码文本内容，然后在传输，而提供转换功能的是：&lt;strong&gt;互联网邮件扩展&lt;/strong&gt;(Multipurpose Internet Mail Extensions, &lt;a class=&#34;link&#34; href=&#34;MIME.md&#34; &gt;MIME&lt;/a&gt;)&lt;/p&gt;
+&lt;h3 id=&#34;53-邮件读取协议&#34;&gt;5.3 邮件读取协议
+&lt;/h3&gt;&lt;p&gt;POP3:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;授权阶段&lt;/li&gt;
+&lt;li&gt;事务处理阶段&lt;/li&gt;
+&lt;li&gt;更新阶段&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;IMAP: 互联网邮件访问协议&lt;/p&gt;
+&lt;h2 id=&#34;6-ftp文件传送协议&#34;&gt;6 FTP文件传送协议
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;在互联网的两个主机间实现文件互传的网络应用，其应用层协议称为FTP，并且是属于&lt;strong&gt;有状态协议&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;FTP的服务器进程由两大部分组成：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;主进程，负责接受新的客户请求&lt;/li&gt;
+&lt;li&gt;从属进程，负责处理单个客户请求，与具体客户进行交互。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;FTP专门独立建立一个通道用来进行控制信息的传输，与传输文件信息的通道进行分离，所以将FTP这种控制信息的传送方式称为&lt;strong&gt;带外控制&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;7-p2p应用&#34;&gt;7 P2P应用
+&lt;/h2&gt;&lt;p&gt;典型应用：BitTorrent/PPLive等&lt;/p&gt;
+&lt;p&gt;P2P应用特点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;应用的对等方是用户的计算机&lt;/li&gt;
+&lt;li&gt;很强的应用规模伸缩性&lt;/li&gt;
+&lt;li&gt;应用在对等方之间进行&lt;/li&gt;
+&lt;li&gt;应用充分聚集利用了端系统的计算能力以及网络传输宽带。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;8-socket&#34;&gt;8 Socket
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;在概念上是通信的端点( end point )。而对于一个传输层协议，需要为其接口的每个套接字分配特定的编号，标识该套接字，该编号称为&lt;strong&gt;端口号&lt;/strong&gt;。套接字是用网络节点的IP地址和端口号来标识的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;传输层&#34;&gt;传输层
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;传输层的&lt;strong&gt;核心任务&lt;/strong&gt;：应用进程之间提供&lt;strong&gt;端到端&lt;/strong&gt;的&lt;strong&gt;逻辑通信&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;1-传输层的功能&#34;&gt;1 传输层的功能
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;对应用层的报文进行&lt;strong&gt;分段&lt;/strong&gt;和&lt;strong&gt;重组&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;面向应用层实现&lt;strong&gt;复用&lt;/strong&gt;与&lt;strong&gt;分解&lt;/strong&gt;(多个客户端可以通过同一种方式给服务器发送请求&amp;ndash;&amp;gt;复用；多个客户端可以接收到服务器发送的数据&amp;mdash;&amp;gt;分解)。&lt;/li&gt;
+&lt;li&gt;实现端到端的&lt;strong&gt;流量控制&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;拥塞控制&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;传输层&lt;strong&gt;寻址&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;对报文进行&lt;strong&gt;差错检测&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;实现进程间的端到端的&lt;strong&gt;可靠数据传输&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;11-传输层寻址与端口&#34;&gt;1.1 传输层寻址与端口
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;不同应用进程用进程标识符(进程ID)来区分&lt;/li&gt;
+&lt;li&gt;主机之间通过&lt;strong&gt;IP+端口号&lt;/strong&gt;区分不同主机上的应用程序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;传输层总共有65536个端口号：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;-&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;-&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;-&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0-256&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;常用端口号&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;服务器端口号&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0——1023&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;熟知端口号&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;服务器端口号&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1024——49151&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;登记端口号&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;服务器端口号&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;49152——65535&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;客户端口号(短暂端口号)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;客户端口号&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;12-无连接服务与面向连接服务&#34;&gt;1.2 无连接服务与面向连接服务
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;无连接服务&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;面向连接服务&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数据传输之前：&lt;strong&gt;无需&lt;/strong&gt;与对端进行任何信息交换，&lt;strong&gt;直接构造&lt;/strong&gt;传输层报文段并向接收端发送&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数据传输之前：&lt;strong&gt;需要&lt;/strong&gt;与对端进行&lt;strong&gt;控制信息&lt;/strong&gt;交换，建立&lt;strong&gt;逻辑连接&lt;/strong&gt;，然后传输层报文段并向接收端发送，结束后还要拆除逻辑连接&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;类似于&lt;strong&gt;信件通信&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;类似于&lt;strong&gt;电话通信&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;2-传输层的复用和分解&#34;&gt;2 传输层的复用和分解
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;不同应用进程&lt;strong&gt;共用&lt;/strong&gt;同一个传输层协议，并能够将接收到的数据准确交付给不同的应用进程，称为传输层的&lt;strong&gt;多路复用&lt;/strong&gt;与&lt;strong&gt;多路分解&lt;/strong&gt;
+多路复用：传输层可以通过不同的套接字接收不同应用进程传输过来的报文，并对报文进行封装。
+多路分解：在目的主机，传输层协议读取报文段中的字段，标识出接收套接字，进而通过该套接字，将传输层的报文段中的数据交付给正确的套接字。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;21-udp&#34;&gt;2.1 UDP
+&lt;/h3&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;UDP.md&#34; &gt;UDP&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;UDP套接字二元组：&amp;lt;目的IP地址，目的端口号&amp;gt;&lt;/p&gt;
+&lt;h3 id=&#34;22-tcp&#34;&gt;2.2 TCP
+&lt;/h3&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;TCP.md&#34; &gt;TCP&lt;/a&gt;
+TCP套接字四元组：&amp;lt;源IP地址，源端口号，目的IP地址，目的端口号&amp;gt;&lt;/p&gt;
+&lt;h2 id=&#34;3-停-等协议与滑动窗口协议&#34;&gt;3 停-等协议与滑动窗口协议
+&lt;/h2&gt;&lt;h3 id=&#34;31-可靠数据传输基本原理&#34;&gt;3.1 可靠数据传输基本原理
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;肯定确认ACK/否定确认NAK&lt;/li&gt;
+&lt;li&gt;差错校验&lt;/li&gt;
+&lt;li&gt;重传&lt;/li&gt;
+&lt;li&gt;序号&lt;/li&gt;
+&lt;li&gt;计时器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 数据传输过程中可能发生的错误：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. 比特差错
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. 乱序
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. 数据丢失
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;32-停-等协议&#34;&gt;3.2 停-等协议
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;ARQ.md&#34; &gt;ARQ&lt;/a&gt;停-等协议：发送方会发送数据包，接收方收到后会回应一个ACK/NAK,发送方根据接收方返回的报文来确认数据包状态，发送方只会根据接收方的响应报文的情况来确认是否进行下一步动作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;浪费了大量实际按&lt;/li&gt;
+&lt;li&gt;对信道的利用率不高。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;33-滑动窗口协议&#34;&gt;3.3 滑动窗口协议
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;(流水线协议)滑动窗口协议：发送方对数据包进行编号，允许发送多个分组，响应接收到多个分组只会返回ACK，如果没收到 通过计时器，发送发默认再次发送。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;根据窗口大小分为：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;GBN回退协议：发送窗口Ws&amp;gt;=1 ,接收窗口Wr=1&lt;/li&gt;
+&lt;li&gt;SR选择重传协议：发送/接收窗口&amp;gt;1,发送方发送多个分组，接收方只会接收窗口左侧及窗口里面序号的分组，其余序号的分组都会进行丢弃。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;4-用户数据报协议udp&#34;&gt;4 用户数据报协议(UDP)
+&lt;/h2&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;UDP.md&#34; &gt;UDP&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: UDP具有什么特点呢？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. 应用进程**容易控制**发送什么数据以及何时发送，但是会出现分组的丢失和重复。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. **无需建立连接**
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. 无连接状态
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4. **首部开销小，只有8个字节**
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 请描述一下UDP的首部报文结构：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![[Pasted image 20230405000813.png]]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. UDP首部**四个字段**：每个字段长度都是2个字节。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. 源端口号和目的端口号用来实现复用和分解
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 由首部报文结构得知**UDP校验和**，那么UDP校验和又是什么？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;为了能够计算校验和，需要在UDP报文上添加一个**伪首部**，伪首部不进行上下层的传输，只有在需要进行校验时才会生成(当接收主机在收到UDP报文以后，从**IP首部**获悉IP地址信息**构造**UDP伪首部。)在进行校验和计算,而伪首部由四个部分组成：源IP、目的IP、填充、协议号、UDP包长度。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![[Pasted image 20230405001520.png]]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![[Pasted image 20230405001817.png]]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;UDP校验和计算：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;所有参与运算的内容按16位对齐求和。&lt;/li&gt;
+&lt;li&gt;求和过程中遇到&lt;strong&gt;溢出&lt;/strong&gt;都会被&lt;strong&gt;慧娟&lt;/strong&gt;(即进位与和的最低位再相加)。&lt;/li&gt;
+&lt;li&gt;将求到的和取&lt;strong&gt;反码&lt;/strong&gt;，就是UDP的校验和，填入UDP数据报的校验和字段&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;font color=#FF0212&gt;注意&lt;/font&gt;：UDP在生成校验和时，&lt;strong&gt;校验和字段&lt;/strong&gt;全取&lt;strong&gt;0&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;5-传输控制协议tcp&#34;&gt;5 传输控制协议(TCP)
+&lt;/h2&gt;&lt;h3 id=&#34;51-tcp报文段结构&#34;&gt;5.1 TCP报文段结构
+&lt;/h3&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;TCP.md&#34; &gt;TCP&lt;/a&gt;
+TCP整体报文段结构：
+&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020230405124213.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;序列号字段：TCP的序号是对每个应用层数据的每个字节进行编号&lt;/li&gt;
+&lt;li&gt;确认序号字段：是&lt;strong&gt;期望&lt;/strong&gt;从对方接收数据的字节序号，即该序号对应的字节尚未收到，用ack_seq表示&lt;/li&gt;
+&lt;li&gt;TCP段首部长度最短是&lt;strong&gt;20&lt;/strong&gt;字节&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;TCP的6个标志位:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&amp;ndash;&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&amp;ndash;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;紧急URG&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;置1时表示紧急指针有效，优先传送。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;确认ACK&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;置1时表示确认序号有效&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;推送PSH&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;置1时表示接收方收到数据段后应该尽快送到应用程序&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;重置RST&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;置1时表示重新建立连接&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;同步SYN&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;置1时表示发起一个连接&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;终止FIN&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;置1时表示发送方完成发送任务，释放连接&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;52-tcp连接管理&#34;&gt;5.2 TCP连接管理
+&lt;/h3&gt;&lt;p&gt;&lt;font color=#FF0212 style=font-size:18px&gt;连接建立：&lt;/font&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sequenceDiagram
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;服务器--&amp;gt;&amp;gt;服务器: CLOSED---&amp;gt;LISTEN
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;客户端-&amp;gt;&amp;gt;服务器:我能跟你建立连接嘛?SYN=1,SEQ=x
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;客户端--&amp;gt;&amp;gt;客户端:CLOSED---&amp;gt;SYN_SENT(同步发送)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;服务器-&amp;gt;&amp;gt;客户端:同意建立连接,同意建立新连接SYN=1,&amp;lt;br&amp;gt;确认接收到ACK=1序号有效&amp;lt;br&amp;gt;准备接收下一个的包的序号是x+1,&amp;lt;br&amp;gt;并且告知确认报文段的序号为y。 &amp;lt;br&amp;gt;SYN=1,ACK=1,SEQ=y,ACK_SEQ=x+1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;服务器--&amp;gt;&amp;gt;服务器:Listen---&amp;gt;SYN_RCVD(同步收到)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;客户端-&amp;gt;&amp;gt;服务器:我需要再次确认你是否同意连接。&amp;lt;br&amp;gt;ACK=1,SEQ=x+1,ACK_EQ=y+1--&amp;gt;B
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;客户端--&amp;gt;&amp;gt;客户端:发送ACK时，&amp;lt;br&amp;gt;SYN_SENT---&amp;gt;ESTABLISHED
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;服务器--&amp;gt;&amp;gt;服务器:收到ACK时，&amp;lt;br&amp;gt;SYN_RCVD---&amp;gt;ESTABLISHED
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 为什么需要三次握手？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;第一次握手：客户端发送请求，服务器知道客户端能**发**。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;第二次握手: 服务器发送确认，客户端知道服务器能**收**。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;第三次握手：客户端发送确认，服务器知道客户端能**收**。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;font color=#FF0212 style=font-size:18px&gt;连接拆除：&lt;/font&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sequenceDiagram
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;客户端-&amp;gt;&amp;gt;服务器:我需要请求拆除连接,FIN=1,SEQ=u
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;客户端--&amp;gt;&amp;gt;客户端:ESTABLIST---&amp;gt;FIN_WAIT_1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;服务器-&amp;gt;&amp;gt;客户端:我同意拆除连接，但是还有数据没有传完
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;服务器--&amp;gt;&amp;gt;服务器:ESTABLIST---&amp;gt;CLOSE_WAIT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;客户端--&amp;gt;&amp;gt;客户端:FIN_WAIT_1---&amp;gt;FIN_WAIT_2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;服务器-&amp;gt;&amp;gt;客户端:我的数据发完了，拆除连接
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;服务器--&amp;gt;&amp;gt;服务器:CLOSE_WAIT---&amp;gt;LACK_ACK
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;客户端-&amp;gt;&amp;gt;服务器:好的，收到，确认断开。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;客户端--&amp;gt;&amp;gt;客户端:FIN_WAIT_2---&amp;gt;TIME_WAIT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Note over 客户端:等待一段时间
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;客户端--&amp;gt;&amp;gt;客户端:TIME_WAIT---&amp;gt;CLOSED
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;服务器--&amp;gt;&amp;gt;服务器:LACK_ACK---&amp;gt;CLOSED
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;53-tcp可靠数据传输&#34;&gt;5.3 TCP可靠数据传输
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;TCP实现可靠数据传输服务的工作机制：
+&lt;ol&gt;
+&lt;li&gt;可靠:保证接收方进程从缓冲区读出的字节流与发送方发出的字节流是一样的。
+&lt;ol&gt;
+&lt;li&gt;序号：应用层数据被&lt;strong&gt;分割&lt;/strong&gt;成TCP认为最适合发送的数据段，一个字节占用一个序号。&lt;/li&gt;
+&lt;li&gt;确认：TCP采用&lt;strong&gt;累计确认&lt;/strong&gt;，此时返回发送端发送的序号x+1&lt;/li&gt;
+&lt;li&gt;重传：&lt;strong&gt;快速重传&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;计时器：规定时间段没有收到确认报文段，就进行重传，&lt;strong&gt;1个加权+4✖偏差&lt;/strong&gt;*&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;54-流量控制&#34;&gt;5.4 流量控制
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 什么是流量控制？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;是指控制主机的发送速率和发送报文的数量。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 如何做到流量控制呢
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;通过发送TCP报文的**缓存窗口大小**
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;55-拥塞控制&#34;&gt;5.5 拥塞控制
+&lt;/h3&gt;&lt;p&gt;TCP的拥塞控制是指：当多台主机以&lt;strong&gt;极快的速率&lt;/strong&gt;向同一个通道发送数据，其中控制传输层通道传输的数据，有效减少传输性能下降。&lt;/p&gt;
+&lt;p&gt;那么如何进行TCP拥塞控制呢？在进行讲解拥塞控制之前需要先了解三个概念：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;拥塞窗口：是指端口在RTT时间内可以传多少个报文，拥塞窗口=1(单位RTT时间传输一个报文)&lt;/li&gt;
+&lt;li&gt;慢启动：慢启动是指，当经过一个RTT时间，拥塞窗口会增长一倍，直到遇到&lt;strong&gt;阈值&lt;/strong&gt;才会改变&lt;/li&gt;
+&lt;li&gt;拥塞避免：当拥塞窗口遇到阈值，就会进行拥塞控制模式，在一个RTT时间内拥塞窗口会进行&lt;strong&gt;线性增长&lt;/strong&gt;，一次+1.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;了解了拥塞控制的基础运用后，现在就可以讲解&lt;strong&gt;什么情况&lt;/strong&gt;下会进行拥塞控制：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;三次重传：当发送方收到了累计3个连续的针对2号报文段的重复确认，立即重传3号报文段。并且拥塞窗口设置为当前窗口的&lt;strong&gt;一半&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;计时器超时：当因为长时间没有收到2号报文的确认，出现计时器超时，就要重发2号报文。并且拥塞窗口设置为1.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;网络层&#34;&gt;网络层
+&lt;/h1&gt;&lt;h2 id=&#34;1-网络层服务&#34;&gt;1 网络层服务
+&lt;/h2&gt;&lt;p&gt;网络层的有什么用？
+实现数据转发、路由选择、建立连接。&lt;/p&gt;
+&lt;p&gt;那么如何实现的呢？首先发送数据有两个方式：&lt;/p&gt;
+&lt;h2 id=&#34;2-虚电路和数据报交换&#34;&gt;2 虚电路和数据报交换
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;项目&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;虚电路交换&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;数据报交换&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;是否建立连接&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;是&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;否&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;地址&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;每个分组含有一个虚电路号&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;每个分组包含源和目的IP地址&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;分组顺序&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;依次发送，按序接收&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;按序发送，不按序到达&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;路由选择&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;建立VC时需要路由选择，之后所有分组都沿着此路由转发&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;每个分组独立选择&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;典型网络&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;X.25,帧中继，ATM&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;因特网&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;由于&lt;strong&gt;数据报交换&lt;/strong&gt;不是按序到达，所以把排序分组的任务交给了传输层来进行处理。&lt;/p&gt;
+&lt;h2 id=&#34;3-异构网络互联与网络互联设备&#34;&gt;3 异构网络互联与网络互联设备
+&lt;/h2&gt;&lt;p&gt;现在说完了发送数据的方式，那么再来说说组成数据的单位，一般来说，我们将4G,5G,wifi等数据网络类型进行连接通信交换数据的方式称为&lt;strong&gt;异构网络互联&lt;/strong&gt;，其中能够进行&lt;strong&gt;异构网络互联&lt;/strong&gt;的代表机器有：&lt;strong&gt;路由器&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;那么路由器又由什么构成的呢？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;输入端口：用来查找和，转发，发送数据&lt;/li&gt;
+&lt;li&gt;交换结构：用来实现&lt;strong&gt;具体&lt;/strong&gt;的转发操作。
+&lt;ul&gt;
+&lt;li&gt;内存交换&lt;/li&gt;
+&lt;li&gt;总线交换&lt;/li&gt;
+&lt;li&gt;网络交换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;输出端口：缓存排队，从队列中取出分组进行数据链路层的数据帧的封装、发送。
+&lt;ol&gt;
+&lt;li&gt;先到先服务(FCFS)调度策略&lt;/li&gt;
+&lt;li&gt;按照优先级调度。按IP数据报的服务类型(Tos)调度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;处理器：协议命令，执行，路由计算维护。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;4-网络拥塞&#34;&gt;4 网络拥塞
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;网络拥塞是指：一种持续过载的一种网络状态，当用户对网络资源(包括链路带宽，存储空间和处理器处理能力)的总需求&lt;strong&gt;超过&lt;/strong&gt;整个网络的固定资源容量。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 那么我们如何判断网络是否存在拥塞呢？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. 吞吐量：越大越好
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. 响应时间：越短越好
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 一般什么情况下会发生网络拥塞呢？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- 缓存区容量有限
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- 传输线路的带宽有限
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- 网络节点的处理能力有限
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- 网络中某些节点出现了故障
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如何解决上面所说的网络拥塞呢？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;流量感知路由：通过将网络抽象成一个带权无向图，其中&lt;strong&gt;权值&lt;/strong&gt;能够根据网络链路负载情况而发生改变，从而平衡网络性能或者减少网络拥塞的发生&lt;/li&gt;
+&lt;li&gt;准入控制：专门针对虚电路设置的一种处理方式&lt;/li&gt;
+&lt;li&gt;流量调节
+&lt;ol&gt;
+&lt;li&gt;抑制分组：当报文发送到某一条链路时，发现当前链路存在拥塞，则会根据&lt;strong&gt;源主机地址&lt;/strong&gt;返回改报文，并一路标识该链路存在拥塞,通过&lt;a class=&#34;link&#34; href=&#34;ICMP.md&#34; &gt;ICMP&lt;/a&gt;协议可实现该操作。&lt;/li&gt;
+&lt;li&gt;背压：是指返回这个报文的路上经过&lt;strong&gt;提示&lt;/strong&gt;的路由器称为背压。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;负载脱落：当链路出现拥塞会自动进行丢弃分组，从而减少链路&lt;strong&gt;负载压力&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;讲解一下Internet网络层的组成：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;网际协议(Internet Protocol，IP)
+&lt;ol&gt;
+&lt;li&gt;IPv4：是网络层最核心的协议，定义了如何封装上层应用，定义了网络层寻址以及如何转发&lt;strong&gt;IP数据报&lt;/strong&gt;等内容&lt;/li&gt;
+&lt;li&gt;IPv6&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;路由协议&lt;/li&gt;
+&lt;li&gt;互联网控制报文协议&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在述说网际协议时，有讲一个核心协议IPv4，那么我们说一下IPv4的报文格式
+如图所示：
+&lt;img src=&#34;https://news-epoch.github.io/images/1681747250769.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;报文字段&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;长度&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;作用&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;版本号&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;4位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;IPv4、IPv6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;首部长度&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;4位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;区分服务&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;8位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;在旧标准种称为服务类型(Type Of Service,TOS)字段，用来指定期望获得哪种类型的服务。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数据长度&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;16位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;指出IP数据报的总字节数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;生存时间&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;8位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;标识IP数据报在网络中可以通过路由器数(或跳步数)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;上层协议&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;8位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;指出该IP数据报封装的哪个上层协议，TCP/6，UDP/17&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;首部校验和&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;16位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;利用校验和实现对IP数据报首部的差错检测&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;源IP地址&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;32位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;目的IP地址&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;32位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;选项&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;长度可变&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数据&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;标识&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;16位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;标识一个IP数据报&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;标志&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;DF(Don&amp;rsquo;t Fragment禁止分片标志)/DM(More Fragment,更多分片标志) ，MF=0表示未分片或者是最后一片&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;片偏移量&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;8B&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;表示一个  IP数据报分片与原IP数据报数据的相对偏移量，当该字段为0时，且MF=1，则表示这是第一个分片&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;由于数据链路层可以传输的数据大小有限，那么就需要将IP数据报进行分片。其中传输层的最大传输单元(MTU)&lt;/p&gt;
+&lt;p&gt;现在讲解一下IP地址的编址
+4个字节组成IP地址，并且对IP地址进行划分&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;地址级别&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;前缀长度&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;首字节&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;作用&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;A类&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;8位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0-127&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;标识服务器或路由器&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;B类&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;16位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;128-191&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;标识服务器或路由器&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;C类&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;24位&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;192-223&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;标识服务器或路由器&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;D类&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;不可用&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;224-239&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;组广播地址&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;E类&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;不可用&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;240-255&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;地址保留&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;41-ipv4编址&#34;&gt;4.1 IPv4编址
+&lt;/h3&gt;&lt;p&gt;我们通过子网掩码进行规划整个网段的机器数量
+并且我们还可以把较大的子网在划分成多个小子网，这个操作称为&lt;strong&gt;子网化&lt;/strong&gt;
+将多个小的子网合并成一个大的子网，这个操作统称为&lt;strong&gt;超网化&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;当我们得知主机IP地址，如何得到子网地址和广播地址呢？
+子网掩码和主机地址按位做&lt;strong&gt;与运算&lt;/strong&gt;就可以得到&lt;strong&gt;子网地址&lt;/strong&gt;。
+子网掩码的&lt;strong&gt;反码&lt;/strong&gt;和主机地址按位做&lt;strong&gt;或运算&lt;/strong&gt;就可以得到&lt;strong&gt;直接广播地址&lt;/strong&gt;
+然后在计算具体的可分配的地址数量时，可根据掩码进行计算，例如掩码26位，所以可分配的主机地址为：2的(32-26)次方-2，其中这个-2是由于要&lt;strong&gt;扣除子网地址和直接广播地址&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;那么由于路由器有&lt;strong&gt;路由选择功能&lt;/strong&gt;，那么如何让路由表不臃肿呢？这时候就要用到&lt;strong&gt;路由聚合&lt;/strong&gt;的功能，它可以将同网段的子网聚合成一个大的子网，即&lt;strong&gt;超网化&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;那么如果我们存在一个新的终端，没有配置IP地址如何做到通信呢？
+这时候就要用上&lt;a class=&#34;link&#34; href=&#34;DHCP.md&#34; &gt;动态主机配置协议&lt;/a&gt;了&lt;/p&gt;
+&lt;h3 id=&#34;42-差错控制报文&#34;&gt;4.2 差错控制报文
+&lt;/h3&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;ICMP.md&#34; &gt;差错控制报文&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://news-epoch.github.io/images/1681833644028.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;ICMP报文可以分成两种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;差错报告报文
+&lt;ol&gt;
+&lt;li&gt;终点不可达&lt;/li&gt;
+&lt;li&gt;源点抑制&lt;/li&gt;
+&lt;li&gt;时间超时&lt;/li&gt;
+&lt;li&gt;参数问题&lt;/li&gt;
+&lt;li&gt;路由重定向&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;询问报文
+&lt;ol&gt;
+&lt;li&gt;回声请求/应答&lt;/li&gt;
+&lt;li&gt;时间戳请求/应答&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;43-ipv6&#34;&gt;4.3 IPv6
+&lt;/h3&gt;&lt;p&gt;IPv6由128位组成，其中可分为：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;单播地址：源和目的&lt;/li&gt;
+&lt;li&gt;组播地址：目的&lt;/li&gt;
+&lt;li&gt;任播地址：目的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;并且当存在8000:0000:0000:0000:4321:0000:0000:56CD ，可用8000::4321:0000:000056CD表示，每个IPv6地址有且仅有一个&lt;code&gt;::&lt;/code&gt;符号&lt;/p&gt;
+&lt;p&gt;在IPv6的数据传输中，万一出现中间路段是由IPv4组成的路段这时就要用上&lt;strong&gt;隧道&lt;/strong&gt;技术，用来很好的解决IPv6通信中经过IPv4路由器的问题，并且也不会出现信息丢失的问题。&lt;/p&gt;
+&lt;h3 id=&#34;44-路由选择算法与路由协议&#34;&gt;4.4 路由选择算法与路由协议
+&lt;/h3&gt;&lt;p&gt;我们先讲解基础算法，并进行分类&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;全局式路由选择算法
+&lt;ol&gt;
+&lt;li&gt;全局式路由选择算法：链路状态路由选择算法LS&lt;/li&gt;
+&lt;li&gt;分布式路由选择算法：距离向量路由选择算法DV&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;静动态路由算法
+&lt;ol&gt;
+&lt;li&gt;动态路由算法：LS和DV都是动态路由算法&lt;/li&gt;
+&lt;li&gt;静态路由算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;是否敏感&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;说明了基础算法，那么现在说说网络组网的一些问题，一般来说一个大型的网络只靠单一的路由算法是无法很好的发挥性能的，这是我们就需要将一个大型网络划分成一个个小型的网络，即&lt;strong&gt;自治系统(autonomous system AS)&lt;/strong&gt;，所以一个网络是由一个个自治系统互联组成的。而我们根据在自治系统&lt;strong&gt;内外&lt;/strong&gt;运行的协议进一步划分，
+我们将在&lt;strong&gt;自治系统内&lt;/strong&gt;运行的协议统称为&lt;strong&gt;IGP(Interior Gateway Protocol,内部网关协议)&lt;/strong&gt;，在&lt;strong&gt;自治系统外&lt;/strong&gt;运行的路由协议额统称为&lt;strong&gt;EGP(Exterior Gateway Protocol,外部网关协议)&lt;/strong&gt;。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;IGP
+&lt;ol&gt;
+&lt;li&gt;RIP:通常运行在较小的AS中&lt;/li&gt;
+&lt;li&gt;OSPF:运行在较大的AS中&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;EGP
+&lt;ol&gt;
+&lt;li&gt;BGP:运行在自制系统间的路由协议，主要作用交换域间路由协议；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;441-rip协议&#34;&gt;4.4.1 RIP协议
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;基于距离矢量算法（Bellham-Ford）（DistanceVectorAlgorithms），使用“跳数”(即metric)来衡量到达目标地址的路由距离。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;442-ospf协议&#34;&gt;4.4.2 OSPF协议
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;目前使用较多的路由协议&lt;strong&gt;OSPF（Open Shortest Path First，开放最短路径优先）&lt;/strong&gt;,是IETF（Internet Engineering Task Force，互联网工程任务组）组织开发的一个基于&lt;strong&gt;链路状态路由选择算法&lt;/strong&gt;的自治系统内部网关协议，OSPF直接工作在ip层之上。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;数据链路层&#34;&gt;数据链路层
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;作用：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;网络中两个结点之间的物理通道/逻辑通道，在物理网络适配器链路之上，基于通信协议来控制&lt;strong&gt;数据帧&lt;/strong&gt;传输的逻辑数据通路，实现数据链路层协议的典型硬件实体是:(NIC,网卡)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;他提供的服务：
+&lt;ol&gt;
+&lt;li&gt;组帧(成帧)&lt;/li&gt;
+&lt;li&gt;链路接入&lt;/li&gt;
+&lt;li&gt;可靠交付&lt;/li&gt;
+&lt;li&gt;差错控制
+&lt;ol&gt;
+&lt;li&gt;检错重发&lt;/li&gt;
+&lt;li&gt;前向纠错&lt;/li&gt;
+&lt;li&gt;反馈校验&lt;/li&gt;
+&lt;li&gt;纠错丢弃&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;1-差错控制&#34;&gt;1 差错控制
+&lt;/h2&gt;&lt;p&gt;差错控制的基本方式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;检错重发：重发数据加以纠正&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前向纠错：检错、定位、纠正&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;反馈校验：数据返回。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检错丢弃：适用于实时性较高的系统。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;差错编码的基本原理：在待传输的信息基础上，附加一定的冗余信息。&lt;/p&gt;
+&lt;p&gt;不同的差错编码的检错和纠正能力是通过什么凸显不同的？跟&lt;strong&gt;编码集&lt;/strong&gt;的&lt;strong&gt;汉明距离&lt;/strong&gt;有关。&lt;/p&gt;
+&lt;p&gt;汉明距离：两个码字之间不同的字符的个数。&lt;/p&gt;
+&lt;p&gt;编码集：差错编码的所有有效码字的集合。&lt;/p&gt;
+&lt;p&gt;编码集的汉明距离：是指编码集中任意两个码字之间汉明距离的最小值。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;检错编码&lt;/strong&gt;：编码集的汉明距离Ds=r+1，则该差错编码可以检错r位的差错。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;纠错编码&lt;/strong&gt;：编码集的汉明距离Ds=2r+1,则该差错编码可以检错r位的差错。&lt;/p&gt;
+&lt;p&gt;几种典型的差错编码：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;奇偶校验码：&lt;strong&gt;奇校验码&lt;/strong&gt;是当&lt;strong&gt;编码中&lt;/strong&gt;的&lt;strong&gt;1&lt;/strong&gt;为&lt;strong&gt;奇数&lt;/strong&gt;时，&lt;strong&gt;编码后&lt;/strong&gt;的码字为1，反之亦然。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;循环冗余码&lt;/strong&gt;( Redundancy Check,&lt;strong&gt;CRC码&lt;/strong&gt;)：将二进制位串看成系数为0或1的多项式的系数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;循环冗余码的计算方式&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;假设CRC编码采用的多项式G(X)=X4+x+1,请为位串10111001进行CRC编码。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;写出多项式对应的位串：10011&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;5-1的值是需要在待编码位串后面添加0的个数：添加4个0，10111001&amp;mdash;&amp;ndash;&amp;gt;101110010000&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用得到的新的待编码位串除以多项式对应的比特串。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用求得的余数放到位串后面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;接收端如何判断是否有错&lt;/p&gt;
+&lt;p&gt;用收到的串&lt;strong&gt;除以&lt;/strong&gt;多项式对应的比特串。余数为&lt;strong&gt;0&lt;/strong&gt;，无错，反之亦然。&lt;/p&gt;
+&lt;h2 id=&#34;2-多路访问控制协议&#34;&gt;2 多路访问控制协议
+&lt;/h2&gt;&lt;p&gt;数据链路层使用几种信道：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;点对点信道，一对一通信方式，信道被双方共享&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;广播信道，一对多通信方式，信道上连接的点很多，其中代表协议有&lt;strong&gt;多路访问控制（Multiple Access Control,MAC）&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;那么什么是&lt;strong&gt;多路访问控制&lt;/strong&gt;：
+采用一定的措施，使得&lt;strong&gt;结点间的通信&lt;/strong&gt;不会&lt;strong&gt;发生干扰&lt;/strong&gt;的情况，解决信道的&lt;strong&gt;共享&lt;/strong&gt;问题。&lt;/p&gt;
+&lt;p&gt;多路访问控制又分为：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;信道划分MAC协议&lt;/strong&gt;：利用多路复用技术实现信道共享的MAC协议。
+&lt;ol&gt;
+&lt;li&gt;频分多路复用（FDM）&lt;/li&gt;
+&lt;li&gt;时分多路复用&lt;/li&gt;
+&lt;li&gt;波分多路复用&lt;/li&gt;
+&lt;li&gt;码分多路复用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;随机访问MAC协议&lt;/strong&gt;：所有用户都可以根据自己的意愿随机地向信道上发送信息。，当产生冲突或碰撞时，每个用户随机退让一段时间后，再次尝试，直至成功。
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;纯ALOHA&lt;/strong&gt;：最早最基本的无线数据通信协议，任何一个站点有数据发送时就可以直接发送至信道。发送数据后对信道进行侦听。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时隙ALOHA&lt;/strong&gt;：把信道时间划分为离散的时隙，每个时隙为发送一帧所需的时间，每个通信站点只能在每个时隙开始发送帧。如果在一个时隙内发送帧出现冲突，下一个时隙以概率p重发该帧，知道帧发送成功。p不能为1，否则会出现死锁。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;载波监听多路访问协议&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;非坚持CSMA&lt;/li&gt;
+&lt;li&gt;坚持CSMA&lt;/li&gt;
+&lt;li&gt;P-坚持CSMA&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;带冲突检测的载波监听多路访问协议（CSMA/CD）&lt;/strong&gt; :通信站使用CSMA协议进行数据发送，在发送期间如果能够检测到碰撞，立即终止发送，并发出一个冲突强化信号，使所有通信站点都知道冲突的发生，然后等待一个随机时间，再重复上述过程。工作状态分为三种：传输周期、竞争周期、空间周期。并且信道也有3种状态：传输状态、竞争状态、空闲状态。在使用CSMA/CD协议实现多路访问控制时，需要满足下列约束关系：数据帧最小长度/信息传输速率 ≥ 两通信站之间的最远距离/信号传播速度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;受控接入MAC协议&lt;/strong&gt;：各个用户不能随意接入信道，必须服从控制
+&lt;ol&gt;
+&lt;li&gt;集中控制式：系统有个主机负责调度其他通信站接入信道，从而避免冲突。方法 轮询。&lt;/li&gt;
+&lt;li&gt;分散控制式：方法是令牌技术。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
