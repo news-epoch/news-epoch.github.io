@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Links: Title: Obsidian插件-202207171839\nkanban 创建todo任务，让项目流程化\nquickadd 设置多个动作一键完成插件 参考文档：https://sspai.com/post/69375\n">
+<title>Obsidian插件-202207171839</title>
+
+<link rel='canonical' href='https://news-epoch.github.io/p/obsidian%E6%8F%92%E4%BB%B6-202207171839/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Obsidian插件-202207171839">
+<meta property='og:description' content="Links: Title: Obsidian插件-202207171839\nkanban 创建todo任务，让项目流程化\nquickadd 设置多个动作一键完成插件 参考文档：https://sspai.com/post/69375\n">
+<meta property='og:url' content='https://news-epoch.github.io/p/obsidian%E6%8F%92%E4%BB%B6-202207171839/'>
+<meta property='og:site_name' content='卫大人的杂乱博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='zk-todo' /><meta property='article:tag' content='效率/工具' />
+<meta name="twitter:title" content="Obsidian插件-202207171839">
+<meta name="twitter:description" content="Links: Title: Obsidian插件-202207171839\nkanban 创建todo任务，让项目流程化\nquickadd 设置多个动作一键完成插件 参考文档：https://sspai.com/post/69375\n">
+    <link rel="shortcut icon" href="/%e6%83%b3%e6%b3%95.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu4043572482303308672.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">卫大人的杂乱博客</a></h1>
+            <h2 class="site-description">哟，你来学习了！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/news-epoch/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/obsidian%E6%8F%92%E4%BB%B6-202207171839/">Obsidian插件-202207171839</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Links:
+Title:  Obsidian插件-202207171839</p>
+<h1 id="kanban">kanban
+</h1><blockquote>
+<p>创建todo任务，让项目流程化</p>
+</blockquote>
+<h1 id="quickadd">quickadd
+</h1><blockquote>
+<p>设置多个动作一键完成插件
+参考文档：https://sspai.com/post/69375</p>
+</blockquote>
+<h1 id="templater">Templater
+</h1><blockquote>
+<p>设置模板功能，且支持自定义语言，方便<strong>检索</strong>和快速创建</p>
+</blockquote>
+<h1 id="excalidraw">Excalidraw
+</h1><blockquote>
+<p>画板功能，支持自己进行画图。</p>
+</blockquote>
+<p><a class="link" href="https://libraries.excalidraw.com/?target=_blank&amp;referrer=app%3A%2F%2Fobsidian.md&amp;useHash=true&amp;token=Y9wcCRD5UP9lpQI9f3htn&amp;theme=light&amp;version=2&amp;sort=default"  target="_blank" rel="noopener"
+    >Excalidraw Libraries(分享的建模库)</a></p>
+<h1 id="dataviews">dataviews
+</h1><blockquote>
+<p>强大的搜索软件</p>
+</blockquote>
+<ul>
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/373623264"  target="_blank" rel="noopener"
+    >Obsidian 插件之 Dataview - Boninall的文章 - 知乎</a></li>
+</ul>
+<h1 id="admonitation">Admonitation
+</h1><blockquote>
+<p>用来方便制作展示卡片类型的模板样式和</p>
+</blockquote>
+<h1 id="advanced-tables">Advanced Tables
+</h1><blockquote>
+<p>快速创建表格</p>
+</blockquote>
+<h1 id="hover-editor">Hover Editor
+</h1><blockquote>
+<p>悬浮笔记,只能用于当前软件的悬浮</p>
+</blockquote>
+<h1 id="markdown-pretiffier">markdown Pretiffier
+</h1><blockquote>
+<p>md格式辅助插件可以通过快捷键自动生成更新日期和更新ymal模板</p>
+</blockquote>
+<p>%%# booknote</p>
+<blockquote>
+<p>pdf查看和标注插件%%</p>
+</blockquote>
+<h1 id="core-search-assistant">Core Search Assistant
+</h1><blockquote>
+<p>搜索时，以平铺卡片界面进行展示</p>
+</blockquote>
+<h1 id="style-settings">Style Settings
+</h1><blockquote>
+<p>修改主题样式的</p>
+</blockquote>
+<h1 id="electron-window-tweaker">Electron Window Tweaker
+</h1><blockquote>
+<p>设置置顶窗口</p>
+</blockquote>
+<h1 id="global-hotkeys-for-obsidian">Global Hotkeys for Obsidian
+</h1><h1 id="cmenuzh增强编辑">cMenu&amp;&amp;ZH增强编辑
+</h1><blockquote>
+<p>它会给你带来word文档编辑般的丝滑体验</p>
+</blockquote>
+<h1 id="obsidian-linter">obsidian-linter
+</h1><blockquote>
+<p>自动更新yaml日期插件</p>
+</blockquote>
+<h1 id="force-note-view-mode">force note view mode
+</h1><blockquote>
+<p>通过yaml设置文档默认打开是预览还是编辑模式</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//始终以阅读（/预览）模式打开笔记。
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">aliases: null
+</span></span><span class="line"><span class="cl">Tags:
+</span></span><span class="line"><span class="cl">  - zk-todo
+</span></span><span class="line"><span class="cl">  - 效率/工具
+</span></span><span class="line"><span class="cl">type: note
+</span></span><span class="line"><span class="cl">createDate: 2022-07-17 18:39:00
+</span></span><span class="line"><span class="cl">update: 2022/08/07 17:04
+</span></span><span class="line"><span class="cl">title: Obsidian插件-202207171839
+</span></span><span class="line"><span class="cl">folder: Obsidian插件-202207171839/index
+</span></span><span class="line"><span class="cl">share: True
+</span></span><span class="line"><span class="cl">draft: False
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">//强制笔记在“实时预览”编辑模式下打开。
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">aliases: null
+</span></span><span class="line"><span class="cl">Tags:
+</span></span><span class="line"><span class="cl">  - zk-todo
+</span></span><span class="line"><span class="cl">  - 效率/工具
+</span></span><span class="line"><span class="cl">type: note
+</span></span><span class="line"><span class="cl">createDate: 2022-07-17 18:39:00
+</span></span><span class="line"><span class="cl">update: 2022/08/07 17:04
+</span></span><span class="line"><span class="cl">title: Obsidian插件-202207171839
+</span></span><span class="line"><span class="cl">folder: Obsidian插件-202207171839/index
+</span></span><span class="line"><span class="cl">share: True
+</span></span><span class="line"><span class="cl">draft: False
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="buttons">Buttons
+</h1><blockquote>
+<p>配置按钮文件
+<img src="/images/Pasted%20image%2020230718144826.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</blockquote>
+<h1 id="omnisearch">Omnisearch
+</h1><ul>
+<li>键盘优先：您永远不必使用鼠标</li>
+<li>类似于“快速切换器”插件的工作流程</li>
+<li>抗错别字</li>
+<li>在保险柜和文件内搜索之间切换，以在单个笔记中快速浏览多个结果</li>
+<li>支持和<code>&quot;expressions in quotes&quot;``-exclusions</code></li>
+<li>直接从搜索结果中插入 a<code>[[link]]</code></li>
+</ul>
+<h1 id="number-heading">Number Heading
+</h1><p>Number headings 可以根据标题自动实现编号，目前支持数字、字母和罗马数字编号。</p>
+<h1 id="media-extendedextended-bilibili-plugin">Media Extended&amp;Extended BiliBili Plugin
+</h1><p>可以将视频嵌入笔记，让你可以边看视频，边做笔记，配合思维导图插件，可以生成思维导图，是不是很方便、很牛啤！</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/zk-todo/">Zk-Todo</a>
+        
+            <a href="/tags/%E6%95%88%E7%8E%87/%E5%B7%A5%E5%85%B7/">效率/工具</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/obsidian%E4%BD%BF%E7%94%A8%E5%90%88%E9%9B%86-202302070013/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Obsidian使用合集-202302070013</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 游手好闲的卫大人
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

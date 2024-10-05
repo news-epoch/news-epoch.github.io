@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Error on 卫大人的杂乱博客</title>
+        <link>https://news-epoch.github.io/tags/error/</link>
+        <description>Recent content in Error on 卫大人的杂乱博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>游手好闲的卫大人</copyright><atom:link href="https://news-epoch.github.io/tags/error/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>DockerError-202208091858</title>
+        <link>https://news-epoch.github.io/p/dockererror-202208091858/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/dockererror-202208091858/</guid>
+        <description>&lt;p&gt;Links:
+Title:  DockerError-202208091858&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!error] docker出现systemctl start docker 卡死,运行不动的情况，
+是因为没有关闭firewalk和iptable防火墙。(systemctl stop firewalld)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 各个端口/设置都正确但是外网无法访问容器，主机也只能通过localhost/127.0.0.1 端口号进行访问
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>MybatisError-202209130949</title>
+        <link>https://news-epoch.github.io/p/mybatiserror-202209130949/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/mybatiserror-202209130949/</guid>
+        <description>&lt;p&gt;Links:
+Title:  -202209130949&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: mybatis的&amp;lt;font color=#FF0212&amp;gt;Parameter Maps collection does not contain value for xxx&amp;lt;/font&amp;gt;报错
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;今天做项目的时候之前用mybatis生成好的mapper文件，然后今天在测试的时候报了一个Result Maps collection does not contain value..的错误，一直在比对参数的映射文件，又觉得没问题，最后上网查询然后自己检查后面写的mapper方法，发现有一个地方的参数类型写成**parameterMap**，最后将其改成parameterType就行了
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

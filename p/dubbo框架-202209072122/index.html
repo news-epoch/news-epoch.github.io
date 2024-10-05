@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Links: Dubbo官网\n一、架构的发展 单体架构：适合小程序的开发 垂直架构：SpringMVC就是隶属于垂直架构体系，解决了单体架构的扩容问题，降低了耦合度，但是资源扩展问题依旧存在。 分布式RPC架构：解决了资源扩展问题，将服务部署在多台服务器上，通过注册中心(zookeeper等)进行管理，进一步降低耦合度。 SOA架构：更加细分业务逻辑。 二、Dubbo 是由阿里巴巴通过java语言编写的轻量级，扩展性高，高性能的框架。本质上是一个分布式架构的框架，但是由于springcloud比他性能更优，导致使用群体变少了。\n">
+<title>Dubbo框架-202209072122</title>
+
+<link rel='canonical' href='https://news-epoch.github.io/p/dubbo%E6%A1%86%E6%9E%B6-202209072122/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Dubbo框架-202209072122">
+<meta property='og:description' content="Links: Dubbo官网\n一、架构的发展 单体架构：适合小程序的开发 垂直架构：SpringMVC就是隶属于垂直架构体系，解决了单体架构的扩容问题，降低了耦合度，但是资源扩展问题依旧存在。 分布式RPC架构：解决了资源扩展问题，将服务部署在多台服务器上，通过注册中心(zookeeper等)进行管理，进一步降低耦合度。 SOA架构：更加细分业务逻辑。 二、Dubbo 是由阿里巴巴通过java语言编写的轻量级，扩展性高，高性能的框架。本质上是一个分布式架构的框架，但是由于springcloud比他性能更优，导致使用群体变少了。\n">
+<meta property='og:url' content='https://news-epoch.github.io/p/dubbo%E6%A1%86%E6%9E%B6-202209072122/'>
+<meta property='og:site_name' content='卫大人的杂乱博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='zk-todo' /><meta property='article:tag' content='计算机_程序语言_Java_框架_Dubbo' />
+<meta name="twitter:title" content="Dubbo框架-202209072122">
+<meta name="twitter:description" content="Links: Dubbo官网\n一、架构的发展 单体架构：适合小程序的开发 垂直架构：SpringMVC就是隶属于垂直架构体系，解决了单体架构的扩容问题，降低了耦合度，但是资源扩展问题依旧存在。 分布式RPC架构：解决了资源扩展问题，将服务部署在多台服务器上，通过注册中心(zookeeper等)进行管理，进一步降低耦合度。 SOA架构：更加细分业务逻辑。 二、Dubbo 是由阿里巴巴通过java语言编写的轻量级，扩展性高，高性能的框架。本质上是一个分布式架构的框架，但是由于springcloud比他性能更优，导致使用群体变少了。\n">
+    <link rel="shortcut icon" href="/%e6%83%b3%e6%b3%95.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu4043572482303308672.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">卫大人的杂乱博客</a></h1>
+            <h2 class="site-description">哟，你来学习了！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/news-epoch/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-安装">1 安装</a></li>
+    <li><a href="#2-dubbo的相关命令">2 Dubbo的相关命令</a></li>
+    <li><a href="#3-dubbo的相关配置">3 Dubbo的相关配置</a>
+      <ol>
+        <li><a href="#31-协议">3.1 协议</a></li>
+        <li><a href="#32-启动时检查">3.2 启动时检查</a></li>
+        <li><a href="#33-负载均衡">3.3 负载均衡</a></li>
+      </ol>
+    </li>
+    <li><a href="#4-dubbo的管理控制台">4 Dubbo的管理控制台</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/dubbo%E6%A1%86%E6%9E%B6-202209072122/">Dubbo框架-202209072122</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Links: <a class="link" href="http://dubbo.apache.org"  target="_blank" rel="noopener"
+    >Dubbo官网</a></p>
+<h1 id="一架构的发展">一、架构的发展
+</h1><ul>
+<li>单体架构：适合小程序的开发</li>
+<li>垂直架构：SpringMVC就是隶属于垂直架构体系，解决了单体架构的扩容问题，降低了耦合度，但是资源扩展问题依旧存在。</li>
+<li>分布式RPC架构：解决了资源扩展问题，将服务部署在多台服务器上，通过注册中心(zookeeper等)进行管理，进一步降低耦合度。</li>
+<li>SOA架构：更加细分业务逻辑。</li>
+</ul>
+<h1 id="二dubbo">二、Dubbo
+</h1><blockquote>
+<p>是由阿里巴巴通过java语言编写的轻量级，扩展性高，高性能的框架。本质上是一个<strong>分布式架构</strong>的框架，但是由于springcloud比他性能更优，导致使用群体变少了。</p>
+</blockquote>
+<p><img src="/images/Pasted%20image%2020220907213450.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">节点</th>
+          <th style="text-align: left">角色名称</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Provider</td>
+          <td style="text-align: left">暴露服务的服务提供方</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Consumer</td>
+          <td style="text-align: left">调用远程服务的服务消费方</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Registry</td>
+          <td style="text-align: left">服务注册与发现的注册中心</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Monitor</td>
+          <td style="text-align: left">统计服务的调用次数和调用时间的监控中心</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Container</td>
+          <td style="text-align: left">服务运行容器</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>虚线</strong>表示<strong>异步</strong>，<strong>实线</strong>表示<strong>同步</strong>访问。</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">蓝色线：在启动时完成的功能。</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">红色线：在程序运行过程中执行的功能。</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="1-安装">1 安装
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chmod -R <span class="m">777</span> /Data/SoftData/DockerData/zookeeper/conf
+</span></span><span class="line"><span class="cl"><span class="m">2181</span> <span class="m">2888</span> <span class="m">3888</span> 8080（分别是 Zookeeper 客户端端口，主从节点交互信息的端口，选举端口以及 AdminServer 端口）
+</span></span><span class="line"><span class="cl">docker run -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--name zookeeper <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--privileged<span class="o">=</span><span class="nb">true</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 12181:2181  <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /Data/SoftData/DockerData/zookeeper/data:/data <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /Data/SoftData/DockerData/zookeeper/conf:/conf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /Data/SoftData/DockerData/zookeeper/logs:/datalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>zookeeper:latest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2-dubbo的相关命令">2 Dubbo的相关命令
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"></code></pre></td></tr></table>
+</div>
+</div><h2 id="3-dubbo的相关配置">3 Dubbo的相关配置
+</h2><h3 id="31-协议">3.1 协议
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dubbo:protocol</span> <span class="na">name=</span><span class="s">&#34;dubbo&#34;</span> <span class="na">port=</span><span class="s">&#34;20880&#34;</span><span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>一般在<strong>服务提供方</strong>进行配置，可以指定使用的<strong>协议名称</strong>和<strong>端口</strong>。
+其中Dubbo支持的协议有：dubbo、rmi、hessian、http、webservice、rest、redis等
+推荐使用dubbo协议。
+dubbo协议采用的<strong>单一长连接</strong>和<strong>NIO异步通讯</strong>，适合于<strong>小数据量大并发</strong>的服务调用，以及<strong>消费者</strong>机器数<strong>大于</strong>服务<strong>提供者</strong>机器数的情况，不适合传送大数据量的服务，比如传文件，传视频等，除非请求量很低。</p>
+<p>也支持不同服务使用不同协议：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!--多协议配置--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dubbo:protocol</span> <span class="na">name=</span><span class="s">&#34;dubbo&#34;</span> <span class="na">port=</span><span class="s">&#34;20880&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dubbo:protocol</span> <span class="na">name=</span><span class="s">&#34;rmi&#34;</span> <span class="na">port=</span><span class="s">&#34;1099&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--使用dubbo协议暴露服务--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dubbo:service</span> <span class="na">interface=</span><span class="s">&#34;com.cwg.api.helloService&#34;</span> <span class="na">ref=</span><span class="s">&#34;helloService&#34;</span> <span class="na">protocol=</span><span class="s">&#34;dubbo&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--使用rmi协议暴露服务--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dubbo:service</span> <span class="na">interface=</span><span class="s">&#34;com.cwg.api.DemoService&#34;</span> <span class="na">ref=</span><span class="s">&#34;demoService&#34;</span> <span class="na">protocol=</span><span class="s">&#34;rmi&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="32-启动时检查">3.2 启动时检查
+</h3><p>在<strong>生产阶段</strong>时，在启动服务时，会对<strong>消费者</strong>会对提供者进行<strong>检查服务是否可用</strong>，如果不可用会<strong>抛出异常</strong>，<strong>阻止Spring初始化完成</strong>，方便及时发现问题。但是在<strong>开发阶段</strong>建议<strong>将check值设置为false</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dubbo:comsumer</span> <span class="na">check=</span><span class="s">&#34;false&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="33-负载均衡">3.3 负载均衡
+</h3><p>-&gt; <a class="link" href="%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1.md" >负载均衡</a></p>
+<p>配置负载均衡策略，既可以在服务提供者一方配置，也可以在服务消费者一方配置。</p>
+<ol>
+<li>服务消费者配置负载均衡。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@Controller</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/demo&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nd">@Reference</span><span class="p">(</span><span class="n">check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="n">loadbalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;random&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">private</span><span class="w"> </span><span class="n">HelloService</span><span class="w"> </span><span class="n">helloService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/hello&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nd">@RespinseBody</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="n">Sting</span><span class="w"> </span><span class="nf">getName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">helloService</span><span class="p">.</span><span class="na">sayHello</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>服务提供者配置负载均衡</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="p">(</span><span class="n">loadbalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;random&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloServiceImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">HelloService</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4-dubbo的管理控制台">4 Dubbo的管理控制台
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: Dubbo无法发布被事务代理的Service
+</span></span><span class="line"><span class="cl">```Java
+</span></span><span class="line"><span class="cl">&lt;tx:annotation-driven transaction-manager=&#34;transactionManager&#34; proxy-target-class=&#34;true&#34; /&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">@Service(interfaceClass=HelloService.class,protocol = &#34;dubbo&#34;) 
+</span></span><span class="line"><span class="cl">```
+</span></span><span class="line"><span class="cl">proxy-target-class=&#34;true&#34;:开启cglib代理
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: Dubbo和SpringCloud的区别
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1. **通信方式不同**：Dubbo 使用的是 [RPC](RPC.md) 通信，而Spring Cloud 使用的是HTTP RESTFul方式。
+</span></span><span class="line"><span class="cl">2. **组成不一样**：
+</span></span><span class="line"><span class="cl">	1. Dubbo的服务注册中心为Zookeerper，服务监控中心为dubbo-monitor，无消息总线、服务跟踪、批量任务等组件；
+</span></span><span class="line"><span class="cl">	2. SpringCloud的服务注册中心为spring-cloud netflix enruka，服务监控中心为spring-boot admin，有消息总线、数据流、服务跟踪、批量任务等组件；
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: 使用Dubbo调用远程服务的时候，启动日志报错:java.lang.IllegalStateException: No ConfigurableListableBeanFactory set
+</span></span><span class="line"><span class="cl">原因是使用的dubbo版本和spring的版本不支持，通过修改spring版本spring 5.1.5.RELEASE 为 **5.0.5.RELEASE**即可解决。
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/zk-todo/">Zk-Todo</a>
+        
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80_java_%E6%A1%86%E6%9E%B6_dubbo/">计算机_程序语言_Java_框架_Dubbo</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 游手好闲的卫大人
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

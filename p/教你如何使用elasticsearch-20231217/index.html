@@ -1,0 +1,2465 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Links:ElasticSearch官网\n一、简介 1 什么是ElasticSearch ElasticSearch简称es，es是一个开源的高扩展的分布式全文检索引擎，它可以近乎实现实时的存储，检索数据；本身扩展性很好，可以扩展到上百台服务器，处理PB级别的数据，ElasticSearch也是用Java开发并使用Lucene作为其核心来实现所有索引和搜索的功能，但是它的目的是通过简单的Restful API来隐藏Lucene的复杂性，从而让全文搜索变得简单。\n">
+<title>教你如何使用Elasticsearch-20231217</title>
+
+<link rel='canonical' href='https://news-epoch.github.io/p/%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8elasticsearch-20231217/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="教你如何使用Elasticsearch-20231217">
+<meta property='og:description' content="Links:ElasticSearch官网\n一、简介 1 什么是ElasticSearch ElasticSearch简称es，es是一个开源的高扩展的分布式全文检索引擎，它可以近乎实现实时的存储，检索数据；本身扩展性很好，可以扩展到上百台服务器，处理PB级别的数据，ElasticSearch也是用Java开发并使用Lucene作为其核心来实现所有索引和搜索的功能，但是它的目的是通过简单的Restful API来隐藏Lucene的复杂性，从而让全文搜索变得简单。\n">
+<meta property='og:url' content='https://news-epoch.github.io/p/%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8elasticsearch-20231217/'>
+<meta property='og:site_name' content='卫大人的杂乱博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='计算机_程序语言_Java' />
+<meta name="twitter:title" content="教你如何使用Elasticsearch-20231217">
+<meta name="twitter:description" content="Links:ElasticSearch官网\n一、简介 1 什么是ElasticSearch ElasticSearch简称es，es是一个开源的高扩展的分布式全文检索引擎，它可以近乎实现实时的存储，检索数据；本身扩展性很好，可以扩展到上百台服务器，处理PB级别的数据，ElasticSearch也是用Java开发并使用Lucene作为其核心来实现所有索引和搜索的功能，但是它的目的是通过简单的Restful API来隐藏Lucene的复杂性，从而让全文搜索变得简单。\n">
+    <link rel="shortcut icon" href="/%e6%83%b3%e6%b3%95.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu4043572482303308672.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">卫大人的杂乱博客</a></h1>
+            <h2 class="site-description">哟，你来学习了！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/news-epoch/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-什么是elasticsearch">1 什么是ElasticSearch</a></li>
+    <li><a href="#2-elasticsearch的使用案例">2 ElasticSearch的使用案例</a></li>
+    <li><a href="#3-elasticsearch对比solr">3 ElasticSearch对比Solr</a></li>
+    <li><a href="#4-为什么不使用mysqloracle实现搜索功能">4 为什么不使用Mysql、Oracle实现搜索功能？</a></li>
+    <li><a href="#5-elasticsearch如何存储数据的呢">5 ElasticSearch如何存储数据的呢？</a>
+      <ol>
+        <li><a href="#51-index-索引索引库">5.1 index 索引（索引库）</a></li>
+        <li><a href="#52-type类型">5.2 type类型</a></li>
+        <li><a href="#53-document文档">5.3 document：文档</a></li>
+        <li><a href="#54-field-字段">5.4 Field 字段</a></li>
+        <li><a href="#55-shard分片">5.5 shard：分片</a></li>
+        <li><a href="#56-replica副本">5.6 replica：副本</a></li>
+        <li><a href="#57-总结">5.7 总结</a></li>
+      </ol>
+    </li>
+    <li><a href="#6-es的数据类型">6 ES的数据类型</a>
+      <ol>
+        <li><a href="#61-元字段">6.1 元字段</a></li>
+        <li><a href="#62-es字符串类型">6.2 ES字符串类型</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#1-docker安装">1 Docker安装</a></li>
+    <li><a href="#2-kibana安装">2 Kibana安装</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#1-索引-index">1 索引 index</a></li>
+    <li><a href="#2-文档-document">2 文档 document</a>
+      <ol>
+        <li><a href="#21-创建文档">2.1 创建文档</a></li>
+        <li><a href="#22-修改文档">2.2 修改文档</a></li>
+        <li><a href="#23-删除文档">2.3 删除文档</a></li>
+        <li><a href="#24-查询文档">2.4 查询文档</a></li>
+        <li><a href="#25-查询返回结果各字段含义">2.5 查询返回结果各字段含义</a></li>
+      </ol>
+    </li>
+    <li><a href="#3-接近实时-nrt">3 接近实时 NRT</a></li>
+    <li><a href="#4-分片和复制-shardsreplicas">4 分片和复制 shards&amp;replicas</a></li>
+    <li><a href="#5-ik分词器">5 IK分词器</a>
+      <ol>
+        <li><a href="#51-简介">5.1 简介</a></li>
+        <li><a href="#52-安装">5.2 安装</a></li>
+        <li><a href="#53-简单使用">5.3 简单使用</a></li>
+        <li><a href="#54-自定义分词">5.4 自定义分词</a></li>
+        <li><a href="#55-自定义停用词汇">5.5 自定义停用词汇</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#1-简介">1 简介</a>
+      <ol>
+        <li><a href="#11-版本对应">1.1 版本对应</a></li>
+      </ol>
+    </li>
+    <li><a href="#2-简单代码实现">2 简单代码实现</a>
+      <ol>
+        <li><a href="#21-配置依赖">2.1 配置依赖</a></li>
+        <li><a href="#22-配置pojo类">2.2 配置pojo类</a></li>
+        <li><a href="#23-简单查询">2.3 简单查询</a>
+          <ol>
+            <li><a href="#231-简介">2.3.1 简介</a></li>
+            <li><a href="#232-配置dao类">2.3.2 配置dao类</a></li>
+            <li><a href="#233-配置服务类">2.3.3 配置服务类</a></li>
+          </ol>
+        </li>
+        <li><a href="#24-复杂查询">2.4 复杂查询</a>
+          <ol>
+            <li><a href="#241-querybuilders基本查询">2.4.1 QueryBuilders基本查询</a></li>
+          </ol>
+        </li>
+        <li><a href="#25-配置前端控制器">2.5 配置前端控制器</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8elasticsearch-20231217/">教你如何使用Elasticsearch-20231217</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 18 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Links:<a class="link" href="https://www.elastic.co/products/elasticsearch"  target="_blank" rel="noopener"
+    >ElasticSearch官网</a></p>
+<h1 id="一简介">一、简介
+</h1><h2 id="1-什么是elasticsearch">1 什么是ElasticSearch
+</h2><blockquote>
+<p>ElasticSearch简称es，es是一个开源的高扩展的分布式全文检索引擎，它可以近乎实现实时的存储，检索数据；本身扩展性很好，可以扩展到上百台服务器，处理<strong>PB级别</strong>的数据，ElasticSearch也是用Java开发并<strong>使用Lucene</strong>作为其<strong>核心</strong>来实现所有索引和搜索的功能，但是它的目的是通过简单的Restful API来隐藏Lucene的复杂性，从而让全文搜索变得简单。</p>
+</blockquote>
+<h2 id="2-elasticsearch的使用案例">2 ElasticSearch的使用案例
+</h2><ul>
+<li>2013年初，GitHub抛弃了Solr，采取了ElasticSearch来做PB级的搜索，“GitHub使用ElasticSearch”搜索20TB的数据，包括13亿文件和1300亿行代码。</li>
+<li>维基百科，启动以ElasticSearch为基础的核心搜索架构</li>
+<li>新浪使用ES分析处理32亿实时日志</li>
+<li>阿里使用ES构建挖掘自己的日志采集和分析体系。</li>
+</ul>
+<h2 id="3-elasticsearch对比solr">3 ElasticSearch对比Solr
+</h2><p>Solr利用Zookeeper 进行分布式管理，而<strong>Elasticsearch 自身带有分布式</strong>协调管理功能:
+<strong>Solr支持更多格式</strong>的数据，而 <strong>Elasticsearch仅支持json</strong>文件格式;
+Solr官方提供的功能更多，而 Elasticsearch 本身更注重于核心功能，高级功能多有第三方插件提供;
+<strong>Solr在传统的搜索应用</strong>中表现<strong>好于 Elasticsearch</strong>，但在<strong>处理实时搜索</strong>应用时<strong>效率明显低于Elasticsearch</strong>。</p>
+<h2 id="4-为什么不使用mysqloracle实现搜索功能">4 为什么不使用Mysql、Oracle实现搜索功能？
+</h2><p>我们用搜索“牙膏”商品为例：
+<img src="/images/Pasted%20image%2020240717004148.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="5-elasticsearch如何存储数据的呢">5 ElasticSearch如何存储数据的呢？
+</h2><h3 id="51-index-索引索引库">5.1 index 索引（索引库）
+</h3><p>我们为什么使用ES？<strong>因为想把数据存进去，然后再查询出来</strong>。</p>
+<p>我们在使用Mysql或者Oracle的时候，为了区分数据，我们会建立不同的数据库，库下面还有表的。</p>
+<p>其实ES功能就像一个关系型数据库，在这个数据库我们可以往里面添加数据，查询数据。</p>
+<p>ES中的索引非传统索引的含义，ES中的索引是存放数据的地方，是ES中的一个概念词汇</p>
+<p>index类似于我们Mysql里面的一个数据库 create database user; 好比就是一个索引库</p>
+<h3 id="52-type类型">5.2 type类型
+</h3><p>类型是用来定义数据结构的</p>
+<p>在每一个index下面，可以有一个或者多个type，好比数据库里面的一张表。</p>
+<p>相当于表结构的描述，描述每个字段的类型。</p>
+<h3 id="53-document文档">5.3 document：文档
+</h3><p>文档就是最终的数据了，可以认为一个文档就是一条记录。</p>
+<p>是ES里面最小的数据单元，就好比表里面的一条数据</p>
+<h3 id="54-field-字段">5.4 Field 字段
+</h3><p>好比关系型数据库中列的概念，一个document有一个或者多个field组成。</p>
+<p>例如：</p>
+<p>朝阳区：一个Mysql数据库</p>
+<p>房子：create database chaoyaninfo</p>
+<p>房间：create table people</p>
+<h3 id="55-shard分片">5.5 shard：分片
+</h3><p>一台服务器，无法存储大量的数据，ES把一个index里面的数据，分为多个shard，分布式的存储在各个服务器上面。</p>
+<p>kafka：为什么支持分布式的功能，因为里面是有topic，支持分区的概念。所以topic A可以存在不同的节点上面。就可以支持海量数据和高并发，提升性能和吞吐量</p>
+<h3 id="56-replica副本">5.6 replica：副本
+</h3><p>一个分布式的集群，难免会有一台或者多台服务器宕机，如果我们没有副本这个概念。就会造成我们的shard发生故障，无法提供正常服务。</p>
+<p>我们为了保证数据的安全，我们引入了replica的概念，跟hdfs里面的概念是一个意思。</p>
+<p>可以保证我们数据的安全。</p>
+<p>在ES集群中，我们一模一样的数据有多份，能正常提供查询和插入的分片我们叫做 primary shard，其余的我们就管他们叫做 replica shard（备份的分片）</p>
+<p>当我们去查询数据的时候，我们数据是有备份的，它会同时发出命令让我们有数据的机器去查询结果，最后谁的查询结果快，我们就要谁的数据（这个不需要我们去控制，它内部就自己控制了）</p>
+<h3 id="57-总结">5.7 总结
+</h3><p>在默认情况下，我们创建一个库的时候，<strong>默认</strong>会帮我们<strong>创建5个主分片</strong>（primary shrad）和<strong>5个副分片</strong>（replica shard），所以说<strong>正常情况下是有10个分片的</strong>。
+<strong>同一个节点</strong>上面，<strong>副本</strong>和<strong>主分片</strong>是一定<strong>不会在一台机器</strong>上面的，就是拥有相同数据的分片，是不会在同一个节点上面的。</p>
+<p>所以<strong>当你有一个节点</strong>的时候，这个分片是<strong>不会把副本</strong>存在这仅有的一个节点上的，当你新加入了一台节点，ES会<strong>自动</strong>的给你在新机器上创建一个之前<strong>分片的副本</strong>。
+<img src="/images/Pasted%20image%2020240717004803.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="6-es的数据类型">6 ES的数据类型
+</h2><h3 id="61-元字段">6.1 元字段
+</h3><blockquote>
+<p>不需要用户定义，在任一文档中都存在， 如_id、 _index、 _type 等</p>
+</blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">序号</th>
+          <th style="text-align: left">名称</th>
+          <th style="text-align: left">是否索引</th>
+          <th style="text-align: left">是否存储</th>
+          <th style="text-align: left">说明</th>
+          <th style="text-align: left">大类</th>
+          <th style="text-align: left"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">_id</td>
+          <td style="text-align: left">是</td>
+          <td style="text-align: left">是</td>
+          <td style="text-align: left">文档ID， 在映射类型内唯一</td>
+          <td style="text-align: left">标识</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">_index</td>
+          <td style="text-align: left">否</td>
+          <td style="text-align: left">否</td>
+          <td style="text-align: left">文档所属索引</td>
+          <td style="text-align: left">标识</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left">_type</td>
+          <td style="text-align: left">是</td>
+          <td style="text-align: left">否</td>
+          <td style="text-align: left">文档所属映射类型</td>
+          <td style="text-align: left">标识</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">_uid</td>
+          <td style="text-align: left">||在索引内唯一， 由映射类型和ID共同组成， 格式为{type}#{id}， 在6.0版本已废除</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">标识</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5</td>
+          <td style="text-align: left">_source</td>
+          <td style="text-align: left">否</td>
+          <td style="text-align: left">是</td>
+          <td style="text-align: left">原始JSON文档</td>
+          <td style="text-align: left">源文档</td>
+          <td style="text-align: left">标识</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">6</td>
+          <td style="text-align: left">_size</td>
+          <td style="text-align: left">是</td>
+          <td style="text-align: left">是</td>
+          <td style="text-align: left">_source 的字节数， 需要安装mapper-size插件</td>
+          <td style="text-align: left">索引</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">7</td>
+          <td style="text-align: left">_all</td>
+          <td style="text-align: left">是</td>
+          <td style="text-align: left">否</td>
+          <td style="text-align: left">所有字段一起创建索引， 6.0版本废止</td>
+          <td style="text-align: left">索引</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">8</td>
+          <td style="text-align: left">_field_names</td>
+          <td style="text-align: left">是</td>
+          <td style="text-align: left">否</td>
+          <td style="text-align: left">为文档非空字段名创建索引</td>
+          <td style="text-align: left">索引</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">9</td>
+          <td style="text-align: left">_ignored</td>
+          <td style="text-align: left">是</td>
+          <td style="text-align: left">是</td>
+          <td style="text-align: left">为忽略字段创建索引</td>
+          <td style="text-align: left">索引</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">10</td>
+          <td style="text-align: left">_routing</td>
+          <td style="text-align: left">文档到具体分片的路由</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">其他</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">11</td>
+          <td style="text-align: left">_meta</td>
+          <td style="text-align: left">应用相关元信息</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">其他</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="62-es字符串类型">6.2 ES字符串类型
+</h3><blockquote>
+<p>ElasticSearch 5.0以后，string类型有重大变更，移除了<code>string</code>类型，<code>string</code>字段被拆分成两种新的数据类型: <code>text</code>用于全文搜索的,而<code>keyword</code>用于关键词搜索。</p>
+</blockquote>
+<p>ElasticSearch字符串将默认被同时映射成<code>text</code>和<code>keyword</code>类型，将会自动创建下面的动态映射(dynamic mappings):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Json" data-lang="Json"><span class="line"><span class="cl">          <span class="s2">&#34;image&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;text&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;fields&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;keyword&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;keyword&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;ignore_above&#34;</span><span class="p">:</span> <span class="mi">256</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Text：会分词，然后进行索引</p>
+<ul>
+<li>支持模糊、精确查询</li>
+<li><strong>不支持聚合</strong></li>
+</ul>
+<p>keyword：不进行分词，直接索引</p>
+<ul>
+<li>支持模糊、精确查询</li>
+<li><strong>支持聚合</strong></li>
+</ul>
+<h1 id="二安装">二、安装
+</h1><h2 id="1-docker安装">1 Docker安装
+</h2><p>elasticSearch从5.0的版本之后就默认不开启远程连接，程序会直接报错，通过<code>-e &quot;discovery.type=single-node&quot;</code>解决，或者<strong>取消注释</strong><code>/usr/share/elasticsearch/config/elasticsearch.yml</code>的<code>transport.host 0.0.0.0 </code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--name ElasticSearch <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 9200:9200 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 9300:9300 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="s2">&#34;discovery.type=single-node&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>elasticsearch:7.10.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># nofile 是单个进程允许打开的最大文件个数 soft nofile 是软限制</span>
+</span></span><span class="line"><span class="cl">vim /etc/security/limits.conf
+</span></span><span class="line"><span class="cl">*               soft    nofile <span class="m">65536</span>
+</span></span><span class="line"><span class="cl">*               hard    nofile <span class="m">65536</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 追加内容(限制一个进程可以拥有的VMA(虚拟内存区域)的数量)</span>
+</span></span><span class="line"><span class="cl">vim /etc/sysctl.conf   
+</span></span><span class="line"><span class="cl">vm.max_map_count<span class="o">=</span><span class="m">655360</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sysctl -p
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2-kibana安装">2 Kibana安装
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--name kibana <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 5601:5601 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /Data/SoftData/DockerData/kibana/config:/usr/share/kibana/config <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>kibana:7.10.1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改配置文件的ES连接地址
+<img src="/images/1704438791993.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+修改配置文件&ndash;&gt;设置中文
+<code>i18n.locale:&quot;zh-CN&quot;</code></p>
+<h1 id="三现在就让我们开始操作elasticsearch吧">三、现在就让我们开始操作ElasticSearch吧
+</h1><h2 id="1-索引-index">1 索引 index
+</h2><p>一个索引就是一个拥有积分相似特征的文档的集合，比如说，你可以有一个客户数据的索引，另一个产品目录的索引，还有一个订单数据的索引。一个索引由一个名字来表示，必须全部都是小写字母，并且当我们要对对应于这个索引中的文档进行索引、搜索、更新和删除都要用到这个名字，比如，你可以为用户数据定义一个类型，为博客数据定义另一个类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 创建索引</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## PUT 索引名称(小写)</span>
+</span></span><span class="line"><span class="cl">PUT test_index
+</span></span><span class="line"><span class="cl"><span class="c1">## 增加配置</span>
+</span></span><span class="line"><span class="cl">PUT test_index_1
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;aliases&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;test1&#34;</span>:<span class="o">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ES软件不允许修改索引信息(因为ES的数据是依赖于索引的，一旦修改索引，会导致数据重新分配，导致很麻烦。)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除索引</span>
+</span></span><span class="line"><span class="cl">DELETE test_index_1
+</span></span><span class="line"><span class="cl"><span class="c1"># HEAD 索引（判断索引是否存在）,HTTP状态码：200，404</span>
+</span></span><span class="line"><span class="cl">head test_index
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查询索引</span>
+</span></span><span class="line"><span class="cl">GET test_index_1
+</span></span><span class="line"><span class="cl">GET test1
+</span></span><span class="line"><span class="cl"><span class="c1"># 查询所有索引</span>
+</span></span><span class="line"><span class="cl">GET _cat/indices
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2-文档-document">2 文档 document
+</h2><blockquote>
+<p>文档是ES软件搜索数据的最小单位，不依赖预先定义的模式，所以可以将文档类比为表的一行JSON类型数据。在关系型数据库，要提前定义字段才能使用，而ElasticSearch中，对于字段是非常灵活的，有时候，我们可以忽略该字段，或者动态的添加一个新的字段。</p>
+</blockquote>
+<h3 id="21-创建文档">2.1 创建文档
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 创建文档（索引数据）</span>
+</span></span><span class="line"><span class="cl">PUT test_doc
+</span></span><span class="line"><span class="cl"><span class="c1">## 操作数据,_doc表示告知数据要被操作，使用PUT创建数据时需要有唯一性标识，</span>
+</span></span><span class="line"><span class="cl">PUT test_doc/_doc/1001
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;id&#34;</span>: 1001,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;zhangsan&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;age&#34;</span>: <span class="m">30</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST test_doc/_doc
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;id&#34;</span>: 1002,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;lisi&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;age&#34;</span>: <span class="m">20</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="22-修改文档">2.2 修改文档
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 修改文档数据</span>
+</span></span><span class="line"><span class="cl">PUT test_doc/_doc/1001
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;id&#34;</span>: 10011,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;zhangsan&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;age&#34;</span>: <span class="m">30</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">POST test_doc/_doc/o9pfe4wBT0ChD-0_S82l
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;id&#34;</span>: 10022,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;lisi&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;age&#34;</span>: <span class="m">99</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="23-删除文档">2.3 删除文档
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 删除文档数据 </span>
+</span></span><span class="line"><span class="cl">DELETE test_doc/_doc/1001
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="24-查询文档">2.4 查询文档
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查询文档</span>
+</span></span><span class="line"><span class="cl">GET test_doc/_doc/1001
+</span></span><span class="line"><span class="cl"><span class="c1">## 查询索引中所有文档数据</span>
+</span></span><span class="line"><span class="cl">GET test_doc/_search
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PUT test_doc/_bulk
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;index&#34;</span>:<span class="o">{</span><span class="s2">&#34;_index&#34;</span>:<span class="s2">&#34;test_doc&#34;</span>,<span class="s2">&#34;_id&#34;</span>:<span class="s2">&#34;1001&#34;</span><span class="o">}}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;1001&#34;</span>, <span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;zhang shan&#34;</span>, <span class="s2">&#34;age&#34;</span>: 15<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;index&#34;</span>:<span class="o">{</span><span class="s2">&#34;_index&#34;</span>:<span class="s2">&#34;test_doc&#34;</span>,<span class="s2">&#34;_id&#34;</span>:<span class="s2">&#34;1002&#34;</span><span class="o">}}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;1002&#34;</span>,<span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;li si&#34;</span>,<span class="s2">&#34;age&#34;</span>:16<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;index&#34;</span>:<span class="o">{</span><span class="s2">&#34;_index&#34;</span>:<span class="s2">&#34;test_doc&#34;</span>,<span class="s2">&#34;_id&#34;</span>:<span class="s2">&#34;1003&#34;</span><span class="o">}}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;1003&#34;</span>,<span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;wang wu&#34;</span>,<span class="s2">&#34;age&#34;</span>:16<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;index&#34;</span>:<span class="o">{</span><span class="s2">&#34;_index&#34;</span>:<span class="s2">&#34;test_doc&#34;</span>,<span class="s2">&#34;_id&#34;</span>:<span class="s2">&#34;1004&#34;</span><span class="o">}}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;1004&#34;</span>,<span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;zhangsan&#34;</span>,<span class="s2">&#34;age&#34;</span>:17<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;index&#34;</span>:<span class="o">{</span><span class="s2">&#34;_index&#34;</span>:<span class="s2">&#34;test_doc&#34;</span>,<span class="s2">&#34;_id&#34;</span>:<span class="s2">&#34;1005&#34;</span><span class="o">}}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;1005&#34;</span>,<span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;lisi&#34;</span>,<span class="s2">&#34;age&#34;</span>:19<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;index&#34;</span>:<span class="o">{</span><span class="s2">&#34;_index&#34;</span>:<span class="s2">&#34;test_doc&#34;</span>,<span class="s2">&#34;_id&#34;</span>:<span class="s2">&#34;1006&#34;</span><span class="o">}}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;id&#34;</span>:<span class="s2">&#34;1006&#34;</span>,<span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;wangwu&#34;</span>,<span class="s2">&#34;age&#34;</span>:21<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 查询全部数据</span>
+</span></span><span class="line"><span class="cl">GET test_doc/_search
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;match_all&#34;</span>: <span class="o">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## Match 是分词查询，ES会将数据分词(关键词)保存，关键词以空格分割</span>
+</span></span><span class="line"><span class="cl">GET test_doc/_search
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;match&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;zhang&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## term 是对完整关键词做匹配 查”zhang san“没有数据是因为把 空格也算进去了。</span>
+</span></span><span class="line"><span class="cl">GET test_doc/_search
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;term&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;value&#34;</span>: <span class="s2">&#34;zhang san&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 组合多个条件</span>
+</span></span><span class="line"><span class="cl">GET test_doc/_search
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;bool&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;should&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="o">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;match&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;zhangsan&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;match&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;age&#34;</span>: <span class="m">17</span>
+</span></span><span class="line"><span class="cl">          <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">      <span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 排序后查询</span>
+</span></span><span class="line"><span class="cl">GET test_doc/_search
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;match&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;zhang&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;sort&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;age&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;order&#34;</span>: <span class="s2">&#34;desc&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 分页查询 from=(当前页-1)*size</span>
+</span></span><span class="line"><span class="cl">GET test_doc/_search
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;match_all&#34;</span>: <span class="o">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;from&#34;</span>: 1,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;size&#34;</span>: 2,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;sort&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;age&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;order&#34;</span>: <span class="s2">&#34;desc&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 分组查询</span>
+</span></span><span class="line"><span class="cl">GET test_doc/_search
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;aggs&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;ageGroup&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;terms&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;field&#34;</span>: <span class="s2">&#34;age&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;size&#34;</span>: <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 分组之后再聚合(求和)</span>
+</span></span><span class="line"><span class="cl">GET test_doc/_search
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;aggs&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;ageGroup&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;terms&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;field&#34;</span>: <span class="s2">&#34;age&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;aggs&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;ageSum&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;sum&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;field&#34;</span>: <span class="s2">&#34;age&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">      <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;size&#34;</span>: <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="25-查询返回结果各字段含义">2.5 查询返回结果各字段含义
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">字段名</th>
+          <th style="text-align: left">作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">took</td>
+          <td style="text-align: left">该命令请求花费了多长时间，单位：毫秒。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">timed_out</td>
+          <td style="text-align: left">搜索是否超时。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">shards</td>
+          <td style="text-align: left">搜索分片信息。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">total</td>
+          <td style="text-align: left">搜索分片总数。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">successful</td>
+          <td style="text-align: left">搜索成功的分片数量。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">skipped</td>
+          <td style="text-align: left">没有搜索的分片，跳过的分片。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">failed</td>
+          <td style="text-align: left">搜索失败的分片数量。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">hits</td>
+          <td style="text-align: left">搜索结果集。项目中，我们需要的一切数据都是从hits中获取。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">total</td>
+          <td style="text-align: left">返回多少条数据。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">max_score</td>
+          <td style="text-align: left">返回结果中，最大的匹配度分值。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">hits</td>
+          <td style="text-align: left">搜索结果集。项目中，我们需要的一切数据都是从hits中获取。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">_index</td>
+          <td style="text-align: left">索引库名称。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">_type</td>
+          <td style="text-align: left">类型名称。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">_id</td>
+          <td style="text-align: left">该条数据的id。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">_score</td>
+          <td style="text-align: left">关键字与该条数据的匹配度分值。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">_source</td>
+          <td style="text-align: left">索引库中类型，返回结果字段，不指定的话，默认全部显示出来。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="3-接近实时-nrt">3 接近实时 NRT
+</h2><h2 id="4-分片和复制-shardsreplicas">4 分片和复制 shards&amp;replicas
+</h2><h2 id="5-ik分词器">5 IK分词器
+</h2><h3 id="51-简介">5.1 简介
+</h3><blockquote>
+<p><a class="link" href="https://github.com/medcl/elasticsearch-analysis-ik"  target="_blank" rel="noopener"
+    >Ik分词器插件</a>是一款组件，即把<strong>一段中文</strong>或者别的<strong>划分成一个个的关键字</strong>，我们在搜索时候会把自己的信息进行分词，会把数据库中或者索引库中的数据进行分词，然后进行一个匹配操作，<strong>默认的中文分词是将每个字看成一个词，比如“我爱中国&quot;会被分为&quot;我&quot;“爱”“中”&ldquo;国”</strong>，这显然是不符合要求的，所以我们需要安装中文分词器ik来解决这个问题。
+IK提供了两个分词算法：<strong>ik_smart</strong>和<strong>ik_max_word</strong>，其中ik smart为最少切分，ik_max_word为最细粒度划分!</p>
+<ul>
+<li>ik_max_word: 会将文本做最细粒度的拆分，比如会将&quot;中华人民共和国国歌&quot;拆分为&quot;中华人民共和国,中华人民,中华,华人,人民共和国,人民,人,民,共和国,共和,和,国国,国歌&rdquo;，会穷尽各种可能的组合；</li>
+<li>ik_smart: 会做最粗粒度的拆分，比如会将&quot;中华人民共和国国歌&quot;拆分为&quot;中华人民共和国,国歌&quot;。</li>
+</ul>
+</blockquote>
+<p><font color=#FF0212>注意：IK分词器插件的版本要和ElasticSearch的版本一致</font></p>
+<h3 id="52-安装">5.2 安装
+</h3><p>下载地址：<a class="link" href="https://github.com/medcl/elasticsearch-analysis-ik"  target="_blank" rel="noopener"
+    >Ik分词器插件</a>
+下载完后，解压安装包到 ElasticSearch 所在文件夹中的plugins目录中。
+<img src="/images/1704271386494.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="53-简单使用">5.3 简单使用
+</h3><p><img src="/images/Pasted%20image%2020240103164431.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="54-自定义分词">5.4 自定义分词
+</h3><blockquote>
+<p>修改<code>/usr/share/elasticsearch/plugins/elasticsearch-analysis-ik/config/IKAnalyzer.cfg.xml</code>配置文件，添加自定义分词文件。</p>
+</blockquote>
+<h3 id="55-自定义停用词汇">5.5 自定义停用词汇
+</h3><blockquote>
+<p>修改<code>/usr/share/elasticsearch/plugins/elasticsearch-analysis-ik/config/IKAnalyzer.cfg.xml</code>配置文件，添加自定义停用词汇文件。</p>
+</blockquote>
+<h1 id="四-spring-boot-整合-elasticsearch">四、 Spring Boot 整合 ElasticSearch
+</h1><h2 id="1-简介">1 简介
+</h2><h3 id="11-版本对应">1.1 版本对应
+</h3><blockquote>
+<p>Elasticsearch 对于<strong>版本的兼容性要求很高</strong>，<strong>大版本之间是不兼容</strong>的。</p>
+</blockquote>
+<p>spring-data-elasticsearch与ES、SpringBoot的对应关系如<a class="link" href="https://docs.spring.io/spring-data/elasticsearch/reference/elasticsearch/versions.html"  target="_blank" rel="noopener"
+    >官网</a>
+<img src="/images/Pasted%20image%2020240112175442.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="2-简单代码实现">2 简单代码实现
+</h2><h3 id="21-配置依赖">2.1 配置依赖
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-pom.xml" data-lang="pom.xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!--Spring Data ES 依赖--&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-elasticsearch<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencies&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">18085</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">search  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">data</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">elasticsearch</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">cluster-name</span><span class="p">:</span><span class="w"> </span><span class="l">docker-cluster  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">cluster-nodes</span><span class="p">:</span><span class="w"> </span><span class="m">192.168.1.201</span><span class="p">:</span><span class="m">9301</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="22-配置pojo类">2.2 配置pojo类
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">注解</th>
+          <th style="text-align: left">作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">@Document(indexName = &ldquo;index_blog&rdquo;, type = &ldquo;docs&rdquo;)</td>
+          <td style="text-align: left">指定了es搜索引擎的索引和类型（7.0后不用指定类型）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">@Field(type = FieldType.Text, analyzer = &ldquo;ik_smart&rdquo;,index = true,store = false,searchAnalyzer = &ldquo;ik_smart&rdquo;)</td>
+          <td style="text-align: left">指定字段类型，以及是否存储，还有<strong>分词器类型等；这里注意，在查询时，查询参数分词后是and关系，不是or的关系。</strong></td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.changgou.search.pojo</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">lombok.Data</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.annotation.Id</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.elasticsearch.annotations.Document</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.elasticsearch.annotations.Field</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.elasticsearch.annotations.FieldType</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.Serializable</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Date</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/**  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @program: ShoppingPlatform  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @description: 搜索类  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @authro: Mr.chen  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @create: 2024-01-04 15:52  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> **/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Data</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Document</span><span class="p">(</span><span class="n">indexName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;skuinfo&#34;</span><span class="p">,</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;docs&#34;</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SkuInfo</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Serializable</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//商品id，同时也是商品编号  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Id</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * SKU名称  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * type=FieldType.Text:类型，Text支持分词  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * index=true：添加数据的时候，是否分词  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * analyzer=&#34;ik_smart&#34;:创建索引的分词器  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * store=false：是否存储  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * searchAnalyzer = &#34;ik_smart&#34;：搜索时使用的分词器  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Field</span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FieldType</span><span class="p">.</span><span class="na">Text</span><span class="p">,</span><span class="w"> </span><span class="n">analyzer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;ik_smart&#34;</span><span class="p">,</span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="n">store</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="n">searchAnalyzer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;ik_smart&#34;</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//商品价格，单位为：元  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Field</span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FieldType</span><span class="p">.</span><span class="na">Double</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//库存数量  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//商品图片  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">image</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//商品状态：1-正常，2-下架，3-删除  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">status</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//创建时间  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="n">createTime</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//更新时间  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="n">updateTime</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//是否默认  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">isDefault</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//SPUID  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">spuId</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//类目ID  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">categoryId</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 类目名称  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * type = FieldType.Keyword：表示该属性不分词  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Field</span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FieldType</span><span class="p">.</span><span class="na">Keyword</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">categoryName</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//品牌名称  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Field</span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FieldType</span><span class="p">.</span><span class="na">Keyword</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">brandName</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//规格  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">spec</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//规格参数  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">specMap</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="23-简单查询">2.3 简单查询
+</h3><h4 id="231-简介">2.3.1 简介
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">关键字</th>
+          <th style="text-align: left">命名规则</th>
+          <th style="text-align: left">解释</th>
+          <th style="text-align: left">示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">and</td>
+          <td style="text-align: left">findByField1AndField2</td>
+          <td style="text-align: left">根据FIeld1和Field2获得数据</td>
+          <td style="text-align: left">findByTitleAndContent</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">or</td>
+          <td style="text-align: left">findByField1OrField2</td>
+          <td style="text-align: left">根据FIeld1或Field2获得数据</td>
+          <td style="text-align: left">findByTitleOrContent</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">is</td>
+          <td style="text-align: left">findByField</td>
+          <td style="text-align: left">根据Field获得数据</td>
+          <td style="text-align: left">findByTitle</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">not</td>
+          <td style="text-align: left">findByFieldNot</td>
+          <td style="text-align: left">根据Field获得补集数据</td>
+          <td style="text-align: left">findByTitleNot</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">between</td>
+          <td style="text-align: left">findByFieldBetween</td>
+          <td style="text-align: left">获得指定范围的数据</td>
+          <td style="text-align: left">findByPraceBetween</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">lessThanEqual</td>
+          <td style="text-align: left">findByFieldLessThan</td>
+          <td style="text-align: left">获得小于等于指定值的数据</td>
+          <td style="text-align: left">findByPriceLessThan</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">注意：自定义查询会默认携带分页，默认显示10条数据，并且可以通过引入<code>Pageable pageble</code>进行配置分页显示<code>PageRequest.of(0,15)</code></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="232-配置dao类">2.3.2 配置dao类
+</h4><p>SkuInfoMapper.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.changgou.search.dao</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.changgou.search.pojo.SkuInfo</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.elasticsearch.repository.ElasticsearchRepository</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.stereotype.Repository</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Repository</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//ElasticsearchRepository&lt;SkuInfo,Long&gt; skuInfo 表示实体类，Long 表示ID</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">SkuEsMapper</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ElasticsearchRepository</span><span class="o">&lt;</span><span class="n">SkuInfo</span><span class="p">,</span><span class="n">Long</span><span class="o">&gt;</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="233-配置服务类">2.3.3 配置服务类
+</h4><p>SkuInfoService.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.changgou.search.service</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.SQLException</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">SkuService</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 条件搜索  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param searchMap  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @return: map  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">    </span><span class="n">Map</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">searchMap</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/***  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 导入索引库  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">importData</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>SkuInfoServiceImpl.Java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.changgou.search.service.Impl</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.alibaba.fastjson.JSON</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.changgou.common.pojo.Result</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.changgou.search.dao.SkuEsMapper</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.changgou.goods.feign.SkuFeign</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.changgou.goods.pojo.Sku</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.changgou.search.pojo.SkuInfo</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.changgou.search.service.SkuService</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.elasticsearch.index.query.QueryBuilder</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.elasticsearch.index.query.QueryBuilders</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.elasticsearch.core.ElasticsearchTemplate</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.elasticsearch.core.aggregation.AggregatedPage</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.elasticsearch.core.query.NativeSearchQuery</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.stereotype.Service</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.util.StringUtils</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.Connection</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.PreparedStatement</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.ResultSet</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.SQLException</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/**  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @program: ShoppingPlatform  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @description:  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @authro: Mr.chen  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @create: 2024-01-04 16:36  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> **/</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Service</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SkuServiceImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">SkuService</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SkuFeign</span><span class="w"> </span><span class="n">skuFeign</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SkuEsMapper</span><span class="w"> </span><span class="n">skuEsMapper</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * ElasticSearchTemplate：可以实现索引库的增删改查(高级搜索)  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">    </span><span class="nd">@Autowired</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ElasticsearchTemplate</span><span class="w"> </span><span class="n">elasticsearchTemplate</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 条件搜索  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param searchMap  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @return: map  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">    </span><span class="nd">@Override</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Map</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">searchMap</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//查询条件  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">NativeSearchQueryBuilder</span><span class="w"> </span><span class="n">nativeSearchQueryBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NativeSearchQueryBuilder</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//执行sql语句  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//封装一个数据存储当前信息  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">searchMap</span><span class="o">!=</span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">searchMap</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">&gt;</span><span class="n">0</span><span class="p">){</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">//根据关键词搜索  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">keywords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">searchMap</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;keywords&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">//如果关键词不为空，则搜索关键词数据  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">(</span><span class="n">keywords</span><span class="p">)){</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">nativeSearchQueryBuilder</span><span class="p">.</span><span class="na">withQuery</span><span class="p">(</span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">queryStringQuery</span><span class="p">(</span><span class="n">keywords</span><span class="p">).</span><span class="na">field</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">));</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/**  
+</span></span></span><span class="line"><span class="cl"><span class="cm">         * 执行搜索  
+</span></span></span><span class="line"><span class="cl"><span class="cm">         * searchquery:搜索条件封装  
+</span></span></span><span class="line"><span class="cl"><span class="cm">         * clazz：返回封装的数据  
+</span></span></span><span class="line"><span class="cl"><span class="cm">         * AggregatedPage&lt;skuinfo&gt;:表示搜索结果集的封装  
+</span></span></span><span class="line"><span class="cl"><span class="cm">         */</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">AggregatedPage</span><span class="o">&lt;</span><span class="n">SkuInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">skuInfos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elasticsearchTemplate</span><span class="p">.</span><span class="na">queryForPage</span><span class="p">(</span><span class="n">nativeSearchQueryBuilder</span><span class="p">.</span><span class="na">build</span><span class="p">(),</span><span class="w"> </span><span class="n">SkuInfo</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//分析数据  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//分页参数  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">totalElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">skuInfos</span><span class="p">.</span><span class="na">getTotalElements</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//总页数  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">totalPages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">skuInfos</span><span class="p">.</span><span class="na">getTotalPages</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 获取数据结果集  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SkuInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">skuInfos</span><span class="p">.</span><span class="na">getContent</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//封装map存储所有数据  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resultMap</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">resultMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;rows&#34;</span><span class="p">,</span><span class="n">content</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">resultMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;total&#34;</span><span class="p">,</span><span class="n">totalElements</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">resultMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;totalPages&#34;</span><span class="p">,</span><span class="n">totalPages</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">resultMap</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/***  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 导入索引库  
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">importData</span><span class="p">(){</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//Feign调用，查询List&lt;sku&gt;  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Sku</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">skuResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">skuFeign</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/**  
+</span></span></span><span class="line"><span class="cl"><span class="cm">         * 将List&lt;Sku&gt;转换成List&lt;SkuInfo&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="cm">         * 1. 将List&lt;Sku&gt;---&gt;[{skuJson}]--&gt;List&lt;SkuInfo&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="cm">         */</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SkuInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">skuInfoList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">.</span><span class="na">parseArray</span><span class="p">(</span><span class="n">JSON</span><span class="p">.</span><span class="na">toJSONString</span><span class="p">(</span><span class="n">skuResult</span><span class="p">.</span><span class="na">getData</span><span class="p">()),</span><span class="w"> </span><span class="n">SkuInfo</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//循环当前skuInfoList，获取规格数据  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">SkuInfo</span><span class="w"> </span><span class="n">skuInfo</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">skuInfoList</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">//获取spec--&gt;Map(String)-&gt;Map类型  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">specMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">.</span><span class="na">parseObject</span><span class="p">(</span><span class="n">skuInfo</span><span class="p">.</span><span class="na">getSpec</span><span class="p">(),</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">//将查询到的规格域，放入到SkuInfo当中。  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">skuInfo</span><span class="p">.</span><span class="na">setSpecMap</span><span class="p">(</span><span class="n">specMap</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//调用Dao()实现数据批量导入。  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">skuEsMapper</span><span class="p">.</span><span class="na">saveAll</span><span class="p">(</span><span class="n">skuInfoList</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="24-复杂查询">2.4 复杂查询
+</h3><h4 id="241-querybuilders基本查询">2.4.1 QueryBuilders基本查询
+</h4><h5 id="2411-简介">2.4.1.1 简介
+</h5><p>先来熟QueryBuilders这个类封装的基本查询：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">方法</th>
+          <th style="text-align: left">作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">QueryBuilders.matchQuery()</td>
+          <td style="text-align: left">会根据分词器进行分词，分词之后去查询</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">QueryBuilders.termQuery()</td>
+          <td style="text-align: left">不会进行分词，且完全等于才会匹配</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">QueryBuilders.termsQuery()</td>
+          <td style="text-align: left">一个字段匹配多个值，where name = ‘A’ or name = ‘B’</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">QueryBuilders.multiMatchQuery()</td>
+          <td style="text-align: left">会分词 一个值对应多个字段 where username = ‘zs’ or password = ‘zs’</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">QueryBuilders.matchPhraseQuery()</td>
+          <td style="text-align: left">不会分词，当成一个整体去匹配，相当于 %like%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">QueryBuilders.matchQuery(“address”,“北京 天津”).operator(Operator.AND)</td>
+          <td style="text-align: left">如果想使用一个字段匹配多个值，并且这多个值是and关系，如下 要求查询的数据中必须包含北京‘和’天津</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">QueryBuilders.matchQuery(“address”,“北京 天津”).operator(Operator.OR)</td>
+          <td style="text-align: left">如果想使用一个字段匹配多个值，并且这多个值是or关系，如下 要求查询的数据中必须包含北京‘或’天津</td>
+      </tr>
+  </tbody>
+</table></div>
+<h5 id="2412-demo">2.4.1.2 Demo
+</h5><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@RunWith</span><span class="p">(</span><span class="n">SpringRunner</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@SpringBootTest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EsArticleControllerTest</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ElasticsearchRestTemplate</span><span class="w"> </span><span class="n">elasticsearchRestTemplate</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">test1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">NativeSearchQuery</span><span class="w"> </span><span class="n">nativeSearchQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NativeSearchQueryBuilder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">//查询条件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">withQuery</span><span class="p">(</span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">queryStringQuery</span><span class="p">(</span><span class="s">&#34;浦东开发开放&#34;</span><span class="p">).</span><span class="na">defaultField</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">//分页</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">withPageable</span><span class="p">(</span><span class="n">PageRequest</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">5</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">//排序</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">withSort</span><span class="p">(</span><span class="n">SortBuilders</span><span class="p">.</span><span class="na">fieldSort</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">).</span><span class="na">order</span><span class="p">(</span><span class="n">SortOrder</span><span class="p">.</span><span class="na">DESC</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">//高亮字段显示</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">withHighlightFields</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HighlightBuilder</span><span class="p">.</span><span class="na">Field</span><span class="p">(</span><span class="s">&#34;浦东&#34;</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ArticleEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="n">articleEntities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elasticsearchRestTemplate</span><span class="p">.</span><span class="na">queryForList</span><span class="p">(</span><span class="n">nativeSearchQuery</span><span class="p">,</span><span class="w"> </span><span class="n">ArticleEntity</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">articleEntities</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="na">toString</span><span class="p">()));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>elasticsearchRestTemplate.queryForList是查询一个列表，用的就是ElasticsearchRestTemplate的一个对象实例；</li>
+<li>NativeSearchQuery ：是springdata中的查询条件；</li>
+<li>NativeSearchQueryBuilder ：用于建造一个NativeSearchQuery查询对象；</li>
+<li>QueryBuilders ：设置查询条件，是ES中的类；</li>
+<li>SortBuilders ：设置排序条件；</li>
+<li>HighlightBuilder ：设置高亮显示；</li>
+</ul>
+<h5 id="2413-精确查询">2.4.1.3 精确查询
+</h5><blockquote>
+<p>精确，指的是查询关键字（或者关键字分词后），必须与目标分词结果完全匹配。</p>
+</blockquote>
+<p>1.指定字符串作为关键词查询，关键词支持分词</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">//查询title字段中，包含 ”开发”、“开放&#34; 这个字符串的document；相当于把&#34;浦东开发开放&#34;分词了，再查询；</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">queryStringQuery</span><span class="p">(</span><span class="s">&#34;开发开放&#34;</span><span class="p">).</span><span class="na">defaultField</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//不指定feild，查询范围为所有feild</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">queryStringQuery</span><span class="p">(</span><span class="s">&#34;青春&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//指定多个feild</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">queryStringQuery</span><span class="p">(</span><span class="s">&#34;青春&#34;</span><span class="p">).</span><span class="na">field</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">).</span><span class="na">field</span><span class="p">(</span><span class="s">&#34;content&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>2.以关键字“开发开放”，关键字不支持分词</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">termQuery</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;开发开放&#34;</span><span class="p">)</span><span class="w">   </span><span class="c1">//无结果，因为不支持分词 必须完全匹配，title=&#34;开发开放&#34; </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">termsQuery</span><span class="p">(</span><span class="s">&#34;fieldName&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;fieldlValue1&#34;</span><span class="p">,</span><span class="s">&#34;fieldlValue2...&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>3.以关键字“开发开放”，关键字支持分词</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">matchQuery</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;开发开放&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">multiMatchQuery</span><span class="p">(</span><span class="s">&#34;fieldlValue&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;fieldName1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;fieldName2&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;fieldName3&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="2414-模糊查询">2.4.1.4 模糊查询
+</h5><blockquote>
+<p>模糊，是指查询关键字与目标关键字可以模糊匹配。</p>
+</blockquote>
+<p>1.左右模糊查询，其中fuzziness的参数作用是在查询时，es动态的将查询关键词前后增加或者删除一个词，然后进行匹配</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">fuzzyQuery</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;开发开放&#34;</span><span class="p">).</span><span class="na">fuzziness</span><span class="p">(</span><span class="n">Fuzziness</span><span class="p">.</span><span class="na">ONE</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>2.前缀查询，查询title中以“开发开放”为前缀的document；</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">prefixQuery</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;开发开放&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>3.通配符查询，支持*和？，？表示单个字符；注意不建议将通配符作为前缀，否则导致查询很慢</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">wildcardQuery</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;开*放&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">wildcardQuery</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;开？放&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="2415-上述查询总结">2.4.1.5 上述查询总结
+</h5><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">查询关键词</th>
+          <th style="text-align: left">开发开放</th>
+          <th style="text-align: left">放</th>
+          <th style="text-align: left">开</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">queryStringQuery</td>
+          <td style="text-align: left">查询目标中含有开发、开放、开发开放的</td>
+          <td style="text-align: left">无</td>
+          <td style="text-align: left">无</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">matchQuery</td>
+          <td style="text-align: left">同queryStringQuery</td>
+          <td style="text-align: left">无</td>
+          <td style="text-align: left">无</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">termQuery</td>
+          <td style="text-align: left">无结果，因为它不支持分词</td>
+          <td style="text-align: left">无</td>
+          <td style="text-align: left">无</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">prefixQuery</td>
+          <td style="text-align: left">无结果，因为它不支持分词</td>
+          <td style="text-align: left">无</td>
+          <td style="text-align: left">有，目标分词中以”开“开头的</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">fuzzyQuery</td>
+          <td style="text-align: left">无结果，但是与fuzziness参数有关系</td>
+          <td style="text-align: left">无</td>
+          <td style="text-align: left">无</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">wildcardQuery</td>
+          <td style="text-align: left">开发开放*无结果</td>
+          <td style="text-align: left">开*，有</td>
+          <td style="text-align: left">放*，无</td>
+      </tr>
+  </tbody>
+</table></div>
+<h5 id="2416-范围查询">2.4.1.6 范围查询
+</h5><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">//闭区间查询</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">rangeQuery</span><span class="p">(</span><span class="s">&#34;fieldName&#34;</span><span class="p">).</span><span class="na">from</span><span class="p">(</span><span class="s">&#34;fieldValue1&#34;</span><span class="p">).</span><span class="na">to</span><span class="p">(</span><span class="s">&#34;fieldValue2&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//开区间查询，默认是true，也就是包含</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">rangeQuery</span><span class="p">(</span><span class="s">&#34;fieldName&#34;</span><span class="p">).</span><span class="na">from</span><span class="p">(</span><span class="s">&#34;fieldValue1&#34;</span><span class="p">).</span><span class="na">to</span><span class="p">(</span><span class="s">&#34;fieldValue2&#34;</span><span class="p">).</span><span class="na">includeUpper</span><span class="p">(</span><span class="kc">false</span><span class="p">).</span><span class="na">includeLower</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//大于</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">rangeQuery</span><span class="p">(</span><span class="s">&#34;fieldName&#34;</span><span class="p">).</span><span class="na">gt</span><span class="p">(</span><span class="s">&#34;fieldValue&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//大于等于</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">rangeQuery</span><span class="p">(</span><span class="s">&#34;fieldName&#34;</span><span class="p">).</span><span class="na">gte</span><span class="p">(</span><span class="s">&#34;fieldValue&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//小于</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">rangeQuery</span><span class="p">(</span><span class="s">&#34;fieldName&#34;</span><span class="p">).</span><span class="na">lt</span><span class="p">(</span><span class="s">&#34;fieldValue&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//小于等于</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">rangeQuery</span><span class="p">(</span><span class="s">&#34;fieldName&#34;</span><span class="p">).</span><span class="na">lte</span><span class="p">(</span><span class="s">&#34;fieldValue&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="2417-多个关键字组合查询boolquery">2.4.1.7 多个关键字组合查询boolQuery()
+</h5><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">boolQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">boolQuery</span><span class="p">().</span><span class="na">must</span><span class="p">();</span><span class="c1">//文档必须完全匹配条件，相当于and</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">boolQuery</span><span class="p">().</span><span class="na">mustNot</span><span class="p">();</span><span class="c1">//文档必须不匹配条件，相当于not</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">boolQuery</span><span class="p">().</span><span class="na">should</span><span class="p">();</span><span class="c1">//至少满足一个条件，这个文档就符合should，相当于or</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Demo</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testBoolQuery</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">NativeSearchQuery</span><span class="w"> </span><span class="n">nativeSearchQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NativeSearchQueryBuilder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">withQuery</span><span class="p">(</span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">boolQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">should</span><span class="p">(</span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">termQuery</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;开发&#34;</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">should</span><span class="p">(</span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">termQuery</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;青春&#34;</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">mustNot</span><span class="p">(</span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">termQuery</span><span class="p">(</span><span class="s">&#34;title&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;潮头&#34;</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">withSort</span><span class="p">(</span><span class="n">SortBuilders</span><span class="p">.</span><span class="na">fieldSort</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">).</span><span class="na">order</span><span class="p">(</span><span class="n">SortOrder</span><span class="p">.</span><span class="na">DESC</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">withPageable</span><span class="p">(</span><span class="n">PageRequest</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">50</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ArticleEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="n">articleEntities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elasticsearchRestTemplate</span><span class="p">.</span><span class="na">queryForList</span><span class="p">(</span><span class="n">nativeSearchQuery</span><span class="p">,</span><span class="w"> </span><span class="n">ArticleEntity</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">articleEntities</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="na">toString</span><span class="p">()));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="2418-高亮数据显示">2.4.1.8 高亮数据显示
+</h5><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">NativeSearchQuery</span><span class="w"> </span><span class="n">nativeSearchQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NativeSearchQueryBuilder</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">nativeSearchQuery</span><span class="p">.</span><span class="na">withHighlightFields</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HighlightBuilder</span><span class="p">.</span><span class="na">Field</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">)</span><span class="w">  </span><span class="c1">//配置哪个参数为高亮数据  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">preTags</span><span class="p">(</span><span class="s">&#34;&lt;em style=\&#34;color:red;\&#34;&gt;&#34;</span><span class="p">)</span><span class="w">  </span><span class="c1">//配置显示设置  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">postTags</span><span class="p">(</span><span class="s">&#34;&lt;/em&gt;&#34;</span><span class="p">)</span><span class="w">   </span><span class="c1">//配置显示设置  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">fragmentOffset</span><span class="p">(</span><span class="n">100</span><span class="p">));</span><span class="w">   </span><span class="c1">//碎片长度，关键词数据的长度)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">AggregatedPage</span><span class="o">&lt;</span><span class="n">SkuInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">skuInfos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elasticsearchTemplate</span><span class="p">.</span><span class="na">queryForPage</span><span class="p">(</span><span class="n">nativeSearchQueryBuilder</span><span class="p">.</span><span class="na">build</span><span class="p">(),</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SkuInfo</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w">          </span><span class="c1">//数据集合要转换的类型的字节码  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">SearchResultMapper</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">     </span><span class="c1">//执行搜索后，将数据结果集封装到该接口中  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nd">@Override</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AggregatedPage</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">mapResults</span><span class="p">(</span><span class="n">SearchResponse</span><span class="w"> </span><span class="n">searchResponse</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">aClass</span><span class="p">,</span><span class="w"> </span><span class="n">Pageable</span><span class="w"> </span><span class="n">pageable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span><span class="w">   </span><span class="c1">//存储所有转换后的高亮数据对象  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">SearchHit</span><span class="w"> </span><span class="n">hit</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">searchResponse</span><span class="p">.</span><span class="na">getHits</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="c1">//1.1分析结果集，获取非高亮数据  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">SkuInfo</span><span class="w"> </span><span class="n">skuInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">.</span><span class="na">parseObject</span><span class="p">(</span><span class="n">hit</span><span class="p">.</span><span class="na">getSourceAsString</span><span class="p">(),</span><span class="w"> </span><span class="n">SkuInfo</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="c1">//1.2分析结果集，获取高亮数据--&gt;只有某个域的高亮数据  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">HighlightField</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hit</span><span class="p">.</span><span class="na">getHighlightFields</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="c1">//1.3非高亮数据重指定的域替换成高亮数据  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="na">fragments</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="c1">//1.3.1 读取高亮数据  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">Text</span><span class="o">[]</span><span class="w"> </span><span class="n">fragments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="na">getFragments</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="c1">//1.3.2 替换非高亮数据中的指定域替换高亮数据  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">StringBuffer</span><span class="w"> </span><span class="n">stringBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuffer</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Text</span><span class="w"> </span><span class="n">fragment</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">fragments</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="n">stringBuffer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">fragment</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">skuInfo</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">stringBuffer</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">((</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="n">skuInfo</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="25-配置前端控制器">2.5 配置前端控制器
+</h3><p>SkuInfoController.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.changgou.search.controller</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.changgou.common.pojo.Result</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.changgou.common.pojo.StatusCode</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.changgou.search.service.SkuService</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.bind.annotation.CrossOrigin</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.bind.annotation.RestController</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/**  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @program: ShoppingPlatform  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @description:  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @authro: Mr.chen  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @create: 2024-01-04 16:53  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> **/</span><span class="nd">@RestController</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@CrossOrigin</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/search&#34;</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SkuController</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SkuService</span><span class="w"> </span><span class="n">skuService</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&#34;/import&#34;</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="nf">importData</span><span class="p">(){</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">skuService</span><span class="p">.</span><span class="na">importData</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">,</span><span class="s">&#34;执行成功&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80_java/">计算机_程序语言_Java</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 游手好闲的卫大人
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,2577 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Links:MyBatis Generator Core&amp;逆向工程文档|Mybatis-逆向工程|Mybatis-Error|Mybatis官方文档 Title: Mybatis-202207242255\n一、什么是Mybatis Mybatis是一个半自动化的ORM框架，用来实现数据库与Java程序的交互，用来当作Java的持久层来进行使用，可以跟Spring进行联用。\n">
+<title>Mybatis-202207242255</title>
+
+<link rel='canonical' href='https://news-epoch.github.io/p/mybatis-202207242255/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Mybatis-202207242255">
+<meta property='og:description' content="Links:MyBatis Generator Core&amp;逆向工程文档|Mybatis-逆向工程|Mybatis-Error|Mybatis官方文档 Title: Mybatis-202207242255\n一、什么是Mybatis Mybatis是一个半自动化的ORM框架，用来实现数据库与Java程序的交互，用来当作Java的持久层来进行使用，可以跟Spring进行联用。\n">
+<meta property='og:url' content='https://news-epoch.github.io/p/mybatis-202207242255/'>
+<meta property='og:site_name' content='卫大人的杂乱博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='计算机_程序语言_Java_框架_Mybatis' /><meta property='article:tag' content='zk-todo' /><meta property='article:tag' content='计算机_数据库' />
+<meta name="twitter:title" content="Mybatis-202207242255">
+<meta name="twitter:description" content="Links:MyBatis Generator Core&amp;逆向工程文档|Mybatis-逆向工程|Mybatis-Error|Mybatis官方文档 Title: Mybatis-202207242255\n一、什么是Mybatis Mybatis是一个半自动化的ORM框架，用来实现数据库与Java程序的交互，用来当作Java的持久层来进行使用，可以跟Spring进行联用。\n">
+    <link rel="shortcut icon" href="/%e6%83%b3%e6%b3%95.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu4043572482303308672.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">卫大人的杂乱博客</a></h1>
+            <h2 class="site-description">哟，你来学习了！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/news-epoch/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-核心配置文件概述">1 核心配置文件概述</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#1-mybatis基础实现">1 Mybatis基础实现</a></li>
+    <li><a href="#2-mybatis的dao层实现">2 Mybatis的Dao层实现</a>
+      <ol>
+        <li><a href="#21-代理开发">2.1 代理开发</a></li>
+        <li><a href="#22-具体代码实现">2.2 具体代码实现</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#1-动态sql">1 动态SQL</a></li>
+    <li><a href="#2-mybatis核心配置文件深入">2 Mybatis核心配置文件深入</a>
+      <ol>
+        <li><a href="#21-typehandle标签">2.1 typeHandle标签</a>
+          <ol>
+            <li><a href="#211-demo">2.1.1 Demo</a></li>
+            <li><a href="#212-扩展">2.1.2 扩展</a></li>
+          </ol>
+        </li>
+        <li><a href="#22-pluging标签">2.2 Pluging标签</a>
+          <ol>
+            <li><a href="#221-快速实现">2.2.1 快速实现</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#3-多表操作">3 多表操作</a>
+      <ol>
+        <li><a href="#31-一对一">3.1 一对一</a>
+          <ol>
+            <li><a href="#311-demo">3.1.1 Demo</a></li>
+          </ol>
+        </li>
+        <li><a href="#32-一对多">3.2 一对多</a>
+          <ol>
+            <li><a href="#321-demo">3.2.1 Demo</a></li>
+          </ol>
+        </li>
+        <li><a href="#33-多对多">3.3 多对多</a>
+          <ol>
+            <li><a href="#331-demo">3.3.1 Demo</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#4-注解开发">4 注解开发</a>
+      <ol>
+        <li><a href="#41-增删改查">4.1 增删改查</a></li>
+        <li><a href="#42-一对多和多对多">4.2 一对多和多对多</a></li>
+        <li><a href="#43-扩展">4.3 扩展</a>
+          <ol>
+            <li><a href="#431-动态sql">4.3.1 动态SQL</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#5-缓存">5 缓存</a></li>
+    <li><a href="#6-事务">6 事务</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#1-导入坐标">1 导入坐标</a></li>
+    <li><a href="#2-创建配置文件">2 创建配置文件</a>
+      <ol>
+        <li><a href="#21-创建spring配置文件">2.1 创建spring配置文件</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/mybatis-202207242255/">Mybatis-202207242255</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 15 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Links:<a class="link" href="http://mybatis.org/generator/quickstart.html"  target="_blank" rel="noopener"
+    >MyBatis Generator Core&amp;逆向工程文档</a>|<a class="link" href="Mybatis%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B-202209101059.md" >Mybatis-逆向工程</a>|<a class="link" href="MybatisError-202209130949.md" >Mybatis-Error</a>|<a class="link" href="http://www.mybatis.org/mybatis-3/"  target="_blank" rel="noopener"
+    >Mybatis官方文档</a>
+Title:  Mybatis-202207242255</p>
+<h1 id="一什么是mybatis">一、什么是Mybatis
+</h1><blockquote>
+<p>Mybatis是一个半自动化的ORM框架，用来实现数据库与Java程序的交互，用来当作Java的持久层来进行使用，可以跟Spring进行联用。</p>
+</blockquote>
+<h2 id="1-核心配置文件概述">1 核心配置文件概述
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">title</span><span class="p">:</span> <span class="nx">Mapper</span><span class="o">-</span><span class="nx">config</span><span class="p">.</span><span class="nx">xml</span>
+</span></span><span class="line"><span class="cl"><span class="s">```XML
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;!DOCTYPE configuration  
+</span></span></span><span class="line"><span class="cl"><span class="s">        PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="s">        &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;configuration&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;properties resource=&#34;conf/db.properties&#34;&gt;&lt;/properties&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;environments default=&#34;development&#34;&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">        &lt;environment id=&#34;development&#34;&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">            &lt;transactionManager type=&#34;JDBC&#34;&gt;&lt;/transactionManager&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">            &lt;dataSource type=&#34;POOLED&#34;&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">                &lt;property name=&#34;username&#34; value=&#34;${db_username}&#34;/&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">                &lt;property name=&#34;password&#34; value=&#34;${db_password}&#34;/&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">                &lt;property name=&#34;url&#34; value=&#34;${db_url}&#34;/&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">                &lt;property name=&#34;driver&#34; value=&#34;${db_driver}&#34;/&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">            &lt;/dataSource&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">        &lt;/environment&gt;    
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;/environments&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;mappers&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">	    &lt;package name=&#34;com.cwg.dao&#34;/&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="s">	&lt;/mappers&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;/configuration&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl"><span class="p">![[</span><span class="mi">1700641099431</span> <span class="mf">1.</span><span class="nx">png</span><span class="p">]]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>
+<p><strong>environments标签</strong></p>
+<ol>
+<li>事务管理器(transactionManager)
+<ul>
+<li><strong>JDBC</strong>：这个配置就是<strong>直接使用了JDBC的提交和回滚设置</strong>，它<strong>依赖</strong>于从<strong>数据源得到的连接</strong>来管理事务作用域。</li>
+<li><strong>MAVAGED</strong>：这个配置几乎没做什么。它从来不提交或回滚一个连接，而是让容器来管理事务的整个生命周期（比如JEE应用服务器的上下文）。<strong>默认情况下它会关闭连接</strong>，然而一些容器并不希望这样，因此需要将closeConnection属性设置为false来阻止它默认的关闭行为。</li>
+</ul>
+</li>
+<li>数据源(dataSource)
+<ul>
+<li><strong>UNPOOLED</strong>:这个数据源的实现只是每次被请求时打开和关闭连接。</li>
+<li><strong>POOLED</strong>:这种数据源的实现利用&quot;池&quot;的概念将JDBC连接对象组织起来。</li>
+<li><strong>JNDI</strong>:这个数据源的实现是为了能在如EJB或应用服务器这类容器中使用，容器可以集中或者外在配置数据源，然后到一个JNDI上下文的引用。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>mapper标签</strong>：该标签的作用时用来加载映射的。加载方式有下面几种</p>
+<ul>
+<li>（常用）使用相对类路径的资源引用，例如<code>&lt;mapper resource=&quot;org/mybatis/builder/AuthorMapper.xml&quot;/&gt;</code></li>
+<li>使用完全限定资源定位符(URL),例如：<code>&lt;mapper url=&quot;file://var/mappers/AuthorMapper.xml&quot;/&gt;</code></li>
+<li>使用映射器接口实现类的完全限定类名,例如：<code>&lt;mapper class=&quot;org.mybatis.builder.AuthorMapper&quot;/&gt;</code></li>
+<li>将包内的映射器接口实现全部注册为映射器，例如：<code>&lt;package name=&quot;org.mybatis.builder&quot;/&gt;</code></li>
+</ul>
+</li>
+<li>
+<p><strong>properties标签</strong>：加载properties文件</p>
+</li>
+<li>
+<p><strong>typeAliases标签</strong>：配置类型名称的别名。注意：改标签要紧挨在&lt;configuration&gt;下面</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: MapperORM.xml
+</span></span><span class="line"><span class="cl">```XML
+</span></span><span class="line"><span class="cl">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;  
+</span></span><span class="line"><span class="cl">&lt;!DOCTYPE mapper  
+</span></span><span class="line"><span class="cl">        PUBLIC &#34;-//mybatis.org//DTD Mapper 3.0//EN&#34;  
+</span></span><span class="line"><span class="cl">        &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;mapper namespace=&#34;EmployeeMapper&#34;&gt;  
+</span></span><span class="line"><span class="cl">    &lt;select id=&#34;findAll&#34; resultType=&#34;com.cwg.entities.Employee&#34;&gt;  
+</span></span><span class="line"><span class="cl">        SELECT * FROM empolyee;  
+</span></span><span class="line"><span class="cl">    &lt;/select&gt;  
+</span></span><span class="line"><span class="cl">&lt;/mapper&gt;
+</span></span><span class="line"><span class="cl">```
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>resultType</strong>：设置返回数据类型</li>
+<li><strong>resultMap</strong>：设置返回类型映射关系(resultMap标签)</li>
+<li><strong>parameterType</strong>：设置传入参数数据类型</li>
+<li><strong>parameterMap</strong>：设置传入参数数据映射关系</li>
+</ul>
+<p><font color=#FF0212>注意</font>：一般设置parameterMap/resultMap用来防止实体类和数据库表属性名出现不一致的情况，从而进行一一映射。</p>
+<h1 id="二mybatis开发">二、Mybatis开发
+</h1><h2 id="1-mybatis基础实现">1 Mybatis基础实现
+</h2><p>pom.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>        
+</span></span><span class="line"><span class="cl">	    <span class="nt">&lt;groupId&gt;</span>mysql<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;artifactId&gt;</span>mysql-connector-java<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;version&gt;</span>5.1.47<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>    
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>        
+</span></span><span class="line"><span class="cl">	    <span class="nt">&lt;groupId&gt;</span>org.mybatis<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;artifactId&gt;</span>mybatis<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;version&gt;</span>3.4.5<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencies&gt;</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">phoneNum</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">get</span><span class="o">/</span><span class="n">set</span><span class="o">/</span><span class="n">tostring</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">test01</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">test1</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	    </span><span class="c1">//读取配置文件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">InputStream</span><span class="w"> </span><span class="n">resourceAsFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Resources</span><span class="p">.</span><span class="na">getResourceAsStream</span><span class="p">(</span><span class="s">&#34;sqlMapConfig.xml&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 通过创建sqlsession工厂建筑函数进行创建sqlsession工厂 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SqlSessionFactory</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SqlSessionFactoryBuilder</span><span class="p">().</span><span class="na">build</span><span class="p">(</span><span class="n">resourceAsFile</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 通过sqlsession工厂 进行创建sqlsession 数据库会话。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SqlSession</span><span class="w"> </span><span class="n">sqlSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build</span><span class="p">.</span><span class="na">openSession</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 通过会话进行查询删除修改操作</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">userList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlSession</span><span class="p">.</span><span class="na">selectList</span><span class="p">(</span><span class="s">&#34;userMapper.findAll&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">userList</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">// 关闭会话</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">sqlSession</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>UserMapper.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE mapper  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&#34;userMapper&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!--查询--&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&#34;findAll&#34;</span> <span class="na">resultType=</span><span class="s">&#34;com.cwg.domain.User&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        select *  
+</span></span><span class="line"><span class="cl">        from sys_user    <span class="nt">&lt;/select&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!--增加--&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;update</span> <span class="na">id=</span><span class="s">&#34;addUser&#34;</span> <span class="na">parameterType=</span><span class="s">&#34;user&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        insert into sys_user  
+</span></span><span class="line"><span class="cl">        values (#{id},#{username}, #{email}, #{password},#{phoneNum})    
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/update&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/mapper&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>sqlMapperConfig.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE configuration  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;configuration&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;typeAliases</span> <span class="nt">&gt;</span>        
+</span></span><span class="line"><span class="cl">	    <span class="nt">&lt;typeAlias</span> <span class="na">type=</span><span class="s">&#34;com.cwg.domain.User&#34;</span> <span class="na">alias=</span><span class="s">&#34;user&#34;</span><span class="nt">&gt;&lt;/typeAlias&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/typeAliases&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;environments</span> <span class="na">default=</span><span class="s">&#34;development&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;environment</span> <span class="na">id=</span><span class="s">&#34;development&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;transactionManager</span> <span class="na">type=</span><span class="s">&#34;JDBC&#34;</span><span class="nt">&gt;&lt;/transactionManager&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;dataSource</span> <span class="na">type=</span><span class="s">&#34;POOLED&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;driver&#34;</span> <span class="na">value=</span><span class="s">&#34;com.mysql.jdbc.Driver&#34;</span><span class="nt">/&gt;</span>  
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;url&#34;</span> <span class="na">value=</span><span class="s">&#34;jdbc:mysql://192.168.1.201:33061/test&#34;</span><span class="nt">/&gt;</span>  
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;username&#34;</span> <span class="na">value=</span><span class="s">&#34;root&#34;</span><span class="nt">/&gt;</span>  
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;password&#34;</span> <span class="na">value=</span><span class="s">&#34;123456&#34;</span><span class="nt">/&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/dataSource&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/environment&gt;</span>    
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/environments&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;mappers&gt;</span>        
+</span></span><span class="line"><span class="cl">	    <span class="nt">&lt;mapper</span> <span class="na">resource=</span><span class="s">&#34;com/cwg/mapper/UserMapper.xml&#34;</span><span class="nt">&gt;&lt;/mapper&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/mappers&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/configuration&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2-mybatis的dao层实现">2 Mybatis的Dao层实现
+</h2><h3 id="21-代理开发">2.1 代理开发
+</h3><blockquote>
+<p>采用Mybatis的代理开发方式实现Dao层，这种方式是我们后面进入企业的主流。
+Mapper接口开发方法只需要程序与编写<strong>Mapper接口(相当于Dao接口)</strong>，由Mybatis框架根据接口定义创建接口的动态代理对象，<strong>代理对象的方法体</strong>同上边Dao接口实现类方法。</p>
+</blockquote>
+<p>Mapper接口开发规范：</p>
+<ol>
+<li>Mapper.xml文件中的namespace与<strong>mapper接口的接口名一致</strong>。</li>
+<li>Mapper接口<strong>方法名</strong>和Mapper.xml中定义的每个<strong>statement的id相同</strong>。</li>
+<li>Mapper接口方法的<strong>输入参数类型</strong>和mapper.xml中定义的每个sql的<strong>parameterType的类型相同。</strong></li>
+<li>Mapper接口方法的<strong>输出参数类型</strong>和mapper.xml中定义的每个sql的<strong>resultType的类型相同。</strong></li>
+</ol>
+<h3 id="22-具体代码实现">2.2 具体代码实现
+</h3><p>UserMapper.Java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.cwg.mapper</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.cwg.domain.User</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserMapper</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>ServiceDemo.Java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserServiceImpl</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">test01</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">InputStream</span><span class="w"> </span><span class="n">resourceAsStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Resources</span><span class="p">.</span><span class="na">getResourceAsStream</span><span class="p">(</span><span class="s">&#34;SqlMapperConfig.xml&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SqlSessionFactory</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SqlSessionFactoryBuilder</span><span class="p">().</span><span class="na">build</span><span class="p">(</span><span class="n">resourceAsStream</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SqlSession</span><span class="w"> </span><span class="n">sqlSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build</span><span class="p">.</span><span class="na">openSession</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">UserMapper</span><span class="w"> </span><span class="n">userMapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlSession</span><span class="p">.</span><span class="na">getMapper</span><span class="p">(</span><span class="n">UserMapper</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">userList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userMapper</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">userList</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sqlSession</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>SqlMapperConfig.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE configuration  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;configuration&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties</span> <span class="na">resource=</span><span class="s">&#34;mysql_jdbc.properties&#34;</span><span class="nt">&gt;&lt;/properties&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;typeAliases&gt;</span>        
+</span></span><span class="line"><span class="cl">	    <span class="nt">&lt;typeAlias</span> <span class="na">type=</span><span class="s">&#34;com.cwg.domain.User&#34;</span> <span class="na">alias=</span><span class="s">&#34;user&#34;</span><span class="nt">&gt;&lt;/typeAlias&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/typeAliases&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;environments</span> <span class="na">default=</span><span class="s">&#34;development&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;environment</span> <span class="na">id=</span><span class="s">&#34;development&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;transactionManager</span> <span class="na">type=</span><span class="s">&#34;JDBC&#34;</span><span class="nt">&gt;&lt;/transactionManager&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;dataSource</span> <span class="na">type=</span><span class="s">&#34;POOLED&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;username&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.username}&#34;</span><span class="nt">/&gt;</span>  
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;password&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.password}&#34;</span><span class="nt">/&gt;</span>  
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;url&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.url}&#34;</span><span class="nt">/&gt;</span>  
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;driver&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.driver}&#34;</span><span class="nt">/&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/dataSource&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/environment&gt;</span>    
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/environments&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;mappers&gt;</span>        
+</span></span><span class="line"><span class="cl">	    <span class="nt">&lt;mapper</span> <span class="na">resource=</span><span class="s">&#34;com\\cwg\\mapper\\UserMapper.xml&#34;</span><span class="nt">&gt;&lt;/mapper&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/mappers&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/configuration&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>UserMapper.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE mapper  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&#34;com.cwg.mapper.UserMapper&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&#34;findAll&#34;</span> <span class="na">resultType=</span><span class="s">&#34;user&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        select * from sys_user  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/select&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/mapper&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="三mybatis的进阶">三、Mybatis的进阶
+</h1><h2 id="1-动态sql">1 动态SQL
+</h2><ol>
+<li><em><strong>iF判断(常用)</strong></em></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s2">&#34;findActiveBlogWithTitleLike&#34;</span><span class="w"> </span><span class="n">resultType</span><span class="o">=</span><span class="s2">&#34;Blog&#34;</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BLOG</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">‘</span><span class="n">ACTIVE</span><span class="err">’</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">&lt;</span><span class="k">if</span><span class="w"> </span><span class="n">test</span><span class="o">=</span><span class="s2">&#34;title != null&#34;</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="o">#</span><span class="err">{</span><span class="n">title</span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">&lt;/</span><span class="k">if</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="k">select</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>for循环</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&#34;findByIds&#34;</span> <span class="na">parameterType=</span><span class="s">&#34;list&#34;</span> <span class="na">resultType=</span><span class="s">&#34;user&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">    select * from sys_user
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;where&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;foreach</span> <span class="na">collection=</span><span class="s">&#34;list&#34;</span> <span class="na">open=</span><span class="s">&#34;id in (&#34;</span> <span class="na">item=</span><span class="s">&#34;id&#34;</span> <span class="na">separator=</span><span class="s">&#34;,&#34;</span> <span class="na">close=</span><span class="s">&#34;)&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">            #{id}  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/foreach&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/where&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/select&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">collection:要循环的数据类型
+</span></span></span><span class="line"><span class="cl"><span class="c">open： 要进行循环之前进行插入的sql命令
+</span></span></span><span class="line"><span class="cl"><span class="c">item：依次循环接收的数据
+</span></span></span><span class="line"><span class="cl"><span class="c">separator：每次循环后，在后面添加的分割字符
+</span></span></span><span class="line"><span class="cl"><span class="c">close：循环结束后，插入什么字符进行语句结束。
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>where</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">    <span class="nt">&lt;where&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;foreach</span> <span class="na">collection=</span><span class="s">&#34;list&#34;</span> <span class="na">open=</span><span class="s">&#34;id in (&#34;</span> <span class="na">item=</span><span class="s">&#34;id&#34;</span> <span class="na">separator=</span><span class="s">&#34;,&#34;</span> <span class="na">close=</span><span class="s">&#34;)&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">            #{id}  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/foreach&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/where&gt;</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><font color=#FF0212>注意</font>：用来<strong>防止出现sql语句where异常错误</strong>，相当于<code>where 1=1</code>，mybatis通过判断where标签里是否存在语句，动态的决定是否添加<strong>where</strong>语句</p>
+<ol start="4">
+<li>sql(sql<strong>语句抽取</strong>)</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;mapper&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;sql</span> <span class="na">id=</span><span class="s">&#34;findAll&#34;</span><span class="nt">&gt;</span>select * from sys_user<span class="nt">&lt;/sql&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;select&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&lt;include</span> <span class="na">refid=</span><span class="s">&#34;findAll&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/select&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/mapper&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2-mybatis核心配置文件深入">2 Mybatis核心配置文件深入
+</h2><h3 id="21-typehandle标签">2.1 typeHandle标签
+</h3><blockquote>
+<p>用来进行自定义数据类型转换的，例如从<strong>数据库抽取时间字段</strong>，将该<strong>时间字段</strong>以<strong>秒的形式</strong>展现出来。</p>
+</blockquote>
+<p>开发步骤：</p>
+<ol>
+<li>定义转换类继承类BaseTypeHandler&lt;T&gt;</li>
+<li>重写四个为实现的方法，其中<strong>setNonNullParameter</strong>为java程序设置数据到数据库的回调方法，getNullableResult为查询时mysql的字符串类型转换为java的type类型方法。</li>
+<li>在Mybatis核心配置文件中注册</li>
+<li>测试转换是否正常。</li>
+</ol>
+<h4 id="211-demo">2.1.1 Demo
+</h4><p>com.cwg.handler.timeConvert.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">timeConvert</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">BaseTypeHandler</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//将Java类型转换成数据库需要的类型  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// preparedStatement：用来设置要转换的数据。  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// int i：是指当前参数的位置。  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setNonNullParameter</span><span class="p">(</span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">preparedStatement</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="n">date</span><span class="p">,</span><span class="w"> </span><span class="n">JdbcType</span><span class="w"> </span><span class="n">jdbcType</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">date</span><span class="p">.</span><span class="na">getTime</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">preparedStatement</span><span class="p">.</span><span class="na">setLong</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">time</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//将数据库中的某些数据的类型转换成java对象  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//String s：是指要转换的字段名称  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//ResultSet resultSet：查询出的结果集。  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="nf">getNullableResult</span><span class="p">(</span><span class="n">ResultSet</span><span class="w"> </span><span class="n">resultSet</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">aLong</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resultSet</span><span class="p">.</span><span class="na">getLong</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Date</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">(</span><span class="n">aLong</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">date</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//将数据库中的某些数据的类型转换成java对象  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//int i：是指要转换的字段的位置。  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//ResultSet resultSet：查询出的结果集。  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="nf">getNullableResult</span><span class="p">(</span><span class="n">ResultSet</span><span class="w"> </span><span class="n">resultSet</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">aLong</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resultSet</span><span class="p">.</span><span class="na">getLong</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Date</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">(</span><span class="n">aLong</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">date</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//将数据库中的某些数据的类型转换成java对象  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="nf">getNullableResult</span><span class="p">(</span><span class="n">CallableStatement</span><span class="w"> </span><span class="n">callableStatement</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">aLong</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">callableStatement</span><span class="p">.</span><span class="na">getLong</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Date</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">(</span><span class="n">aLong</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">date</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>sqlMapperConfig.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!--注册类型处理器--&gt;</span>??
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;typeHandlers&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;typeHandler</span> <span class="na">handler=</span><span class="s">&#34;com.cwg.handler.timeConvert&#34;</span><span class="nt">&gt;&lt;/typeHandler&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/typeHandlers&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="212-扩展">2.1.2 扩展
+</h4><h5 id="2121-java数据库jdbcpreparestatement的用法和解释">2.1.2.1 Java数据库JDBC——prepareStatement的用法和解释
+</h5><h6 id="21211-preparestatement-的用法和解释">2.1.2.1.1 prepareStatement 的用法和解释
+</h6><ol>
+<li>PreparedStatement是预编译的,<strong>对于批量处理可以大大提高效率，也叫JDBC存储过程</strong>。</li>
+<li>使用 Statement 对象。在对数据库只执行<strong>一次性存取的时侯</strong>，用 Statement 对象进行处理。</li>
+<li><strong>PreparedStatement 对象的开销比Statement大</strong>，对于一次性操作并不会带来额外的好处。</li>
+<li>Statement<strong>每次执行sql语句</strong>，相关数据库<strong>都要执行sql语句的编译</strong>。而preparedstatement是<strong>预编译</strong>，可以进行<strong>批量处理</strong>。</li>
+</ol>
+<p>虽然<strong>PreparedStatement对象</strong>允许<strong>数据库预编译SQL语句</strong>，这样在随后的运行中可以<strong>节省时间</strong>并<strong>增加代码的可读性</strong>。但是，<strong>在Oracle环境中</strong>，开发人员实际上有更大的灵活性。当使用Statement或PreparedStatement对象时，Oracle数据库会缓存SQL语句以便以后使用。在一些情况下,由于驱动器<strong>自身需要额外的处理</strong>和在<strong>Java应用程序和Oracle服务器间增加的网络活动</strong>，执行PreparedStatement对象实际上会花更长的时间。</p>
+<p>除了缓冲的问题之外，至少还有一个更好的原因使我们在企业应用程序中更喜欢使用PreparedStatement对象,那就是<strong>安全性</strong>。传递给PreparedStatement对象的参数可以被<strong>强制进行类型转换</strong>，使开发人员可以确保在插入或查询数据时与底层的数据库格式匹配。</p>
+<p>在执行SQL命令时，我们有二种选择：</p>
+<ol>
+<li>可以使用PreparedStatement对象，也可以使用Statement对象。无论多少次地使用同一个SQL命令，PreparedStatement都只对它解析和编译一次。</li>
+<li>当使用Statement对象时，每次执行一个SQL命令时，都会对它进行解析和编译。</li>
+</ol>
+<p>最后总结下来就是：</p>
+<ol>
+<li><strong>prepareStatement会先初始化SQL</strong>，即：<strong>先把这个SQL提交到数据库中进行预处理</strong>，多次使用可提高效率。</li>
+<li><strong>Statement不会初始化</strong>，<strong>没有预处理</strong>，每次都是从0开始执行SQL</li>
+<li><strong>prepareStatement</strong>可以<strong>替换变量</strong>。</li>
+</ol>
+<h6 id="21212-深入理解statement-和preparestatement">2.1.2.1.2 深入理解statement 和prepareStatement
+</h6><p>PreparedStatement的<strong>第一次执行消耗是很高</strong>的. 它的性能体现在后面的重复执行。</p>
+<p>例如, 假设我使用Employee ID, 使用prepared的方式来执行一个针对Employee表的查询.</p>
+<ol>
+<li>JDBC驱动会发送一个网络请求到数据解析和优化这个查询.</li>
+<li>而执行时会产生另一个网络请求.在JDBC驱动中，减少网络通讯是最终的目的.</li>
+<li>如果我的程序在运行期间只需要一次请求, 那么就使用Statement. 对于Statement, 同一个查询只会产生一次网络到数据库的通讯.</li>
+</ol>
+<p><font color=#FF0212 style=font-size:20px>注意：</font> JDBC的<strong>性能最大的增进</strong>是<strong>减少JDBC驱动与数据库之间的网络通讯次数</strong>。</p>
+<h3 id="22-pluging标签">2.2 Pluging标签
+</h3><h4 id="221-快速实现">2.2.1 快速实现
+</h4><p>pom.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>com.github.pagehelper<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>pagehelper<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>4.1.4<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>com.github.jsqlparser<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>jsqlparser<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>0.9.5<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>sqlMapperConfig.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;plugins&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;plugin</span> <span class="na">interceptor=</span><span class="s">&#34;com.github.pagehelper.PageHelper&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">	    <span class="c">&lt;!--配置数据库语言方言--&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dialect&#34;</span> <span class="na">value=</span><span class="s">&#34;mysql&#34;</span><span class="nt">/&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/plugin&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/plugins&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>serviceDemo.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public class serviceDemo {
+</span></span><span class="line"><span class="cl">	@Test
+</span></span><span class="line"><span class="cl">	public void test02() throws IOException {  
+</span></span><span class="line"><span class="cl">	    InputStream resourceAsStream = Resources.getResourceAsStream(&#34;sqlMapperConfig.xml&#34;);  
+</span></span><span class="line"><span class="cl">	    SqlSessionFactory build = new SqlSessionFactoryBuilder().build(resourceAsStream);  
+</span></span><span class="line"><span class="cl">	    SqlSession sqlSession = build.openSession();  
+</span></span><span class="line"><span class="cl">	    UserMapper mapper = sqlSession.getMapper(UserMapper.class);  
+</span></span><span class="line"><span class="cl">	  
+</span></span><span class="line"><span class="cl">	    //设置分页相关参数，当前页，每页显示的条数  
+</span></span><span class="line"><span class="cl">	    PageHelper.startPage(1, 5);  
+</span></span><span class="line"><span class="cl">	    List&lt;User&gt; userList = mapper.findAll();  
+</span></span><span class="line"><span class="cl">	  
+</span></span><span class="line"><span class="cl">	    for (User user : userList) {  
+</span></span><span class="line"><span class="cl">	        System.out.println(user);  
+</span></span><span class="line"><span class="cl">	  
+</span></span><span class="line"><span class="cl">	    }  
+</span></span><span class="line"><span class="cl">	    // 分页的信息，比如下一页、上一页、总页数等等。  
+</span></span><span class="line"><span class="cl">	    PageInfo&lt;User&gt; userPageInfo = new PageInfo&lt;&gt;(userList);  
+</span></span><span class="line"><span class="cl">	  
+</span></span><span class="line"><span class="cl">	    System.out.println(&#34;第一页 = &#34; + userPageInfo.getFirstPage());  
+</span></span><span class="line"><span class="cl">	    System.out.println(&#34;最后一页数 = &#34; + userPageInfo.getLastPage());  
+</span></span><span class="line"><span class="cl">	    System.out.println(&#34;总条数 = &#34; + userPageInfo.getTotal());  
+</span></span><span class="line"><span class="cl">	    System.out.println(&#34;总页数 = &#34;+ userPageInfo.getPages());  
+</span></span><span class="line"><span class="cl">	    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="3-多表操作">3 多表操作
+</h2><h3 id="31-一对一">3.1 一对一
+</h3><blockquote>
+<p>通过封装 <strong>resultMap标签</strong>和<strong>association标签</strong> 进行实现一对一。</p>
+</blockquote>
+<h4 id="311-demo">3.1.1 Demo
+</h4><p>Order.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public class Order {  
+</span></span><span class="line"><span class="cl">    private int id;  
+</span></span><span class="line"><span class="cl">    private Date ordertime;  
+</span></span><span class="line"><span class="cl">    private Double total;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    // 当前订单属于那个用户  
+</span></span><span class="line"><span class="cl">    private User user;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public int getId() { return id; }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public void setId(int id) { this.id = id; }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public Date getOrdertime() { return ordertime; }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public void setOrdertime(Date ordertime) { this.ordertime = ordertime; }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public Double getTotal() { return total; }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public void setTotal(Double total) { this.total = total; }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public User getUser() { return user; }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public void setUser(User user) { this.user = user; }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    @Override  
+</span></span><span class="line"><span class="cl">    public String toString() {  
+</span></span><span class="line"><span class="cl">        return &#34;Order{&#34; +  
+</span></span><span class="line"><span class="cl">                &#34;id=&#34; + id +  
+</span></span><span class="line"><span class="cl">                &#34;, ordertime=&#34; + ordertime +  
+</span></span><span class="line"><span class="cl">                &#34;, total=&#34; + total +  
+</span></span><span class="line"><span class="cl">                &#34;, user=&#34; + user +  
+</span></span><span class="line"><span class="cl">                &#39;}&#39;;  
+</span></span><span class="line"><span class="cl">    }  
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>OrderMapper.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE mapper  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&#34;com.cwg.mapper.OrderMapper&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;resultMap</span> <span class="na">id=</span><span class="s">&#34;orderMap&#34;</span> <span class="na">type=</span><span class="s">&#34;order&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--  
+</span></span></span><span class="line"><span class="cl"><span class="c">            column：数据表的字段名称  
+</span></span></span><span class="line"><span class="cl"><span class="c">            property：实体属性的名称  
+</span></span></span><span class="line"><span class="cl"><span class="c">        --&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&#34;id&#34;</span> <span class="na">property=</span><span class="s">&#34;id&#34;</span><span class="nt">&gt;&lt;/id&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;ordertime&#34;</span> <span class="na">property=</span><span class="s">&#34;ordertime&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;total&#34;</span> <span class="na">property=</span><span class="s">&#34;total&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--&lt;result column=&#34;uid&#34; property=&#34;user.id&#34;&gt;&lt;/result&gt;--&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--&lt;result column=&#34;username&#34; property=&#34;user.username&#34;&gt;&lt;/result&gt;--&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--&lt;result column=&#34;email&#34; property=&#34;user.email&#34;&gt;&lt;/result&gt;--&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--&lt;result column=&#34;phoneNum&#34; property=&#34;user.phoneNum&#34;&gt;&lt;/result&gt;--&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--&lt;result column=&#34;password&#34; property=&#34;user.password&#34;&gt;&lt;/result&gt;--&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;association</span> <span class="na">property=</span><span class="s">&#34;user&#34;</span> <span class="na">javaType=</span><span class="s">&#34;user&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&#34;uid&#34;</span> <span class="na">property=</span><span class="s">&#34;id&#34;</span><span class="nt">&gt;&lt;/id&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;username&#34;</span> <span class="na">property=</span><span class="s">&#34;username&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;email&#34;</span> <span class="na">property=</span><span class="s">&#34;email&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;phoneNum&#34;</span> <span class="na">property=</span><span class="s">&#34;phoneNum&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;password&#34;</span> <span class="na">property=</span><span class="s">&#34;password&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/association&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/resultMap&gt;</span>    
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&#34;findAll&#34;</span> <span class="na">resultMap=</span><span class="s">&#34;orderMap&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        select o.id,o.ordertime,o.total,o.uid,u.username,u.email,u.phoneNum from orders o LEFT JOIN sys_user1 u ON o.uid=u.id
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/select&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/mapper&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="32-一对多">3.2 一对多
+</h3><blockquote>
+<p>通过封装 resultMap标签和collection标签 进行实现一对多。</p>
+</blockquote>
+<h4 id="321-demo">3.2.1 Demo
+</h4><p>User.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">phoneNum</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="n">birthday</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 读取多个订单表</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orderList</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getOrderList</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">orderList</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setOrderList</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orderList</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">orderList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderList</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="nf">getBirthday</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">birthday</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setBirthday</span><span class="p">(</span><span class="n">Date</span><span class="w"> </span><span class="n">birthday</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">birthday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">birthday</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getPhoneNum</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">phoneNum</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setPhoneNum</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">phoneNum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">phoneNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">phoneNum</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getEmail</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">email</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setEmail</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">email</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getId</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">id</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setId</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getUsername</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">username</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setUsername</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">username</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getPassword</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">password</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setPassword</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">password</span><span class="p">;}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;User{&#34;</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;id=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;, username=&#39;&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;, password=&#39;&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;, email=&#39;&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;, phoneNum=&#39;&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">phoneNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;, birthday=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">birthday</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;, orderList=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">orderList</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="sc">&#39;}&#39;</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>UserMapper.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE mapper  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&#34;com.cwg.mapper.UserMapper&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;insert</span> <span class="na">id=</span><span class="s">&#34;addUser&#34;</span> <span class="na">parameterType=</span><span class="s">&#34;user&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        insert into sys_user1(username,password,birthday) values (#{username},#{password},#{birthday})  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/insert&gt;</span>  
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&#34;findAll&#34;</span> <span class="na">resultType=</span><span class="s">&#34;user&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        select * from sys_user1  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/select&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;resultMap</span> <span class="na">id=</span><span class="s">&#34;userMap&#34;</span> <span class="na">type=</span><span class="s">&#34;user&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&#34;uid&#34;</span> <span class="na">property=</span><span class="s">&#34;id&#34;</span><span class="nt">&gt;&lt;/id&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;username&#34;</span> <span class="na">property=</span><span class="s">&#34;username&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;email&#34;</span> <span class="na">property=</span><span class="s">&#34;email&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;phoneNum&#34;</span> <span class="na">property=</span><span class="s">&#34;phoneNum&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;birthday&#34;</span> <span class="na">property=</span><span class="s">&#34;birthday&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;collection</span> <span class="na">property=</span><span class="s">&#34;orderList&#34;</span> <span class="na">ofType=</span><span class="s">&#34;order&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&#34;id&#34;</span> <span class="na">property=</span><span class="s">&#34;id&#34;</span><span class="nt">&gt;&lt;/id&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;total&#34;</span> <span class="na">property=</span><span class="s">&#34;total&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;ordertime&#34;</span> <span class="na">property=</span><span class="s">&#34;ordertime&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/collection&gt;</span>    
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/resultMap&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&#34;findAll_order&#34;</span> <span class="na">resultMap=</span><span class="s">&#34;userMap&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        select u1.username,u1.email,u1.phoneNum,u1.birthday,o.*  
+</span></span><span class="line"><span class="cl">        from sys_user1 u1 
+</span></span><span class="line"><span class="cl">        left  join  orders  o on u1.id=o.uid  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/select&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/mapper&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="33-多对多">3.3 多对多
+</h3><blockquote>
+<p>通过3张表格实现数据查询。</p>
+</blockquote>
+<h4 id="331-demo">3.3.1 Demo
+</h4><p>User_1.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public class User_1 {  
+</span></span><span class="line"><span class="cl">    private int id;  
+</span></span><span class="line"><span class="cl">    private String username;  
+</span></span><span class="line"><span class="cl">    private String password;  
+</span></span><span class="line"><span class="cl">    private String email;  
+</span></span><span class="line"><span class="cl">    private String phoneNum;  
+</span></span><span class="line"><span class="cl">    private List&lt;Role&gt; roleList;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public List&lt;Role&gt; getRoleList() {return roleList; }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public void setRoleList(List&lt;Role&gt; roleList) {this.roleList = roleList;}  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    @Override  
+</span></span><span class="line"><span class="cl">    public String toString() {  
+</span></span><span class="line"><span class="cl">        return &#34;User_1{&#34; +  
+</span></span><span class="line"><span class="cl">                &#34;id=&#34; + id +  
+</span></span><span class="line"><span class="cl">                &#34;, username=&#39;&#34; + username + &#39;\&#39;&#39; +  
+</span></span><span class="line"><span class="cl">                &#34;, password=&#39;&#34; + password + &#39;\&#39;&#39; +  
+</span></span><span class="line"><span class="cl">                &#34;, email=&#39;&#34; + email + &#39;\&#39;&#39; +  
+</span></span><span class="line"><span class="cl">                &#34;, phoneNum=&#39;&#34; + phoneNum + &#39;\&#39;&#39; +  
+</span></span><span class="line"><span class="cl">                &#34;, roleList=&#34; + roleList +  
+</span></span><span class="line"><span class="cl">                &#39;}&#39;;  
+</span></span><span class="line"><span class="cl">    }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public String getPhoneNum() {return phoneNum;   }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public void setPhoneNum(String phoneNum) {this.phoneNum = phoneNum;    }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public String getEmail() {return email; }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public void setEmail(String email) {this.email = email;}  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public int getId() {return id;}  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public void setId(int id) {this.id = id;}  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public String getUsername() {return username;}  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public void setUsername(String username) {this.username = username; }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public String getPassword() {return password;}  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    public void setPassword(String password) {this.password = password;}  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Role.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Role</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">roleName</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">roleDesc</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getId</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setId</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getRoleName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">roleName</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setRoleName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">roleName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">roleName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">roleName</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getRoleDesc</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">roleDesc</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setRoleDesc</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">roleDesc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">roleDesc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">roleDesc</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Role{&#34;</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;id=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;, roleName=&#39;&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">roleName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;, roleDesc=&#39;&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">roleDesc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="sc">&#39;}&#39;</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>User1Mapper.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE mapper  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="cp">        &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&#34;com.cwg.mapper.User1Mapper&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;resultMap</span> <span class="na">id=</span><span class="s">&#34;userMap&#34;</span> <span class="na">type=</span><span class="s">&#34;user_1&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&#34;userId&#34;</span> <span class="na">property=</span><span class="s">&#34;id&#34;</span><span class="nt">&gt;&lt;/id&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;username&#34;</span> <span class="na">property=</span><span class="s">&#34;username&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;password&#34;</span> <span class="na">property=</span><span class="s">&#34;password&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;email&#34;</span> <span class="na">property=</span><span class="s">&#34;email&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;collection</span> <span class="na">property=</span><span class="s">&#34;roleList&#34;</span> <span class="na">ofType=</span><span class="s">&#34;role&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&#34;roleId&#34;</span> <span class="na">property=</span><span class="s">&#34;id&#34;</span><span class="nt">&gt;&lt;/id&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;roleName&#34;</span> <span class="na">property=</span><span class="s">&#34;roleName&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&#34;roleDesc&#34;</span> <span class="na">property=</span><span class="s">&#34;roleDesc&#34;</span><span class="nt">&gt;&lt;/result&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/collection&gt;</span>    
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/resultMap&gt;</span>    
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&#34;findUserAndOrderAll&#34;</span> <span class="na">resultMap=</span><span class="s">&#34;userMap&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">        select u.username, u.password, u.email, ur.userId, ur.roleId, r.roleName, r.roleDesc  
+</span></span><span class="line"><span class="cl">        from sys_user_role ur 
+</span></span><span class="line"><span class="cl">        left join sys_user u on u.id = ur.userId       
+</span></span><span class="line"><span class="cl">        left join sys_role r on ur.roleId = r.id   
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/select&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/mapper&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4-注解开发">4 注解开发
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">注解</th>
+          <th style="text-align: left">作用</th>
+          <th style="text-align: left">示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">@Insert</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">@Update</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">@Delete</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">@Select</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">@Result</td>
+          <td style="text-align: left">实现结果集封装</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">@Results</td>
+          <td style="text-align: left">可以与@Result一起使用，封装多个结果</td>
+          <td style="text-align: left">@Results({@Result(),@Result})</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">@One</td>
+          <td style="text-align: left">实现一对一结果集封装</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">@Many</td>
+          <td style="text-align: left">实现一对多结果集封装</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="41-增删改查">4.1 增删改查
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserMapper</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Select</span><span class="p">(</span><span class="s">&#34;select * from sys_user&#34;</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findUserAll</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Insert</span><span class="p">(</span><span class="s">&#34;insert into sys_user(username,password,email,phoneNum) values(#{username},#{password},#{email},#{phoneNum})&#34;</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addUser</span><span class="p">(</span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Delete</span><span class="p">(</span><span class="s">&#34;delete from sys_user where id=#{id}&#34;</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">delUser</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="42-一对多和多对多">4.2 一对多和多对多
+</h3><p>UserMapper.Java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserMapper</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nd">@Select</span><span class="p">(</span><span class="s">&#34;select * from sys_user&#34;</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nd">@Results</span><span class="p">({</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">//Column：指定数据库查出来的字段。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">//property：指定Java类中的属性。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nd">@Result</span><span class="p">(</span><span class="n">column</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;username&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;username&#34;</span><span class="p">),</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nd">@Result</span><span class="p">(</span><span class="n">column</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;password&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;password&#34;</span><span class="p">),</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nd">@Result</span><span class="p">(</span><span class="n">column</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;email&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;email&#34;</span><span class="p">),</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nd">@Result</span><span class="p">(</span><span class="n">id</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;id&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;id&#34;</span><span class="p">),</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nd">@Result</span><span class="p">(</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;roleList&#34;</span><span class="p">,</span><span class="w"> </span><span class="c1">//要封装的属性名称  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">column</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;id&#34;</span><span class="p">,</span><span class="w"> </span><span class="c1">//根据那个字段去查询user表的数据  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">javaType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w">   </span><span class="c1">//封装成什么数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">many</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Many</span><span class="p">(</span><span class="n">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;com.cwg.mapper.RoleMapper.findByUId&#34;</span><span class="p">)</span><span class="w">  </span><span class="c1">// 指定执行某个mapper的方法获取数据。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">})</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findUserAndRole</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>RoleMapper.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">RoleMapper</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Select</span><span class="p">(</span><span class="s">&#34;select r.* from sys_user_role ur left join sys_role r on ur.roleId=r.id  where userId = #{id}&#34;</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Results</span><span class="p">({</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nd">@Result</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;id&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;id&#34;</span><span class="p">),</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nd">@Result</span><span class="p">(</span><span class="n">column</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;roleName&#34;</span><span class="p">,</span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;roleName&#34;</span><span class="p">),</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nd">@Result</span><span class="p">(</span><span class="n">column</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;roleDesc&#34;</span><span class="p">,</span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;roleDesc&#34;</span><span class="p">),</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Role</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findByUId</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>ServiceDemo.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">serviceDemo</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SqlSession</span><span class="w"> </span><span class="n">sqlSession</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Before</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">before</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">InputStream</span><span class="w"> </span><span class="n">resourceAsStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Resources</span><span class="p">.</span><span class="na">getResourceAsStream</span><span class="p">(</span><span class="s">&#34;SqlMapperConfig.xml&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SqlSessionFactory</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SqlSessionFactoryBuilder</span><span class="p">().</span><span class="na">build</span><span class="p">(</span><span class="n">resourceAsStream</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sqlSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build</span><span class="p">.</span><span class="na">openSession</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@After</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">after</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;关闭连接&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sqlSession</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w">  </span><span class="nf">test03</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">UserMapper</span><span class="w"> </span><span class="n">mapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqlSession</span><span class="p">.</span><span class="na">getMapper</span><span class="p">(</span><span class="n">UserMapper</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">userList</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">mapper</span><span class="p">.</span><span class="na">findUserAndRole</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">userList</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">user</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="43-扩展">4.3 扩展
+</h3><h4 id="431-动态sql">4.3.1 动态SQL
+</h4><h2 id="5-缓存">5 缓存
+</h2><blockquote>
+<p>Mybatis支持数据缓存，将查询出来的数据保存在内存中，当对象需要重复读取时，可以快速抽取出来，减少IO输入输出，提升检索速度，优化性能。其中数据缓存又分为<strong>一级缓存</strong>和<strong>二级缓存</strong>。一级缓存缓存的是<strong>sql语句</strong>，二级缓存缓存的是<strong>结果对象</strong>。</p>
+</blockquote>
+<ul>
+<li><strong>一级缓存</strong>(默认开启)：Mybatis在不进行修改/提交/刷新/关闭操作前，缓存不会清空，但是不同sqlSession调用<strong>相同</strong>sql语句依旧会进行查询。</li>
+<li><strong>二级缓存</strong>：二级缓存是全局缓存在同一个namespace中的mapper共享，Mybatis在不进行提交/关闭操作时，缓存不会清空。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-XML" data-lang="XML"><span class="line"><span class="cl">------ Mybatis-config.xml ----------
+</span></span><span class="line"><span class="cl">//开启二级缓存
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;settings&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;setting</span> <span class="na">name=</span><span class="s">&#34;cacheEnabled&#34;</span> <span class="na">value=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/settings&gt;</span>
+</span></span><span class="line"><span class="cl">---------Mapper.xml-----------------
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;mapper</span> <span class="na">namescape=</span><span class="s">&#34;net.biancheng.WebsiteMapper&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;cache</span> <span class="na">eviction=</span><span class="s">&#34;FIFO&#34;</span> <span class="na">flushInterval=</span><span class="s">&#34;60000&#34;</span> <span class="na">size=</span><span class="s">&#34;512&#34;</span> <span class="na">readOnly=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/mapper&gt;</span>
+</span></span><span class="line"><span class="cl">- eviction --&gt; FIFO：先进先出，按对象进入缓存的顺序来移除它们；
+</span></span><span class="line"><span class="cl">- flushInterval: 刷新间隔时间，单位为毫秒
+</span></span><span class="line"><span class="cl">- size:引用数目，正整数，代表缓存最多可以存储多少个对象，不宜设置过大。
+</span></span><span class="line"><span class="cl">- readOnly:只读，默认值为 false
+</span></span></code></pre></td></tr></table>
+</div>
+</div><pre><code>对于 MyBatis 缓存仅作了解即可，因为面对一定规模的数据量，内置的 Cache 方式就派不上用场了，并且对查询结果集做缓存并不是 MyBatis 所擅长的，它专心做的应该是 SQL 映射。对于缓存，采用 OSCache、Memcached 等专门的缓存服务器来做更为合理。
+</code></pre>
+<h2 id="6-事务">6 事务
+</h2><blockquote>
+<p>MyBatis可以通过XML配置是否独立处理事务，可以选择不单独处理事务，将事务托管给其他上层框架如spring等；</p>
+</blockquote>
+<h1 id="四ssm整合springsprintmvcmybatis">四、SSM整合(Spring+SprintMVC+Mybatis)
+</h1><h2 id="1-导入坐标">1 导入坐标
+</h2><p>pom.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>  
+</span></span><span class="line"><span class="cl">         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>  
+</span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>com.cwg<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring_springmvc_mybatis_quickDev<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>       
+</span></span><span class="line"><span class="cl">	    <span class="c">&lt;!--spring数据库--&gt;</span>  
+</span></span><span class="line"><span class="cl">		<span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;artifactId&gt;</span>spring-jdbc<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;version&gt;</span>5.3.18<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">		<span class="nt">&lt;/dependency&gt;</span> 
+</span></span><span class="line"><span class="cl">	    <span class="c">&lt;!--springmvc--&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-web<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>5.3.18<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>            
+</span></span><span class="line"><span class="cl">	        <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-webmvc<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>5.3.18<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--spring--&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-context<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>5.3.18<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--spring事务--&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-tx<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>5.3.18<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>            
+</span></span><span class="line"><span class="cl">	        <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-aop<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>5.3.18<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;groupId&gt;</span>org.aspectj<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;artifactId&gt;</span>aspectjweaver<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;version&gt;</span>1.9.7<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">		<span class="nt">&lt;/dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--servlet--&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>servlet-api<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>2.5<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>            
+</span></span><span class="line"><span class="cl">	        <span class="nt">&lt;groupId&gt;</span>javax.servlet.jsp<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>javax.servlet.jsp-api<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>2.2.1<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;groupId&gt;</span>jstl<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;artifactId&gt;</span>jstl<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;version&gt;</span>1.2<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">		<span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--mybatis--&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>mysql<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>mysql-connector-java<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>5.1.47<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>        
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>            
+</span></span><span class="line"><span class="cl">	        <span class="nt">&lt;groupId&gt;</span>org.mybatis<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>mybatis<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>3.4.5<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">        // 注入spring-mybatis依赖
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;groupId&gt;</span>org.mybatis<span class="nt">&lt;/groupId&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;artifactId&gt;</span>mybatis-spring<span class="nt">&lt;/artifactId&gt;</span>  
+</span></span><span class="line"><span class="cl">		    <span class="nt">&lt;version&gt;</span>1.3.1<span class="nt">&lt;/version&gt;</span>  
+</span></span><span class="line"><span class="cl">		<span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>        
+</span></span><span class="line"><span class="cl">	    <span class="nt">&lt;maven.compiler.source&gt;</span>8<span class="nt">&lt;/maven.compiler.source&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;maven.compiler.target&gt;</span>8<span class="nt">&lt;/maven.compiler.target&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2-创建配置文件">2 创建配置文件
+</h2><h3 id="21-创建spring配置文件">2.1 创建spring配置文件
+</h3><p>applicationContext</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;  
+</span></span><span class="line"><span class="cl">&lt;beans xmlns=&#34;http://www.springframework.org/schema/beans&#34;  
+</span></span><span class="line"><span class="cl">       xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;  
+</span></span><span class="line"><span class="cl">       xmlns:context=&#34;http://www.springframework.org/schema/context&#34; xmlns:tx=&#34;http://www.springframework.org/schema/tx&#34;  
+</span></span><span class="line"><span class="cl">       xmlns:aop=&#34;http://www.springframework.org/schema/aop&#34;  
+</span></span><span class="line"><span class="cl">       xsi:schemaLocation=&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+</span></span><span class="line"><span class="cl">       http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd       http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd&#34;&gt;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    &lt;context:component-scan base-package=&#34;com.cwg.*&#34;&gt;  
+</span></span><span class="line"><span class="cl">        &lt;context:exclude-filter type=&#34;annotation&#34; expression=&#34;org.springframework.stereotype.Controller&#34;/&gt;  
+</span></span><span class="line"><span class="cl">    &lt;/context:component-scan&gt;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    &lt;context:property-placeholder location=&#34;classpath:mysql_jdbc.properties&#34;&gt;&lt;/context:property-placeholder&gt;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    &lt;!--配置数据源--&gt;  
+</span></span><span class="line"><span class="cl">    &lt;bean class=&#34;com.mchange.v2.c3p0.ComboPooledDataSource&#34; id=&#34;dataSource&#34;&gt;  
+</span></span><span class="line"><span class="cl">        &lt;property name=&#34;driverClass&#34; value=&#34;${jdbc.driver}&#34;&gt;&lt;/property&gt;  
+</span></span><span class="line"><span class="cl">        &lt;property name=&#34;user&#34; value=&#34;${jdbc.username}&#34;&gt;&lt;/property&gt;  
+</span></span><span class="line"><span class="cl">        &lt;property name=&#34;password&#34; value=&#34;${jdbc.password}&#34;&gt;&lt;/property&gt;  
+</span></span><span class="line"><span class="cl">        &lt;property name=&#34;jdbcUrl&#34; value=&#34;${jdbc.url}&#34;&gt;&lt;/property&gt;  
+</span></span><span class="line"><span class="cl">    &lt;/bean&gt;  
+</span></span><span class="line"><span class="cl">    &lt;!--配置mybatis--&gt;  
+</span></span><span class="line"><span class="cl">    &lt;bean class=&#34;org.mybatis.spring.SqlSessionFactoryBean&#34; id=&#34;sessionFactoryBean&#34;&gt;  
+</span></span><span class="line"><span class="cl">        &lt;!--加载数据源--&gt;  
+</span></span><span class="line"><span class="cl">        &lt;property name=&#34;dataSource&#34; ref=&#34;dataSource&#34;&gt;&lt;/property&gt;  
+</span></span><span class="line"><span class="cl">        &lt;!--加载核心配置文件--&gt;  
+</span></span><span class="line"><span class="cl">        &lt;property name=&#34;configLocation&#34; value=&#34;classpath:SqlMapperConfig.xml&#34;&gt;&lt;/property&gt;  
+</span></span><span class="line"><span class="cl">    &lt;/bean&gt;  
+</span></span><span class="line"><span class="cl">    &lt;!--扫描mapper的包,为mapper创建实现类--&gt;  
+</span></span><span class="line"><span class="cl">    &lt;bean class=&#34;org.mybatis.spring.mapper.MapperScannerConfigurer&#34; id=&#34;mapperScannerConfigurer&#34;&gt;  
+</span></span><span class="line"><span class="cl">        &lt;property name=&#34;basePackage&#34; value=&#34;com.cwg.mapper&#34;&gt;&lt;/property&gt;  
+</span></span><span class="line"><span class="cl">    &lt;/bean&gt;  
+</span></span><span class="line"><span class="cl">    &lt;!--声明式事务控制--&gt;  
+</span></span><span class="line"><span class="cl">    &lt;!--配置平台事务管理器--&gt;  
+</span></span><span class="line"><span class="cl">    &lt;bean class=&#34;org.springframework.jdbc.datasource.DataSourceTransactionManager&#34; id=&#34;transactionManager&#34;&gt;  
+</span></span><span class="line"><span class="cl">        &lt;property name=&#34;dataSource&#34; ref=&#34;dataSource&#34;&gt;&lt;/property&gt;  
+</span></span><span class="line"><span class="cl">    &lt;/bean&gt;  
+</span></span><span class="line"><span class="cl">    &lt;tx:advice id=&#34;txAdvice&#34;&gt;  
+</span></span><span class="line"><span class="cl">        &lt;tx:attributes&gt;  
+</span></span><span class="line"><span class="cl">            &lt;tx:method name=&#34;*&#34;/&gt;  
+</span></span><span class="line"><span class="cl">        &lt;/tx:attributes&gt;  
+</span></span><span class="line"><span class="cl">    &lt;/tx:advice&gt;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    &lt;aop:config&gt;  
+</span></span><span class="line"><span class="cl">        &lt;aop:advisor advice-ref=&#34;txAdvice&#34; pointcut=&#34;execution(* com.cwg.service.impl.*.*(..))&#34;&gt;&lt;/aop:advisor&gt;  
+</span></span><span class="line"><span class="cl">    &lt;/aop:config&gt;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">&lt;/beans&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80_java_%E6%A1%86%E6%9E%B6_mybatis/">计算机_程序语言_Java_框架_Mybatis</a>
+        
+            <a href="/tags/zk-todo/">Zk-Todo</a>
+        
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E6%95%B0%E6%8D%AE%E5%BA%93/">计算机_数据库</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/mybatiserror-202209130949/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">MybatisError-202209130949</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/mybatis%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B-202209101059/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Mybatis逆向工程-202209101059</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/spring%E6%95%B4%E5%90%88springmvc%E5%92%8Cmybatis-202208071204/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Spring整合SpringMVC和Mybatis-202208071204</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 游手好闲的卫大人
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

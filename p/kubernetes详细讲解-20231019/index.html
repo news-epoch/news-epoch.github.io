@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Links: Kubernetes官网| Github-Kubernetes| 安装脚本\nTarket:\n深入理解k8s各大资源对象以及最佳实践 熟练运用k8s各项调度策略 掌握k8s网络原理及应用 熟练掌握pod控制器及运用场景 数量掌握k8s微服务DevOps实战 一、Kubernetes核心概念 1 什么是Kubernetes？ Kubernetes 最初源于谷歌内部的Borg，Borg是谷歌内部的大规模集群管理系统，负责对谷歌内部很多核心服务的调度和管理，Borg的目的是让用户能够不必操心资源管理的问题，让他们专注于自己的核心业务，并且做到跨多个数据中心的资源利用率最大化。实现自动装箱，自我修复，水平扩展，服务发现和负载均衡，自动发布和回滚，密钥和配置管理，存储编排。\n">
+<title>Kubernetes详细讲解-20231019</title>
+
+<link rel='canonical' href='https://news-epoch.github.io/p/kubernetes%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3-20231019/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Kubernetes详细讲解-20231019">
+<meta property='og:description' content="Links: Kubernetes官网| Github-Kubernetes| 安装脚本\nTarket:\n深入理解k8s各大资源对象以及最佳实践 熟练运用k8s各项调度策略 掌握k8s网络原理及应用 熟练掌握pod控制器及运用场景 数量掌握k8s微服务DevOps实战 一、Kubernetes核心概念 1 什么是Kubernetes？ Kubernetes 最初源于谷歌内部的Borg，Borg是谷歌内部的大规模集群管理系统，负责对谷歌内部很多核心服务的调度和管理，Borg的目的是让用户能够不必操心资源管理的问题，让他们专注于自己的核心业务，并且做到跨多个数据中心的资源利用率最大化。实现自动装箱，自我修复，水平扩展，服务发现和负载均衡，自动发布和回滚，密钥和配置管理，存储编排。\n">
+<meta property='og:url' content='https://news-epoch.github.io/p/kubernetes%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3-20231019/'>
+<meta property='og:site_name' content='卫大人的杂乱博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='效率_工具' /><meta property='article:tag' content='计算机_操作系统' />
+<meta name="twitter:title" content="Kubernetes详细讲解-20231019">
+<meta name="twitter:description" content="Links: Kubernetes官网| Github-Kubernetes| 安装脚本\nTarket:\n深入理解k8s各大资源对象以及最佳实践 熟练运用k8s各项调度策略 掌握k8s网络原理及应用 熟练掌握pod控制器及运用场景 数量掌握k8s微服务DevOps实战 一、Kubernetes核心概念 1 什么是Kubernetes？ Kubernetes 最初源于谷歌内部的Borg，Borg是谷歌内部的大规模集群管理系统，负责对谷歌内部很多核心服务的调度和管理，Borg的目的是让用户能够不必操心资源管理的问题，让他们专注于自己的核心业务，并且做到跨多个数据中心的资源利用率最大化。实现自动装箱，自我修复，水平扩展，服务发现和负载均衡，自动发布和回滚，密钥和配置管理，存储编排。\n">
+    <link rel="shortcut icon" href="/%e6%83%b3%e6%b3%95.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu4043572482303308672.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">卫大人的杂乱博客</a></h1>
+            <h2 class="site-description">哟，你来学习了！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/news-epoch/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-什么是kubernetes">1 什么是Kubernetes？</a></li>
+    <li><a href="#2-组件介绍">2 组件介绍</a>
+      <ol>
+        <li><a href="#21-master三大组件">2.1 Master三大组件：</a>
+          <ol>
+            <li><a href="#211-kubernetes-apiserver">2.1.1 <strong>Kubernetes-ApiServer</strong>：</a></li>
+            <li><a href="#212-kube-schduler">2.1.2 kube-schduler</a></li>
+            <li><a href="#213-kube-controller-manager">2.1.3 kube-controller-manager</a></li>
+            <li><a href="#214-创建容器流程">2.1.4 创建容器流程</a></li>
+            <li><a href="#215-pod高可用机制">2.1.5 Pod高可用机制</a></li>
+          </ol>
+        </li>
+        <li><a href="#22-etcd-cluster">2.2 Etcd Cluster</a></li>
+        <li><a href="#23-work-node-组件">2.3 Work Node 组件：</a>
+          <ol>
+            <li><a href="#231-kubelet">2.3.1 kubelet</a></li>
+            <li><a href="#232-kube-proxy">2.3.2 kube-proxy</a></li>
+            <li><a href="#233-dasboard">2.3.3 Dasboard</a></li>
+            <li><a href="#234-coredns">2.3.4 coreDNS</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#1-部署kubernetes集群">1 部署Kubernetes集群</a>
+      <ol>
+        <li><a href="#11-搭建方案">1.1 搭建方案</a></li>
+        <li><a href="#12-命令行工具">1.2 命令行工具</a></li>
+        <li><a href="#13-api概述">1.3 API概述</a></li>
+        <li><a href="#14-地址规划">1.4 地址规划</a></li>
+        <li><a href="#15-安装harbor">1.5 安装Harbor</a></li>
+        <li><a href="#16-keepalivedhaproxy高可用负载均衡器">1.6 keepalived+haproxy(高可用)负载均衡器</a></li>
+        <li><a href="#17-部署k8s">1.7 部署K8S</a>
+          <ol>
+            <li><a href="#171-离线下载文件创建集群文件">1.7.1 离线下载文件&amp;&amp;创建集群文件</a></li>
+            <li><a href="#172-修改安装文件">1.7.2 修改安装文件</a></li>
+            <li><a href="#173-开始安装">1.7.3 开始安装</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#2-etcd使用">2 etcd使用</a>
+      <ol>
+        <li><a href="#21-心跳检测">2.1 心跳检测</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/kubernetes%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3-20231019/">Kubernetes详细讲解-20231019</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 8 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Links: <a class="link" href="https://kubernetes.io/zh-cn/"  target="_blank" rel="noopener"
+    >Kubernetes官网</a>| <a class="link" href="https://github.com/kubernetes/kubernetes"  target="_blank" rel="noopener"
+    >Github-Kubernetes</a>| <a class="link" href="https://github.com/easzlab/kubeasz"  target="_blank" rel="noopener"
+    >安装脚本</a></p>
+<p>Tarket:</p>
+<ul>
+<li>深入理解k8s各大资源对象以及最佳实践</li>
+<li>熟练运用k8s各项调度策略</li>
+<li>掌握k8s网络原理及应用</li>
+<li>熟练掌握pod控制器及运用场景</li>
+<li>数量掌握k8s微服务DevOps实战</li>
+</ul>
+<h1 id="一kubernetes核心概念">一、Kubernetes核心概念
+</h1><h2 id="1-什么是kubernetes">1 什么是Kubernetes？
+</h2><blockquote>
+<p>Kubernetes 最初源于谷歌内部的Borg，Borg是谷歌内部的大规模集群管理系统，负责对谷歌内部很多核心服务的调度和管理，Borg的目的是让用户能够不必操心资源管理的问题，让他们专注于自己的核心业务，并且做到跨多个数据中心的<strong>资源利用率最大化</strong>。<strong>实现自动装箱，自我修复，水平扩展，服务发现和负载均衡，自动发布和回滚，密钥和配置管理，存储编排</strong>。</p>
+<blockquote>
+<p>Kubernetes就是一个集群，整合多台<strong>云平台</strong>主机的资源，对外提供对应的服务。在多台主机安装Kubernetes相关应用程序，通过这个应用进行<strong>协同通信工作</strong>，让我们更加<strong>应用简单、高效快捷</strong>的容器管理平台。</p>
+</blockquote>
+</blockquote>
+<h2 id="2-组件介绍">2 组件介绍
+</h2><p><img src="/79f03161d42e5be3936c5f48ed52044f.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="79f03161d42e5be3936c5f48ed52044f.png"
+	
+	
+></p>
+<h3 id="21-master三大组件">2.1 Master三大组件：
+</h3><h4 id="211-kubernetes-apiserver">2.1.1 <strong>Kubernetes-ApiServer</strong>：
+</h4><blockquote>
+<p>是k8s整个访问的入口，提供了k8s各类资源对象的增删改查即watch等HTTP <a class="link" href="https://github.com/Arachni/arachni/wiki/REST-API"  target="_blank" rel="noopener"
+    >RESTFUL</a>接口。
+1. 端口默认值为6443，可通过<code>--secure-port</code>的值进行修改默认值
+2. 默认IP地址为非本地(Non-Localhost)网络端口，通过启动参数<code>--bind-address</code>设置该值。
+3. 该端口用于接收客户端，dashboard等外部HTTPS请求。
+4. 用于基于Token文件或客户端证书及HTTP Base的认证。
+5. 用于基于策略的授权。
+-&gt; <a class="link" href="Drawing%202023-10-22%2017.16.47.excalidraw" >800x500</a></p>
+</blockquote>
+<h4 id="212-kube-schduler">2.1.2 kube-schduler
+</h4><blockquote>
+<p>是一个<strong>控制面进程</strong>，负责将Pod指派到节点上。通过调度算法为<strong>待调度Pod列表</strong>的每个Pod从可用Node列表中选择一个最合适的Node，并将信息写入到etcd中。
+node节点上的kubelet通过<strong>每隔1s就会和API Server通信机制</strong>，监听到kubernetes Schduler产生到etcd中的Pod绑定信息，然后获取对应的Pod清单，下载Image，并启动容器。
+<strong>分配策略</strong>：1. 根据资源分配(CPU+内存)。 2. 根据label分配。3. 根据资源使用率最均衡的节点</p>
+</blockquote>
+<h4 id="213-kube-controller-manager">2.1.3 kube-controller-manager
+</h4><blockquote>
+<p>是一个<strong>管理面进程</strong>。包括一些子控制器（副本控制器、节点控制器、命名空间控制器和服务账号控制器等），控制器作为集群内部的管理控制中心，负责集群内的Node、Pod副本、服务端点、命名空间、服务账号、资源定额的管理。并且controller-manager控制器每隔<strong>5s</strong>检查一次节点状态，如果controller-manager没有收到节点的心跳，则<strong>等待40s后</strong>，就将该节点标记为不可达，如果该节点在标记后5分钟没有回复，controller-manager会删除当前node节点的所有pod并在<strong>其他可用节点</strong>重建这些pod。</p>
+</blockquote>
+<h4 id="214-创建容器流程">2.1.4 创建容器流程
+</h4><ol>
+<li>kubelet客户端 发起请求3个Pod请求到 Api Server</li>
+<li>Api Server 收到指令，把信息写入到 <strong>etcd</strong></li>
+<li>kube-scheduler 通过与Api Server 进行通信检测到有3个Pod未创建。</li>
+<li>kube-scheduler 将 etcd中的3个pod一次调度获取到，然后检测是否携带Table标签等，如果没有携带，就按照默认规则分配(检查 节点中的资源谁更符合)。</li>
+<li>一旦在node节点搭建一个Pod服务，Api Server 就会通过心跳检测到node节点的资源更新，然后将node节点的更新数据更新到etcd</li>
+</ol>
+<h4 id="215-pod高可用机制">2.1.5 Pod高可用机制
+</h4><ul>
+<li>node monitor period：节点监视周期</li>
+<li>node monitor grace period：节点监视器宽限期</li>
+<li>pod eviction timeout：pod驱逐超时时间</li>
+</ul>
+<h3 id="22-etcd-cluster">2.2 Etcd Cluster
+</h3><blockquote>
+<p>用来存放k8s集群信息和用来实现kube-schduler、kube-controller-manager，workNode之间的通信的。并且通过key-value数据存储系统的，生产环境使用时需要为etcd提供备份功能。</p>
+</blockquote>
+<h3 id="23-work-node-组件">2.3 Work Node 组件：
+</h3><h4 id="231-kubelet">2.3.1 kubelet
+</h4><blockquote>
+<p>kubelet通过<strong>Api Server监听</strong>到kubernetes Scheduler产生的Pod绑定信息，然后<strong>操控Docker</strong>获取对应的<strong>Pod清单</strong>，<strong>下载Image</strong>，并启动容器。是运行在每个worker节点的代理组件，他会监视已分配给节点的pod</p>
+</blockquote>
+<ol>
+<li>向master<strong>汇报node节点的状态信息</strong>。</li>
+<li><strong>接受指令并再pod中创建docker容器</strong></li>
+<li><strong>准备Pod所需的数据卷</strong></li>
+<li><strong>返回pod的运行状态</strong>。</li>
+<li>在node节点执行<strong>容器健康检查</strong>。</li>
+</ol>
+<h4 id="232-kube-proxy">2.3.2 kube-proxy
+</h4><blockquote>
+<p>用来部署到每个Node节点上的网络代理，它反映了node上Kubernetes API 中定义的服务，ing可以通过一组后端进行简单的TCP、UDP 和 SCTP流转发或者在一组后端进行循环转发，用户必须使用 ApiServer API 创建一个服务来配置代理，其实就是kube-proxy通过在主机上维护网络规则并执行连接转发来实现Kubernetes服务访问。
+作用：<strong>监听API SERVER 中服务对象的变化</strong>， 再通过管理 IPtables或者IPVS规则来实现网络的转发。</p>
+</blockquote>
+<p>Kube-Proxy 不同版本可支持的三种工作模式：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">版本</th>
+          <th style="text-align: left">支持模式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">k8s v1.1</td>
+          <td style="text-align: left">UserSpace</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">K8s v1.2</td>
+          <td style="text-align: left">IPtables</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">K8s v1.9~v1.11</td>
+          <td style="text-align: left">IPVS、IPtables</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">注意：IPVS 要安装ipvsadm、ipset工具包和加载 ip_vs 内核模块。并且当IPVS配置写错或者内核不支持，Kube-Proxy会自动降级为IPtables。</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table></div>
+<p>Kube-proxy 有三个网络：</p>
+<ul>
+<li>node 网络</li>
+<li>pod 网络</li>
+<li>service 网络</li>
+</ul>
+<h4 id="233-dasboard">2.3.3 Dasboard
+</h4><blockquote>
+<p>是就网页的Kubernetes用户界面，可以使用Dashboard获取运行中</p>
+</blockquote>
+<h4 id="234-coredns">2.3.4 coreDNS
+</h4><blockquote>
+<p>负责为整个集群提供DNS服务，从而实现服务之间的访问。</p>
+</blockquote>
+<h1 id="二kubernetes实战">二、Kubernetes实战
+</h1><h2 id="1-部署kubernetes集群">1 部署Kubernetes集群
+</h2><h3 id="11-搭建方案">1.1 搭建方案
+</h3><ul>
+<li>minikube()</li>
+<li>kubeadm(不推荐)</li>
+<li>二进制安装(稳妥)</li>
+<li>命令行安装(简单，方便)</li>
+</ul>
+<h3 id="12-命令行工具">1.2 命令行工具
+</h3><h3 id="13-api概述">1.3 API概述
+</h3><h3 id="14-地址规划">1.4 地址规划
+</h3><p><img src="/images/Pasted%20image%2020240119114906.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="/images/Pasted%20image%2020240119142812.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">服务</th>
+          <th style="text-align: left">IP</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">K8s-harbor</td>
+          <td style="text-align: left">172.31.7.104</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">keepalived+haproxy</td>
+          <td style="text-align: left">172.31.7.109-110</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">k8s-master</td>
+          <td style="text-align: left">172.31.7.101-103</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">k8s-etcd</td>
+          <td style="text-align: left">172.31.7.105-107</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">k8s-ansible</td>
+          <td style="text-align: left">172.31.7.100</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">k8s-work</td>
+          <td style="text-align: left">172.31.7.111-113</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="15-安装harbor">1.5 安装Harbor
+</h3><p><a class="link" href="Harbor%E7%A7%81%E4%BA%BA%E4%BB%93%E5%BA%93-20231026.md#install" >Harbor私人仓库-20231026 &gt; install</a></p>
+<h3 id="16-keepalivedhaproxy高可用负载均衡器">1.6 keepalived+haproxy(高可用)负载均衡器
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt install keepalived haproxy
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vim /etc/keepalived/keepalived.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">! Configuration File <span class="k">for</span> keeplived
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">global_defs <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    notification_email <span class="o">{</span>   <span class="c1">#邮箱服务器，一般公司内也不设置</span>
+</span></span><span class="line"><span class="cl">        acassen
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    notification_email_from Alexandre.Cassen@firewall.loc
+</span></span><span class="line"><span class="cl">    smtp_server 192.168.1.201
+</span></span><span class="line"><span class="cl">    smtp_connect_timeout <span class="m">30</span>
+</span></span><span class="line"><span class="cl">    router_id LVS_DEVEL    <span class="c1">#标识这台机器ID，默认情况下是主机名，可以配置成主机名</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vrrp_instance VI_1 <span class="o">{</span>  <span class="c1">#虚拟路由器名称，在一个keepalived可以启多个虚拟路由器，每个虚拟路由器的名字都不一样</span>
+</span></span><span class="line"><span class="cl">    state MASTER   <span class="c1">#当前节点在此虚拟路由器上的初始状态，状态为MASTER或者BACKUP，一般都是配置backup，该值无法决定身份，最终还是通过比较priority</span>
+</span></span><span class="line"><span class="cl">    interface enp4s0    <span class="c1">#绑定为当前虚拟路由器使用的物理接口，如：ens32,eth0,bond0,br0</span>
+</span></span><span class="line"><span class="cl">    garp_master_delay <span class="m">10</span>
+</span></span><span class="line"><span class="cl">    smtp_alert
+</span></span><span class="line"><span class="cl">    virtual_router_id <span class="m">56</span>    <span class="c1">#每个虚拟路由器惟一标识，范围：0-255，同一组虚拟路由器的vrid必须一致</span>
+</span></span><span class="line"><span class="cl">    priority <span class="m">50</span>              <span class="c1">#当前物理节点在此虚拟路由器的优先级，范围：1-254，每个keepalived主机节点此值不同</span>
+</span></span><span class="line"><span class="cl">    advert_int <span class="m">1</span>          <span class="c1">#vrrp通告的时间间隔，默认1s</span>
+</span></span><span class="line"><span class="cl">    authentication <span class="o">{</span>       <span class="c1">#认证机制</span>
+</span></span><span class="line"><span class="cl">        auth_type PASS     <span class="c1">#AH（不推荐）或PASS</span>
+</span></span><span class="line"><span class="cl">        auth_pass <span class="m">1111</span>     <span class="c1">#预共享密钥，仅前8位有效，同一个虚拟路由器的多个keepalived节点必须一样</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    virtual_ipaddress <span class="o">{</span>    <span class="c1">#虚拟IP</span>
+</span></span><span class="line"><span class="cl">        172.31.7.188 dev enp4s0 label enp4s0:0     <span class="c1">#指定VIP的网卡label---&gt;(虚拟IP dev 物理接口  label  标签名)</span>
+</span></span><span class="line"><span class="cl">    ¦   172.31.7.189 dev enp4s0 label enp4s0:1
+</span></span><span class="line"><span class="cl">    ¦   172.31.7.190 dev enp4s0 label enp4s0:2
+</span></span><span class="line"><span class="cl">    ¦   172.31.7.191 dev enp4s0 label enp4s0:3
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 配置haproxy</span>
+</span></span><span class="line"><span class="cl">vim /etc/haproxy/haproxy.cfg
+</span></span><span class="line"><span class="cl">listen k8s-6443   <span class="c1">#监听名字</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">bind</span> 172.31.7.188:6443    <span class="c1"># 绑定VIP</span>
+</span></span><span class="line"><span class="cl">    mode tcp     <span class="c1">#监听包格式</span>
+</span></span><span class="line"><span class="cl">    server k8s1 172.31.7.101:6443 check inter 3s fall <span class="m">3</span> rise <span class="m">5</span>   <span class="c1"># 将拦截到的包转发给这个地址 检查3s  失败3s 重试5次</span>
+</span></span><span class="line"><span class="cl">    server k8s2 172.31.7.102:6443 check inter 3s fall <span class="m">3</span> rise <span class="m">5</span>
+</span></span><span class="line"><span class="cl">    server k8s3 172.31.7.103:6443 check inter 3s fall <span class="m">3</span> rise <span class="m">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vim /etc/sysctl.conf
+</span></span><span class="line"><span class="cl">net.ipv4.ip_nonlocal_bind <span class="o">=</span> <span class="m">1</span> <span class="c1">#允许非本地IP地址socket监听,在 Linux 如果需要绑定本机不存在的 IP, 例如在 HAproxy 及 [Nginx](https://so.csdn.net/so/search?q=Nginx&amp;spm=1001.2101.3001.7020) 可能会用到</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="17-部署k8s">1.7 部署K8S
+</h3><p>参考文档：<a class="link" href="https://github.com/easzlab/kubeasz?tab=readme-ov-file"  target="_blank" rel="noopener"
+    >K8s部署文档</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 172.31.7.100部署服务器</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 安装Ansible</span>
+</span></span><span class="line"><span class="cl">apt-get install pip3 sshpass
+</span></span><span class="line"><span class="cl">pip3 install ansible
+</span></span><span class="line"><span class="cl"><span class="c1">## 批量免密</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 下载脚本</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">release</span><span class="o">=</span>3.5.0
+</span></span><span class="line"><span class="cl">wget https://github.com/easzlab/kubeasz/releases/download/<span class="si">${</span><span class="nv">release</span><span class="si">}</span>/ezdown
+</span></span><span class="line"><span class="cl">chmod +x ./ezdown
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="171-离线下载文件创建集群文件">1.7.1 离线下载文件&amp;&amp;创建集群文件
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./ezdown -D
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /etc/kubeasz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看kube版本</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /etc/kubeasz/bin
+</span></span><span class="line"><span class="cl">./kube-apiserver --version
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建集群文件</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /etc/kubeasz
+</span></span><span class="line"><span class="cl">./ezctl new k8s-test01
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="172-修改安装文件">1.7.2 修改安装文件
+</h4><h5 id="1721-hosts文件">1.7.2.1 hosts文件
+</h5><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 配置etcd IP地址</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 配置 service IP地址</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 配置 api server IP地址</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 配置IP负载均衡地址</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 配置bin文件存放目录</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="1722-configyml">1.7.2.2 config.yml
+</h5><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># pull下contailerd基础容器镜像(该镜像封装了Pod底层运行环境，比如网络)</span>
+</span></span><span class="line"><span class="cl">SANDBOX_IMAGE: <span class="s2">&#34;easzlab/pause-amd64:3.4.1&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="c1"># 修改HTTP信任地址----&gt;harbor地址</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="c1"># 配置DIRECT_ROUTING: true （当Pod使用的IP地址不超过200个时，可以开启这个提升性能）</span>
+</span></span><span class="line"><span class="cl"> <span class="c1">#pull flannel镜像到本地，进行使用 如果使用了calico就可以不用flannel</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="c1"># 开启了calico(这个工具作用是把容器的地址封装到宿主机中)</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">CALICO_IPVEPOOL_IPIP</span> <span class="o">=</span> <span class="s2">&#34;Always&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 关闭安装DNS服务器</span>
+</span></span><span class="line"><span class="cl">dns_install: <span class="s2">&#34;no&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 是否开启DNS缓存，当前服务器在解析DNS时，会先在本地查找缓存。</span>
+</span></span><span class="line"><span class="cl">ENABLE_LOCAL_DNS_CACHE: <span class="s2">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 关闭自动安装</span>
+</span></span><span class="line"><span class="cl">metricsserver_install: <span class="s2">&#34;no&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 关闭自动安装</span>
+</span></span><span class="line"><span class="cl">dashboard_install: <span class="s2">&#34;no&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="173-开始安装">1.7.3 开始安装
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># setup 集群名字 01(环境初始化)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">./ezctl setup k8s-test01 <span class="m">01</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># setup 集群名字 02(安装etcd)</span>
+</span></span><span class="line"><span class="cl">./ezctl setup k8s-test01 <span class="m">02</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 检测etcd是否安装完成</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">NODE_IPS</span><span class="o">=</span><span class="s2">&#34;172.31.7.106 172.31.7.107 172.31.7.108&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> ip in <span class="si">${</span><span class="nv">NODE_IPS</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span> <span class="nv">ETCDCTL_API</span><span class="o">=</span><span class="m">3</span> /usr/local/bin/etcdctl --endpoints<span class="o">=</span>https://<span class="si">${</span><span class="nv">ip</span><span class="si">}</span>:2379  --cacert<span class="o">=</span>/etc/kubernetes/ssl/ca.pem --cert<span class="o">=</span>/etc/kubernetes/ssl/etcd.pem --key<span class="o">=</span>/etc/kubernetes/ssl/etcd-key.pem endpoint health<span class="p">;</span> <span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># setup 集群名字 03(安装docker服务)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 复制docker配置进行同步</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> ip in <span class="si">${</span><span class="nv">K8S_IPS</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">	mkdir -p /etc/docker/certs.d/harbor.magedu.net
+</span></span><span class="line"><span class="cl">	scp /etc/docker/certs.d/harbor.megedu.net/harbor-ca.crt <span class="si">${</span><span class="nv">ip</span><span class="si">}</span>:/etc/docker/certs.d/harbor.magedu.net
+</span></span><span class="line"><span class="cl">	<span class="nb">echo</span> <span class="s2">&#34;172.31.7.104 harbor.magedu.net&#34;</span> &gt;&gt; /etc/hosts
+</span></span><span class="line"><span class="cl">	scp -r /root/.docker <span class="si">${</span><span class="nv">ip</span><span class="si">}</span>:/root
+</span></span><span class="line"><span class="cl">	<span class="nb">echo</span> <span class="s2">&#34;Harbor 认证文件拷贝完成&#34;</span>
+</span></span><span class="line"><span class="cl">	systemctl restart docker
+</span></span><span class="line"><span class="cl">./ezctl setup k8s-test01 <span class="m">03</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># setup 集群名字 04(安装master节点)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># setup 集群名字 05(安装work节点)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># setup 集群名字 06(安装network扩展)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2-etcd使用">2 etcd使用
+</h2><h3 id="21-心跳检测">2.1 心跳检测
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">NODE_IPS</span><span class="o">=</span><span class="s2">&#34;172.31.7.106 172.31.7.107 172.31.7.108&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> ip in <span class="si">${</span><span class="nv">NODE_IPS</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span> <span class="nv">ETCDCTL_API</span><span class="o">=</span><span class="m">3</span> /usr/local/bin/etcdctl --endpoints<span class="o">=</span>https://<span class="si">${</span><span class="nv">ip</span><span class="si">}</span>:2379  --cacert<span class="o">=</span>/etc/kubernetes/ssl/ca.pem --cert<span class="o">=</span>/etc/kubernetes/ssl/etcd.pem --key<span class="o">=</span>/etc/kubernetes/ssl/etcd-key.pem endpoint health<span class="p">;</span> <span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%95%88%E7%8E%87_%E5%B7%A5%E5%85%B7/">效率_工具</a>
+        
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">计算机_操作系统</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 游手好闲的卫大人
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

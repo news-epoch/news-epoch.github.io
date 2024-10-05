@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>效率 on 卫大人的杂乱博客</title>
+        <link>https://news-epoch.github.io/tags/%E6%95%88%E7%8E%87/</link>
+        <description>Recent content in 效率 on 卫大人的杂乱博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>游手好闲的卫大人</copyright><atom:link href="https://news-epoch.github.io/tags/%E6%95%88%E7%8E%87/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Obsidian插件-202207171839</title>
+        <link>https://news-epoch.github.io/p/obsidian%E6%8F%92%E4%BB%B6-202207171839/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/obsidian%E6%8F%92%E4%BB%B6-202207171839/</guid>
+        <description>&lt;p&gt;Links:
+Title:  Obsidian插件-202207171839&lt;/p&gt;
+&lt;h1 id=&#34;kanban&#34;&gt;kanban
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;创建todo任务，让项目流程化&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;quickadd&#34;&gt;quickadd
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;设置多个动作一键完成插件
+参考文档：https://sspai.com/post/69375&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;templater&#34;&gt;Templater
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;设置模板功能，且支持自定义语言，方便&lt;strong&gt;检索&lt;/strong&gt;和快速创建&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;excalidraw&#34;&gt;Excalidraw
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;画板功能，支持自己进行画图。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://libraries.excalidraw.com/?target=_blank&amp;amp;referrer=app%3A%2F%2Fobsidian.md&amp;amp;useHash=true&amp;amp;token=Y9wcCRD5UP9lpQI9f3htn&amp;amp;theme=light&amp;amp;version=2&amp;amp;sort=default&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Excalidraw Libraries(分享的建模库)&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;dataviews&#34;&gt;dataviews
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;强大的搜索软件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/373623264&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Obsidian 插件之 Dataview - Boninall的文章 - 知乎&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;admonitation&#34;&gt;Admonitation
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;用来方便制作展示卡片类型的模板样式和&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;advanced-tables&#34;&gt;Advanced Tables
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;快速创建表格&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;hover-editor&#34;&gt;Hover Editor
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;悬浮笔记,只能用于当前软件的悬浮&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;markdown-pretiffier&#34;&gt;markdown Pretiffier
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;md格式辅助插件可以通过快捷键自动生成更新日期和更新ymal模板&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;%%# booknote&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pdf查看和标注插件%%&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;core-search-assistant&#34;&gt;Core Search Assistant
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;搜索时，以平铺卡片界面进行展示&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;style-settings&#34;&gt;Style Settings
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;修改主题样式的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;electron-window-tweaker&#34;&gt;Electron Window Tweaker
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;设置置顶窗口&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;global-hotkeys-for-obsidian&#34;&gt;Global Hotkeys for Obsidian
+&lt;/h1&gt;&lt;h1 id=&#34;cmenuzh增强编辑&#34;&gt;cMenu&amp;amp;&amp;amp;ZH增强编辑
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;它会给你带来word文档编辑般的丝滑体验&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;obsidian-linter&#34;&gt;obsidian-linter
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;自动更新yaml日期插件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;force-note-view-mode&#34;&gt;force note view mode
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;通过yaml设置文档默认打开是预览还是编辑模式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;//始终以阅读（/预览）模式打开笔记。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aliases: null
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Tags:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - zk-todo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - 效率/工具
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;type: note
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;createDate: 2022-07-17 18:39:00
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;update: 2022/08/07 17:04
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: Obsidian插件-202207171839
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;folder: Obsidian插件-202207171839/index
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;share: True
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;draft: False
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;//强制笔记在“实时预览”编辑模式下打开。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aliases: null
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Tags:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - zk-todo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - 效率/工具
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;type: note
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;createDate: 2022-07-17 18:39:00
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;update: 2022/08/07 17:04
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: Obsidian插件-202207171839
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;folder: Obsidian插件-202207171839/index
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;share: True
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;draft: False
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;buttons&#34;&gt;Buttons
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;配置按钮文件
+&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020230718144826.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;omnisearch&#34;&gt;Omnisearch
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;键盘优先：您永远不必使用鼠标&lt;/li&gt;
+&lt;li&gt;类似于“快速切换器”插件的工作流程&lt;/li&gt;
+&lt;li&gt;抗错别字&lt;/li&gt;
+&lt;li&gt;在保险柜和文件内搜索之间切换，以在单个笔记中快速浏览多个结果&lt;/li&gt;
+&lt;li&gt;支持和&lt;code&gt;&amp;quot;expressions in quotes&amp;quot;``-exclusions&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;直接从搜索结果中插入 a&lt;code&gt;[[link]]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;number-heading&#34;&gt;Number Heading
+&lt;/h1&gt;&lt;p&gt;Number headings 可以根据标题自动实现编号，目前支持数字、字母和罗马数字编号。&lt;/p&gt;
+&lt;h1 id=&#34;media-extendedextended-bilibili-plugin&#34;&gt;Media Extended&amp;amp;Extended BiliBili Plugin
+&lt;/h1&gt;&lt;p&gt;可以将视频嵌入笔记，让你可以边看视频，边做笔记，配合思维导图插件，可以生成思维导图，是不是很方便、很牛啤！&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Obsidian使用合集-202302070013</title>
+        <link>https://news-epoch.github.io/p/obsidian%E4%BD%BF%E7%94%A8%E5%90%88%E9%9B%86-202302070013/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/obsidian%E4%BD%BF%E7%94%A8%E5%90%88%E9%9B%86-202302070013/</guid>
+        <description>&lt;p&gt;Links:&lt;/p&gt;
+&lt;h1 id=&#34;使用技巧&#34;&gt;使用技巧
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 编辑模式进行有序列表重新排序
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. 在用一级列表中，选择一行，按**tab**键
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. 然后在这一级列表，按**shift+tab**键
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;插件&#34;&gt;插件
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;Obsidian%E6%8F%92%E4%BB%B6-202207171839.md&#34; &gt;Obsidian插件-202207171839&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Zabbix主动模式与被动模式的区别-20231019</title>
+        <link>https://news-epoch.github.io/p/zabbix%E4%B8%BB%E5%8A%A8%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%A2%AB%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB-20231019/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/zabbix%E4%B8%BB%E5%8A%A8%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%A2%AB%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB-20231019/</guid>
+        <description>&lt;ul&gt;
+&lt;li&gt;主动模式：由Agent主动建立TCP链接并向Server端发送请求。因为是Agent主动发起的TCP连接，所以Agent所在机器本身无需再启动监听Agent端口。&lt;/li&gt;
+&lt;li&gt;被动模式：由Server建立TCP链接并向Agent端发送请求。Agent需启动监听端口，等待Server连接。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Zabbix的主动模式和被动模式都是相对agent来说的。一般情况下默认使用的是zabbix的被动模式，即zabbix server根据监控项定义的时间主动去收集zabbix agent上的数据，优点是能使用更多的模板，更具有灵活性，缺点是当zabbix agent节点过多的时候会增加zabbix server的负荷。主动模式就是zabbix agent将消息推送给zabbix server,优点是减轻了zabbix server的压力，缺点是所有的模板要修改为主动模式。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>魔法上网搭建-202210301911</title>
+        <link>https://news-epoch.github.io/p/%E9%AD%94%E6%B3%95%E4%B8%8A%E7%BD%91%E6%90%AD%E5%BB%BA-202210301911/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E9%AD%94%E6%B3%95%E4%B8%8A%E7%BD%91%E6%90%AD%E5%BB%BA-202210301911/</guid>
+        <description>&lt;p&gt;Title:  魔法上网搭建-202210301911&lt;/p&gt;
+&lt;h1 id=&#34;准备工作&#34;&gt;准备工作
+&lt;/h1&gt;&lt;h2 id=&#34;1-申请云服务器&#34;&gt;1 申请云服务器
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.racknerd.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RackNerd - Introducing Infrastructure Stability&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2-申请域名&#34;&gt;2 申请域名
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://my.freenom.com/cart.php?a=complete&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;免费域名Shopping Cart - Freenom&lt;/a&gt;
+注意：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;申请时开启代理&lt;/li&gt;
+&lt;li&gt;代理地址跟账户所属地址相同&lt;/li&gt;
+&lt;li&gt;等vmess+tls+wc+nginx部署成功后在开启小云朵&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-安装部署教程&#34;&gt;3 安装部署教程
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/mack-a/v2ray-agent#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;v2ray+伪装站点、八合一共存脚本，支持多内核安装 (github.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtube/pMe_oErfLWQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;不良林的魔法上网教学&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=SpxTFes1B8U&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;【零基础】最新保姆级纯小白节点搭建教程，人人都能学会，目前最简单、最安全、最稳定的专属节点搭建方法，手把手自建节点搭建教学，晚高峰高速稳定，4K秒开的科学上网线路体验&lt;/a&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/SpxTFes1B8U?si=PSy9HyMH9936V3Rg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;【零基础】最新保姆级纯小白节点搭建教程，人人都能学会，目前最简单、最安全、最稳定的专属节点搭建方法，手把手自建节点搭建教学，晚高峰高速稳定，4K秒开的科学上网线路体验&lt;/a&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://telegra.ph/bnode-10-24&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;【零基础】最新保姆级纯小白节点搭建教程，人人都能学会，目前最简单、最安全、最稳定的专属节点搭建方法，手把手自建节点搭建教学，晚高峰高速稳定，4K秒开的科学上网线路体验&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4-安装客户端&#34;&gt;4 安装客户端
+&lt;/h2&gt;&lt;h2 id=&#34;5-linux&#34;&gt;5 Linux
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://v2raya.org/docs/prologue/introduction/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt; v2rayA文档&lt;/a&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://github.com/v2rayA/v2rayA/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;v2rayA安装包&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;6-android&#34;&gt;6 Android
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/v2fly/v2ray-core/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;v2fly/v2ray-core安装包&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;7-windows&#34;&gt;7 Windows
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/v2fly/v2ray-core/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;v2fly/v2ray-core安装包&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

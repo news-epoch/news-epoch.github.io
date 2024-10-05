@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>计算机_操作系统_Windows on 卫大人的杂乱博客</title>
+        <link>https://news-epoch.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F_windows/</link>
+        <description>Recent content in 计算机_操作系统_Windows on 卫大人的杂乱博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>游手好闲的卫大人</copyright><atom:link href="https://news-epoch.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F_windows/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Windows配置软件自启动-20231211</title>
+        <link>https://news-epoch.github.io/p/windows%E9%85%8D%E7%BD%AE%E8%BD%AF%E4%BB%B6%E8%87%AA%E5%90%AF%E5%8A%A8-20231211/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/windows%E9%85%8D%E7%BD%AE%E8%BD%AF%E4%BB%B6%E8%87%AA%E5%90%AF%E5%8A%A8-20231211/</guid>
+        <description>&lt;p&gt;Links:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;按 &lt;strong&gt;Windows 徽标键&lt;/strong&gt;  + &lt;strong&gt;R&lt;/strong&gt;，键入“&lt;strong&gt;shell:startup&lt;/strong&gt;”，然后确定，这将打开&lt;strong&gt;启动文件夹&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://news-epoch.github.io/d12fbc9adb3b9fd1450e2ab1b586f2b9.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;d12fbc9adb3b9fd1450e2ab1b586f2b9.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;将快捷方式复制进该文件夹。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Windows远程执行windows命令-20240510</title>
+        <link>https://news-epoch.github.io/p/windows%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8Cwindows%E5%91%BD%E4%BB%A4-20240510/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/windows%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8Cwindows%E5%91%BD%E4%BB%A4-20240510/</guid>
+        <description>&lt;p&gt;Links:&lt;/p&gt;
+&lt;h1 id=&#34;一简介&#34;&gt;一、简介
+&lt;/h1&gt;&lt;p&gt;当存在需要远程执行windows电脑命令时，可以通过WMIcmd服务使用。&lt;/p&gt;
+&lt;h1 id=&#34;二具体操作&#34;&gt;二、具体操作
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;下载软件&lt;a class=&#34;link&#34; href=&#34;https://github.com/nccgroup/WMIcmd/tree/master&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;WMIcmd&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;解压软件到目录&lt;/li&gt;
+&lt;li&gt;在该目录中打开CMD界面&lt;/li&gt;
+&lt;li&gt;运行代码&lt;code&gt;.\WMIcmd.exe -h 10.0.9.23  -u administrator -p 819730159 -c &amp;quot;ipconfig&amp;quot;&lt;/code&gt;
+&lt;img src=&#34;https://news-epoch.github.io/images/Pasted%20image%2020240510133836.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Links:\n1 Selemium模拟浏览器发送请求 2 Selenium模拟浏览器操作 2.1 创建对象 1 2 3 from selenium.webdriver.chrome.service import Service from selenium.webdriver.chrome.options import Options from selenium import webdriver 2.1.1 设置无头浏览器 1 2 3 4 5 6 7 8 9 10 11 chrome_options = Options() # chrome_options.add_experimental_option(&#34;debuggerAddress&#34;, &#34;127.0.0.1:9527&#34;) chrome_options.add_argument(&#39;--headless&#39;) # 设置无界面浏览器，浏览器不在标识被控制 chrome_options.add_argument(&#39;--disable-gpu&#39;) # 设置无界面浏览器 chrome_options.add_argument(&#39;--no-sandbox&#39;) chrome_options.add_experimental_option(&#34;excludeSwitches&#34;, [&#34;enable-automation&#34;]) chrome_options.add_experimental_option(&#39;useAutomationExtension&#39;, False) self.chromebro = webdriver.Chrome( service=Service(executable_path=os.path.join(self.BASE_DIR, r&#39;utils/chromedriver&#39;)), options=chrome_options) # 创建网页对象 2.1.2 设置无监控标识符显示浏览器 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 chrome_options = Options() # chrome_options.add_experimental_option(&#34;debuggerAddress&#34;, &#34;127.0.0.1:9527&#34;) chrome_options.add_experimental_option(&#34;excludeSwitches&#34;, [&#34;enable-automation&#34;]) chrome_options.add_experimental_option(&#39;useAutomationExtension&#39;, False) self.chromebro = webdriver.Chrome( service=Service(executable_path=os.path.join(self.BASE_DIR, r&#39;utils/chromedriver.exe&#39;)), options=chrome_options) # 创建网页对象 self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: &#34;&#34;&#34;Object.defineProperty(navigator, &#39;webdriver&#39;, {get: () =&gt; undefined})&#34;&#34;&#34;}) with open(os.path.join(self.BASE_DIR, &#39;utils/stealth.min.js&#39;)) as f: js = f.read() self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: js }) 2.1.3 指定已经打开了的浏览器 来到安装安装好的谷歌浏览器目录下 此界面打开 cmd窗口 启动调试模式：chrome.exe &ndash;remote-debugging-port=9527 &ndash;user-data-dir=&ldquo;C:\\Users\\Administrator\\Documents\\Code\\Python_project\\reptile\\tianmao_comment\\utils\\AutomationProfile&rdquo; user-data-dirr=&quot;F:\\selenium\\AutomationProfile&quot;\u00a0是在单独的配置文件中启动\u00a0chrome浏览器，可以理解为 新的浏览器，记得创建对应文件夹哦 options.add_experimental_option(&quot;debuggerAddress&quot;, &quot;127.0.0.1:9527&quot;) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 chrome_options = Options() chrome_options.add_experimental_option(&#34;debuggerAddress&#34;, &#34;127.0.0.1:9527&#34;) self.chromebro = webdriver.Chrome( service=Service(executable_path=os.path.join(self.BASE_DIR, r&#39;utils/chromedriver.exe&#39;)), options=chrome_options) # 创建网页对象 self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: &#34;&#34;&#34;Object.defineProperty(navigator, &#39;webdriver&#39;, {get: () =&gt; undefined})&#34;&#34;&#34;}) with open(os.path.join(self.BASE_DIR, &#39;utils/stealth.min.js&#39;)) as f: js = f.read() self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: js }) self.chromebro.set_page_load_timeout(1800) 2.1.4 指定模拟H5浏览器 1 2 3 4 5 6 7 8 9 # 导入Xpath工具 from selenium.webdriver.common.by import By # 指定某型号的H5浏览器 mobileEmulation = {&#39;deviceName&#39;: &#39;iPhone 12 Pro&#39;} s = Service(executable_path=&#34;../utils/chromedriver.exe&#34;) chrome_options = Options() chrome_options.add_experimental_option(&#39;mobileEmulation&#39;, mobileEmulation) # 创建浏览器对象 bro = webdriver.Chrome(service=s, options=chrome_options) 1 2 3 title: 设置窗口大小 - bro.get_windows_size(): 获取浏览器窗口大小，并且返回字典数据{&#39;width&#39;:100,&#39;height&#39;:100} - bro.set_windows_size(x, y): 设置浏览器窗口大小 2.2 防检测 注意：有些网站会通过检测参数来判断是手工打开还是脚本打开的具体可以通过Antibot (sannysoft.com)进行验证\n">
+<title>小陈教你如何使用Selemium自动化-20230722</title>
+
+<link rel='canonical' href='https://news-epoch.github.io/p/%E5%B0%8F%E9%99%88%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8selemium%E8%87%AA%E5%8A%A8%E5%8C%96-20230722/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="小陈教你如何使用Selemium自动化-20230722">
+<meta property='og:description' content="Links:\n1 Selemium模拟浏览器发送请求 2 Selenium模拟浏览器操作 2.1 创建对象 1 2 3 from selenium.webdriver.chrome.service import Service from selenium.webdriver.chrome.options import Options from selenium import webdriver 2.1.1 设置无头浏览器 1 2 3 4 5 6 7 8 9 10 11 chrome_options = Options() # chrome_options.add_experimental_option(&#34;debuggerAddress&#34;, &#34;127.0.0.1:9527&#34;) chrome_options.add_argument(&#39;--headless&#39;) # 设置无界面浏览器，浏览器不在标识被控制 chrome_options.add_argument(&#39;--disable-gpu&#39;) # 设置无界面浏览器 chrome_options.add_argument(&#39;--no-sandbox&#39;) chrome_options.add_experimental_option(&#34;excludeSwitches&#34;, [&#34;enable-automation&#34;]) chrome_options.add_experimental_option(&#39;useAutomationExtension&#39;, False) self.chromebro = webdriver.Chrome( service=Service(executable_path=os.path.join(self.BASE_DIR, r&#39;utils/chromedriver&#39;)), options=chrome_options) # 创建网页对象 2.1.2 设置无监控标识符显示浏览器 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 chrome_options = Options() # chrome_options.add_experimental_option(&#34;debuggerAddress&#34;, &#34;127.0.0.1:9527&#34;) chrome_options.add_experimental_option(&#34;excludeSwitches&#34;, [&#34;enable-automation&#34;]) chrome_options.add_experimental_option(&#39;useAutomationExtension&#39;, False) self.chromebro = webdriver.Chrome( service=Service(executable_path=os.path.join(self.BASE_DIR, r&#39;utils/chromedriver.exe&#39;)), options=chrome_options) # 创建网页对象 self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: &#34;&#34;&#34;Object.defineProperty(navigator, &#39;webdriver&#39;, {get: () =&gt; undefined})&#34;&#34;&#34;}) with open(os.path.join(self.BASE_DIR, &#39;utils/stealth.min.js&#39;)) as f: js = f.read() self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: js }) 2.1.3 指定已经打开了的浏览器 来到安装安装好的谷歌浏览器目录下 此界面打开 cmd窗口 启动调试模式：chrome.exe &ndash;remote-debugging-port=9527 &ndash;user-data-dir=&ldquo;C:\\Users\\Administrator\\Documents\\Code\\Python_project\\reptile\\tianmao_comment\\utils\\AutomationProfile&rdquo; user-data-dirr=&quot;F:\\selenium\\AutomationProfile&quot;\u00a0是在单独的配置文件中启动\u00a0chrome浏览器，可以理解为 新的浏览器，记得创建对应文件夹哦 options.add_experimental_option(&quot;debuggerAddress&quot;, &quot;127.0.0.1:9527&quot;) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 chrome_options = Options() chrome_options.add_experimental_option(&#34;debuggerAddress&#34;, &#34;127.0.0.1:9527&#34;) self.chromebro = webdriver.Chrome( service=Service(executable_path=os.path.join(self.BASE_DIR, r&#39;utils/chromedriver.exe&#39;)), options=chrome_options) # 创建网页对象 self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: &#34;&#34;&#34;Object.defineProperty(navigator, &#39;webdriver&#39;, {get: () =&gt; undefined})&#34;&#34;&#34;}) with open(os.path.join(self.BASE_DIR, &#39;utils/stealth.min.js&#39;)) as f: js = f.read() self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: js }) self.chromebro.set_page_load_timeout(1800) 2.1.4 指定模拟H5浏览器 1 2 3 4 5 6 7 8 9 # 导入Xpath工具 from selenium.webdriver.common.by import By # 指定某型号的H5浏览器 mobileEmulation = {&#39;deviceName&#39;: &#39;iPhone 12 Pro&#39;} s = Service(executable_path=&#34;../utils/chromedriver.exe&#34;) chrome_options = Options() chrome_options.add_experimental_option(&#39;mobileEmulation&#39;, mobileEmulation) # 创建浏览器对象 bro = webdriver.Chrome(service=s, options=chrome_options) 1 2 3 title: 设置窗口大小 - bro.get_windows_size(): 获取浏览器窗口大小，并且返回字典数据{&#39;width&#39;:100,&#39;height&#39;:100} - bro.set_windows_size(x, y): 设置浏览器窗口大小 2.2 防检测 注意：有些网站会通过检测参数来判断是手工打开还是脚本打开的具体可以通过Antibot (sannysoft.com)进行验证\n">
+<meta property='og:url' content='https://news-epoch.github.io/p/%E5%B0%8F%E9%99%88%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8selemium%E8%87%AA%E5%8A%A8%E5%8C%96-20230722/'>
+<meta property='og:site_name' content='卫大人的杂乱博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='计算机_程序语言_Python' /><meta property='article:tag' content='zk-todo' />
+<meta name="twitter:title" content="小陈教你如何使用Selemium自动化-20230722">
+<meta name="twitter:description" content="Links:\n1 Selemium模拟浏览器发送请求 2 Selenium模拟浏览器操作 2.1 创建对象 1 2 3 from selenium.webdriver.chrome.service import Service from selenium.webdriver.chrome.options import Options from selenium import webdriver 2.1.1 设置无头浏览器 1 2 3 4 5 6 7 8 9 10 11 chrome_options = Options() # chrome_options.add_experimental_option(&#34;debuggerAddress&#34;, &#34;127.0.0.1:9527&#34;) chrome_options.add_argument(&#39;--headless&#39;) # 设置无界面浏览器，浏览器不在标识被控制 chrome_options.add_argument(&#39;--disable-gpu&#39;) # 设置无界面浏览器 chrome_options.add_argument(&#39;--no-sandbox&#39;) chrome_options.add_experimental_option(&#34;excludeSwitches&#34;, [&#34;enable-automation&#34;]) chrome_options.add_experimental_option(&#39;useAutomationExtension&#39;, False) self.chromebro = webdriver.Chrome( service=Service(executable_path=os.path.join(self.BASE_DIR, r&#39;utils/chromedriver&#39;)), options=chrome_options) # 创建网页对象 2.1.2 设置无监控标识符显示浏览器 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 chrome_options = Options() # chrome_options.add_experimental_option(&#34;debuggerAddress&#34;, &#34;127.0.0.1:9527&#34;) chrome_options.add_experimental_option(&#34;excludeSwitches&#34;, [&#34;enable-automation&#34;]) chrome_options.add_experimental_option(&#39;useAutomationExtension&#39;, False) self.chromebro = webdriver.Chrome( service=Service(executable_path=os.path.join(self.BASE_DIR, r&#39;utils/chromedriver.exe&#39;)), options=chrome_options) # 创建网页对象 self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: &#34;&#34;&#34;Object.defineProperty(navigator, &#39;webdriver&#39;, {get: () =&gt; undefined})&#34;&#34;&#34;}) with open(os.path.join(self.BASE_DIR, &#39;utils/stealth.min.js&#39;)) as f: js = f.read() self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: js }) 2.1.3 指定已经打开了的浏览器 来到安装安装好的谷歌浏览器目录下 此界面打开 cmd窗口 启动调试模式：chrome.exe &ndash;remote-debugging-port=9527 &ndash;user-data-dir=&ldquo;C:\\Users\\Administrator\\Documents\\Code\\Python_project\\reptile\\tianmao_comment\\utils\\AutomationProfile&rdquo; user-data-dirr=&quot;F:\\selenium\\AutomationProfile&quot;\u00a0是在单独的配置文件中启动\u00a0chrome浏览器，可以理解为 新的浏览器，记得创建对应文件夹哦 options.add_experimental_option(&quot;debuggerAddress&quot;, &quot;127.0.0.1:9527&quot;) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 chrome_options = Options() chrome_options.add_experimental_option(&#34;debuggerAddress&#34;, &#34;127.0.0.1:9527&#34;) self.chromebro = webdriver.Chrome( service=Service(executable_path=os.path.join(self.BASE_DIR, r&#39;utils/chromedriver.exe&#39;)), options=chrome_options) # 创建网页对象 self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: &#34;&#34;&#34;Object.defineProperty(navigator, &#39;webdriver&#39;, {get: () =&gt; undefined})&#34;&#34;&#34;}) with open(os.path.join(self.BASE_DIR, &#39;utils/stealth.min.js&#39;)) as f: js = f.read() self.chromebro.execute_cdp_cmd(&#34;Page.addScriptToEvaluateOnNewDocument&#34;, { &#34;source&#34;: js }) self.chromebro.set_page_load_timeout(1800) 2.1.4 指定模拟H5浏览器 1 2 3 4 5 6 7 8 9 # 导入Xpath工具 from selenium.webdriver.common.by import By # 指定某型号的H5浏览器 mobileEmulation = {&#39;deviceName&#39;: &#39;iPhone 12 Pro&#39;} s = Service(executable_path=&#34;../utils/chromedriver.exe&#34;) chrome_options = Options() chrome_options.add_experimental_option(&#39;mobileEmulation&#39;, mobileEmulation) # 创建浏览器对象 bro = webdriver.Chrome(service=s, options=chrome_options) 1 2 3 title: 设置窗口大小 - bro.get_windows_size(): 获取浏览器窗口大小，并且返回字典数据{&#39;width&#39;:100,&#39;height&#39;:100} - bro.set_windows_size(x, y): 设置浏览器窗口大小 2.2 防检测 注意：有些网站会通过检测参数来判断是手工打开还是脚本打开的具体可以通过Antibot (sannysoft.com)进行验证\n">
+    <link rel="shortcut icon" href="/%e6%83%b3%e6%b3%95.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu4043572482303308672.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">卫大人的杂乱博客</a></h1>
+            <h2 class="site-description">哟，你来学习了！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/news-epoch/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-selemium模拟浏览器发送请求">1 Selemium模拟浏览器发送请求</a></li>
+    <li><a href="#2-selenium模拟浏览器操作">2 Selenium模拟浏览器操作</a>
+      <ol>
+        <li><a href="#21-创建对象">2.1 创建对象</a>
+          <ol>
+            <li><a href="#211-设置无头浏览器">2.1.1 设置无头浏览器</a></li>
+            <li><a href="#212-设置无监控标识符显示浏览器">2.1.2 设置无监控标识符显示浏览器</a></li>
+            <li><a href="#213-指定已经打开了的浏览器">2.1.3 指定已经打开了的浏览器</a></li>
+            <li><a href="#214-指定模拟h5浏览器">2.1.4 指定模拟H5浏览器</a></li>
+          </ol>
+        </li>
+        <li><a href="#22-防检测">2.2 防检测</a>
+          <ol>
+            <li><a href="#221-在开发者工具中执行console命令">2.2.1 在开发者工具中执行console命令</a></li>
+          </ol>
+        </li>
+        <li><a href="#23-鼠标操作">2.3 鼠标操作</a></li>
+        <li><a href="#24-定位操作">2.4 定位操作</a>
+          <ol>
+            <li><a href="#241-定位数据">2.4.1 定位数据</a></li>
+            <li><a href="#242-新建标签页和切换标签页">2.4.2 新建标签页和切换标签页</a></li>
+            <li><a href="#243-定位多个列表数据">2.4.3 定位多个列表数据</a></li>
+            <li><a href="#244-通过switch_to方法定位iframe里面的元素">2.4.4 通过<code>switch_to</code>方法定位iframe里面的元素</a></li>
+            <li><a href="#245-输入快捷键">2.4.5 输入快捷键</a></li>
+            <li><a href="#246-chrome浏览器打开网站提示您的连接不是私密连接问题">2.4.6 chrome浏览器打开网站提示“您的连接不是私密连接”问题</a></li>
+            <li><a href="#247-保存cookie二次利用">2.4.7 保存cookie，二次利用</a></li>
+            <li><a href="#248-将selemium的cookie转换成request的cookie">2.4.8 将selemium的Cookie转换成request的Cookie</a></li>
+            <li><a href="#249-截取页面验证码图片">2.4.9 截取页面验证码图片</a></li>
+          </ol>
+        </li>
+        <li><a href="#25-错误处理">2.5 错误处理</a>
+          <ol>
+            <li><a href="#251-linux中的selenium截图出现乱码">2.5.1 Linux中的selenium截图出现乱码</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#3-驱动下载">3 驱动下载</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%B0%8F%E9%99%88%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8selemium%E8%87%AA%E5%8A%A8%E5%8C%96-20230722/">小陈教你如何使用Selemium自动化-20230722</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Links:</p>
+<h2 id="1-selemium模拟浏览器发送请求">1 Selemium模拟浏览器发送请求
+</h2><h2 id="2-selenium模拟浏览器操作">2 Selenium模拟浏览器操作
+</h2><h3 id="21-创建对象">2.1 创建对象
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.chrome.service</span> <span class="kn">import</span> <span class="n">Service</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.chrome.options</span> <span class="kn">import</span> <span class="n">Options</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="211-设置无头浏览器">2.1.1 设置无头浏览器
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">chrome_options</span> <span class="o">=</span> <span class="n">Options</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># chrome_options.add_experimental_option(&#34;debuggerAddress&#34;, &#34;127.0.0.1:9527&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="n">chrome_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--headless&#39;</span><span class="p">)</span>  <span class="c1"># 设置无界面浏览器，浏览器不在标识被控制</span>
+</span></span><span class="line"><span class="cl"><span class="n">chrome_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--disable-gpu&#39;</span><span class="p">)</span>  <span class="c1"># 设置无界面浏览器</span>
+</span></span><span class="line"><span class="cl"><span class="n">chrome_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--no-sandbox&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">chrome_options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span><span class="s2">&#34;excludeSwitches&#34;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&#34;enable-automation&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">chrome_options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span><span class="s1">&#39;useAutomationExtension&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="n">service</span><span class="o">=</span><span class="n">Service</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;utils/chromedriver&#39;</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">	<span class="n">options</span><span class="o">=</span><span class="n">chrome_options</span><span class="p">)</span>  <span class="c1"># 创建网页对象</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="212-设置无监控标识符显示浏览器">2.1.2 设置无监控标识符显示浏览器
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">chrome_options</span> <span class="o">=</span> <span class="n">Options</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># chrome_options.add_experimental_option(&#34;debuggerAddress&#34;, &#34;127.0.0.1:9527&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="n">chrome_options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span><span class="s2">&#34;excludeSwitches&#34;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&#34;enable-automation&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">chrome_options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span><span class="s1">&#39;useAutomationExtension&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="n">service</span><span class="o">=</span><span class="n">Service</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;utils/chromedriver.exe&#39;</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">	<span class="n">options</span><span class="o">=</span><span class="n">chrome_options</span><span class="p">)</span>  <span class="c1"># 创建网页对象</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span><span class="o">.</span><span class="n">execute_cdp_cmd</span><span class="p">(</span><span class="s2">&#34;Page.addScriptToEvaluateOnNewDocument&#34;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;&#34;Object.defineProperty(navigator, &#39;webdriver&#39;, {get: () =&gt; undefined})&#34;&#34;&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;utils/stealth.min.js&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">js</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span><span class="o">.</span><span class="n">execute_cdp_cmd</span><span class="p">(</span><span class="s2">&#34;Page.addScriptToEvaluateOnNewDocument&#34;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;source&#34;</span><span class="p">:</span> <span class="n">js</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="213-指定已经打开了的浏览器">2.1.3 指定已经打开了的浏览器
+</h4><ol>
+<li>来到安装安装好的谷歌浏览器目录下</li>
+<li>此界面打开 cmd窗口</li>
+<li>启动调试模式：chrome.exe &ndash;remote-debugging-port=9527 &ndash;user-data-dir=&ldquo;C:\Users\Administrator\Documents\Code\Python_project\reptile\tianmao_comment\utils\AutomationProfile&rdquo;
+<ol>
+<li><code>user-data-dirr=&quot;F:\selenium\AutomationProfile&quot;</code> 是在单独的配置文件中启动 <strong>chrome浏览器</strong>，可以理解为 新的浏览器，记得创建对应文件夹哦</li>
+</ol>
+</li>
+<li><code>options.add_experimental_option(&quot;debuggerAddress&quot;, &quot;127.0.0.1:9527&quot;)</code></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">chrome_options</span> <span class="o">=</span> <span class="n">Options</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">chrome_options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span><span class="s2">&#34;debuggerAddress&#34;</span><span class="p">,</span> <span class="s2">&#34;127.0.0.1:9527&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="n">service</span><span class="o">=</span><span class="n">Service</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;utils/chromedriver.exe&#39;</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">	<span class="n">options</span><span class="o">=</span><span class="n">chrome_options</span><span class="p">)</span>  <span class="c1"># 创建网页对象</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span><span class="o">.</span><span class="n">execute_cdp_cmd</span><span class="p">(</span><span class="s2">&#34;Page.addScriptToEvaluateOnNewDocument&#34;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;&#34;Object.defineProperty(navigator, &#39;webdriver&#39;, {get: () =&gt; undefined})&#34;&#34;&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;utils/stealth.min.js&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">js</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span><span class="o">.</span><span class="n">execute_cdp_cmd</span><span class="p">(</span><span class="s2">&#34;Page.addScriptToEvaluateOnNewDocument&#34;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;source&#34;</span><span class="p">:</span> <span class="n">js</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span><span class="o">.</span><span class="n">set_page_load_timeout</span><span class="p">(</span><span class="mi">1800</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="214-指定模拟h5浏览器">2.1.4 指定模拟H5浏览器
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># 导入Xpath工具</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 指定某型号的H5浏览器</span>
+</span></span><span class="line"><span class="cl"><span class="n">mobileEmulation</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;deviceName&#39;</span><span class="p">:</span> <span class="s1">&#39;iPhone 12 Pro&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="s2">&#34;../utils/chromedriver.exe&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">chrome_options</span> <span class="o">=</span> <span class="n">Options</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">chrome_options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span><span class="s1">&#39;mobileEmulation&#39;</span><span class="p">,</span> <span class="n">mobileEmulation</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建浏览器对象</span>
+</span></span><span class="line"><span class="cl"><span class="n">bro</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">chrome_options</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: 设置窗口大小
+</span></span><span class="line"><span class="cl">- bro.get_windows_size(): 获取浏览器窗口大小，并且返回字典数据{&#39;width&#39;:100,&#39;height&#39;:100}
+</span></span><span class="line"><span class="cl">- bro.set_windows_size(x, y): 设置浏览器窗口大小
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="22-防检测">2.2 防检测
+</h3><p><font color=#FF0212>注意</font>：有些网站会通过<strong>检测参数</strong>来<strong>判断是手工打开还是脚本打开</strong>的具体可以通过<a class="link" href="https://bot.sannysoft.com/"  target="_blank" rel="noopener"
+    >Antibot (sannysoft.com)</a>进行验证</p>
+<h4 id="221-在开发者工具中执行console命令">2.2.1 在开发者工具中执行console命令
+</h4><ul>
+<li>防检测一：
+参考链接：https://www.cnblogs.com/presleyren/p/12936553.html</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">execute_cdp_cmd</span><span class="p">(</span><span class="s2">&#34;Page.addScriptToEvaluateOnNewDocument&#34;</span><span class="p">,</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;&#34;Object.defineProperty(navigator, &#39;webdriver&#39;, {get: () =&gt; undefined})&#34;&#34;&#34;</span><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>防检测2：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">npx</span> <span class="n">extract</span><span class="o">-</span><span class="n">stealth</span><span class="o">-</span><span class="n">evasions</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./stealth.min.js&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">js</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">execute_cdp_cmd</span><span class="p">(</span><span class="s2">&#34;Page.addScriptToEvaluateOnNewDocument&#34;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;source&#34;</span><span class="p">:</span> <span class="n">js</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="23-鼠标操作">2.3 鼠标操作
+</h3><p>首先导入<strong>ActionChains</strong>类，该类可以完成鼠标移动，鼠标点击事件，键盘输入、内容菜单交互等交互行为。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.common.action_chains</span> <span class="kn">import</span> <span class="n">ActionChains</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>操作语法：
+第一步：初始化ActionChains类（动作链条）：action = ActionChains(driver)
+第二步：找到要操作的元素：element = driver.find_element(by=&lsquo;xx&rsquo;, value=&lsquo;xx&rsquo;)
+第三步：调用鼠标操作方法：action.move_to_element(element)
+第四步：执行鼠标操作方法：action.perform()</p>
+<p>代码示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 移动鼠标到定位上</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">move_to_element</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">&#34;div[contains(@class,&#39;DivLiveCard&#39;)]/div[@data-e2e=&#39;hot-live-recommended-card&#39;]/a&#34;</span><span class="p">))</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="24-定位操作">2.4 定位操作
+</h3><h4 id="241-定位数据">2.4.1 定位数据
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 导入Xpath工具</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="242-新建标签页和切换标签页">2.4.2 新建标签页和切换标签页
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 新建标签页</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s1">&#39;window.open(&#34;&#34;,&#34;_blank&#34;);&#39;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取所有句柄</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span><span class="o">.</span><span class="n">window_handles</span>  
+</span></span><span class="line"><span class="cl"><span class="c1"># 切换到标签页2</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span><span class="o">.</span><span class="n">switch_to</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span><span class="o">.</span><span class="n">window_handles</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取当前标签页句柄</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span><span class="o">.</span><span class="n">current_window_handle</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="243-定位多个列表数据">2.4.3 定位多个列表数据
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 获取多个列表数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">live_lists_elements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chromebro</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">&#34;//div[@data-e2e=&#39;live-recommended-list&#39;]/div[1]/div&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">live_lists_elements</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">	    <span class="k">try</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">	    <span class="c1"># 需要绝对路径抓取</span>
+</span></span><span class="line"><span class="cl">	        <span class="n">url</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">&#34;div[contains(@class,&#39;DivLiveCard&#39;)]/div[@data-e2e=&#39;hot-live-recommended-card&#39;]/a&#34;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">	        <span class="k">break</span>  
+</span></span><span class="line"><span class="cl">	    <span class="k">except</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">	        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;没有找到url&#34;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">	        <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">	        <span class="k">continue</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="244-通过switch_to方法定位iframe里面的元素">2.4.4 通过<code>switch_to</code>方法定位iframe里面的元素
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">drive</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="s2">&#34;浏览器驱动路径&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 用id定位</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">switch_to</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="s2">&#34;iframe&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 用name定位</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">switch_to</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="s2">&#34;myiframe&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 用vebElement对象定位</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">switch_to</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_tag_name</span><span class="p">(</span><span class="s2">&#34;iframe&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 切到frame中便不能继续操作主文档的元素，这时如果想操作主文档内容，则需切回主文档：</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">switch_to</span><span class="o">.</span><span class="n">default_content</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><font color=#FF0212>如果有嵌套的iframe，就一直用switch_to.frame（）往里套就行，一层一层进去。</font></p>
+<h4 id="245-输入快捷键">2.4.5 输入快捷键
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建浏览器对象</span>
+</span></span><span class="line"><span class="cl"><span class="n">drive</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="s2">&#34;浏览器驱动路径&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 输入快捷键</span>
+</span></span><span class="line"><span class="cl"><span class="n">drive</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">ENTER</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="246-chrome浏览器打开网站提示您的连接不是私密连接问题">2.4.6 chrome浏览器打开网站提示“您的连接不是私密连接”问题
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"> <span class="n">options</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">ChromeOptions</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> <span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;ignore-certificate-errors&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="247-保存cookie二次利用">2.4.7 保存cookie，二次利用
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">title</span><span class="p">:</span> <span class="err">保存</span><span class="n">cookie</span><span class="err">，二次利用</span>
+</span></span><span class="line"><span class="cl"><span class="err">```</span><span class="n">python</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="n">pickle</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">save_cookie</span><span class="p">(</span><span class="n">browser</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    说明：pickle库来序列化数据(把格式数据存入文件和加载到内存)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cookies</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 方法一</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># with open(&#39;taobao_cookie.pkl&#39;,&#39;wb&#39;) as f:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#    pickle.dump(cookies, f)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 方法二</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">cookies</span><span class="p">,</span> <span class="n">open</span><span class="p">(</span><span class="s1">&#39;taobao_cookies.pkl&#39;</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="err">```</span>
+</span></span><span class="line"><span class="cl"><span class="err">```</span><span class="n">python</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_cookie</span><span class="p">(</span><span class="n">browser</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">	清除浏览器打开已有的cookies
+</span></span></span><span class="line"><span class="cl"><span class="s2">	读取cookie
+</span></span></span><span class="line"><span class="cl"><span class="s2">	&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">browser</span><span class="o">.</span><span class="n">delete_all_cookies</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 方法一</span>
+</span></span><span class="line"><span class="cl">    <span class="n">with</span> <span class="n">open</span><span class="p">(</span><span class="s1">&#39;taobao_cookie&#39;</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cookies</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">cookie</span> <span class="ow">in</span> <span class="n">cookies</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s1">&#39;expiry&#39;</span> <span class="ow">in</span> <span class="n">cookie</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">del</span> <span class="n">cookie</span><span class="p">[</span><span class="s1">&#39;expiry&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">		<span class="n">browser</span><span class="o">.</span><span class="n">add_cookie</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="c1"># 方法二</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cookies</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;taobao_cookies.pkl&#34;</span><span class="p">,</span> <span class="s2">&#34;rb&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">cookie</span> <span class="ow">in</span> <span class="n">cookies</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">isinstance</span><span class="p">(</span><span class="n">cookie</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;expiry&#39;</span><span class="p">),</span> <span class="ne">float</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cookie</span><span class="p">[</span><span class="s1">&#39;expiry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="ne">int</span><span class="p">(</span><span class="n">cookie</span><span class="p">[</span><span class="s1">&#39;expiry&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">browser</span><span class="o">.</span><span class="n">add_cookie</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">```</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="248-将selemium的cookie转换成request的cookie">2.4.8 将selemium的Cookie转换成request的Cookie
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">cookies</span> <span class="o">=</span> <span class="s1">&#39;; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34;=&#34;</span> <span class="o">+</span> <span class="n">item</span><span class="p">[</span><span class="s2">&#34;value&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">driver</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="249-截取页面验证码图片">2.4.9 截取页面验证码图片
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">image_cj</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">_save_url</span><span class="p">,</span> <span class="n">yuansu</span><span class="p">):</span>  
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :param driver: 浏览器对象  
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :param _save_url: 保存路径  
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :param yuansu: 验证码元素XPATH  
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :return:   
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">_file_name</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">_file_name_wz</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">_file_name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">_file_url</span> <span class="o">=</span> <span class="n">_save_url</span> <span class="o">+</span> <span class="n">_file_name_wz</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">driver</span><span class="o">.</span><span class="n">get_screenshot_as_file</span><span class="p">(</span><span class="n">_file_url</span><span class="p">)</span>  <span class="c1"># get_screenshot_as_file截屏  </span>
+</span></span><span class="line"><span class="cl">        <span class="n">captchaElem</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">yuansu</span><span class="p">)</span>  <span class="c1">## 获取指定元素（验证码）  </span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 因为验证码在没有缩放，直接取验证码图片的绝对坐标;这个坐标是相对于它所属的div的，而不是整个可视区域  </span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># location_once_scrolled_into_view 拿到的是相对于可视区域的坐标  ;  location 拿到的是相对整个html页面的坐标  </span>
+</span></span><span class="line"><span class="cl">        <span class="n">captchaX</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">captchaElem</span><span class="o">.</span><span class="n">location</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">captchaY</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">captchaElem</span><span class="o">.</span><span class="n">location</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>  
+</span></span><span class="line"><span class="cl">        <span class="c1"># 获取验证码宽高  </span>
+</span></span><span class="line"><span class="cl">        <span class="n">captchaWidth</span> <span class="o">=</span> <span class="n">captchaElem</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">captchaHeight</span> <span class="o">=</span> <span class="n">captchaElem</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        <span class="n">captchaRight</span> <span class="o">=</span> <span class="n">captchaX</span> <span class="o">+</span> <span class="n">captchaWidth</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">captchaBottom</span> <span class="o">=</span> <span class="n">captchaY</span> <span class="o">+</span> <span class="n">captchaHeight</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        <span class="n">imgObject</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">_file_url</span><span class="p">)</span>  <span class="c1"># 获得截屏的图片  </span>
+</span></span><span class="line"><span class="cl">        <span class="n">imgCaptcha</span> <span class="o">=</span> <span class="n">imgObject</span><span class="o">.</span><span class="n">crop</span><span class="p">((</span><span class="n">captchaX</span><span class="p">,</span> <span class="n">captchaY</span><span class="p">,</span> <span class="n">captchaRight</span><span class="p">,</span> <span class="n">captchaBottom</span><span class="p">))</span>  <span class="c1"># 裁剪  </span>
+</span></span><span class="line"><span class="cl">        <span class="n">yanzhengma_file_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">_file_name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;Captcha.png&#39;</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">imgCaptcha</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">_save_url</span> <span class="o">+</span> <span class="n">yanzhengma_file_name</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">_file_url</span><span class="p">)</span> <span class="c1">#删除整个截图文件  </span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">yanzhengma_file_name</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;错误 ：&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="25-错误处理">2.5 错误处理
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: Error:selenium 报错 DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">**出现 DeprecationWarning 警告的类型错误：该类型的警告大多属于版本已经更新，所使用的方法过时。**
+</span></span><span class="line"><span class="cl">```Python
+</span></span><span class="line"><span class="cl">from selenium.webdriver.chrome.service import Service
+</span></span><span class="line"><span class="cl">driver = webdriver.Chrome(service=Service(executable_path=&#34;./chromedriver.exe&#34;))
+</span></span><span class="line"><span class="cl">```
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: 报错ssl_client_socket_impl.cc(981)]
+</span></span><span class="line"><span class="cl">- 对于Chrome浏览器
+</span></span><span class="line"><span class="cl">```Python
+</span></span><span class="line"><span class="cl"> options = webdriver.ChromeOptions()
+</span></span><span class="line"><span class="cl"> options.add_argument(&#39;-ignore-certificate-errors&#39;)
+</span></span><span class="line"><span class="cl"> options.add_argument(&#39;-ignore -ssl-errors&#39;)
+</span></span><span class="line"><span class="cl"> driver = webdriver.Chrome(chrome_options = options)
+</span></span><span class="line"><span class="cl">```
+</span></span><span class="line"><span class="cl">- 对于Firfox浏览器
+</span></span><span class="line"><span class="cl">```Python
+</span></span><span class="line"><span class="cl"> profile = webdriver.FirefoxProfile()
+</span></span><span class="line"><span class="cl"> profile.accept_untrusted_certs = True 
+</span></span><span class="line"><span class="cl"> driver = webdriver.Firefox(firefox_profile = profile)
+</span></span><span class="line"><span class="cl">```
+</span></span><span class="line"><span class="cl">- 对于Internet Explorer
+</span></span><span class="line"><span class="cl">```Python
+</span></span><span class="line"><span class="cl">caps = webdriver.DesiredCapabilities.INTERNETEXPLORER
+</span></span><span class="line"><span class="cl">caps[&#39;acceptInsecureCerts&#39;] = True
+</span></span><span class="line"><span class="cl">caps[&#39;acceptSslCerts&#39;] = True
+</span></span><span class="line"><span class="cl">driver = webdriver.Ie(capabilities = capabilities)
+</span></span><span class="line"><span class="cl">```
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: 在定位一个a标签时，明明已经定位到了这个元素，但是死活不能点击
+</span></span><span class="line"><span class="cl">- 原来是左边的图标遮挡了a标签，导致无法点击。
+</span></span><span class="line"><span class="cl">- 这个时候要使用ENTER方法
+</span></span><span class="line"><span class="cl">- `from selenium.webdriver.common.keys import Keys`
+</span></span><span class="line"><span class="cl">- `a.send_keys(Keys.ENTER)`
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="251-linux中的selenium截图出现乱码">2.5.1 Linux中的selenium截图出现乱码
+</h4><p><a class="link" href="%E7%BB%99selenium%20%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93-20240127.md" >给selenium 安装中文字体-20240127</a></p>
+<h2 id="3-驱动下载">3 驱动下载
+</h2><p><strong>Firefox(火狐)浏览器驱动</strong>：<a class="link" href="https://github.com/mozilla/geckodriver/releases/"  target="_blank" rel="noopener"
+    >https://github.com/mozilla/geckodriver/releases/</a>
+<strong>Chrome(google)浏览器驱动</strong>：<a class="link" href="http://chromedriver.storage.googleapis.com/index.html"  target="_blank" rel="noopener"
+    >http://chromedriver.storage.googleapis.com/index.html</a>| <a class="link" href="https://googlechromelabs.github.io/chrome-for-testing/"  target="_blank" rel="noopener"
+    >https://googlechromelabs.github.io/chrome-for-testing/</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80_python/">计算机_程序语言_Python</a>
+        
+            <a href="/tags/zk-todo/">Zk-Todo</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/python%E5%90%88%E9%9B%86-202212052049/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python合集-202212052049</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/python%E6%89%93%E5%8C%85%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6-202210092243/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python打包成可执行文件-202210092243</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 游手好闲的卫大人
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

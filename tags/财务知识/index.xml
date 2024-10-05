@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>财务知识 on 卫大人的杂乱博客</title>
+        <link>https://news-epoch.github.io/tags/%E8%B4%A2%E5%8A%A1%E7%9F%A5%E8%AF%86/</link>
+        <description>Recent content in 财务知识 on 卫大人的杂乱博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>游手好闲的卫大人</copyright><atom:link href="https://news-epoch.github.io/tags/%E8%B4%A2%E5%8A%A1%E7%9F%A5%E8%AF%86/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>管理经济学-20230803</title>
+        <link>https://news-epoch.github.io/p/%E7%AE%A1%E7%90%86%E7%BB%8F%E6%B5%8E%E5%AD%A6-20230803/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E7%AE%A1%E7%90%86%E7%BB%8F%E6%B5%8E%E5%AD%A6-20230803/</guid>
+        <description>&lt;h1 id=&#34;第一章-导论&#34;&gt;第一章 导论
+&lt;/h1&gt;&lt;h2 id=&#34;11-管理经济学的研究对象重点&#34;&gt;1.1 管理经济学的研究对象(重点)
+&lt;/h2&gt;&lt;h3 id=&#34;111-管理经济学的定义&#34;&gt;1.1.1 管理经济学的定义
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;定义：运用&lt;strong&gt;经济理论&lt;/strong&gt;和&lt;strong&gt;决策科学&lt;/strong&gt;的分析工具，让一个企业组织能够在一定的&lt;strong&gt;经济环境&lt;/strong&gt;中，在&lt;strong&gt;面临各种约束下&lt;/strong&gt;，最有效的达到既定目标的科学。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;定义的两个要点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;研究对象：企业的资源，决策管理相关的。(即资源配置有关的管理决策问题)&lt;/li&gt;
+&lt;li&gt;分析工具：&lt;strong&gt;经济理论&lt;/strong&gt;和&lt;strong&gt;决策科学&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;112-决策的基本过程&#34;&gt;1.1.2 决策的基本过程
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;决策的基本过程：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A[明确问题]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;B[确定企业目标]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C[列举可能解决问题的所有办法]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;D[从列举办法中选取最优解]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;E[执行最优解]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A--&amp;gt;B--&amp;gt;C--&amp;gt;D--&amp;gt;E
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;正确的决策条件&lt;/strong&gt;：明确决策目标：较高的决策者素质，较充足的决策信息资料，科学的理论和方法。&lt;/li&gt;
+&lt;li&gt;如何判断这个决策是否正确：实施前后情况是否改善。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;113-管理经济学和微观经济学的关系&#34;&gt;1.1.3 管理经济学和微观经济学的关系。
+&lt;/h3&gt;&lt;p&gt;一、微观经济学&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;定义：通过研究&lt;strong&gt;单个&lt;/strong&gt;经济单位(包括企业、家庭、消费者、市场等)的&lt;strong&gt;经济行为&lt;/strong&gt;以及它们之间的&lt;strong&gt;互相影响&lt;/strong&gt;，由此说明&lt;strong&gt;市场经济如何解决资源配置&lt;/strong&gt;的问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;而在进行&lt;strong&gt;具体分析&lt;/strong&gt;之前会进行&lt;strong&gt;假设&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;完全信息&lt;/strong&gt;：例如，购买鞋子，消费者知道该商品的最低价的时间，以及商品的真假。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;完全理性&lt;/strong&gt;：对于消费者来说以最省钱的方式购买是理性。即：不考虑自身因素，以绝对冷静的方式考虑最为自己能够创造最大利益的方式执行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市场出清&lt;/strong&gt;：完全自由的情况，没有外力的情况，价格的波动随着&lt;strong&gt;供给&lt;/strong&gt;来进行波动。即(供给=需求)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;微观经济学在进行&lt;strong&gt;具体的分析研究&lt;/strong&gt;时会分成&lt;strong&gt;三个层次&lt;/strong&gt;来进行：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;分析单个消费者(或家庭)和单个生产者的经济行为。&lt;/li&gt;
+&lt;li&gt;分析单个市场(比如，猪肉，豇豆，姜都可以称为单个市场)均衡价格决定。&lt;/li&gt;
+&lt;li&gt;分析所有单个市场均衡价格的同时决定。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;管理经济学和微观经济学的不同处：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&amp;ndash;&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&amp;ndash;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;目的不同&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;微观经济学：为理解价格机制如何实现经济资源配置的最优解&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;目的不同&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;管理经济学：为解决企业的决策问题提供经济分析手段&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;研究方法不同&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;微观经济学：描述性&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;研究方法不同&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;管理经济学：规范性&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;假设条件不同&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;微观经济学：假定具有一个特定的效用函数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;假设条件不同&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;管理经济学：不假定其效用函数，而是推断函数&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;114-管理经济学的主要内容&#34;&gt;1.1.4 管理经济学的主要内容
+&lt;/h3&gt;&lt;p&gt;主要内容：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;需求理论&lt;/li&gt;
+&lt;li&gt;生产理论&lt;/li&gt;
+&lt;li&gt;成本理论&lt;/li&gt;
+&lt;li&gt;市场理论&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;12-管理经济学的基本分析方法&#34;&gt;1.2 管理经济学的基本分析方法
+&lt;/h2&gt;&lt;p&gt;最优化： 以最少的投入获得最大的利益，即成本越低越好，利益(benefit)越大越好。&lt;/p&gt;
+&lt;p&gt;数据工具：边际、最大值和最小值、拉格朗日函数&lt;/p&gt;
+&lt;h3 id=&#34;121--无约束的最优化理想&#34;&gt;1.2.1  无约束的最优化(理想)
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;企业的产品产量、资源投入量、价格和广告费的支出等各方面&lt;strong&gt;不受限制&lt;/strong&gt;，进行企业最优化决策。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;进行该最优化决策有两个工具：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;边际(margin)&lt;/li&gt;
+&lt;li&gt;最大值和最小值(Max and Min)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一、&lt;strong&gt;边际和边际分析&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;边际(margin)：也就是增量的意思，即 “某些变量”的变化。边际分析法就是利用&lt;strong&gt;边际值&lt;/strong&gt;作为决策参考依据的一种方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;管理经济学常用的边际值：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;边际产量(Marginal Product)：每多招一个工人，额外增加的产量&lt;/li&gt;
+&lt;li&gt;边际收益(Marginal Revenue)：每多招一个工人，额外增加的收益&lt;/li&gt;
+&lt;li&gt;边际成本(Marginal Cost)：每多招一个工人，额外增加的成本&lt;/li&gt;
+&lt;li&gt;边际利润(Marginal )：每多招一个工人，额外增加的利润.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;font color=#FF0212&gt;注意：利润=收益-成本&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;二、&lt;strong&gt;最大值和最小值&lt;/strong&gt;
+当&lt;strong&gt;总利润达到最大&lt;/strong&gt;，&lt;strong&gt;边际利润&lt;/strong&gt;为&lt;strong&gt;零&lt;/strong&gt;，此时&lt;strong&gt;边际收益&lt;/strong&gt;=&lt;strong&gt;边际成本&lt;/strong&gt;，由此可以得知，当&lt;strong&gt;边际收益&lt;/strong&gt;=&lt;strong&gt;边际成本&lt;/strong&gt;时，企业的&lt;strong&gt;利润&lt;/strong&gt;达到最大。
+总利润 = 总收益 - 总成本
+边际利润 = 边际收益 - 边际成本&lt;/p&gt;
+&lt;h3 id=&#34;122-有约束的最优化&#34;&gt;1.2.2 有约束的最优化
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;有约束的最优解：最优化决策者面临约束条件，如何决策分析才能达到既定目标。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;有约束的最优化工具&lt;/strong&gt;：
+① &lt;strong&gt;线性规划(Linear programming, LP)&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;13-市场经济条件下的企业&#34;&gt;1.3 市场经济条件下的企业
+&lt;/h2&gt;&lt;h3 id=&#34;131-企业的概念与特征&#34;&gt;1.3.1 企业的概念与特征
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;企业的概念：企业是社会中的一个重要组织，以&lt;strong&gt;营利&lt;/strong&gt;为目的，把各种生产要素组织起来，经过转换，为消费者或其他企业提供产品或劳务的经济实体。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;企业必须&lt;strong&gt;自主盈亏&lt;/strong&gt;、&lt;strong&gt;自负盈亏&lt;/strong&gt;、&lt;strong&gt;产权必须明晰&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;132-企业理论&#34;&gt;1.3.2 企业理论
+&lt;/h3&gt;&lt;p&gt;一、交易成本(了解)
+二、企业产生的根源&lt;/p&gt;
+&lt;h3 id=&#34;133-企业利润和决策&#34;&gt;1.3.3 企业利润和决策
+&lt;/h3&gt;&lt;p&gt;一、企业利润：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;会计利润&lt;/strong&gt;：企业已经取得的销售收入减去会计账目上已经发生的各种费用(即会计成本)的差值。&lt;strong&gt;会计利润：销售收入-会计成本&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;经济利润&lt;/strong&gt;= 销售收入-显性成本(会计成本)-隐形成本(机会成本)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;font color=#FF0212 style=font-size:21&gt;经济利润是决策的基础&lt;/font&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;机会成本：某种经济资源因用于某特定的用途而放弃了该经济资源在其他用途使用中的可能获得的最高利益。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;例1：业主用自己的资金办企业的机会成本，等于如果把这笔资金借给别人所可能得到的利息。&lt;/p&gt;
+&lt;p&gt;例2：业主自己兼任经理(自己管理企业)的机会成本，等于如果他在别处从事其他工作可能得到的报酬。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;第二章-供求分析&#34;&gt;第二章 供求分析
+&lt;/h1&gt;&lt;h2 id=&#34;21-需求分析&#34;&gt;2.1 需求分析
+&lt;/h2&gt;&lt;h3 id=&#34;211-需求函数&#34;&gt;2.1.1 需求函数
+&lt;/h3&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E9%9C%80%E6%B1%82.md&#34; &gt;需求&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;二、影响需求(demand)的因素&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;商品的价格，&lt;strong&gt;需求向下倾斜&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;消费者收入水平&lt;/li&gt;
+&lt;li&gt;相关商品的价格。
+&lt;ol&gt;
+&lt;li&gt;替代品：一种价格上升引起另一种物品需求增加。&lt;/li&gt;
+&lt;li&gt;互补品：一种物品价格上升引起另一种物品需求减少。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;消费者的偏好：当其他条件不变时，消费者对商品的需求与消费者对该商品的偏好是正向变动的关系。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;三、需求函数：需求量和影响需求量的各种因素之间所建立的函数关系。
+&lt;/p&gt;
+$$
+Q_{d} = f(P,I,PR,T)
+$$&lt;p&gt;将其他因素视为不变，只考虑&lt;strong&gt;商品价格&lt;/strong&gt;与&lt;strong&gt;需求量&lt;/strong&gt;之间的关系，函数就可以表示为：
+&lt;/p&gt;
+$$
+Q_{d} = f(P)
+$$&lt;p&gt;
+需求规律(需求定理)：&lt;strong&gt;同一种&lt;/strong&gt;商品的需求量与其价格呈现&lt;strong&gt;反方向变动&lt;/strong&gt;，即商品价格越高，需求量越低。&lt;/p&gt;
+&lt;p&gt;四、个人需求与市场需求
+个人需求：在一定时期内，其他因素不变的前提下，在该商品的任何一个可能的价格下，&lt;strong&gt;消费者个人&lt;/strong&gt;愿意并且能够购买的某种商品数量。
+市场需求：在一定时期内，其他因素不变的前提下，在该商品的任何一个可能的价格下，&lt;strong&gt;市场上所有消费者&lt;/strong&gt;愿意并且能够购买的某种商品数量。&lt;/p&gt;
+&lt;h3 id=&#34;212-需求量的变动和需求的变动&#34;&gt;2.1.2 需求量的变动和需求的变动
+&lt;/h3&gt;&lt;p&gt;一、&lt;strong&gt;需求量的变动&lt;/strong&gt;：在某个时期内，当其他的条件不变的情况下，由于商品&lt;strong&gt;价格&lt;/strong&gt;的变动所引起的消费者愿意且能够购买的商品数量发生变动。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;名称&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;因素&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;表现形式&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求量变动&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价格&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;沿着需求曲线变动&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求变动&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;消费者收入水平&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求曲线移动&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求变动&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;相关商品价格变动&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求曲线移动&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求变动&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;消费者的偏好&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求曲线移动&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;213-需求估计与预测&#34;&gt;2.1.3 需求估计与预测
+&lt;/h3&gt;&lt;p&gt;一、市场需求曲线的&lt;strong&gt;估计&lt;/strong&gt;和&lt;strong&gt;预测&lt;/strong&gt;的方法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A[需求估计方法]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;B[市场调查的方法]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C[统计分析方法]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;B1[访问调查法]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;B2[市场实验法]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C1[回归分析法]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A--&amp;gt;B
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A--&amp;gt;C
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;B--&amp;gt;B1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;B--&amp;gt;B2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C--&amp;gt;C1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;回归分析法&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;建立理论模型&lt;/li&gt;
+&lt;li&gt;收集数据&lt;/li&gt;
+&lt;li&gt;选择函数形式&lt;/li&gt;
+&lt;li&gt;对结果的估计和解释&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;22-供给分析&#34;&gt;2.2 供给分析
+&lt;/h2&gt;&lt;h3 id=&#34;221-供给函数&#34;&gt;2.2.1 供给函数
+&lt;/h3&gt;&lt;p&gt;一、供给(supply)：生产者在一定时间内在各种可能的价格水平下&lt;strong&gt;愿意提供&lt;/strong&gt;而且&lt;strong&gt;有能力提供&lt;/strong&gt;的某种商品(或服务)的数量。
+二、影响供给的因素&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;商品的价格：供给向上倾斜规律。比如猪肉价格上涨，让更多商家提供更多的猪肉&lt;/li&gt;
+&lt;li&gt;生产成本：成本越低，供给越多&lt;/li&gt;
+&lt;li&gt;替代品的价格
+&lt;ol&gt;
+&lt;li&gt;生产种的替代品：替代品的价格越高，生产替代品的利润越大，企业越愿意生产。例如小米和红米手机的价格。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;生产者对价格的期望：生产者预期价格上涨，提供产量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;三、供给函数：供给量与影响供给量的各因素之间所建立的函数关系。
+&lt;/p&gt;
+$$
+Q_{s} = f(P,I,P_{R},T)
+$$&lt;p&gt;P：表示该商品的价格。
+价格和供给量之间的关系可以用&lt;strong&gt;供给表&lt;/strong&gt;和&lt;strong&gt;供给曲线&lt;/strong&gt;来进行表现。
+&lt;strong&gt;供给定律(供给规律)&lt;/strong&gt;：商品的供给量与其价格是从呈同方向变动。即，价格越高，供给量越大。&lt;/p&gt;
+&lt;h3 id=&#34;222-供给量的变动和供给的变动&#34;&gt;2.2.2 供给量的变动和供给的变动
+&lt;/h3&gt;&lt;p&gt;一、供给量的变动：值在某个时期内，其他条件不变的情况下，由于&lt;strong&gt;商品价格&lt;/strong&gt;的变动引起企业愿意和能够提供的商品数量发生变动。====&amp;gt; 沿着供给曲线变动。&lt;/p&gt;
+&lt;p&gt;二、供给的变动：价格不变的情况下，其他条件变动引起该商品的供给数量的变动。&lt;/p&gt;
+&lt;p&gt;三、总结&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;名称&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;因素&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;变化形式&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给量变动&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价格&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;沿供给曲线变动&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给变动&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;生产成本&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给曲线移动&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给变动&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;替代品的价格&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给曲线移动&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给变动&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;生产者对价格的期望&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给曲线移动&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;23-市场均衡分析&#34;&gt;2.3 市场均衡分析
+&lt;/h2&gt;&lt;h3 id=&#34;231-市场均衡与供求法则&#34;&gt;2.3.1 市场均衡与供求法则
+&lt;/h3&gt;&lt;p&gt;一、&lt;strong&gt;市场均衡&lt;/strong&gt;：在影响需求和供给的其他因素都给定不变的条件下，市场处于&lt;strong&gt;均衡状态&lt;/strong&gt;时的价格，即消费者愿意购买的数量&lt;strong&gt;等于&lt;/strong&gt;生产者愿意供给的数量。均衡状态是指：供给曲线和需求曲线相交的一点。
+均衡交易量(均衡产量、均衡销量、金恒数量)：与均衡价格相对应的成交数量。
+即：需求价格=供给价格&lt;/p&gt;
+&lt;h3 id=&#34;232-市场均衡的变动&#34;&gt;2.3.2 市场均衡的变动
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;　&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;供给未变&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;供给增加&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;供给减少&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求未变&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价格相同&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给曲线右移，均衡价格下降，均衡数量增加&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给曲线左移，均衡价格上升，均衡数量减少&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求未变&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数量相同&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给曲线左移，均衡价格上升，均衡数量减少&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给曲线右移，均衡价格下降，均衡数量增加&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求增加&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求曲线右移，均衡价格上升，均衡数量增加&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;需求增加&amp;gt;供给增加&lt;/strong&gt;，价格上升，数量增加；&lt;br&gt;     &lt;strong&gt;需求增加&amp;lt;供给增加&lt;/strong&gt;，价格下降，数量增加。&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价格上升&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求增加&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求曲线左移，均衡价格下降，均衡数量减少&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求增加=供给增加，价格不变，数量增加&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数量不确定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求减少&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求曲线左移，均衡价格下降，均衡数量减少&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价格下降&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;间隔不确定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求减少&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求曲线右移，均衡价格上升，均衡数量增加&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数量不确定&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数量减少&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;233-价格管制对市场均衡的影响&#34;&gt;2.3.3 价格管制对市场均衡的影响
+&lt;/h3&gt;&lt;p&gt;一、政府规定最低价格
+&lt;strong&gt;最低价格&lt;/strong&gt;：又称支持价格、价格下限，政府为了扶持某一行业的生产、保护生产者的利益而规定的&lt;strong&gt;高于&lt;/strong&gt;该行业产品均衡价格的一种非市场价格。
+二、政府规定最高价格
+&lt;strong&gt;最高价格&lt;/strong&gt;：又称限制价格、价格上限。是指政府为了防止某些生活必需品的物价上涨而规定了&lt;strong&gt;低于&lt;/strong&gt;这些物品的均衡价格的价格，即&lt;strong&gt;规定最高价格&lt;/strong&gt;。例如：经济适用房。&lt;/p&gt;
+&lt;h1 id=&#34;第三章-消费者效用分析&#34;&gt;第三章 消费者效用分析
+&lt;/h1&gt;&lt;h2 id=&#34;31-效用理论概述&#34;&gt;3.1 效用理论概述
+&lt;/h2&gt;&lt;h3 id=&#34;311-效用的概念&#34;&gt;3.1.1 效用的概念
+&lt;/h3&gt;&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E6%95%88%E7%94%A8.md&#34; &gt;效用&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;三个特点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;效用是消费者对商品和服务的主观评价&lt;/li&gt;
+&lt;li&gt;效用因人、因时、因地而不同。&lt;/li&gt;
+&lt;li&gt;效用本身&lt;strong&gt;不包括&lt;/strong&gt;有关是非的价值判断。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;312-效用理论的基本假设&#34;&gt;3.1.2 效用理论的基本假设
+&lt;/h3&gt;&lt;p&gt;1、完全信息
+2、 偏好次序&lt;/p&gt;
+&lt;h3 id=&#34;313-基数效用论与序数效用论&#34;&gt;3.1.3 基数效用论与序数效用论
+&lt;/h3&gt;&lt;p&gt;一、基数效用论===&amp;gt;边际效用分析法：形成于19世纪，效用是一个数量概念。认为，一种商品或者劳务效用的大小，可以用基数(1，2，3&amp;hellip;.)测量，衡量单位时效用单位(Util，尤特尔)&lt;/p&gt;
+&lt;p&gt;二、序数效用论：产生于20世纪30年代。效用是一个次序概念。认为，效用的绝对量大小根本无法测定，无法用某种统一单位表示。
+例如：阿克在评估和桃子中，选择了苹果，放弃了桃子，则对我而言，苹果的效用大于桃子。&lt;/p&gt;
+&lt;h2 id=&#34;32-基数效用论与边际效用分析&#34;&gt;3.2 基数效用论与边际效用分析
+&lt;/h2&gt;&lt;h3 id=&#34;321-总效用与边际效用&#34;&gt;3.2.1 总效用与边际效用
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;总效用(TU)&lt;/strong&gt;：指消费者在&lt;strong&gt;一定时期内&lt;/strong&gt;从&lt;strong&gt;一定数量的商品&lt;/strong&gt;消费中获得的效用量的总和。
+&lt;strong&gt;边际效用(MU)&lt;/strong&gt;：指消费者在&lt;strong&gt;一定时间&lt;/strong&gt;内&lt;strong&gt;增加一单位商品&lt;/strong&gt;的消费时，所获得的总效用量的增量，即TU增加。
+&lt;strong&gt;当MU&amp;gt;0时&lt;/strong&gt;，总效用曲线呈&lt;strong&gt;上升&lt;/strong&gt;趋势。表明总效用会随着消费量的增加而&lt;strong&gt;增加&lt;/strong&gt;，但增加的趋势会&lt;strong&gt;逐渐下降&lt;/strong&gt;
+&lt;strong&gt;当MU=0时&lt;/strong&gt;，总效用曲线达到最高点，表明总效用取得最大值。这种情形意味着消费者从该商品的消费中所能得到的一切可能的满足都得到了，即TU=Max。
+&lt;strong&gt;当MU&amp;lt;0时&lt;/strong&gt;，总效用曲线呈&lt;strong&gt;下降趋势&lt;/strong&gt;，表明总效用随着消费量的增加而减少，即TU减少。&lt;/p&gt;
+&lt;h3 id=&#34;322-边际效用递减规则&#34;&gt;3.2.2 边际效用递减规则
+&lt;/h3&gt;&lt;p&gt;一、边际效用递减规律：随着消费数量增加，边际效用呈下降趋势的现象。边际效用大小，主要取决于&lt;strong&gt;商品消费量&lt;/strong&gt;的大小。&lt;/p&gt;
+&lt;h3 id=&#34;323-消费者均衡&#34;&gt;3.2.3 消费者均衡
+&lt;/h3&gt;&lt;p&gt;消费者均衡：单个消费者把&lt;strong&gt;有限的货币收入&lt;/strong&gt;分配在对各种商品购买中获得&lt;strong&gt;效用的最大化&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;假设消费者用收入I，只消费两种商品X和Y，其效用函数：U=U(X,Y)
+X商品的价格为Px，Y商品的价格为Py，于是收入约束为：&lt;/p&gt;
+$$\mathrm{P}xX+\mathrm{P}y+Y=I$$&lt;hr&gt;
+&lt;p&gt;aliases:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Managerial Ecomomics
+tags:&lt;/li&gt;
+&lt;li&gt;zk-todo&lt;/li&gt;
+&lt;li&gt;财务知识
+type: note
+createDate: 2023-08-03 19:26:00
+title: 管理经济学-20230803
+folder: 管理经济学-20230803/index
+share: true
+draft: false&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;均衡条件的含义&lt;/strong&gt;：消费者使自己花费在各种商品购买上的最后一元钱带来的边际效用相等，也称&lt;strong&gt;等边际效用原则&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;324-个人需求曲线的推导&#34;&gt;3.2.4 个人需求曲线的推导
+&lt;/h3&gt;&lt;h3 id=&#34;325-消费者剩余&#34;&gt;3.2.5 消费者剩余
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;例如：消费者愿意花1000元买鞋子，但是实际只花费了800元，由于剩了200，这个就称为&lt;strong&gt;消费者剩余&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;33-序数效用论与无差异曲线分析&#34;&gt;3.3 序数效用论与无差异曲线分析
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;在序数效用论中，不认为可以用数值来代表效用水平，只能用&lt;strong&gt;先后顺序&lt;/strong&gt;来表示。其中，序数效用论是用&lt;strong&gt;无差异曲线&lt;/strong&gt;工具来进行分析&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;331-无差异曲线&#34;&gt;3.3.1 无差异曲线
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;表示消费者偏好相同的&lt;strong&gt;两种商品&lt;/strong&gt;的&lt;strong&gt;不同数量&lt;/strong&gt;的各种组合。同一条无差异曲线都是表示两种商品的不同数量组合对消费者所提供的效用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一、无差异曲线的性质：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;无差异曲线是向右下方倾斜，其形状总是凸向原点的。&lt;/li&gt;
+&lt;li&gt;任意两条无差异曲线之间&lt;strong&gt;不能相交&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;离原点越远的无差异曲线所代表的效用水平越高。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;二、&lt;strong&gt;边际替代率(Marginal Rate of Substitution, MRS)&lt;/strong&gt;： 消费者在保持&lt;strong&gt;自己效用水平不变&lt;/strong&gt;的情况下，为了增加一种商品(X)的消费量所愿意放弃的另一种商品(Y)的消费量。
+&lt;/p&gt;
+$$
+\displaylines{组合一：X_{2} -X_{1}  =\dot{X} \\组合二：Y_{2}  -Y_{1}  =\dot{Y} \\边际替代率：MRS=-\frac{\dot{Y}}{\dot{X}}=\frac{MU_{x}}{MU_{y}}}
+$$&lt;p&gt;
+延伸：
+切线：一定存在一条直线和曲线有且仅有一个&lt;strong&gt;交点&lt;/strong&gt;。
+边际替代率：无差异曲线上某地切线的斜率。即：&lt;strong&gt;斜率=边际替代率&lt;/strong&gt;。(y=kx+b,斜率=k)。&lt;/p&gt;
+&lt;h3 id=&#34;332-消费者预算线&#34;&gt;3.3.2 消费者预算线
+&lt;/h3&gt;&lt;p&gt;预算线(budget line)：给定的价格和收入下，消费者把所有收入用于消费者所能获得的商品组合点的轨迹。例如：本身只有1200元，只买芒果和鱼，芒果1元/个，鱼4元/条，则：
+&lt;/p&gt;
+$$
+\displaylines{Y=-4X+1200 \\
+-4 就是这条直线的斜率。\\
+P_{x}X+P_{y}Y=I ==&gt; Y=-\frac{P_{x}}{P_{y}} +\frac{I}{P_{y}} \\
+-\frac{P_{x}}{P_{y}}就是预算线的斜率}
+$$&lt;h3 id=&#34;333-消费者均衡&#34;&gt;3.3.3 消费者均衡
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;在预算给定的情况下，消费者通过决定两种商品的消费量使自己的&lt;strong&gt;效用&lt;/strong&gt;最大化的状态。即通过无差异曲线得到&lt;strong&gt;效用&lt;/strong&gt;和通过消费者预算线得到:&lt;/p&gt;
+&lt;/blockquote&gt;
+$$
+\displaylines{序数效用论消费者均衡条件：\frac{P_{x}}{P_{y}}=\frac{MU_{x}}{MU_{y}}\\
+基数效用论消费者均衡条件：\frac{P_{x}}{P_{y}}=\frac{MU_{x}}{MU_{y}}\\}
+$$&lt;p&gt;消费者最后一元买X的商品或者买Y的边际效用(满足感)。&lt;/p&gt;
+&lt;h1 id=&#34;第四章-需求弹性与供给弹性分析&#34;&gt;第四章 需求弹性与供给弹性分析
+&lt;/h1&gt;&lt;p&gt;弹性(elasticity)：当两个经济变量间存在函数关系时，作为一个变量变化时，必然引起另外一个变量的变化。表示&lt;strong&gt;因变量的相对变化&lt;/strong&gt;对&lt;strong&gt;自变量相对变化&lt;/strong&gt;的反映成都或灵敏程度。&lt;/p&gt;
+&lt;h2 id=&#34;41-需求弹性重点&#34;&gt;4.1 需求弹性(重点)
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;指一种商品的&lt;strong&gt;需求量&lt;/strong&gt;对&lt;strong&gt;其影响因素变动&lt;/strong&gt;的反应敏感程度。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;411-需求价格弹性&#34;&gt;4.1.1 需求价格弹性
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;一种商品需求量变动对其价格变动的反应程度。一般用需求价格弹性&lt;strong&gt;系数&lt;/strong&gt;来表示需求价格弹性的&lt;strong&gt;大小&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;计算公式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;一般公式(给出需求量和价格的百分率)：
+&lt;/p&gt;
+$$
+需求价格弹性价格：(E_{d})=\frac{需求量变动的百分比}{价格变动的百分比}=\frac{\frac{\Delta Q }{Q} }{\frac{\Delta P }{P} } 
+$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;弧弹性公式（给出变化前后的价格和需求量）：
+&lt;/p&gt;
+$$
+\displaylines {E_{d}=\frac{Q_{2}-Q_{1}}{P_{2}-P_{1}}\times \frac{\frac{P_{1}+P_{2}}{2}}{\frac{Q_{1}+Q_{2}}{2} }
+= \frac{Q_{2}-Q_{1}}{P_{2}-P_{1}}\times \frac{P_{1}+P_{2}}{Q_{1}+Q_{2}} \\
+Q_{1}:变化前的商品需求量。Q_{2}:变化前的商品需求量。\\
+P_{1}:变化前的商品价格。P_{2}:变化前的商品价格。\\
+Q平均值：\frac{(Q_{1}+Q_{2})}{2}。P平均值：\frac{(P_{1}+P_{2})}{2}}
+$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点弹性公式(给出需求函数)：
+&lt;/p&gt;
+$$
+\displaylines{E_{d}=\lim_{\Delta P \to 0} \frac{\Delta Q}{\Delta P}\times \frac{P}{Q}= \frac{\mathrm{d}Q }{\mathrm{d}P } \times  \frac{P}{Q} \\
+前提时必须已知该商品的需求函数
+}
+$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;根据需求定理，在其他因素不变的条件下，同一种商品的需求量与其价格的变化方向相反，所以对于大部分商品而言，其需求价格弹性的计算结果是&lt;strong&gt;负值&lt;/strong&gt;。
+但在实际运用中，商品的需求价格弹性一般取&lt;strong&gt;绝对值&lt;/strong&gt;。
+计算出来的需求价格弹性系数&lt;strong&gt;越大&lt;/strong&gt;，说明该该商品的需求量对其价格变动的反应&lt;strong&gt;灵敏度越高&lt;/strong&gt;。(一般来说灵敏度高的是奢侈品，当奢侈品出现折扣，销售量就会增加）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;需求价格弹性的种类：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;　&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;供给未变&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;供给增加&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;供给减少&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求未变&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价格相同&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给曲线右移，均衡价格下降，均衡数量增加&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给曲线左移，均衡价格上升，均衡数量减少&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数量相同&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给曲线左移，均衡价格上升，均衡数量减少&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;供给曲线右移，均衡价格下降，均衡数量增加&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求增加&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求曲线右移，均衡价格上升，均衡数量增加&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求增加&amp;gt;供给增加，价格上升，数量增加；&lt;br&gt;     需求增加&amp;lt;供给增加，价格下降，数量增加。&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价格上升&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求曲线左移，均衡价格下降，均衡数量减少&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求增加=供给增加，价格不变，数量增加&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数量不确定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求减少&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求曲线左移，均衡价格下降，均衡数量减少&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价格下降&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;间隔不确定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;需求曲线右移，均衡价格上升，均衡数量增加&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数量不确定&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;数量减少&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;42-供给弹性&#34;&gt;4.2 供给弹性
+&lt;/h2&gt;&lt;h1 id=&#34;第五章-生产要素投入的决策分析&#34;&gt;第五章 生产要素投入的决策分析
+&lt;/h1&gt;&lt;h1 id=&#34;第六章-成本分析&#34;&gt;第六章 成本分析
+&lt;/h1&gt;&lt;h1 id=&#34;第七章-生产产出的决策分析&#34;&gt;第七章 生产产出的决策分析
+&lt;/h1&gt;&lt;h1 id=&#34;第八章-完全竞争市场中的企业决策&#34;&gt;第八章 完全竞争市场中的企业决策
+&lt;/h1&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

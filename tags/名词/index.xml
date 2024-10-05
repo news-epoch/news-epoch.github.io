@@ -7,6 +7,177 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>游手好闲的卫大人</copyright><atom:link href="https://news-epoch.github.io/tags/%E5%90%8D%E8%AF%8D/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>AOP</title>
+        <link>https://news-epoch.github.io/p/aop/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/aop/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;AOP就是 &lt;strong&gt;面向切面编程&lt;/strong&gt;，具体用静态代理和动态代理来实现，通过动态代理实现在不修改源代码的情况下进行添加功能。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>ARQ</title>
+        <link>https://news-epoch.github.io/p/arq/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/arq/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;是OSI模型中针对传输层和数据链路层的错误纠正协议之一，也是TCP实现可靠传输的重要协议。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>B2B</title>
+        <link>https://news-epoch.github.io/p/b2b/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/b2b/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;是指进行电子商务交易的&lt;strong&gt;供需双方都是商家(或企业、公司)&lt;/strong&gt;，她(他)们使用&lt;strong&gt;互联网的技术&lt;/strong&gt;或各种&lt;strong&gt;商务网络平台&lt;/strong&gt;，&lt;strong&gt;完成商务交易&lt;/strong&gt;的过程。&lt;strong&gt;电子商务&lt;/strong&gt;是现代B2B marketing的一种具体主要表现形式。例如：阿里巴巴、慧聪网&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>B2B2C</title>
+        <link>https://news-epoch.github.io/p/b2b2c/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/b2b2c/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;是一种电子商务类型的网络购物商业模式，B是Business的简称，C是Customer的简称，第一个B是指商务或服务的供应商，第二个B是指从事电子商务的企业，C则是消费者。案例：京东、天猫。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>B2C</title>
+        <link>https://news-epoch.github.io/p/b2c/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/b2c/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;这种形式的电子商务一般以网络零售业为主，主要借助于互联网开展在线销售活动。即企业通过互联网为消费者提供一个新型的购物环境-网上上带你，消费者通过网络在网上购物、网上支付等消费行为。例如：唯品会。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>C2B</title>
+        <link>https://news-epoch.github.io/p/c2b/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/c2b/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;是互联网经济时代新的商业模式。这一模式改变了原有生产者(企业和机构)和消费者的关系，是一种消费者贡献简直，企业和机构消费价值。即，消费者根据自身需求定制产品和价格，或主动参与产品设计、生产和定价，产品、价格等彰显消费者的个性化需求，生产企业进行定制化生产。例如：海尔商城、尚品宅配。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>C2C</title>
+        <link>https://news-epoch.github.io/p/c2c/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/c2c/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;消费者个人间的电子商务行为。比如一个消费者有一台电脑，通过网络进行交易，把它出售给另一个消费者，此种交易称为C2C电子商务。例如：闲鱼、转转、瓜子二手车&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>Cookie</title>
+        <link>https://news-epoch.github.io/p/cookie/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/cookie/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;网站为了辨别用户身份，进行会话跟踪而存储在用户本地终端上的数据。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>DHCP</title>
+        <link>https://news-epoch.github.io/p/dhcp/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/dhcp/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;用来动态给主机自动分配IP地址，DHCP服务器端口号67 客户端端口号68&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>F2C</title>
+        <link>https://news-epoch.github.io/p/f2c/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/f2c/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;从厂商到消费者的电子模式商务&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>HTTP</title>
+        <link>https://news-epoch.github.io/p/http/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/http/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;HTTP其实是一种网络传输协议，基于&lt;strong&gt;TCP协议&lt;/strong&gt;，工作在&lt;strong&gt;应用层&lt;/strong&gt;，&lt;strong&gt;规定了数据传输格式&lt;/strong&gt;。现在热门的REST风格，可以通过http协议实现。缺点是&lt;strong&gt;消息封装臃肿&lt;/strong&gt;。优点是，服务提供和调用&lt;strong&gt;没有技术的限制&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>HTTP状态码</title>
+        <link>https://news-epoch.github.io/p/http%E7%8A%B6%E6%80%81%E7%A0%81/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/http%E7%8A%B6%E6%80%81%E7%A0%81/</guid>
+        <description>&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;状态码类别&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;取值范围&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;作用&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1xx&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;100-199&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;信息提示&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;通告信息，可能还需要进一步交互&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2xx&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;200-299&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;成功&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;成功完成客户请求的操作，并进行响应&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3xx&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;300-399&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;重定向&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;表示资源已经移走，需要向新URL发请求&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;4xx&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;400-499&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;客户端错误&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;由于客户端请求错误，无法成功响应&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;5xx&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;500-599&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;服务器错误&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;由于服务器端错误，无法成功响应&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
+        <item>
         <title>ICMP</title>
         <link>https://news-epoch.github.io/p/icmp/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -15,6 +186,168 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;在主机或路由器之间实现差错信息控制、信息探测，例如&lt;strong&gt;ping&lt;/strong&gt;的实现&lt;/p&gt;
 &lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>laaS平台</title>
+        <link>https://news-epoch.github.io/p/laas%E5%B9%B3%E5%8F%B0/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/laas%E5%B9%B3%E5%8F%B0/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;laaS主要一种提供虚拟计算、存储、数据库等基础设施服务的商业模式&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>LTS</title>
+        <link>https://news-epoch.github.io/p/lts/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/lts/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;长期支持的稳定版本&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>MIME</title>
+        <link>https://news-epoch.github.io/p/mime/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/mime/</guid>
+        <description>&lt;blockquote&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>MTU</title>
+        <link>https://news-epoch.github.io/p/mtu/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/mtu/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;是硬件(物理层)的一个特性。MTU的大小以字节（octets ）为基本单位。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>O2O</title>
+        <link>https://news-epoch.github.io/p/o2o/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/o2o/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;是指将线下的商务机会与互联网结合，让互联网成为线下交易的平台，这个概念最早来源于美国。例如：美团、饿了吗&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>PaaS平台</title>
+        <link>https://news-epoch.github.io/p/paas%E5%B9%B3%E5%8F%B0/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/paas%E5%B9%B3%E5%8F%B0/</guid>
+        <description>&lt;p&gt;什么是PaaS平台，即把应用服务的运行和开发环境作为一种服务提供的商业模式。PaaS是一种介于&lt;a class=&#34;link&#34; href=&#34;laaS%E5%B9%B3%E5%8F%B0.md&#34; &gt;laaS&lt;/a&gt;和&lt;a class=&#34;link&#34; href=&#34;SaaS%E5%B9%B3%E5%8F%B0.md&#34; &gt;SaaS&lt;/a&gt;模型之间的一种云服务aa&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>QPS</title>
+        <link>https://news-epoch.github.io/p/qps/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/qps/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;是每秒查询率 ,是&lt;strong&gt;一台服务器&lt;/strong&gt;每秒能够相应的查询次数，是对一个特定的查询服务器&lt;strong&gt;在规定时间内&lt;/strong&gt;所处理流量多少的衡量标准, 即每秒的响应请求数，也即是最大吞吐能力。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>Restful</title>
+        <link>https://news-epoch.github.io/p/restful/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/restful/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Restful 是一种软件&lt;strong&gt;架构风格、设计风格&lt;/strong&gt;，而不是标准。只是提供了一组设计原则和约束条件，主要用于客户端和服务器交互类的软件，基于这个风格设计的软件可以更简洁，更有层次赶，更易于实现缓存机制等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Restful风格的请求是使用&amp;quot;URL+请求方式&amp;quot;表示一次请求目的的，HTTP协议里面四个表示操作方式的动词如下:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GET：用于获取资源&lt;/li&gt;
+&lt;li&gt;POST：用于新建资源&lt;/li&gt;
+&lt;li&gt;PUT：用于更新资源&lt;/li&gt;
+&lt;li&gt;DELETE：用于删除资源&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>RTT</title>
+        <link>https://news-epoch.github.io/p/rtt/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/rtt/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;HTTP客户进程向服务器请求建立连接，从客户发送连接请求，到收到服务器连接确认，用时一个往返时间。RTT作为一个时间单位来使用&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>SaaS平台</title>
+        <link>https://news-epoch.github.io/p/saas%E5%B9%B3%E5%8F%B0/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/saas%E5%B9%B3%E5%8F%B0/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;SaaS,是Software-as-a-Service的缩写，通过&lt;strong&gt;网络提供软件服务&lt;/strong&gt;，SaaS平台供应商将应用软件同意部署在自己的服务器上，客户可以根据工作实际需求，通过互联网想厂商订购所需的应用软件服务，按订购时间的长短和服务多少像厂商支付费用&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>SMTP</title>
+        <link>https://news-epoch.github.io/p/smtp/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/smtp/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Internet电子邮件中核心应用层协议。实现邮件服务器之间或用户代理到邮件服务器之间的邮件传输&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;SMTP通过&lt;strong&gt;3&lt;/strong&gt;个阶段的&lt;strong&gt;应用层&lt;/strong&gt;交互完成邮件的传输：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;握手阶段&lt;/li&gt;
+&lt;li&gt;邮件传输阶段&lt;/li&gt;
+&lt;li&gt;关闭阶段&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;SMTP的特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SMTP定义了&lt;strong&gt;14条命令&lt;/strong&gt;,每条命令由4个字母实现&lt;/li&gt;
+&lt;li&gt;SMTP定义了&lt;strong&gt;21种应答信息&lt;/strong&gt;，一般只有&lt;strong&gt;一行&lt;/strong&gt;，由3位数字的代码标识&lt;/li&gt;
+&lt;li&gt;SMTP只能传输&lt;strong&gt;7&lt;/strong&gt;位ASCII码文本内容&lt;/li&gt;
+&lt;li&gt;SMTP传送的邮件内容不能包含&amp;quot;CRLF.CRLF&amp;quot;,因为该信息用于标识&lt;strong&gt;邮件内容的结束&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;SMTP是“&lt;strong&gt;推动&lt;/strong&gt;”协议。（补充：HTTP是“拉动”协议）&lt;/li&gt;
+&lt;li&gt;SMTP使用&lt;strong&gt;TCP连接是持久&lt;/strong&gt;的。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>SOA架构</title>
+        <link>https://news-epoch.github.io/p/soa%E6%9E%B6%E6%9E%84/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/soa%E6%9E%B6%E6%9E%84/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;它可以根据需求通过网络对&lt;strong&gt;松散耦合的粗粒度&lt;/strong&gt;应用组件(服务)进行&lt;strong&gt;分布式部署&lt;/strong&gt;、组合和使用。一个服务通常以独立的形式存在于操作系统进程中。
+&lt;font color=#FF0212&gt;说明&lt;/font&gt;：将&lt;strong&gt;重复功能&lt;/strong&gt;或模块抽取成组件的形式，&lt;strong&gt;对外提供服务&lt;/strong&gt;，在项目与服务之间使用ESB（&lt;strong&gt;企业服务总线&lt;/strong&gt;）的形式作为通信的桥梁。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://news-epoch.github.io/0f906e58ae34b1b13fda4be852ef9ab6.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;0f906e58ae34b1b13fda4be852ef9ab6.png&#34;
+	
+	
+&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -29,6 +362,17 @@
 </description>
         </item>
         <item>
+        <title>TPS</title>
+        <link>https://news-epoch.github.io/p/tps/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/tps/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;也就是事务数/秒。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>UDP</title>
         <link>https://news-epoch.github.io/p/udp/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -36,6 +380,17 @@
         <guid>https://news-epoch.github.io/p/udp/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;Internet提供&lt;strong&gt;无连接服务&lt;/strong&gt;的传输层协议。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>VRRP协议</title>
+        <link>https://news-epoch.github.io/p/vrrp%E5%8D%8F%E8%AE%AE/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/vrrp%E5%8D%8F%E8%AE%AE/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;VRRP是一种容错协议，它通过把几台路由设备联合组成一台虚拟的路由设备，并通过一定的机制来保证当主机的下一跳设备出现故障时，可以及时将业务切换到其它设备，从而保持通讯的连续性和可靠性。&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
         </item>
@@ -53,6 +408,17 @@
 </description>
         </item>
         <item>
+        <title>弹栈(出栈)</title>
+        <link>https://news-epoch.github.io/p/%E5%BC%B9%E6%A0%88%E5%87%BA%E6%A0%88/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E5%BC%B9%E6%A0%88%E5%87%BA%E6%A0%88/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;当方法执行完毕，对应的那一块空间要消失&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>丢包率</title>
         <link>https://news-epoch.github.io/p/%E4%B8%A2%E5%8C%85%E7%8E%87/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -64,6 +430,175 @@
 &lt;p&gt;NS：为发送分组总数
 Nr：接收分组总数
 Nl：丢失分组总数&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>互联网</title>
+        <link>https://news-epoch.github.io/p/%E4%BA%92%E8%81%94%E7%BD%91/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E4%BA%92%E8%81%94%E7%BD%91/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;泛指由多个计算机网络互连而成的网络&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>进程独自占用的物理内存</title>
+        <link>https://news-epoch.github.io/p/%E8%BF%9B%E7%A8%8B%E7%8B%AC%E8%87%AA%E5%8D%A0%E7%94%A8%E7%9A%84%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E8%BF%9B%E7%A8%8B%E7%8B%AC%E8%87%AA%E5%8D%A0%E7%94%A8%E7%9A%84%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;不包含共享库占用的内存&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>类变量</title>
+        <link>https://news-epoch.github.io/p/%E7%B1%BB%E5%8F%98%E9%87%8F/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E7%B1%BB%E5%8F%98%E9%87%8F/</guid>
+        <description>&lt;p&gt;指用&lt;strong&gt;static修饰&lt;/strong&gt;的一个类的&lt;strong&gt;成员变量&lt;/strong&gt;，通常为静态变量,在方法区中创建。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>类变量和实例变量</title>
+        <link>https://news-epoch.github.io/p/%E7%B1%BB%E5%8F%98%E9%87%8F%E5%92%8C%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E7%B1%BB%E5%8F%98%E9%87%8F%E5%92%8C%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/</guid>
+        <description>&lt;p&gt;Links: &amp;raquo;&lt;a class=&#34;link&#34; href=&#34;%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E9%9D%99%E6%80%81%E5%92%8C%E9%9D%9E%E9%9D%99%E6%80%81%E7%9A%84%E5%8C%BA%E5%88%AB.md&#34; &gt;成员变量静态和非静态的区别&lt;/a&gt; || &lt;a class=&#34;link&#34; href=&#34;%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%AE%9E%E9%99%85%E8%BF%90%E7%94%A8.md&#34; &gt;静态成员变量在项目中的实际运用&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E7%B1%BB%E5%8F%98%E9%87%8F.md&#34; &gt;类变量&lt;/a&gt;，
+-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F.md&#34; &gt;实例变量&lt;/a&gt;
+区别在于：类变量是&lt;strong&gt;所有对象共有&lt;/strong&gt;，其中一个对象将它值改变，其他对象得到的也是改变后的结果，并且随着&lt;strong&gt;类的加载&lt;/strong&gt;而加载；而实例变量则属&lt;strong&gt;对象私有&lt;/strong&gt;，某一个对象将其值改变，不影响其他对象。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;class Person {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;public String name;//&amp;lt;实例变量&amp;gt;成员变量，随着对象的创建而存在于堆内存中
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;public static Integer country = 18;//&amp;lt;类变量&amp;gt;静态成员变量，随着类的加载而存在于方法区中
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>路由断言</title>
+        <link>https://news-epoch.github.io/p/%E8%B7%AF%E7%94%B1%E6%96%AD%E8%A8%80/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E8%B7%AF%E7%94%B1%E6%96%AD%E8%A8%80/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;是指可以根据&lt;code&gt;/api/search/**&lt;/code&gt;匹配到任意前缀包含这个的URI或者URL&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>耦合度</title>
+        <link>https://news-epoch.github.io/p/%E8%80%A6%E5%90%88%E5%BA%A6/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E8%80%A6%E5%90%88%E5%BA%A6/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;模块与模块之间的联系程度，是衡量代码独立性的一个指标，也是软件工程设计及编码质量评价的一个&lt;strong&gt;标准&lt;/strong&gt;。耦合的强度依赖于以下几个因素：
+（1）一个模块对另一个模块的调用；
+（2）一个模块向另一个模块传递的数据量；
+（3）一个模块施加到另一个模块的控制的多少；
+（4）模块之间接口的复杂程度。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>入栈</title>
+        <link>https://news-epoch.github.io/p/%E5%85%A5%E6%A0%88/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E5%85%A5%E6%A0%88/</guid>
+        <description>&lt;p&gt;Links:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当执行一个方法时，会在栈中开辟空间&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>什么是事务？</title>
+        <link>https://news-epoch.github.io/p/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E5%8A%A1/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E5%8A%A1/</guid>
+        <description>&lt;p&gt;Links:
+Title:  事务-202207212214&lt;/p&gt;
+&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E4%BA%8B%E5%8A%A1.md&#34; &gt;事务&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;事务的并发问题&#34;&gt;事务的并发问题
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;脏读
+&lt;ul&gt;
+&lt;li&gt;用户A修改数据库表从C，将数值从100修改成150，但是还没有进行提交，然后用户B就开始进行访问数据库表C，读取到还未提交的数值150，而用户B在该数值上所有操作都是不生效的，所以称该数据为脏读&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;不可重复读
+&lt;ul&gt;
+&lt;li&gt;当A读取表C时，B对表C数据100修改为150，并且进行了提交，当A继续查询时，出现数值为150的情况，两次查询数据出现不一致。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;幻读
+&lt;ul&gt;
+&lt;li&gt;当A读取表C时，B对表C数据进行了删除，并且进行了提交，当A刷新后，发现刚才读取到的数据没有了，称这个现象为&lt;strong&gt;幻读&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;基于事务并发问题提供的四种隔离级别&#34;&gt;基于事务并发问题，提供的四种隔离级别
+&lt;/h1&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;隔离级别&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;脏读&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;不可重复读&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;幻读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;strong&gt;读未提交&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;✔&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;✔&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;✔&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;strong&gt;读已提交&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;×&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;✔&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;✔&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;strong&gt;可重复读&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;×&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;×&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;✔&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;strong&gt;串行化&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;×&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;×&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;×&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;读未提交&lt;/strong&gt;：用户可以读取未提交的数据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;读已提交&lt;/strong&gt;：用户只可以读取提交的数据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可重复读&lt;/strong&gt;：事务在读取数据时，其他事务不允许进行修改&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可串行化&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -95,6 +630,26 @@ Nl：丢失分组总数&lt;/p&gt;
 </description>
         </item>
         <item>
+        <title>实际使用物理内存</title>
+        <link>https://news-epoch.github.io/p/%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;包含共享库占用的内存&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>实例变量</title>
+        <link>https://news-epoch.github.io/p/%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/</guid>
+        <description>&lt;p&gt;是&lt;strong&gt;没有static&lt;/strong&gt;修饰的&lt;strong&gt;成员变量&lt;/strong&gt;，通常是动态的，在堆中进行创建。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>速率</title>
         <link>https://news-epoch.github.io/p/%E9%80%9F%E7%8E%87/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -110,6 +665,17 @@ Nl：丢失分组总数&lt;/p&gt;
 </description>
         </item>
         <item>
+        <title>统一资源定位符</title>
+        <link>https://news-epoch.github.io/p/%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5%AE%9A%E4%BD%8D%E7%AC%A6/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5%AE%9A%E4%BD%8D%E7%AC%A6/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;URL地址主要两个部分组成：存放对象的主机域名(或IP地址)和对象的路径名称&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>吞吐量</title>
         <link>https://news-epoch.github.io/p/%E5%90%9E%E5%90%90%E9%87%8F/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -118,6 +684,100 @@ Nl：丢失分组总数&lt;/p&gt;
         <description>&lt;blockquote&gt;
 &lt;p&gt;单位时间内，从源主机到宿主机的&lt;strong&gt;实际&lt;/strong&gt;到达量。注意：吞吐量会受到&lt;strong&gt;网络链路带宽、网络复杂性、网络协议、网络拥塞程度&lt;/strong&gt;影响。
 在分组交换网络中，吞吐量约等于瓶颈链路的带宽，即，三段链路中的最小带宽。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>效用</title>
+        <link>https://news-epoch.github.io/p/%E6%95%88%E7%94%A8/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E6%95%88%E7%94%A8/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;消费者&lt;/strong&gt;在消费商品或服务时所感受到的满足&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>虚拟耗用内存</title>
+        <link>https://news-epoch.github.io/p/%E8%99%9A%E6%8B%9F%E8%80%97%E7%94%A8%E5%86%85%E5%AD%98/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E8%99%9A%E6%8B%9F%E8%80%97%E7%94%A8%E5%86%85%E5%AD%98/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>需求</title>
+        <link>https://news-epoch.github.io/p/%E9%9C%80%E6%B1%82/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E9%9C%80%E6%B1%82/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;买的起的物品才能叫需求，买不起的物品不能称为需求。消费者在&lt;strong&gt;一定时间&lt;/strong&gt;内在各种可能的价格水平下&lt;strong&gt;愿意&lt;/strong&gt;且能够购买的某种商品的数量。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>雪崩效应</title>
+        <link>https://news-epoch.github.io/p/%E9%9B%AA%E5%B4%A9%E6%95%88%E5%BA%94/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E9%9B%AA%E5%B4%A9%E6%95%88%E5%BA%94/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;由于服务器支持的线程和并发数有限，请求一直阻塞，会导致服务器&lt;strong&gt;资源耗尽&lt;/strong&gt;，从而导致其他所有服务都不可用，形成雪崩效用。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>英特网</title>
+        <link>https://news-epoch.github.io/p/%E8%8B%B1%E7%89%B9%E7%BD%91/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E8%8B%B1%E7%89%B9%E7%BD%91/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;指当前全球最大的、应用最广泛的计算计网络。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>值的传递</title>
+        <link>https://news-epoch.github.io/p/%E5%80%BC%E7%9A%84%E4%BC%A0%E9%80%92/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E5%80%BC%E7%9A%84%E4%BC%A0%E9%80%92/</guid>
+        <description>&lt;p&gt;Links:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;基本类型值传递：创建一个副本进行传递，在这个副本上进行的所以操作不会影响到原本的值&lt;/li&gt;
+&lt;li&gt;引用类型值传递：是将值的地址进行传递出去&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>专用数据库</title>
+        <link>https://news-epoch.github.io/p/%E4%B8%93%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E4%B8%93%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+        <description>&lt;p&gt;是专门用来给某一学科或者某一研究领域，专门制作的便于数据检索，存储，更新的数据库。
+例如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;KEGG（Kyoto encyclopedia of genes and genomes, 京都基因与基因组百科全书）是关于基因、蛋白质、生化反应以及通路的综合生物信息数据库由多个子库构成。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OMIM（online mendelian inheritance in man，人类孟德尔遗传在线）：人类遗传病的数据库。（mendelian inheritance in man， MIM，人类孟德尔遗传）是一个将遗传病分类并链接到相关人类基因组中的数据库。提供遗传疾病及相关基因位点的详细信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>子类</title>
+        <link>https://news-epoch.github.io/p/%E5%AD%90%E7%B1%BB/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E5%AD%90%E7%B1%BB/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;由&lt;strong&gt;继承&lt;/strong&gt;得到的类叫子类。&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
         </item>

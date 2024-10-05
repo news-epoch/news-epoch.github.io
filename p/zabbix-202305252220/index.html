@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Links:\n一、安装 1 Centos7 编译安装 Zabbix6.0+nginx+php+mysql(5.7.28~8.0) 依赖搜索：Search Results for libevent (pkgs.org)\n1.1 升级gcc Linux升级安装gcc\n1.2 安装Mysql https://download.csdn.net/download/qq819730159/86262892 注意: 要安装mysql-community-devel-5.7.25-1.el7.x86_64.rpm包\n">
+<title>Zabbix-202305252220</title>
+
+<link rel='canonical' href='https://news-epoch.github.io/p/zabbix-202305252220/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Zabbix-202305252220">
+<meta property='og:description' content="Links:\n一、安装 1 Centos7 编译安装 Zabbix6.0+nginx+php+mysql(5.7.28~8.0) 依赖搜索：Search Results for libevent (pkgs.org)\n1.1 升级gcc Linux升级安装gcc\n1.2 安装Mysql https://download.csdn.net/download/qq819730159/86262892 注意: 要安装mysql-community-devel-5.7.25-1.el7.x86_64.rpm包\n">
+<meta property='og:url' content='https://news-epoch.github.io/p/zabbix-202305252220/'>
+<meta property='og:site_name' content='卫大人的杂乱博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='计算机_操作系统_Linux' /><meta property='article:tag' content='zk-todo' />
+<meta name="twitter:title" content="Zabbix-202305252220">
+<meta name="twitter:description" content="Links:\n一、安装 1 Centos7 编译安装 Zabbix6.0+nginx+php+mysql(5.7.28~8.0) 依赖搜索：Search Results for libevent (pkgs.org)\n1.1 升级gcc Linux升级安装gcc\n1.2 安装Mysql https://download.csdn.net/download/qq819730159/86262892 注意: 要安装mysql-community-devel-5.7.25-1.el7.x86_64.rpm包\n">
+    <link rel="shortcut icon" href="/%e6%83%b3%e6%b3%95.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu4043572482303308672.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">卫大人的杂乱博客</a></h1>
+            <h2 class="site-description">哟，你来学习了！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/news-epoch/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-centos7-编译安装-zabbix60nginxphpmysql572880">1 Centos7 编译安装 Zabbix6.0+nginx+php+mysql(5.7.28~8.0)</a>
+      <ol>
+        <li><a href="#11-升级gcc">1.1 升级gcc</a></li>
+        <li><a href="#12-安装mysql">1.2 安装Mysql</a></li>
+        <li><a href="#13-安装nginx">1.3 安装nginx</a></li>
+        <li><a href="#14-安装php">1.4 安装php</a>
+          <ol>
+            <li><a href="#141-安装依赖">1.4.1 安装依赖</a></li>
+            <li><a href="#142-编译php">1.4.2 编译php</a></li>
+            <li><a href="#143-添加扩展功能">1.4.3 添加扩展功能</a></li>
+            <li><a href="#144-配置基础设置">1.4.4 配置基础设置</a></li>
+            <li><a href="#145-将php注册到systemctl">1.4.5 将PHP注册到systemctl</a></li>
+          </ol>
+        </li>
+        <li><a href="#15-安装zabbix">1.5 安装zabbix</a></li>
+      </ol>
+    </li>
+    <li><a href="#2-debian11">2 Debian11</a>
+      <ol>
+        <li><a href="#21-error">2.1 Error</a></li>
+        <li><a href="#22-错误一">2.2 错误一：</a></li>
+      </ol>
+    </li>
+    <li><a href="#3-docker安装">3 Docker安装</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#1-linux哪些独孤九剑的命令">1 Linux哪些独孤九剑的命令</a></li>
+    <li><a href="#2-企业面试题你们公司监控如何做的">2 企业面试题：你们公司监控如何做的</a></li>
+    <li><a href="#3-zabbix版本">3 Zabbix版本</a></li>
+    <li><a href="#4-zabbix监控架构">4 Zabbix监控架构</a></li>
+    <li><a href="#5-自定义监控">5 自定义监控</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/zabbix-202305252220/">Zabbix-202305252220</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Links:</p>
+<h1 id="一安装">一、安装
+</h1><h2 id="1-centos7-编译安装-zabbix60nginxphpmysql572880">1 Centos7 编译安装 Zabbix6.0+nginx+php+mysql(5.7.28~8.0)
+</h2><p>依赖搜索：<a class="link" href="https://pkgs.org/search/?q=libevent"  target="_blank" rel="noopener"
+    >Search Results for libevent (pkgs.org)</a></p>
+<h3 id="11-升级gcc">1.1 升级gcc
+</h3><p><a class="link" href="Linux%E5%8D%87%E7%BA%A7%E5%AE%89%E8%A3%85gcc.md" >Linux升级安装gcc</a></p>
+<h3 id="12-安装mysql">1.2 安装Mysql
+</h3><p><a class="link" href="https://download.csdn.net/download/qq819730159/86262892"  target="_blank" rel="noopener"
+    >https://download.csdn.net/download/qq819730159/86262892</a>
+注意: 要安装mysql-community-devel-5.7.25-1.el7.x86_64.rpm包</p>
+<h3 id="13-安装nginx">1.3 安装nginx
+</h3><p><a class="link" href="nginx-202305252201.md#" >nginx-202305252201 &gt; 编译安装</a></p>
+<h3 id="14-安装php">1.4 安装php
+</h3><p><a class="link" href="Linux%E5%AE%89%E8%A3%85PHP-202301112126.md" >Linux安装PHP-202301112126</a></p>
+<h4 id="141-安装依赖">1.4.1 安装依赖
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum  install libmcrypt-devel  libxml2-devel  curl-devel  libjpeg-devel  libpng-devel freetype-devel openldap openldap-devel autoconf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cp -frp /usr/lib64/libldap* /usr/lib/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">wget  https://kojipkgs.fedoraproject.org//packages/oniguruma/6.8.2/2.el7/x86_64/oniguruma-6.8.2-2.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">wget  https://kojipkgs.fedoraproject.org//packages/oniguruma/6.8.2/2.el7/x86_64/oniguruma-devel-6.8.2-2.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">wget http://www.ijg.org/files/jpegsrc.v9e.tar.gz
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装 jpeg扩展</span>
+</span></span><span class="line"><span class="cl">tar -zxvf jpegsrc.v6b.tar.gz 
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> jpeg-6b 
+</span></span><span class="line"><span class="cl">./configure --prefix<span class="o">=</span>xxxx --enable-shared <span class="c1">#这个路径xxxx要记住，等下要考 </span>
+</span></span><span class="line"><span class="cl">make <span class="o">&amp;&amp;</span> make install
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pkg-config --list-all
+</span></span><span class="line"><span class="cl">vim php.ini
+</span></span><span class="line"><span class="cl">gd.jpeg_ignore_warning <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装libzip 1.3.2版本</span>
+</span></span><span class="line"><span class="cl">wget https://libzip.org/download/libzip-1.3.2.tar.gz
+</span></span><span class="line"><span class="cl">tar xvf libzip-1.3.2.tar.gz
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> libzip-1.3.2
+</span></span><span class="line"><span class="cl">./configure
+</span></span><span class="line"><span class="cl">make <span class="o">&amp;&amp;</span> make install
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 编辑系统参数文件</span>
+</span></span><span class="line"><span class="cl">vim /etc/profile
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="nv">$PKG_CONFIG_PATH</span>:/usr/local/php74/extend/jpeg/lib/pkgconfig 
+</span></span><span class="line"><span class="cl"><span class="nb">export</span>  <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="nv">$PKG_CONFIG_PATH</span>:/usr/local/php74/extend/libzip/lib/pkgconfig
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="142-编译php">1.4.2 编译php
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#### 解压php源码包</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#### 进入php目录</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#### 开始编译</span>
+</span></span><span class="line"><span class="cl">./configure --prefix<span class="o">=</span>/usr/local/php74 --with-config-file-path<span class="o">=</span>/usr/local/php74/  --with-iconv-dir --with-freetype --with-jpeg --with-zlib --with-libxml  --with-curl --with-openssl --with-mhash --with-gettext --with-xmlrpc --without-pear --enable-fpm --enable-xml --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --enable-mbregex --enable-mbstring --enable-ftp --enable-pcntl --enable-sockets --with-zip --enable-soap --enable-maintainer-zts --disable-fileinfo --disable-rpath --with-ldap --with-mysqli --enable-mysqlnd --enable-gd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="143-添加扩展功能">1.4.3 添加扩展功能
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">进入ext/包名/
+</span></span><span class="line"><span class="cl">phpize
+</span></span><span class="line"><span class="cl">./configure --with-php-config<span class="o">=</span>/usr/local/php74/bin/php-config --with-jpeg --with-freetype --with-zlib --enable-gd
+</span></span><span class="line"><span class="cl">make <span class="o">&amp;&amp;</span> make install
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">extension</span><span class="o">=</span>gd.so
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="144-配置基础设置">1.4.4 配置基础设置
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">cp</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">php7</span><span class="o">.</span><span class="mf">4.25</span><span class="o">/</span><span class="n">php</span><span class="o">.</span><span class="n">ini</span><span class="o">-</span><span class="n">production</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">php74</span><span class="o">/</span><span class="n">php</span><span class="o">.</span><span class="n">ini</span>
+</span></span><span class="line"><span class="cl"><span class="n">cp</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">php74</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">php</span><span class="o">-</span><span class="n">fpm</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">default</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">php74</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">php</span><span class="o">-</span><span class="n">fpm</span><span class="o">.</span><span class="n">conf</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#修改以下内容</span>
+</span></span><span class="line"><span class="cl"><span class="n">vim</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">php74</span><span class="o">/</span><span class="n">php</span><span class="o">.</span><span class="n">ini</span> 
+</span></span><span class="line"><span class="cl"><span class="n">max_execution_time</span> <span class="o">=</span> <span class="mi">300</span>
+</span></span><span class="line"><span class="cl"><span class="n">max_input_time</span> <span class="o">=</span> <span class="mi">300</span>
+</span></span><span class="line"><span class="cl"><span class="n">memory_limit</span> <span class="o">=</span> <span class="mi">128</span><span class="n">M</span>
+</span></span><span class="line"><span class="cl"><span class="n">post_max_size</span> <span class="o">=</span> <span class="mi">16</span><span class="n">M</span>
+</span></span><span class="line"><span class="cl"><span class="n">upload_max_filesize</span> <span class="o">=</span> <span class="mi">2</span><span class="n">M</span>
+</span></span><span class="line"><span class="cl"><span class="n">date</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="n">Asia</span><span class="o">/</span><span class="n">Shanghai</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#复制启动脚本 </span>
+</span></span><span class="line"><span class="cl"><span class="n">cp</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">php</span><span class="o">-</span><span class="mf">7.4</span><span class="o">.</span><span class="mi">25</span><span class="o">/</span><span class="n">sapi</span><span class="o">/</span><span class="n">fpm</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">.</span><span class="n">php</span><span class="o">-</span><span class="n">fpm</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">php</span><span class="o">-</span><span class="n">fpm</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">php</span><span class="o">-</span><span class="n">fpm</span>
+</span></span><span class="line"><span class="cl"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">php</span><span class="o">-</span><span class="n">fpm</span> <span class="n">start</span>
+</span></span><span class="line"><span class="cl"><span class="n">netstat</span> <span class="o">-</span><span class="n">antp</span> <span class="o">|</span><span class="n">grep</span> <span class="mi">9000</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="145-将php注册到systemctl">1.4.5 将PHP注册到systemctl
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. 新建 php-fpm 服务文件
+</span></span><span class="line"><span class="cl">touch /usr/lib/systemd/system/php-fpm.service
+</span></span><span class="line"><span class="cl">2. 编辑
+</span></span><span class="line"><span class="cl">vim /usr/lib/systemd/system/php-fpm.service
+</span></span><span class="line"><span class="cl">3. 修改内容
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Description</span><span class="o">=</span>The PHP FastCGI Process Manager
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>syslog.target network.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Type</span><span class="o">=</span>forking
+</span></span><span class="line"><span class="cl"><span class="nv">PIDFile</span><span class="o">=</span>/var/run/php-fpm.pid
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/local/php74/sbin/php-fpm -g /var/run/php-fpm.pid
+</span></span><span class="line"><span class="cl"><span class="nv">ExecReload</span><span class="o">=</span>/bin/kill -USR2 <span class="nv">$MAINPID</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PrivateTmp</span><span class="o">=</span><span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">4. systemctl daemon-reload
+</span></span><span class="line"><span class="cl">5. 停止运行中的php-fpm进程
+</span></span><span class="line"><span class="cl">6. 启动服务
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: configure: error: Cannot find ldap libraries in /usr/lib
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cp -frp /usr/lib64/libldap* /usr/lib/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="15-安装zabbix">1.5 安装zabbix
+</h3><p>下载zabbix源码</p>
+<ol>
+<li>导入zabbix数据到数据库</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar xf zabbix-6.0.14.tar.gz 
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> zabbix-6.0.14/database/mysql/
+</span></span><span class="line"><span class="cl">mysql -uroot -p12345678 zabbix &lt; schema.sql
+</span></span><span class="line"><span class="cl">mysql -uroot -p12345678 zabbix &lt; images.sql 
+</span></span><span class="line"><span class="cl">mysql -uroot -p12345678 zabbix &lt; data.sql 
+</span></span><span class="line"><span class="cl">mysql -uroot -p12345678 zabbix &lt; history_pk_prepare.sql
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>安装依赖包</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum -y install  libevent-devel libcurl-devel libxml2-devel net-snmp-devel mariadb-devel net-snmp-devel  libtool
+</span></span><span class="line"><span class="cl">注意：libevent-devel需要通过外网下载
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>安装zabbix</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usergroup zabbix
+</span></span><span class="line"><span class="cl">useradd zabbix -g zabbix -s 
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> zabbix-6.0.14
+</span></span><span class="line"><span class="cl">./configure --prefix<span class="o">=</span>/usr/local/zabbix --enable-server --enable-agent --with-mysql --enable-ipv6 --with-net-snmp --with-libcurl --with-libxml2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">make <span class="o">&amp;&amp;</span> make install
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">title</span><span class="p">:</span> <span class="n">parse</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">391</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span> <span class="n">error</span><span class="p">:</span> <span class="err">‘</span><span class="k">for</span><span class="err">’</span> <span class="n">loop</span> <span class="n">initial</span> <span class="n">declarations</span> <span class="n">are</span> <span class="n">only</span> <span class="n">allowed</span> <span class="ow">in</span> <span class="n">C99</span> <span class="n">mode</span> <span class="k">for</span><span class="p">(</span><span class="ne">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">-&gt;</span><span class="n">ops</span><span class="o">.</span><span class="n">values_num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">--</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">`</span><span class="k">export</span> <span class="n">CFLAGS</span><span class="o">=</span><span class="s2">&#34;-std=gnu99&#34;</span> <span class="err">`</span>
+</span></span><span class="line"><span class="cl"><span class="err">然后重新</span><span class="o">./</span><span class="n">configure</span> <span class="err">在</span><span class="n">make</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">title</span><span class="p">:</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">daq</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">7</span><span class="o">/</span><span class="n">missing</span><span class="p">:</span><span class="err">行</span><span class="mi">81</span><span class="p">:</span> <span class="n">aclocal</span><span class="o">-</span><span class="mf">1.16</span><span class="p">:</span> <span class="err">未找到命令</span>  <span class="n">WARNING</span><span class="p">:</span> <span class="err">‘</span><span class="n">aclocal</span><span class="o">-</span><span class="mf">1.16</span><span class="err">’</span> <span class="n">is</span> <span class="n">missing</span> <span class="n">on</span> <span class="n">your</span> <span class="n">system</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">挂本地源</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">libtool</span> <span class="err">，再执行</span> <span class="n">autoreconf</span> <span class="o">-</span><span class="n">ivf</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>修改server配置文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /usr/local/zabbix
+</span></span><span class="line"><span class="cl">mkdir logs
+</span></span><span class="line"><span class="cl">chown zabbix:zabbix /usr/local/zabbix
+</span></span><span class="line"><span class="cl">mkdir /var/run/zabbix/
+</span></span><span class="line"><span class="cl">chown zabbix:zabbix /var/run/zabbix
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@vmware<span class="o">]</span><span class="c1"># vim /usr/local/zabbix/etc/zabbix_server.conf</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LogFile</span><span class="o">=</span>/usr/local/zabbix/logs/zabbix_server.log
+</span></span><span class="line"><span class="cl"><span class="nv">PIDFile</span><span class="o">=</span>/var/run/zabbix/zabbix_server.pid
+</span></span><span class="line"><span class="cl"><span class="nv">DBHost</span><span class="o">=</span>127.0.0.1
+</span></span><span class="line"><span class="cl"><span class="nv">DBName</span><span class="o">=</span>zabbix
+</span></span><span class="line"><span class="cl"><span class="nv">DBUser</span><span class="o">=</span>zabbix
+</span></span><span class="line"><span class="cl"><span class="nv">DBPassword</span><span class="o">=</span>zabbix
+</span></span><span class="line"><span class="cl"><span class="nv">DBPort</span><span class="o">=</span><span class="m">3306</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Timeout</span><span class="o">=</span><span class="m">4</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LogSlowQueries</span><span class="o">=</span><span class="m">3000</span>
+</span></span><span class="line"><span class="cl"><span class="nv">AllowUnsupportedDBVersions</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">StatsAllowedIP</span><span class="o">=</span>127.0.0.1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="5">
+<li>挂载给nginx</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp /opt/zabbix-6.0.17/ui/   /usr/local/zabbix/ -r
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 配置nginx</span>
+</span></span><span class="line"><span class="cl">server <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    listen       80<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    server_name  localhost<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    root /usr/local/zabbix/ui/<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    location / <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        try_files <span class="nv">$uri</span> <span class="nv">$uri</span>/ /index.html<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        index       index.html   index.php<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        autoindex   off<span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        proxy_set_header Host <span class="nv">$http_host</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    location ~ <span class="se">\.</span>php<span class="o">(</span>.*<span class="o">)</span>$ <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        fastcgi_pass   127.0.0.1:9000<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        fastcgi_index  index.php<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        fastcgi_split_path_info  ^<span class="o">((</span>?U<span class="o">)</span>.+<span class="se">\.</span>php<span class="o">)(</span>/?.+<span class="o">)</span>$<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        fastcgi_param  SCRIPT_FILENAME  <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        fastcgi_param  PATH_INFO  <span class="nv">$fastcgi_path_info</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        fastcgi_param  PATH_TRANSLATED  <span class="nv">$document_root$fastcgi_path_info</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        include        fastcgi_params<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="6">
+<li>将zabbix服务注册到systemctl中</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim /usr/lib/systemd/system/zabbix-server.service
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Description</span><span class="o">=</span>Zabbix Server
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>syslog.target
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>network.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Environment</span><span class="o">=</span><span class="s2">&#34;CONFFILE=/usr/local/zabbix/etc/zabbix_server.conf&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">EnvironmentFile</span><span class="o">=</span>-/usr/local/zabbix
+</span></span><span class="line"><span class="cl"><span class="nv">Type</span><span class="o">=</span>forking
+</span></span><span class="line"><span class="cl"><span class="nv">PIDFile</span><span class="o">=</span>/var/run/zabbix/zabbix_server.pid
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/local/zabbix/sbin/zabbix_server -c /usr/local/zabbix/etc/zabbix_server.conf
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStop</span><span class="o">=</span>/usr/bin/kill  <span class="nv">$MAINPID</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Restart</span><span class="o">=</span>always
+</span></span><span class="line"><span class="cl"><span class="nv">RestartSec</span><span class="o">=</span><span class="m">5</span>
+</span></span><span class="line"><span class="cl"><span class="nv">User</span><span class="o">=</span>zabbix
+</span></span><span class="line"><span class="cl"><span class="nv">Group</span><span class="o">=</span>zabbix
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2-debian11">2 Debian11
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /usr/share/zabbix-server-mysql/
+</span></span><span class="line"><span class="cl">gzip -d *.sql.gz
+</span></span><span class="line"><span class="cl">mysql -uroot -p123456 zabbix &lt; schema.sql
+</span></span><span class="line"><span class="cl">mysql -uroot -p123456 zabbix &lt; images.sql
+</span></span><span class="line"><span class="cl">mysql -uroot -p123456 zabbix &lt; data.sql
+</span></span><span class="line"><span class="cl">mysql -uroot -p123456 zabbix &lt; history_pk_prepare.sql
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> global <span class="nv">log_bin_trust_function_creators</span> <span class="o">=</span> 0<span class="p">;</span>
+</span></span><span class="line"><span class="cl">flush privileges<span class="p">;</span>
+</span></span><span class="line"><span class="cl">编辑配置文件 /etc/zabbix/php-fpm.conf
+</span></span><span class="line"><span class="cl">php_value<span class="o">[</span>date.timezone<span class="o">]</span> <span class="o">=</span> Asia/Shanghai
+</span></span><span class="line"><span class="cl">编辑配置文件 /etc/php/8.2/cli/php.ini
+</span></span><span class="line"><span class="cl"><span class="nv">extension</span><span class="o">=</span>php_gd2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">编辑配置文件 /etc/php/8.2/fpm/php.ini
+</span></span><span class="line"><span class="cl"><span class="nv">extension</span><span class="o">=</span>mysqlnd.so
+</span></span><span class="line"><span class="cl"><span class="nv">extension</span><span class="o">=</span>mysqli.so
+</span></span><span class="line"><span class="cl"><span class="nv">extension</span><span class="o">=</span>pdo_mysql.so
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="21-error">2.1 Error
+</h3><h3 id="22-错误一">2.2 错误一：
+</h3><p>使用<code>apt install zabbix-server-mysql zabbix-frontend-php zabbix-nginx-conf zabbix-agent</code>安装报错</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">正在设置 nmap-common <span class="o">(</span>7.93+dfsg1-1<span class="o">)</span> ...
+</span></span><span class="line"><span class="cl">/var/lib/dpkg/info/nmap-common.postinst: 7: zcat: not found
+</span></span><span class="line"><span class="cl">dpkg: 处理软件包 nmap-common <span class="o">(</span>--configure<span class="o">)</span>时出错：
+</span></span><span class="line"><span class="cl"> 已安装 nmap-common 软件包 post-installation 脚本 子进程返回错误状态 <span class="m">127</span>
+</span></span><span class="line"><span class="cl">dpkg: 依赖关系问题使得 nmap 的配置工作不能继续：
+</span></span><span class="line"><span class="cl"> nmap 依赖于 nmap-common <span class="o">(=</span> 7.93+dfsg1-1<span class="o">)</span>；然而：
+</span></span><span class="line"><span class="cl">  软件包 nmap-common 尚未配置。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">dpkg: 处理软件包 nmap <span class="o">(</span>--configure<span class="o">)</span>时出错：
+</span></span><span class="line"><span class="cl"> 依赖关系问题 - 仍未被配置
+</span></span><span class="line"><span class="cl">在处理时有错误发生：
+</span></span><span class="line"><span class="cl"> nmap-common
+</span></span><span class="line"><span class="cl"> nmap
+</span></span><span class="line"><span class="cl">E: Sub-process /usr/bin/dpkg returned an error code <span class="o">(</span>1<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解决方案：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mv /var/lib/dpkg/info /var/lib/dpkg/info_old //现将info文件夹更名
+</span></span><span class="line"><span class="cl">sudo mkdir /var/lib/dpkg/info //再新建一个新的info文件夹
+</span></span><span class="line"><span class="cl">sudo apt-get update <span class="o">&amp;&amp;</span> apt-get -f install //不用解释了吧
+</span></span><span class="line"><span class="cl">sudo mv /var/lib/dpkg/info/* /var/lib/dpkg/info_old //执行完上一步操作后会在新的info文件夹下生成一些文件，现将这些文件全部移到info_old文件夹下
+</span></span><span class="line"><span class="cl">sudo rm -rf /var/lib/dpkg/info //把自己新建的info文件夹删掉
+</span></span><span class="line"><span class="cl">sudo mv /var/lib/dpkg/info_old /var/lib/dpkg/info //把以前的info文件夹重新改
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="3-docker安装">3 Docker安装
+</h2><ol>
+<li>获取镜像</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker pull zabbix/zabbix-web-nginx-mysql:5.0-centos-latest
+</span></span><span class="line"><span class="cl">docker pull zabbix/zabbix-server-mysql:5.0-centos-latest
+</span></span><span class="line"><span class="cl">docker pull zabbix/zabbix-proxy-mysql:5.0-centos-latest
+</span></span><span class="line"><span class="cl">docker pull zabbix/zabbix-snmptraps:5.0-centos-latest
+</span></span><span class="line"><span class="cl">docker pull zabbix/zabbix-agent:5.0-centos-latest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>最小化安装</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 运行本地数据库</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动 server 后端</span>
+</span></span><span class="line"><span class="cl">docker run --name zbx5-server-mysql -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DB_SERVER_HOST</span><span class="o">=</span><span class="s2">&#34;127.0.0.1&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DB_SERVER_PORT</span><span class="o">=</span><span class="s2">&#34;33062&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_DATABASE</span><span class="o">=</span><span class="s2">&#34;zabbix&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_USER</span><span class="o">=</span><span class="s2">&#34;zabbix&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span><span class="s2">&#34;zabbix&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="s2">&#34;123456&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--network<span class="o">=</span>host <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--restart unless-stopped <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>zabbix/zabbix-server-mysql:5.0-centos-latest
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动 proxy，由于默认 Server 和 Proxy 端口都为 10051，避免冲突，这里使用 11111</span>
+</span></span><span class="line"><span class="cl">docker run --name zbx5-proxy-mysql -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DB_SERVER_HOST</span><span class="o">=</span><span class="s2">&#34;192.168.1.201&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">ZBX_LISTENPORT</span><span class="o">=</span><span class="m">11111</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">ZBX_HOSTNAME</span><span class="o">=</span><span class="s2">&#34;zabbix-proxy-test1&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">ZBX_SERVER_HOST</span><span class="o">=</span><span class="s2">&#34;127.0.0.1&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DB_SERVER_PORT</span><span class="o">=</span><span class="s2">&#34;33062&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_USER</span><span class="o">=</span><span class="s2">&#34;zabbix&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span><span class="s2">&#34;zabbix&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="s2">&#34;root&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--network<span class="o">=</span>host <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--restart unless-stopped <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>zabbix/zabbix-proxy-mysql:5.0-centos-latest
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动前端页面，默认端口是 8080</span>
+</span></span><span class="line"><span class="cl">docker run --name zbx5-web-nginx-mysql -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 8443:8443 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 8003:8080 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">ZBX_SERVER_HOST</span><span class="o">=</span><span class="s2">&#34;192.168.1.201&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DB_SERVER_HOST</span><span class="o">=</span><span class="s2">&#34;192.168.1.201&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DB_SERVER_PORT</span><span class="o">=</span><span class="s2">&#34;33062&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_DATABASE</span><span class="o">=</span><span class="s2">&#34;zabbix&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_USER</span><span class="o">=</span><span class="s2">&#34;zabbix&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span><span class="s2">&#34;zabbix&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="s2">&#34;123456&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--restart unless-stopped <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>zabbix/zabbix-web-nginx-mysql:5.0-centos-latest
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动 Agent</span>
+</span></span><span class="line"><span class="cl">docker run --name zbx5-agent -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">ZBX_HOSTNAME</span><span class="o">=</span><span class="s2">&#34;local-agent&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">ZBX_SERVER_HOST</span><span class="o">=</span><span class="s2">&#34;127.0.0.1&#34;</span>  <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--network<span class="o">=</span>host <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--restart unless-stopped <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>zabbix/zabbix-agent:5.0-centos-latest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="二原理解释">二、原理解释
+</h1><h2 id="1-linux哪些独孤九剑的命令">1 Linux哪些独孤九剑的命令
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">项目</th>
+          <th style="text-align: left">对应检查命令</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">网站/业务/api</td>
+          <td style="text-align: left">curl/wget</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">服务</td>
+          <td style="text-align: left">systemctl/service/chkconfig(c6)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">进程</td>
+          <td style="text-align: left">ps/pstree/pgrep/pidstat/top/htop</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">CPU</td>
+          <td style="text-align: left">top/htop/vmstat/mpstat/lscpu/cpuinfo/w/uptime/sar</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">内存</td>
+          <td style="text-align: left">top/free/ps/iotop(swap)/vmstat/mpstat/sar/hcache(buffer+cache)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">磁盘</td>
+          <td style="text-align: left">istop/iostat/sar # 磁盘测试命令 dd,fio</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">网络</td>
+          <td style="text-align: left">iftop(整体带宽使用情况)/nethogs(精确到进程)/nstat/ifstat/mtr/sar</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">硬件</td>
+          <td style="text-align: left">Megacli(raid)/ipmitool(温度，cpu风扇)/lm_sensors（温度）</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="2-企业面试题你们公司监控如何做的">2 企业面试题：你们公司监控如何做的
+</h2><p>分层次：
+单台机器：</p>
+<ul>
+<li>业务信息，应用，程序代码是否有问题，eg:lnmp的时候php与mysql测试页面。</li>
+<li>服务信息：各种服务的进程，端口，状态，特定的信息。</li>
+<li>系统信息：CPU、内存、磁盘、网络、负载。</li>
+<li>硬件信息，磁盘，raid状态，温度，风扇转速。</li>
+</ul>
+<p>网站集群监控(用户访问流程)</p>
+<ul>
+<li>DNS解析：ping/dig/nslookup/host</li>
+<li>DNS解析域CDN是否OK。<a class="link" href="http://17ce.com"  target="_blank" rel="noopener"
+    >CDN测试</a></li>
+<li>TCP三次握手(并发数)-网站负载均衡监控 ss-ant</li>
+<li>HTTP请求报文-监控web日志查看(状态码)，补充：加上https监控过期</li>
+<li>请求经过网络架构
+<ul>
+<li>负载均衡(Nginx)</li>
+<li>web服务器(php,tomcat)</li>
+<li>缓存</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-zabbix版本">3 Zabbix版本
+</h2><p><img src="/images/1702979173942.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="4-zabbix监控架构">4 Zabbix监控架构
+</h2><p><img src="/images/1702979805666.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="5-自定义监控">5 自定义监控
+</h2><ol>
+<li>zabbix Client 下面创建*.conf文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># UserParameter不可更改，sys.login(可以随意创建，键值)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># UserParameter=key名字,命令或脚本</span>
+</span></span><span class="line"><span class="cl"><span class="nv">UserParameter</span><span class="o">=</span>sys.login,who <span class="p">|</span>wc -l
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="Zabbix%E4%B8%BB%E5%8A%A8%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%A2%AB%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB-20231019.md" >Zabbix主动模式与被动模式的区别-20231019</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F_linux/">计算机_操作系统_Linux</a>
+        
+            <a href="/tags/zk-todo/">Zk-Todo</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E5%AE%9E%E4%BD%93%E6%9C%BA%E5%AE%89%E8%A3%85centos-202212041708/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">实体机安装Centos-202212041708</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 游手好闲的卫大人
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

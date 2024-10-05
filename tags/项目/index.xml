@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>项目 on 卫大人的杂乱博客</title>
+        <link>https://news-epoch.github.io/tags/%E9%A1%B9%E7%9B%AE/</link>
+        <description>Recent content in 项目 on 卫大人的杂乱博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>游手好闲的卫大人</copyright><atom:link href="https://news-epoch.github.io/tags/%E9%A1%B9%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>美年旅行项目-202209131300</title>
+        <link>https://news-epoch.github.io/p/%E7%BE%8E%E5%B9%B4%E6%97%85%E8%A1%8C%E9%A1%B9%E7%9B%AE-202209131300/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E7%BE%8E%E5%B9%B4%E6%97%85%E8%A1%8C%E9%A1%B9%E7%9B%AE-202209131300/</guid>
+        <description>&lt;p&gt;Links:
+Title:  美年旅行项目-202209131300&lt;/p&gt;
+&lt;p&gt;-&amp;gt; &lt;a class=&#34;link&#34; href=&#34;%E7%BE%8E%E5%B9%B4%E6%97%85%E8%A1%8C%E9%A1%B9%E7%9B%AE-202209131300%202022-09-13%2013.13.28.excalidraw&#34; &gt;美年旅行项目-202209131300 2022-09-13 13.13.28.excalidraw&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;项目总览&#34;&gt;项目总览
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;一个基础的商城项目，通过前端spring+springmvc+redis+ElasticSearch+Mysql+tomcat8组成的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;程序分层&#34;&gt;程序分层
+&lt;/h2&gt;&lt;h3 id=&#34;controller&#34;&gt;Controller
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;前端页面控制器，用来实现前端传输到后端的数据处理，以及返回处理的数据&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;service&#34;&gt;Service
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;业务逻辑实现层，用来实现业务的逻辑展示,通过ElasticSearch对接口进行解耦，让程序耦合降低。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;interface&#34;&gt;Interface
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;业务逻辑接口层，通过这个接口层来创建实现的功能类方法&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;dao&#34;&gt;Dao
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;数据永久存储层，用来提供访问数据库的接口，实现数据库的增删改查&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;业务逻辑&#34;&gt;业务逻辑
+&lt;/h2&gt;&lt;h3 id=&#34;登录界面&#34;&gt;登录界面
+&lt;/h3&gt;&lt;h3 id=&#34;自由行界面&#34;&gt;自由行界面
+&lt;/h3&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

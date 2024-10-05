@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="一、前言 一直想爬手机端app数据的抓取，研究有好几天了，在网上也找了各种教程，差点挂在appium的环境安装。本教程从appium的环境配置开始到抓取手机app微信朋友圈结束。\n">
+<title>用appium爬取数据python3实现-20240823</title>
+
+<link rel='canonical' href='https://news-epoch.github.io/p/%E7%94%A8appium%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AEpython3%E5%AE%9E%E7%8E%B0-20240823/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="用appium爬取数据python3实现-20240823">
+<meta property='og:description' content="一、前言 一直想爬手机端app数据的抓取，研究有好几天了，在网上也找了各种教程，差点挂在appium的环境安装。本教程从appium的环境配置开始到抓取手机app微信朋友圈结束。\n">
+<meta property='og:url' content='https://news-epoch.github.io/p/%E7%94%A8appium%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AEpython3%E5%AE%9E%E7%8E%B0-20240823/'>
+<meta property='og:site_name' content='卫大人的杂乱博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='计算机_程序语言_Python_爬虫' /><meta property='article:tag' content='计算机_程序语言_Python' />
+<meta name="twitter:title" content="用appium爬取数据python3实现-20240823">
+<meta name="twitter:description" content="一、前言 一直想爬手机端app数据的抓取，研究有好几天了，在网上也找了各种教程，差点挂在appium的环境安装。本教程从appium的环境配置开始到抓取手机app微信朋友圈结束。\n">
+    <link rel="shortcut icon" href="/%e6%83%b3%e6%b3%95.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu4043572482303308672.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">卫大人的杂乱博客</a></h1>
+            <h2 class="site-description">哟，你来学习了！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/news-epoch/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-相关连接">1 相关连接</a></li>
+    <li><a href="#2-安装appium">2 安装Appium</a>
+      <ol>
+        <li><a href="#21-appium-desktop">2.1 Appium Desktop</a></li>
+        <li><a href="#22-nodejs">2.2 Node.js</a></li>
+      </ol>
+    </li>
+    <li><a href="#3-android开发环境配置">3 Android开发环境配置</a></li>
+    <li><a href="#4-jdk安装">4 jdk安装</a></li>
+    <li><a href="#5-adb环境">5 adb环境</a></li>
+    <li><a href="#6-连接手机">6 连接手机</a></li>
+    <li><a href="#7-appium的使用">7 appium的使用</a>
+      <ol>
+        <li><a href="#71-获得apppackage和appactivity">7.1 获得appPackage和appActivity</a>
+          <ol>
+            <li><a href="#711-参考文档">7.1.1 参考文档</a></li>
+            <li><a href="#712-获取方式">7.1.2 获取方式</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#8-python对接appium">8 python对接Appium</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%94%A8appium%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AEpython3%E5%AE%9E%E7%8E%B0-20240823/">用appium爬取数据python3实现-20240823</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 8 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="一前言">一、前言
+</h1><p>一直想爬手机端app数据的抓取，研究有好几天了，在网上也找了各种教程，差点挂在<strong>appium</strong>的环境安装。本教程从appium的环境配置开始到抓取手机app微信朋友圈结束。</p>
+<h1 id="二参考文档">二、参考文档
+</h1><p><a class="link" href="https://www.cnblogs.com/yoyoketang/p/6128725.html"  target="_blank" rel="noopener"
+    ><strong>悠悠博主appium+python环境搭建</strong></a></p>
+<p><a class="link" href="https://cuiqingcai.com/5407.html"  target="_blank" rel="noopener"
+    ><strong>崔大的appium环境搭建还有崔大的python3实战</strong></a></p>
+<p><a class="link" href="https://blog.csdn.net/mtbaby/article/details/78676477"  target="_blank" rel="noopener"
+    ><strong>appium获取appPackage和appActivity</strong></a></p>
+<h1 id="三-环境搭建">三、 环境搭建
+</h1><h2 id="1-相关连接">1 相关连接
+</h2><ul>
+<li>GitHub：<a class="link" href="https://github.com/appium/appium"  target="_blank" rel="noopener"
+    >https://github.com/appium/appium</a></li>
+<li>官方网站：<a class="link" href="http://appium.io/"  target="_blank" rel="noopener"
+    >http://appium.io</a></li>
+<li>官方文档：<a class="link" href="http://appium.io/introduction.html"  target="_blank" rel="noopener"
+    >http://appium.io/introduction.html</a></li>
+<li>下载链接：<a class="link" href="https://github.com/appium/appium-desktop/releases"  target="_blank" rel="noopener"
+    >https://github.com/appium/appium-desktop/releases</a></li>
+<li>Python Client：<a class="link" href="https://github.com/appium/python-client"  target="_blank" rel="noopener"
+    >https://github.com/appium/python-client</a></li>
+</ul>
+<h2 id="2-安装appium">2 安装Appium
+</h2><p>首先，需要安装 Appium。Appium 负责驱动移动端来完成一系列操作，对于 iOS 设备来说，它使用苹果的 UIAutomation 来实现驱动；对于 Android 来说，它使用 UIAutomator 和 Selendroid 来实现驱动。</p>
+<p>同时 Appium 也相当于一个服务器，我们可以向它发送一些操作指令，它会根据不同的指令对移动设备进行驱动，以完成不同的动作。</p>
+<p>安装 Appium 有两种方式，一种是直接下载安装包 Appium Desktop 来安装，另一种是通过 Node.js 来安装，下面我们介绍一下这两种安装方式。</p>
+<h3 id="21-appium-desktop">2.1 Appium Desktop
+</h3><p>Appium Desktop 支持全平台的安装，我们直接从 GitHub 的 Releases 里面安装即可，链接为 <a class="link" href="https://github.com/appium/appium-desktop/releases"  target="_blank" rel="noopener"
+    >https://github.com/appium/appium-desktop/releases</a>。目前的最新版本是 1.22.3，下载页面如图 所示：
+<img src="/images/Pasted%20image%2020240823154835.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Windows 平台可以下载 exe 安装包<strong>Appium.Server.GUI-windows-1.22.3.exe</strong>，Mac 平台可以下载 dmg 安装包如 <strong>Appium.Server.GUI-mac-1.22.3.dmg</strong>，Linux 平台可以选择下载源码，但是更推荐用 Node.js 安装方式。</p>
+<p>安装完成后运行，看到的页面如图  所示:
+<img src="/images/Pasted%20image%2020240823155046.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+如果出现此页面，则证明安装成功。
+下载<strong>appium-inspector</strong>，我们直接从 GitHub 的 Releases 里面安装即可，链接为：<a class="link" href="https://github.com/appium/appium-inspector/releases"  target="_blank" rel="noopener"
+    >https://github.com/appium/appium-inspector/releases</a>
+<img src="/images/Pasted%20image%2020240823204138.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="22-nodejs">2.2 Node.js
+</h3><p>首先需要安装 Node.js，具体的安装方式可以参见 <a class="link" href="http://www.runoob.com/nodejs/nodejs-install-setup.html"  target="_blank" rel="noopener"
+    >http://www.runoob.com/nodejs/nodejs-install-setup.html</a>，安装完成之后就可以使用 <code>npm</code> 命令了。
+接下来，使用 <code>npm</code> 命令全局安装 Appium 即可：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install -g appium
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时等待命令执行完成即可，这样就成功安装了 Appium。</p>
+<h2 id="3-android开发环境配置">3 Android开发环境配置
+</h2><p>如果我们要使用 Android 设备做 App 抓取的话，还需要下载和配置 <strong>Android SDK</strong>，这里推荐直接安装 Android Studio，其下载地址为 <a class="link" href="https://developer.android.com/studio/index.html?hl=zh-cn"  target="_blank" rel="noopener"
+    >https://developer.android.com/studio/index.html?hl=zh-cn</a>。下载后直接安装即可。
+然后，我们还需要下载 Android SDK。直接打开首选项里面的 Android SDK 设置页面，勾选要安装的 SDK 版本，点击 OK 按钮即可下载和安装勾选的 SDK 版本，如图 1-73 所示。
+<img src="/images/Pasted%20image%2020240823192253.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/images/Pasted%20image%2020240823192327.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/images/Pasted%20image%2020240823202211.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="/images/Pasted%20image%2020240823193543.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/images/Pasted%20image%2020240823202933.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="/images/Pasted%20image%2020240823155247.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+另外，还需要配置一下环境变量，添加 ANDROID_HOME 为 Android SDK 所在路径，然后再添加 SDK 文件夹下的 tools 和 platform-tools 文件夹到 PATH 中。</p>
+<p>我的安装位置在F:/SDK
+<img src="/images/Pasted%20image%2020240823155326.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+在环境变量中，系统变量下增加一个这样
+<img src="/images/Pasted%20image%2020240823155340.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/images/Pasted%20image%2020240823202528.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="4-jdk安装">4 jdk安装
+</h2><p>下载jdk包，小编的是64位1.6版本，其它高级版本应该也是可以的。根据自己的系统选择对应版本
+一路傻瓜式安装，注意安装路径不要有空格，不要有中文。jdk和jre不要放在一个文件夹下
+设置三个环境变量,我的电脑&gt;选择“属性”-&gt;“高级”-&gt;“环境变量”-&gt;“系统变量”-&gt;“新建”
+JAVA_HOME&mdash;-D:\Java\jdk1.6.0” （根据自己安装路径填写）
+<img src="/images/Pasted%20image%2020240823155524.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+打开cmd验证是否安装成功，输入java -version，然后输入javac
+<img src="/images/Pasted%20image%2020240823155620.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="5-adb环境">5 adb环境
+</h2><ol>
+<li>因为adb是在D:\androidsdk\android-sdk-windows\platform-tools这个目录下的，所以上面添加了环境变量后，可以直接在cmd里面运行了。</li>
+<li>在cmd输入adb可以查看对应版本号。
+<img src="/images/Pasted%20image%2020240823155738.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></li>
+</ol>
+<h2 id="6-连接手机">6 连接手机
+</h2><p> 1. 手机用数据线连电脑，如果安装了91助手或者360什么的可以先下载手机驱动，确认手机能连上
+ 2. 打开cmd输入：<strong>adb devices -l(不是数字1,是小写l)</strong>,当屏幕上出现一串字符，后面显示devices说明连接成功（出现其它的提示，得检查自己的环境了）
+<img src="/images/Pasted%20image%2020240823155810.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="7-appium的使用">7 appium的使用
+</h2><p>出现上图就证明手机和电脑连接成功，若是出现下图这种，就把手机拔掉再重连一下
+<img src="/images/Pasted%20image%2020240823155930.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+成功后，重启电脑，打开appium</p>
+<p><img src="/images/Pasted%20image%2020240823155938.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/images/Pasted%20image%2020240823212238.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="/images/Pasted%20image%2020240823205434.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>platformName:平台名称 <br>
+deviceName:设备名称，就是刚才的adb devices -l中mode后面就是 <br>
+<strong>appPackage</strong>:app包名
+<strong>appActivity</strong>:app活动名</p>
+<p>start sessions后
+<img src="/images/Pasted%20image%2020240823161153.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>点击登陆后可以看到中间的App Source有高亮的代码，就是这个登陆按钮的，可以再看右边的Selected Element中有Tap、Send keys、Clear。 <br>
+在最左边图中点击登陆后，若最右边下面的clickable是True，则证明可以点击，可以通过点击Tap实现点击功能，appium就介绍到这。</p>
+<h3 id="71-获得apppackage和appactivity">7.1 获得appPackage和appActivity
+</h3><h4 id="711-参考文档">7.1.1 参考文档
+</h4><p><a class="link" href="https://blog.csdn.net/mtbaby/article/details/78676477"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/mtbaby/article/details/78676477</a></p>
+<h4 id="712-获取方式">7.1.2 获取方式
+</h4><p><strong>通过cmd命令，前提是先打开手机中你要获取包名的APP</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">adb shell
+</span></span><span class="line"><span class="cl">dumpsys activity <span class="p">|</span> grep <span class="s2">&#34;mFoc&#34;</span>
+</span></span><span class="line"><span class="cl">dumpsys package com.self.study.sns
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/images/Pasted%20image%2020240823204830.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/images/Pasted%20image%2020240823210922.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="8-python对接appium">8 python对接Appium
+</h2><p>安装python驱动
+<code>pip install appium-python-client==2.0</code>
+首先我们要对接app，就是类似于start session这样的连接
+<strong>注：代码运行时要保证手机不黑屏</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">appium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">PLATFORM</span><span class="o">=</span><span class="s1">&#39;Android&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">deviceName</span><span class="o">=</span><span class="s1">&#39;HUAWEI_P7_L09&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">app_package</span><span class="o">=</span><span class="s1">&#39;com.tencent.mm&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">app_activity</span><span class="o">=</span><span class="s1">&#39;.ui.LauncherUI&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver_server</span><span class="o">=</span><span class="s1">&#39;http://127.0.0.1:4723/wd/hub&#39;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Moments</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">desired_caps</span><span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;platformName&#39;</span><span class="p">:</span><span class="n">PLATFORM</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;deviceName&#39;</span><span class="p">:</span><span class="n">deviceName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;appPackage&#39;</span><span class="p">:</span><span class="n">app_package</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;appActivity&#39;</span><span class="p">:</span><span class="n">app_activity</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">=</span><span class="n">webdriver</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="n">driver_server</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">desired_caps</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">=</span><span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;正在登陆中——————&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">M</span><span class="o">=</span><span class="n">Moments</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">M</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果出现 urllib.error.URLError: urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。 <br>
+看看打开appium没有，打开后再运行上面的代码就没有问题,手机会自动转到微信的登陆界面（注：deviceName要改成自己手机的）
+<img src="/images/Pasted%20image%2020240823161408.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+打开微信后，我们要<strong>模拟点击登陆按钮</strong>，首先要<strong>定位到登陆元素</strong>，这个跟selenium的用法类似，我们可以打开appium用前面的方式连接微信，也可以<strong>打开sdk安装路径下tools中的uiautomatorviewer.bat</strong>，第二种方法比较快.</p>
+<p><img src="/images/Pasted%20image%2020240823161436.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+下图中，要先点击图中的按钮，才会出现手机上的画面，图中我已经定位到登陆按钮，可以在右边看到属性resource-id,以及clickable=True，确实是可以点击的，为什么要这样确认下呢，因为有的你以为可以点击的元素，也许你定位没有定好，比如说你定位到登陆外更大的一个框，它是不可点击的<img src="/images/Pasted%20image%2020240823161459.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">appium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">PLATFORM</span><span class="o">=</span><span class="s1">&#39;Android&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">deviceName</span><span class="o">=</span><span class="s1">&#39;HUAWEI_P7_L09&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">app_package</span><span class="o">=</span><span class="s1">&#39;com.tencent.mm&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">app_activity</span><span class="o">=</span><span class="s1">&#39;.ui.LauncherUI&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver_server</span><span class="o">=</span><span class="s1">&#39;http://127.0.0.1:4723/wd/hub&#39;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Moments</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">desired_caps</span><span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;platformName&#39;</span><span class="p">:</span><span class="n">PLATFORM</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;deviceName&#39;</span><span class="p">:</span><span class="n">deviceName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;appPackage&#39;</span><span class="p">:</span><span class="n">app_package</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;appActivity&#39;</span><span class="p">:</span><span class="n">app_activity</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">=</span><span class="n">webdriver</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="n">driver_server</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">desired_caps</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">=</span><span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;点击登陆按钮——————&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">login</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span><span class="s1">&#39;com.tencent.mm:id/d75&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">login</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">M</span><span class="o">=</span><span class="n">Moments</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">M</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行后就会跳出登陆界面，接下来就都是定位元素与点击元素的事情：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">appium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">PLATFORM</span><span class="o">=</span><span class="s1">&#39;Android&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">deviceName</span><span class="o">=</span><span class="s1">&#39;HUAWEI_P7_L09&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">app_package</span><span class="o">=</span><span class="s1">&#39;com.tencent.mm&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">app_activity</span><span class="o">=</span><span class="s1">&#39;.ui.LauncherUI&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver_server</span><span class="o">=</span><span class="s1">&#39;http://127.0.0.1:4723/wd/hub&#39;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Moments</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">desired_caps</span><span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;platformName&#39;</span><span class="p">:</span><span class="n">PLATFORM</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;deviceName&#39;</span><span class="p">:</span><span class="n">deviceName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;appPackage&#39;</span><span class="p">:</span><span class="n">app_package</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;appActivity&#39;</span><span class="p">:</span><span class="n">app_activity</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">=</span><span class="n">webdriver</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="n">driver_server</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">desired_caps</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">=</span><span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;点击登陆按钮——————&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">login</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span><span class="s1">&#39;com.tencent.mm:id/d75&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">login</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#输入手机号</span>
+</span></span><span class="line"><span class="cl">        <span class="n">phone</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span>    <span class="s1">&#39;com.tencent.mm:id/hz&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">phone_num</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入手机号&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">phone</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">phone_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;点击下一步中&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">button</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span>       <span class="s1">&#39;com.tencent.mm:id/alr&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">button</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pass_w</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入密码：&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span><span class="s1">&#39;com.tencent.mm:id/hz&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">password</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pass_w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="n">login</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;com.tencent.mm:id/alr&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">login</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#提示 叉掉</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tip</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">element_to_be_clickable</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span><span class="s1">&#39;com.tencent.mm:id/an2&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tip</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">M</span><span class="o">=</span><span class="n">Moments</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">M</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>都是些元素定位，多用几次就会了。接下来我们可以提取数据了.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">appium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pymongo</span>
+</span></span><span class="line"><span class="cl"><span class="n">PLATFORM</span><span class="o">=</span><span class="s1">&#39;Android&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">deviceName</span><span class="o">=</span><span class="s1">&#39;HUAWEI_P7_L09&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">app_package</span><span class="o">=</span><span class="s1">&#39;com.tencent.mm&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">app_activity</span><span class="o">=</span><span class="s1">&#39;.ui.LauncherUI&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver_server</span><span class="o">=</span><span class="s1">&#39;http://127.0.0.1:4723/wd/hub&#39;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Moments</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">desired_caps</span><span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;platformName&#39;</span><span class="p">:</span><span class="n">PLATFORM</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;deviceName&#39;</span><span class="p">:</span><span class="n">deviceName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;appPackage&#39;</span><span class="p">:</span><span class="n">app_package</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;appActivity&#39;</span><span class="p">:</span><span class="n">app_activity</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">=</span><span class="n">webdriver</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="n">driver_server</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">desired_caps</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">=</span><span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">=</span><span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">weixin</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">weixin</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;点击登陆按钮——————&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">login</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span><span class="s1">&#39;com.tencent.mm:id/d75&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">login</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#输入手机号</span>
+</span></span><span class="line"><span class="cl">        <span class="n">phone</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span>    <span class="s1">&#39;com.tencent.mm:id/hz&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">phone_num</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入手机号：&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">phone</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">phone_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;点击下一步中&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">button</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span>       <span class="s1">&#39;com.tencent.mm:id/alr&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">button</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pass_w</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入密码：&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span><span class="s1">&#39;com.tencent.mm:id/hz&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">password</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pass_w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="n">login</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;com.tencent.mm:id/alr&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">login</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#提示 叉掉</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tip</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">element_to_be_clickable</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span><span class="s1">&#39;com.tencent.mm:id/an2&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tip</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">enter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;点击发现——&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tab</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">element_to_be_clickable</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span><span class="s1">&#39;//*[@resource-id=&#34;com.tencent.mm:id/cdh&#34;]/..&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;已经找到发现按钮&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tab</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># self.wait.until(EC.text_to_be_present_in_element((By.ID,&#39;com.tencent.mm:id/cdj&#39;),&#39;发现&#39;))</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;点击朋友圈&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">friends</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span><span class="s1">&#39;//*[@resource-id=&#34;android:id/list&#34;]/*[@class=&#34;android.widget.LinearLayout&#34;][1]&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">friends</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">crawl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">items</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_all_elements_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span><span class="s1">&#39;//*[@resource-id=&#34;com.tencent.mm:id/dja&#34;]//*[@class=&#34;android.widget.FrameLayout&#34;]&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">swipe</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">nickname</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;com.tencent.mm:id/as6&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="nb">print</span><span class="p">(</span><span class="n">nickname</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">content</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;com.tencent.mm:id/dkf&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;nickname&#39;</span><span class="p">:</span><span class="n">nickname</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;content&#39;</span><span class="p">:</span><span class="n">content</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;nickname&#39;</span><span class="p">:</span><span class="n">nickname</span><span class="p">,</span><span class="s1">&#39;content&#39;</span><span class="p">:</span><span class="n">content</span><span class="p">},{</span><span class="s1">&#39;$set&#39;</span><span class="p">:</span><span class="n">data</span><span class="p">},</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">                <span class="k">except</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">enter</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">crawl</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">M</span><span class="o">=</span><span class="n">Moments</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">M</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>driver.swipe()是从点A滑动到点B,driver.swipe(300,1000,300,300)是从点（300，1000）滑动到（300，300）
+<code>self.collection.update({'nickname':nickname,'content':content},{'$set':data},True)</code></p>
+<p>首先根据昵称和正文来查询，如果信息不存在，则插入数据，否则更新数据，关键点是第三个参数True，这可以实现存在即更新，不存在即插入的代码，用着感觉很舒服呢
+<img src="/images/Pasted%20image%2020240823161723.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80_python_%E7%88%AC%E8%99%AB/">计算机_程序语言_Python_爬虫</a>
+        
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80_python/">计算机_程序语言_Python</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 游手好闲的卫大人
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

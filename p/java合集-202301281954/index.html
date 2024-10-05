@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Links: Java和JDK的版本命名讲解 | Java版本下载 | Java虚拟机的内存模型 |\n一、基础 栈内存和堆内存 入栈 弹栈(出栈) 子类 值的传递 算法-202302010003 &gt; 查找算法 类变量和实例变量 递归(Recursion) final关键字 四个权限修饰符的范围 构造器 属性的封装 this&amp;&amp;super讲解 继承 实例的初始化 多态 抽象类 接口 Comparator Java的集合类型讲解-202211082329 类的加载器&amp;反射&amp;模块化-20230726 线程和进程 StreamAPI Lambda 如何进行自定义的数据转换 Java如何执行Mysql语句？-20240105 在开发过程中什么是跨域？-20240123 序列化和不序列化有什么区别？-20240630 二、框架 Servlet框架 Spring的全面讲解-202208091911 SpringMVC 框架理解 Mybatis-202207242255 Spring整合SpringMVC和Mybatis-202208071204 代码项目管理软件Maven Dubbo框架-202209072122 SpringBoot详细讲解-20231208 如何使用微服务Spring Cloud？-20231212 教你如何使用Spring GateWay服务-20240124 [[进阶使用Spring Cloud Alibaba] 四、实战 美年旅行项目-202209131300 Java教你如何开发畅购商城-20231220 工具 IDEA使用-202209171247 如何快速生成接口文档？-20240111\n">
+<title>Java合集-202301281954</title>
+
+<link rel='canonical' href='https://news-epoch.github.io/p/java%E5%90%88%E9%9B%86-202301281954/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Java合集-202301281954">
+<meta property='og:description' content="Links: Java和JDK的版本命名讲解 | Java版本下载 | Java虚拟机的内存模型 |\n一、基础 栈内存和堆内存 入栈 弹栈(出栈) 子类 值的传递 算法-202302010003 &gt; 查找算法 类变量和实例变量 递归(Recursion) final关键字 四个权限修饰符的范围 构造器 属性的封装 this&amp;&amp;super讲解 继承 实例的初始化 多态 抽象类 接口 Comparator Java的集合类型讲解-202211082329 类的加载器&amp;反射&amp;模块化-20230726 线程和进程 StreamAPI Lambda 如何进行自定义的数据转换 Java如何执行Mysql语句？-20240105 在开发过程中什么是跨域？-20240123 序列化和不序列化有什么区别？-20240630 二、框架 Servlet框架 Spring的全面讲解-202208091911 SpringMVC 框架理解 Mybatis-202207242255 Spring整合SpringMVC和Mybatis-202208071204 代码项目管理软件Maven Dubbo框架-202209072122 SpringBoot详细讲解-20231208 如何使用微服务Spring Cloud？-20231212 教你如何使用Spring GateWay服务-20240124 [[进阶使用Spring Cloud Alibaba] 四、实战 美年旅行项目-202209131300 Java教你如何开发畅购商城-20231220 工具 IDEA使用-202209171247 如何快速生成接口文档？-20240111\n">
+<meta property='og:url' content='https://news-epoch.github.io/p/java%E5%90%88%E9%9B%86-202301281954/'>
+<meta property='og:site_name' content='卫大人的杂乱博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='zk-todo' /><meta property='article:tag' content='计算机_程序语言_Java' />
+<meta name="twitter:title" content="Java合集-202301281954">
+<meta name="twitter:description" content="Links: Java和JDK的版本命名讲解 | Java版本下载 | Java虚拟机的内存模型 |\n一、基础 栈内存和堆内存 入栈 弹栈(出栈) 子类 值的传递 算法-202302010003 &gt; 查找算法 类变量和实例变量 递归(Recursion) final关键字 四个权限修饰符的范围 构造器 属性的封装 this&amp;&amp;super讲解 继承 实例的初始化 多态 抽象类 接口 Comparator Java的集合类型讲解-202211082329 类的加载器&amp;反射&amp;模块化-20230726 线程和进程 StreamAPI Lambda 如何进行自定义的数据转换 Java如何执行Mysql语句？-20240105 在开发过程中什么是跨域？-20240123 序列化和不序列化有什么区别？-20240630 二、框架 Servlet框架 Spring的全面讲解-202208091911 SpringMVC 框架理解 Mybatis-202207242255 Spring整合SpringMVC和Mybatis-202208071204 代码项目管理软件Maven Dubbo框架-202209072122 SpringBoot详细讲解-20231208 如何使用微服务Spring Cloud？-20231212 教你如何使用Spring GateWay服务-20240124 [[进阶使用Spring Cloud Alibaba] 四、实战 美年旅行项目-202209131300 Java教你如何开发畅购商城-20231220 工具 IDEA使用-202209171247 如何快速生成接口文档？-20240111\n">
+    <link rel="shortcut icon" href="/%e6%83%b3%e6%b3%95.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu4043572482303308672.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">卫大人的杂乱博客</a></h1>
+            <h2 class="site-description">哟，你来学习了！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/news-epoch/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/java%E5%90%88%E9%9B%86-202301281954/">Java合集-202301281954</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Links: <a class="link" href="simpread-%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82%E4%BB%A4%E4%BA%BA%E7%96%91%E6%83%91%E7%9A%84%20Java%20%E5%92%8C%20JDK%20%E7%9A%84%E7%89%88%E6%9C%AC%E5%91%BD%E5%90%8D%EF%BC%81.md" >Java和JDK的版本命名讲解</a>   <strong>|</strong>     <a class="link" href="https://www.oracle.com/java/technologies/downloads/#java17"  target="_blank" rel="noopener"
+    >Java版本下载</a>  <strong>|</strong>  <a class="link" href="Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md" >Java虚拟机的内存模型</a>  <strong>|</strong></p>
+<h1 id="一基础">一、基础
+</h1><ol>
+<li><a class="link" href="%E6%A0%88%E5%86%85%E5%AD%98%E5%92%8C%E5%A0%86%E5%86%85%E5%AD%98.md" >栈内存和堆内存</a></li>
+<li><a class="link" href="%E5%85%A5%E6%A0%88.md" >入栈</a></li>
+<li><a class="link" href="%E5%BC%B9%E6%A0%88%28%E5%87%BA%E6%A0%88%29.md" >弹栈(出栈)</a></li>
+<li><a class="link" href="%E5%AD%90%E7%B1%BB.md" >子类</a></li>
+<li><a class="link" href="%E5%80%BC%E7%9A%84%E4%BC%A0%E9%80%92.md" >值的传递</a></li>
+<li><a class="link" href="%E7%AE%97%E6%B3%95-202302010003.md#" >算法-202302010003 &gt; 查找算法</a></li>
+<li><a class="link" href="%E7%B1%BB%E5%8F%98%E9%87%8F%E5%92%8C%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F.md" >类变量和实例变量</a></li>
+<li><a class="link" href="%E9%80%92%E5%BD%92%28Recursion%29.md" >递归(Recursion)</a></li>
+<li><a class="link" href="final%E5%85%B3%E9%94%AE%E5%AD%97.md" >final关键字</a></li>
+<li><a class="link" href="%E5%9B%9B%E4%B8%AA%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6%E7%9A%84%E8%8C%83%E5%9B%B4.md" >四个权限修饰符的范围</a></li>
+<li><a class="link" href="%E6%9E%84%E9%80%A0%E5%99%A8.md" >构造器</a></li>
+<li><a class="link" href="%E5%B1%9E%E6%80%A7%E7%9A%84%E5%B0%81%E8%A3%85.md" >属性的封装</a></li>
+<li><a class="link" href="this&amp;&amp;super%E8%AE%B2%E8%A7%A3.md" >this&amp;&amp;super讲解</a></li>
+<li><a class="link" href="%E7%BB%A7%E6%89%BF.md" >继承</a></li>
+<li><a class="link" href="%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96.md" >实例的初始化</a></li>
+<li><a class="link" href="%E5%A4%9A%E6%80%81.md" >多态</a></li>
+<li><a class="link" href="%E6%8A%BD%E8%B1%A1%E7%B1%BB.md" >抽象类</a></li>
+<li><a class="link" href="%E6%8E%A5%E5%8F%A3.md" >接口</a></li>
+<li><a class="link" href="%E6%AF%94%E8%BE%83%E5%99%A8.md" >Comparator</a></li>
+<li><a class="link" href="Java%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B%E8%AE%B2%E8%A7%A3-202211082329.md" >Java的集合类型讲解-202211082329</a></li>
+<li><a class="link" href="%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%99%A8&amp;%E5%8F%8D%E5%B0%84&amp;%E6%A8%A1%E5%9D%97%E5%8C%96-20230726.md" >类的加载器&amp;反射&amp;模块化-20230726</a></li>
+<li><a class="link" href="%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B.md" >线程和进程</a></li>
+<li><a class="link" href="StreamAPI.md" >StreamAPI</a></li>
+<li><a class="link" href="Lambda.md" >Lambda</a></li>
+<li><a class="link" href="%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2.md" >如何进行自定义的数据转换</a></li>
+<li><a class="link" href="Java%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8CMysql%E8%AF%AD%E5%8F%A5%EF%BC%9F-20240105.md" >Java如何执行Mysql语句？-20240105</a></li>
+<li><a class="link" href="%E5%9C%A8%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%EF%BC%9F-20240123.md" >在开发过程中什么是跨域？-20240123</a></li>
+<li><a class="link" href="%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E4%B8%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F-20240630.md" >序列化和不序列化有什么区别？-20240630</a></li>
+</ol>
+<h1 id="二框架">二、框架
+</h1><ol>
+<li>Servlet框架</li>
+<li><a class="link" href="Spring%E7%9A%84%E5%85%A8%E9%9D%A2%E8%AE%B2%E8%A7%A3-202208091911.md" >Spring的全面讲解-202208091911</a></li>
+<li><a class="link" href="SpringMVC%20%E6%A1%86%E6%9E%B6%E7%90%86%E8%A7%A3.md" >SpringMVC 框架理解</a></li>
+<li><a class="link" href="Mybatis-202207242255.md" >Mybatis-202207242255</a></li>
+<li><a class="link" href="Spring%E6%95%B4%E5%90%88SpringMVC%E5%92%8CMybatis-202208071204.md" >Spring整合SpringMVC和Mybatis-202208071204</a></li>
+<li><a class="link" href="Maven-202208072331.md" >代码项目管理软件Maven</a></li>
+<li><a class="link" href="Dubbo%E6%A1%86%E6%9E%B6-202209072122.md" >Dubbo框架-202209072122</a></li>
+<li><a class="link" href="SpringBoot%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3-20231208.md" >SpringBoot详细讲解-20231208</a></li>
+<li><a class="link" href="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%BE%AE%E6%9C%8D%E5%8A%A1Spring%20Cloud%EF%BC%9F-20231212.md" >如何使用微服务Spring Cloud？-20231212</a></li>
+<li><a class="link" href="%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Spring%20GateWay%E6%9C%8D%E5%8A%A1-20240124.md" >教你如何使用Spring GateWay服务-20240124</a></li>
+<li>[[进阶使用Spring Cloud Alibaba]</li>
+</ol>
+<h1 id="四实战">四、实战
+</h1><ol>
+<li><a class="link" href="%E7%BE%8E%E5%B9%B4%E6%97%85%E8%A1%8C%E9%A1%B9%E7%9B%AE-202209131300.md" >美年旅行项目-202209131300</a></li>
+<li><a class="link" href="Java%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91%E7%95%85%E8%B4%AD%E5%95%86%E5%9F%8E-20231220.md" >Java教你如何开发畅购商城-20231220</a></li>
+</ol>
+<h1 id="工具">工具
+</h1><p><a class="link" href="IDEA%E4%BD%BF%E7%94%A8-202209171247.md" >IDEA使用-202209171247</a>
+<a class="link" href="%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%EF%BC%9F-20240111.md" >如何快速生成接口文档？-20240111</a></p>
+<h1 id="六扩展">六、扩展
+</h1><p><a class="link" href="Docker-202207291908.md" >Docker-202207291908</a></p>
+<h1 id="七前端">七、前端
+</h1><p><a class="link" href="jsp%E4%B8%ADc%E6%A0%87%E7%AD%BE%E7%9A%84%E8%AF%A6%E7%BB%86%E4%BD%BF%E7%94%A8-20231130.md" >jsp中c标签的详细使用-20231130</a>
+<a class="link" href="SpringMVC%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%B2%E6%9F%93.md" >SpringMVC的前端渲染</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/zk-todo/">Zk-Todo</a>
+        
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA_%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80_java/">计算机_程序语言_Java</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/java%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B%E8%AE%B2%E8%A7%A3-202211082329/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java的集合类型讲解-202211082329</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%8F%8D%E5%B0%84%E6%A8%A1%E5%9D%97%E5%8C%96-20230726/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">类的加载器&amp;反射&amp;模块化-20230726</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E7%BE%8E%E5%B9%B4%E6%97%85%E8%A1%8C%E9%A1%B9%E7%9B%AE-202209131300/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">美年旅行项目-202209131300</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 游手好闲的卫大人
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

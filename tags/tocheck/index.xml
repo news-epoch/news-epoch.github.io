@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tocheck on 卫大人的杂乱博客</title>
+        <link>https://news-epoch.github.io/tags/tocheck/</link>
+        <description>Recent content in Tocheck on 卫大人的杂乱博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>游手好闲的卫大人</copyright><atom:link href="https://news-epoch.github.io/tags/tocheck/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>魔法上网搭建-202210301911</title>
+        <link>https://news-epoch.github.io/p/%E9%AD%94%E6%B3%95%E4%B8%8A%E7%BD%91%E6%90%AD%E5%BB%BA-202210301911/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E9%AD%94%E6%B3%95%E4%B8%8A%E7%BD%91%E6%90%AD%E5%BB%BA-202210301911/</guid>
+        <description>&lt;p&gt;Title:  魔法上网搭建-202210301911&lt;/p&gt;
+&lt;h1 id=&#34;准备工作&#34;&gt;准备工作
+&lt;/h1&gt;&lt;h2 id=&#34;1-申请云服务器&#34;&gt;1 申请云服务器
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.racknerd.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RackNerd - Introducing Infrastructure Stability&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2-申请域名&#34;&gt;2 申请域名
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://my.freenom.com/cart.php?a=complete&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;免费域名Shopping Cart - Freenom&lt;/a&gt;
+注意：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;申请时开启代理&lt;/li&gt;
+&lt;li&gt;代理地址跟账户所属地址相同&lt;/li&gt;
+&lt;li&gt;等vmess+tls+wc+nginx部署成功后在开启小云朵&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-安装部署教程&#34;&gt;3 安装部署教程
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/mack-a/v2ray-agent#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;v2ray+伪装站点、八合一共存脚本，支持多内核安装 (github.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtube/pMe_oErfLWQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;不良林的魔法上网教学&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=SpxTFes1B8U&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;【零基础】最新保姆级纯小白节点搭建教程，人人都能学会，目前最简单、最安全、最稳定的专属节点搭建方法，手把手自建节点搭建教学，晚高峰高速稳定，4K秒开的科学上网线路体验&lt;/a&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/SpxTFes1B8U?si=PSy9HyMH9936V3Rg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;【零基础】最新保姆级纯小白节点搭建教程，人人都能学会，目前最简单、最安全、最稳定的专属节点搭建方法，手把手自建节点搭建教学，晚高峰高速稳定，4K秒开的科学上网线路体验&lt;/a&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://telegra.ph/bnode-10-24&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;【零基础】最新保姆级纯小白节点搭建教程，人人都能学会，目前最简单、最安全、最稳定的专属节点搭建方法，手把手自建节点搭建教学，晚高峰高速稳定，4K秒开的科学上网线路体验&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4-安装客户端&#34;&gt;4 安装客户端
+&lt;/h2&gt;&lt;h2 id=&#34;5-linux&#34;&gt;5 Linux
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://v2raya.org/docs/prologue/introduction/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt; v2rayA文档&lt;/a&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://github.com/v2rayA/v2rayA/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;v2rayA安装包&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;6-android&#34;&gt;6 Android
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/v2fly/v2ray-core/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;v2fly/v2ray-core安装包&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;7-windows&#34;&gt;7 Windows
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/v2fly/v2ray-core/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;v2fly/v2ray-core安装包&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
