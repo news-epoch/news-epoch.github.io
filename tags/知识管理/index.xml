@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>知识管理 on 卫大人的杂乱博客</title>
+        <link>https://news-epoch.github.io/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/</link>
+        <description>Recent content in 知识管理 on 卫大人的杂乱博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>游手好闲的卫大人</copyright>
+        <lastBuildDate>Sat, 09 Jul 2022 15:17:01 +0000</lastBuildDate><atom:link href="https://news-epoch.github.io/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>关于知识管理文献的读后感-202207091517</title>
+        <link>https://news-epoch.github.io/p/%E5%85%B3%E4%BA%8E%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E6%96%87%E7%8C%AE%E7%9A%84%E8%AF%BB%E5%90%8E%E6%84%9F-202207091517/</link>
+        <pubDate>Sat, 09 Jul 2022 15:17:01 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E5%85%B3%E4%BA%8E%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E6%96%87%E7%8C%AE%E7%9A%84%E8%AF%BB%E5%90%8E%E6%84%9F-202207091517/</guid>
+        <description>&lt;p&gt;links: &lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/8cd19aacf7f0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;聊聊Zettelkasten如何构建 第二大脑&lt;/a&gt; | &lt;a class=&#34;link&#34; href=&#34;https://forum-zh.obsidian.md/t/topic/201&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;对笔记系统的思考卡片笔记之困与秩序的重建&lt;/a&gt;
+title:&lt;/p&gt;
+&lt;h1 id=&#34;个人的一些思考&#34;&gt;💡个人的一些思考
+&lt;/h1&gt;&lt;p&gt;在看见了大部分的知识管理的文献或文章，例如：&lt;strong&gt;Zettelkasten的方法论&lt;/strong&gt;、&lt;strong&gt;MOC知识管理&lt;/strong&gt;、我依旧有着很多疑问，在在将数据加载到数据库后，如何通过OB进行联系起来，又比如我在学习Python和Java中 会遇见一张卡片知识连接很多张的卡片，这时我会觉得相当混乱，因为 我心里倾向于一张卡片连接着下一张卡片这样逐级加深，举例：（当我查看JAVA虚拟机内存模型时，想往后面继续深入时就会不清楚去找哪张卡片进行深入）。
+随之又出现新的问题：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 困惑1：如何处理某一些比较特殊的闪念
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;我记下的每一个闪现的想法并没有找到与之相关的文献，论文等这个又要如何处理呢？ 是放在灵感盒子里 还是丢弃呢？
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 困惑2：如何将一些知识放在对应的盒子里面
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**例如**：我想记录一个软件的使用，那么我是把这个放在永久盒子还是文献盒子？又比如我在某地方知道了一些信息，记录下来后我是存放在哪些地方呢？
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 困惑3：链接关系。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;我的闪念包含了方方面面，当我要添加链接关系时，某一张卡片应该放在哪个卡片后面呢？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;在类似的话题卡片后面全都放上链接吗？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;当我添加完链接后，他们就像是一个拧在一起的毛线团，要想找到某一个信息，变得更加困难，甚至无从下手。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;对笔记系统的思考卡片笔记之困与秩序的重建的理解&#34;&gt;「对笔记系统的思考」卡片笔记之困与秩序的重建的理解
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;当中讲过两个知识，物理聚类和主题索引，这其中如何实现呢？这个不就是将文件夹选为一个大类，其中通过tag标签在进行细分。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;卢曼笔记法中，“信息不应该不加处理的进入卡片盒”，”尽量用自己的话简明复述信息“，”在笔记间增加关联“，这三个原则我认为才是这个笔记法的核心。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;那么如何构建一个比较完善的知识体系呢？ 答案是：文件分类法+tag标签+知识卡片&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 放入永久盒子的是哪些东西？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;可以说是已经完全消化(能够用自己的话描述出来，10天内不会遗忘)，即可放入到永久盒子中。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;如何进行重建卡片笔记&#34;&gt;如何进行重建卡片笔记
+&lt;/h1&gt;&lt;p&gt;用图片做出流程图来&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

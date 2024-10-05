@@ -554,6 +554,80 @@ GNU ld(GNU Binutils For Ubuntu)2.38，但当前的编译器版本是cc(Ubuntu11.
 </description>
         </item>
         <item>
+        <title>关于知识管理文献的读后感-202207091517</title>
+        <link>https://news-epoch.github.io/p/%E5%85%B3%E4%BA%8E%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E6%96%87%E7%8C%AE%E7%9A%84%E8%AF%BB%E5%90%8E%E6%84%9F-202207091517/</link>
+        <pubDate>Sat, 09 Jul 2022 15:17:01 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E5%85%B3%E4%BA%8E%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E6%96%87%E7%8C%AE%E7%9A%84%E8%AF%BB%E5%90%8E%E6%84%9F-202207091517/</guid>
+        <description>&lt;p&gt;links: &lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/8cd19aacf7f0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;聊聊Zettelkasten如何构建 第二大脑&lt;/a&gt; | &lt;a class=&#34;link&#34; href=&#34;https://forum-zh.obsidian.md/t/topic/201&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;对笔记系统的思考卡片笔记之困与秩序的重建&lt;/a&gt;
+title:&lt;/p&gt;
+&lt;h1 id=&#34;个人的一些思考&#34;&gt;💡个人的一些思考
+&lt;/h1&gt;&lt;p&gt;在看见了大部分的知识管理的文献或文章，例如：&lt;strong&gt;Zettelkasten的方法论&lt;/strong&gt;、&lt;strong&gt;MOC知识管理&lt;/strong&gt;、我依旧有着很多疑问，在在将数据加载到数据库后，如何通过OB进行联系起来，又比如我在学习Python和Java中 会遇见一张卡片知识连接很多张的卡片，这时我会觉得相当混乱，因为 我心里倾向于一张卡片连接着下一张卡片这样逐级加深，举例：（当我查看JAVA虚拟机内存模型时，想往后面继续深入时就会不清楚去找哪张卡片进行深入）。
+随之又出现新的问题：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 困惑1：如何处理某一些比较特殊的闪念
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;我记下的每一个闪现的想法并没有找到与之相关的文献，论文等这个又要如何处理呢？ 是放在灵感盒子里 还是丢弃呢？
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 困惑2：如何将一些知识放在对应的盒子里面
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**例如**：我想记录一个软件的使用，那么我是把这个放在永久盒子还是文献盒子？又比如我在某地方知道了一些信息，记录下来后我是存放在哪些地方呢？
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 困惑3：链接关系。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;我的闪念包含了方方面面，当我要添加链接关系时，某一张卡片应该放在哪个卡片后面呢？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;在类似的话题卡片后面全都放上链接吗？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;当我添加完链接后，他们就像是一个拧在一起的毛线团，要想找到某一个信息，变得更加困难，甚至无从下手。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;对笔记系统的思考卡片笔记之困与秩序的重建的理解&#34;&gt;「对笔记系统的思考」卡片笔记之困与秩序的重建的理解
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;当中讲过两个知识，物理聚类和主题索引，这其中如何实现呢？这个不就是将文件夹选为一个大类，其中通过tag标签在进行细分。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;卢曼笔记法中，“信息不应该不加处理的进入卡片盒”，”尽量用自己的话简明复述信息“，”在笔记间增加关联“，这三个原则我认为才是这个笔记法的核心。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;那么如何构建一个比较完善的知识体系呢？ 答案是：文件分类法+tag标签+知识卡片&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 放入永久盒子的是哪些东西？
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;可以说是已经完全消化(能够用自己的话描述出来，10天内不会遗忘)，即可放入到永久盒子中。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;如何进行重建卡片笔记&#34;&gt;如何进行重建卡片笔记
+&lt;/h1&gt;&lt;p&gt;用图片做出流程图来&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>ICMP</title>
         <link>https://news-epoch.github.io/p/icmp/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -611,6 +685,62 @@ GNU ld(GNU Binutils For Ubuntu)2.38，但当前的编译器版本是cc(Ubuntu11.
 &lt;p&gt;NS：为发送分组总数
 Nr：接收分组总数
 Nl：丢失分组总数&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>关于认为各方面很好使用的软件-202207101917</title>
+        <link>https://news-epoch.github.io/p/%E5%85%B3%E4%BA%8E%E8%AE%A4%E4%B8%BA%E5%90%84%E6%96%B9%E9%9D%A2%E5%BE%88%E5%A5%BD%E4%BD%BF%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6-202207101917/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://news-epoch.github.io/p/%E5%85%B3%E4%BA%8E%E8%AE%A4%E4%B8%BA%E5%90%84%E6%96%B9%E9%9D%A2%E5%BE%88%E5%A5%BD%E4%BD%BF%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6-202207101917/</guid>
+        <description>&lt;p&gt;Links:&lt;/p&gt;
+&lt;h1 id=&#34;笔记软件&#34;&gt;笔记软件
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Obsidian&amp;mdash;&amp;gt;&lt;a class=&#34;link&#34; href=&#34;Obsidian%E6%8F%92%E4%BB%B6-202207171839.md&#34; &gt;Obsidian插件-202207171839&lt;/a&gt;&amp;mdash;&amp;gt;&lt;a class=&#34;link&#34; href=&#34;Obsidian%E4%BD%BF%E7%94%A8%E5%90%88%E9%9B%86-202302070013.md&#34; &gt;Obsidian使用合集-202302070013&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Xmind&lt;/li&gt;
+&lt;li&gt;bookxnote&lt;/li&gt;
+&lt;li&gt;flomo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;效率软件&#34;&gt;效率软件
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Everything    免费的文件搜索工具&lt;/li&gt;
+&lt;li&gt;Quicker    触发器，能够做出你想要做的动作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;翻墙软件&#34;&gt;翻墙软件
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;V2aryN   翻墙&amp;mdash;&amp;gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/2dust/v2rayN/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Releases · 2dust/v2rayN (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;V2rayA 适配Linux&lt;/li&gt;
+&lt;li&gt;FastGithub.UI   用来前往Gitub网站的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;开发软件&#34;&gt;开发软件
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;IntelliJ IDEA 2021.2.2&lt;/li&gt;
+&lt;li&gt;PyCharm 2021.3&lt;/li&gt;
+&lt;li&gt;Visual Studio Code&lt;/li&gt;
+&lt;li&gt;Xmanager 5&lt;/li&gt;
+&lt;li&gt;Navicat Permium 15&lt;/li&gt;
+&lt;li&gt;Postman&lt;/li&gt;
+&lt;li&gt;Flyway：数据库版本管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;文本软件&#34;&gt;文本软件
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Notepad++ &amp;ndash;下载地址&amp;ndash;&amp;gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.4.5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;notepad-plus-plus · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Typora&lt;/li&gt;
+&lt;li&gt;sublime Text&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;浏览器插件&#34;&gt;浏览器插件
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;简悦&lt;/strong&gt;：让你瞬间进入沉浸式阅读的 Chrome 扩展，类似 Safari 的阅读模式&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SingleFile&lt;/strong&gt;：将一个完整的页面保存到单个 HTML 文件中&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tampermonkey&lt;/strong&gt;：油猴脚本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;工具&#34;&gt;工具
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Window TopMost Control&lt;/strong&gt; : 设置任意窗口置顶&lt;/p&gt;
+&lt;h1 id=&#34;安卓软件&#34;&gt;安卓软件
+&lt;/h1&gt;&lt;h2 id=&#34;1-商城&#34;&gt;1 商城
+&lt;/h2&gt;&lt;p&gt;F-droid&lt;/p&gt;
 </description>
         </item>
         <item>
